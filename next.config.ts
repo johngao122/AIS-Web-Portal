@@ -2,8 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     output: "export",
-    basePath: process.env.NODE_ENV === "production" ? "/ais_project" : "",
-    assetPrefix: process.env.NODE_ENV === "production" ? "/ais_project/" : "",
+    basePath: process.env.NODE_ENV === "production" ? "/AIS-Web-Portal" : "",
+    assetPrefix:
+        process.env.NODE_ENV === "production" ? "/AIS-Web-Portal/" : "",
     images: {
         unoptimized: true,
     },
