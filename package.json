@@ -6,7 +6,7 @@
         "dev": "next dev --turbopack",
         "start": "next start",
         "lint": "next lint",
-        "build": "next build",
+        "build": "NODE_ENV=production next build",
         "export": "next export",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d out"
