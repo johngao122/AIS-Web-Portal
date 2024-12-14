@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true,
     },
+    env: {
+        NEXT_PUBLIC_MAPBOX: process.env.NEXT_PUBLIC_MAPBOX,
+    },
     webpack(config: any) {
         config.module.rules.push({
             test: /\.svg$/,

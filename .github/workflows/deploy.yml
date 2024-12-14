@@ -21,9 +21,13 @@ jobs:
 
             - name: Install dependencies
               run: npm ci
+              env:
+                  NEXT_PUBLIC_MAPBOX: ${{ secrets.NEXT_PUBLIC_MAPBOX }}
 
             - name: Build
               run: npm run build
+              env:
+                  NEXT_PUBLIC_MAPBOX: ${{ secrets.NEXT_PUBLIC_MAPBOX }}
 
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
