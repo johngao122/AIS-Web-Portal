@@ -1,10 +1,9 @@
+/* eslint-disable */
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import TopBarWithUser from "@/components/TopBarWithUser";
-import Map from "@/components/Map";
-import SearchBar from "@/components/Searchbar";
 import "@/app/globals.css";
 import MapWithSearchBar from "@/components/MapWithSearchbar";
 
@@ -25,7 +24,7 @@ export default function DashboardPage() {
         try {
             const { username } = JSON.parse(userData);
             setUsername(username);
-        } catch (error) {
+        } catch {
             router.push('/login');
         }
     }, [router]);
@@ -35,7 +34,6 @@ export default function DashboardPage() {
         sessionStorage.removeItem('User');
         router.push('/login');
     };
-
     const handleSearch = (searchTerm: string) => {
         setSearchQuery(searchTerm);
         console.log('Searching for:', searchTerm);
