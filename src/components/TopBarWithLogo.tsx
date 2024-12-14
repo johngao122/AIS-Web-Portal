@@ -7,7 +7,7 @@ interface TopBarProps {
     classname?: string;
 }
 
-const TopBarWithoutLogo: React.FC<TopBarProps> = ({ classname }) => {
+const TopBarWithLogo: React.FC<TopBarProps> = ({ classname }) => {
     return (
         <div className="w-full">
             <div className={`w-full bg-gradient-to-r from-[#4338CA] via-[#3B82F6] to-[#10B981] flex items-center p-3 ${classname ?? ''}`}>
@@ -41,4 +41,4 @@ const TopBarWithoutLogo: React.FC<TopBarProps> = ({ classname }) => {
     );
 };
 
-export default TopBarWithoutLogo;
+export default TopBarWithLogo;

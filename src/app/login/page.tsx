@@ -1,24 +1,66 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import TopBarWithLogo from '@/components/TopBarWithLogo';
 import Image from 'next/image';
 import { Eye, EyeOff } from 'lucide-react';
 import { AISLogo, loginPicture } from '@/resources/login_page';
-import "@/app/globals.css"
+import "@/app/globals.css";
+
+// fake backend
+const DEMO_USERS = [
+  { username: 'demo', password: 'demo123' },
+  { username: 'admin', password: 'admin123' }
+];
 
 export default function Login() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
     password: '',
     rememberMe: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // remember me??? TODO: think of something
+  useEffect(() => {
+    const user = localStorage.getItem('User');
+    if (user) {
+      router.push('/dashboard');
+    }
+  }, [router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-  };
+    setIsLoading(true);
+    setError('');
+
+    // Fake API delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // FAKE AUTH, IMPLEMENT LATER
+    const matchedUser = DEMO_USERS.find(
+      u => u.username === formData.username && u.password === formData.password
+    );
+
+    if (matchedUser) {
+      // Store user data with username
+      const userData = { username: matchedUser.username };
+      
+      if (formData.rememberMe) {
+        localStorage.setItem('User', JSON.stringify(userData));
+      }
+      sessionStorage.setItem('User', JSON.stringify(userData));
+      router.push('/dashboard');
+    } else {
+      setError('Invalid username or password');
+    }
+
+    setIsLoading(false);
+};
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -48,6 +90,7 @@ export default function Login() {
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-600"
                 value={formData.username}
                 onChange={(e) => setFormData({...formData, username: e.target.value})}
+                disabled={isLoading}
               />
               <div className="absolute inset-y-0 left-3 flex items-center">
                 <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -65,6 +108,7 @@ export default function Login() {
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg pl-10 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-600"
                 value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
+                disabled={isLoading}
               />
               <div className="absolute inset-y-0 left-3 flex items-center">
                 <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -76,6 +120,7 @@ export default function Login() {
                 type="button"
                 className="absolute inset-y-0 right-3 flex items-center"
                 onClick={() => setShowPassword(!showPassword)}
+                disabled={isLoading}
               >
                 {showPassword ? (
                   <EyeOff className="h-5 w-5 text-gray-400" />
@@ -85,8 +130,12 @@ export default function Login() {
               </button>
             </div>
 
+            {/* Error Message */}
+            {error && (
+              <div className="text-red-600 text-sm text-center">{error}</div>
+            )}
+
             {/* Remember Me and Forgot Password */}
-            {/* TODO: Implement Forgot Password here */}
             <div className="flex items-center justify-between">
               <label className="flex items-center">
                 <input
@@ -94,24 +143,34 @@ export default function Login() {
                   className="form-checkbox h-4 w-4 text-indigo-600 rounded"
                   checked={formData.rememberMe}
                   onChange={(e) => setFormData({...formData, rememberMe: e.target.checked})}
+                  disabled={isLoading}
                 />
                 <span className="ml-2 text-sm text-gray-600">Remember me</span>
               </label>
               <button 
-  type="button" 
-  className="text-sm text-indigo-600 hover:text-indigo-500 hover:underline"
->
-  Forgot Password ?
-</button>
+                type="button" 
+                className="text-sm text-indigo-600 hover:text-indigo-500 hover:underline"
+                disabled={isLoading}
+              >
+                Forgot Password?
+              </button>
             </div>
 
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isLoading}
             >
-              Log In
+              {isLoading ? 'Logging in...' : 'Log In'}
             </button>
+
+            {/* Demo Credentials */}
+            <div className="text-sm text-gray-600 text-center">
+              <p>Demo credentials:</p>
+              <p>Username: demo / Password: demo123</p>
+              <p>Username: admin / Password: admin123</p>
+            </div>
           </form>
         </div>
 
