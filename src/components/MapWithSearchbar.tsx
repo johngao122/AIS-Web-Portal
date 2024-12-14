@@ -49,6 +49,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
   }
 }) => {
   const MAPBOX_ACCESS_TOKEN = process.env.NEXT_PUBLIC_MAPBOX;
+  console.log(MAPBOX_ACCESS_TOKEN);
   const [viewState, setViewState] = useState(initialViewState);
   const [vessels, setVessels] = useState<VesselData[]>([]);
   const [tooltipInfo, setTooltipInfo] = useState<TooltipInfo | null>(null);
