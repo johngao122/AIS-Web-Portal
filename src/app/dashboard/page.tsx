@@ -45,7 +45,7 @@ export default function DashboardPage() {
     }
 
     return (
-        <div className="h-screen">
+        <div className="h-screen overflow-hidden">
             <div className="relative w-full h-full">
                 <TopBarWithUser username={username} onLogout={handleLogout} />
                 <FloatingActionButton />
