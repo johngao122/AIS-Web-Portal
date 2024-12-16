@@ -11,13 +11,6 @@ const nextConfig: NextConfig = {
     env: {
         NEXT_PUBLIC_MAPBOX: process.env.NEXT_PUBLIC_MAPBOX,
     },
-    webpack(config: any) {
-        config.module.rules.push({
-            test: /\.svg$/,
-            use: ["@svgr/webpack"],
-        });
-        return config;
-    },
 };
 
 export default nextConfig;
