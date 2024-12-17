@@ -81,6 +81,14 @@ const FloatingActionButton: React.FC = () => {
         return endTime > startTime;
     };
 
+    const getActiveFilters = () => {
+        // If no filters are selected, return all filter IDs
+        if (selectedFilters.length === 0) {
+            return filterOptions.map((option) => option.id);
+        }
+        return selectedFilters;
+    };
+
     useEffect(() => {
         if (startDate && endDate) {
             if (!validateDates(startDate, endDate)) {
@@ -360,6 +368,11 @@ const FloatingActionButton: React.FC = () => {
                                         <Filter size={20} />
                                         <span className="font-medium">
                                             Select Parameter Filters
+                                            {selectedFilters.length === 0 && (
+                                                <span className="text-sm text-gray-500 ml-2">
+                                                    (all selected)
+                                                </span>
+                                            )}
                                         </span>
                                     </div>
                                     {selectedFilters.length > 0 && (
@@ -369,34 +382,36 @@ const FloatingActionButton: React.FC = () => {
                                             }
                                             className="text-sm text-gray-500 hover:text-gray-700"
                                         >
-                                            Clear all
+                                            Select all
                                         </button>
                                     )}
                                 </div>
                                 <div className="space-y-2 h-64 overflow-y-auto">
-                                    {filterOptions.map((option) => (
-                                        <label
-                                            key={option.id}
-                                            className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-md cursor-pointer"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={selectedFilters.includes(
-                                                    option.id
-                                                )}
-                                                onChange={() =>
-                                                    handleFilterChange(
-                                                        option.id
-                                                    )
-                                                }
-                                                className="w-4 h-4 text-green-500 rounded"
-                                            />
-                                            <span>{option.label}</span>
-                                        </label>
-                                    ))}
+                                    {filterOptions.map((option) => {
+                                        const isActive =
+                                            selectedFilters.length === 0 ||
+                                            selectedFilters.includes(option.id);
+                                        return (
+                                            <label
+                                                key={option.id}
+                                                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-md cursor-pointer"
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    checked={isActive}
+                                                    onChange={() =>
+                                                        handleFilterChange(
+                                                            option.id
+                                                        )
+                                                    }
+                                                    className="w-4 h-4 text-green-500 rounded"
+                                                />
+                                                <span>{option.label}</span>
+                                            </label>
+                                        );
+                                    })}
                                 </div>
                             </div>
-
                             {/* Action Buttons */}
                             <div className="space-y-2 pt-4">
                                 <button
@@ -404,8 +419,7 @@ const FloatingActionButton: React.FC = () => {
                                     disabled={
                                         !startDate ||
                                         !endDate ||
-                                        dateError !== "" ||
-                                        selectedFilters.length === 0
+                                        dateError !== ""
                                     }
                                 >
                                     Show container vessel activity
@@ -415,8 +429,7 @@ const FloatingActionButton: React.FC = () => {
                                     disabled={
                                         !startDate ||
                                         !endDate ||
-                                        dateError !== "" ||
-                                        selectedFilters.length === 0
+                                        dateError !== ""
                                     }
                                 >
                                     Analyze port service levels
