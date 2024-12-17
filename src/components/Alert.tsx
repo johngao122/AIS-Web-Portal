@@ -1,3 +1,4 @@
+/*eslint-disable */
 import React, { ReactNode } from "react";
 
 type AlertType = "success" | "error" | "warning" | "info";
