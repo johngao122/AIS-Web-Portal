@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import DeckGL from "@deck.gl/react";
 import StaticMap from "react-map-gl";
-import { IconLayer, PolygonLayer } from "deck.gl";
+import { IconLayer, PathLayer, PolygonLayer } from "deck.gl";
+import { PathStyleExtension } from "@deck.gl/extensions";
 import vesselMarker from "@/resources/map/vessel_marker.png";
 import { Search } from "lucide-react";
 import SearchBar from "./Searchbar";
@@ -18,6 +19,15 @@ import separation from "@/data/seamark_separation.json";
 interface MapProps {
     mapStyle?: string;
     initialViewState?: any;
+}
+
+interface SeparationZone {
+    id: number;
+    seamark_type: string;
+    coordinates: [number, number][];
+    centroid: [number, number];
+    longitude: number;
+    latitude: number;
 }
 
 interface VesselData {
@@ -114,17 +124,15 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     });
 
     //Lane layer
-    const laneLayer = new PolygonLayer({
+    const laneLayer = new PathLayer({
         id: "lane",
         data: lanes,
         pickable: true,
-        stroked: true,
-        filled: false,
-        wireframe: true,
-        lineWidthMinPixels: 2,
-        getPolygon: (d) => [d.coordinates],
-        getLineColor: [255, 0, 0, 200],
-        getLineWidth: 2,
+        widthScale: 20,
+        widthMinPixels: 2,
+        getPath: (d) => d.coordinates,
+        getColor: [150, 0, 150, 200],
+        getWidth: 2,
         visible: activeLayers.lanes,
         onHover: createHoverHandler("lane"),
     });
@@ -146,21 +154,27 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         onHover: createHoverHandler("mooringArea"),
     });
 
+    const pathStyleExtension = new PathStyleExtension({ dash: true });
+
     //Separation layer
-    const separationLayer = new PolygonLayer({
+    const separationLayer = new PathLayer({
         id: "separation",
         data: separation,
         pickable: true,
-        stroked: true,
-        filled: true,
-        wireframe: true,
-        lineWidthMinPixels: 1,
-        getPolygon: (d) => [d.coordinates],
-        getFillColor: [128, 0, 128, 20],
-        getLineColor: [128, 0, 128, 200],
-        getLineWidth: 1,
+        widthScale: 20,
+        widthMinPixels: 2,
+        getPath: (d) => d.coordinates,
+        getColor: [128, 128, 128, 200],
+        getWidth: 2,
+        dashJustified: true,
+        getDashArray: [8, 4],
+        dashGapPickable: true,
+        extensions: [pathStyleExtension],
         visible: activeLayers.separation,
         onHover: createHoverHandler("separation"),
+        parameters: {
+            dashEnable: true, //DONT TOUCH THIS PLEASE
+        },
     });
 
     //Vessel layer

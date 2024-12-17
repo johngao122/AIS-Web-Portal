@@ -11,12 +11,21 @@ interface FilterOption {
     label: string;
 }
 
-const filterOptions: FilterOption[] = Array(6)
-    .fill(null)
-    .map((_, index) => ({
-        id: `filter-${index}`,
-        label: "Names",
-    }));
+const filterOptions: FilterOption[] = [
+    { id: "imoNumber", label: "IMO Number" },
+    { id: "mmsi", label: "MMSI" },
+    { id: "vesselName", label: "Vessel Name" },
+    { id: "loa", label: "LOA" },
+    { id: "terminal", label: "Terminal" },
+    { id: "ata", label: "ATA" },
+    { id: "atb", label: "ATB" },
+    { id: "atu", label: "ATU" },
+    { id: "atd", label: "ATD" },
+    { id: "waitingHoursAtBerth", label: "Waiting Hours at Berth" },
+    { id: "waitingHoursAtAnchorage", label: "Waiting Hours at Anchorage" },
+    { id: "berthingHours", label: "Berthing Hours" },
+    { id: "inPortHours", label: "In Port Hours" },
+];
 
 const FloatingActionButton: React.FC = () => {
     const [isExpanded, setExpanded] = useState<boolean>(false);
@@ -364,7 +373,7 @@ const FloatingActionButton: React.FC = () => {
                                         </button>
                                     )}
                                 </div>
-                                <div className="space-y-2">
+                                <div className="space-y-2 h-64 overflow-y-auto">
                                     {filterOptions.map((option) => (
                                         <label
                                             key={option.id}
