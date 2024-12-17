@@ -310,7 +310,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     };
 
     const LayerToggle = () => (
-        <div className="absolute top-4 right-4 bg-white p-4 rounded shadow z-10">
+        <div className="absolute top-28 right-4 bg-white p-4 rounded shadow z-10">
             <h3 className="font-bold mb-2">Layers</h3>
             <div className="space-y-2">
                 {Object.entries(activeLayers).map(([key, value]) => (
