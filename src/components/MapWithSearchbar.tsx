@@ -10,24 +10,13 @@ import { Search } from "lucide-react";
 import SearchBar from "./Searchbar";
 
 // Import layer data
-import anchorages from "@/data/seamark_anchorages.json";
-import fairways from "@/data/seamark_fairways.json";
+import knownAreas from "@/data/knownAreas.json";
 import lanes from "@/data/seamark_lanes.json";
-import mooringAreas from "@/data/seamark_mooring_areas.json";
 import separation from "@/data/seamark_separation.json";
 
 interface MapProps {
     mapStyle?: string;
     initialViewState?: any;
-}
-
-interface SeparationZone {
-    id: number;
-    seamark_type: string;
-    coordinates: [number, number][];
-    centroid: [number, number];
-    longitude: number;
-    latitude: number;
 }
 
 interface VesselData {
@@ -72,6 +61,17 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         separation: true,
     });
 
+    // Process GeoJSON data
+    const anchorages = knownAreas.features.filter(
+        (feature) => feature.properties.seamark_type === "Anchorage"
+    );
+    const fairways = knownAreas.features.filter(
+        (feature) => feature.properties.seamark_type === "Fairway/Channel"
+    );
+    const mooringAreas = knownAreas.features.filter(
+        (feature) => feature.properties.seamark_type === "Mooring Area"
+    );
+
     const onViewStateChange = ({ viewState: newViewState }: any) => {
         setViewState(newViewState);
     };
@@ -98,7 +98,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         filled: true,
         wireframe: true,
         lineWidthMinPixels: 1,
-        getPolygon: (d) => [d.coordinates],
+        getPolygon: (d) => d.geometry.coordinates[0],
         getFillColor: [0, 140, 255, 20],
         getLineColor: [0, 140, 255, 200],
         getLineWidth: 1,
@@ -115,7 +115,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         filled: true,
         wireframe: true,
         lineWidthMinPixels: 1,
-        getPolygon: (d) => [d.coordinates],
+        getPolygon: (d) => d.geometry.coordinates[0],
         getFillColor: [255, 140, 0, 20],
         getLineColor: [255, 140, 0, 200],
         getLineWidth: 1,
@@ -146,7 +146,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         filled: true,
         wireframe: true,
         lineWidthMinPixels: 1,
-        getPolygon: (d) => [d.coordinates],
+        getPolygon: (d) => d.geometry.coordinates[0],
         getFillColor: [0, 255, 0, 20],
         getLineColor: [0, 255, 0, 200],
         getLineWidth: 1,
@@ -173,7 +173,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         visible: activeLayers.separation,
         onHover: createHoverHandler("separation"),
         parameters: {
-            dashEnable: true, //DONT TOUCH THIS PLEASE
+            dashEnable: true,
         },
     });
 
@@ -203,15 +203,19 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
         const getTooltipContent = () => {
             switch (layer) {
-                //Custom tooltips for each type of layer
                 case "anchorage":
                     return (
                         <>
                             <div className="font-semibold text-blue-600">
                                 Anchorage Area
                             </div>
-                            <div>ID: {object.id}</div>
-                            <div>Name: {object.name || "Unnamed"}</div>
+                            <div>
+                                Name: {object.properties.name || "Unnamed"}
+                            </div>
+                            <div>Code: {object.properties.code || "N/A"}</div>
+                            <div>
+                                Sector: {object.properties.sector || "N/A"}
+                            </div>
                         </>
                     );
 
@@ -221,8 +225,10 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             <div className="font-semibold text-orange-600">
                                 Fairway
                             </div>
-                            <div>Name: {object.name || "Unnamed"}</div>
-                            <div>Type: {object.seamark_type}</div>
+                            <div>
+                                Name: {object.properties.name || "Unnamed"}
+                            </div>
+                            <div>Type: {object.properties.seamark_type}</div>
                         </>
                     );
 
@@ -243,8 +249,13 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             <div className="font-semibold text-green-600">
                                 Mooring Area
                             </div>
-                            <div>Name: {object.name || "Unnamed"}</div>
-                            <div>Type: {object.seamark_type}</div>
+                            <div>
+                                Name: {object.properties.name || "Unnamed"}
+                            </div>
+                            <div>Code: {object.properties.code || "N/A"}</div>
+                            <div>
+                                Sector: {object.properties.sector || "N/A"}
+                            </div>
                         </>
                     );
 
