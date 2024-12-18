@@ -56,8 +56,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     const [activeLayers, setActiveLayers] = useState({
         anchorages: true,
         fairways: true,
-        lanes: true,
-        mooringAreas: true,
         separation: true,
     });
 
@@ -121,37 +119,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         getLineWidth: 1,
         visible: activeLayers.fairways,
         onHover: createHoverHandler("fairway"),
-    });
-
-    //Lane layer
-    const laneLayer = new PathLayer({
-        id: "lane",
-        data: lanes,
-        pickable: true,
-        widthScale: 20,
-        widthMinPixels: 2,
-        getPath: (d) => d.coordinates,
-        getColor: [150, 0, 150, 200],
-        getWidth: 2,
-        visible: activeLayers.lanes,
-        onHover: createHoverHandler("lane"),
-    });
-
-    //Mooring area layer
-    const mooringAreaLayer = new PolygonLayer({
-        id: "mooringArea",
-        data: mooringAreas,
-        pickable: true,
-        stroked: true,
-        filled: true,
-        wireframe: true,
-        lineWidthMinPixels: 1,
-        getPolygon: (d) => d.geometry.coordinates[0],
-        getFillColor: [0, 255, 0, 20],
-        getLineColor: [0, 255, 0, 200],
-        getLineWidth: 1,
-        visible: activeLayers.mooringAreas,
-        onHover: createHoverHandler("mooringArea"),
     });
 
     const pathStyleExtension = new PathStyleExtension({ dash: true });
@@ -355,8 +322,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 layers={[
                     anchorageLayer,
                     fairwayLayer,
-                    laneLayer,
-                    mooringAreaLayer,
                     separationLayer,
                     vesselLayer,
                 ]}
