@@ -19,11 +19,10 @@ import singleVesselActivityData from "@/data/example/VesselActivitySingle.json";
 import FloatingActionButton from "./FloatingActionButton";
 import VesselActivityTable from "./VesselActivityTable";
 import VesselActivitySingle from "./VesselActivitySingle";
-import TimeSlider from "./Slider";
+import TimeSlider from "@/components/Slider";
 import { easeCubic } from "d3-ease";
 import _ from "lodash";
 import VesselActivitySingleWithArrow from "./VesselActivitySingleWithArrow";
-import { Layers } from "lucide-react";
 import LayerSelect from "./LayerSelect";
 
 // Import layer data
