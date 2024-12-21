@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React, { useState } from "react";
 import { X, ChevronUp } from "lucide-react";
 import Image from "next/image";

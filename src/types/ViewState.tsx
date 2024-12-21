@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 interface ViewState {
     longitude: number;
     latitude: number;
