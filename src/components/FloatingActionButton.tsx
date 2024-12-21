@@ -5,10 +5,19 @@ import { Calendar, Filter, ChevronLeft, AlertCircle } from "lucide-react";
 import { FAB } from "@/resources/dashboard";
 import Image from "next/image";
 import DateTimePicker from "./DatePicker";
+import VesselActivity from "@/types/VesselActivity";
 
 interface FilterOption {
     id: string;
     label: string;
+}
+
+interface FloatingActionButtonProps {
+    onVesselDataUpdate: (data: VesselActivity[] | null, fabData?: any) => void;
+    initialStartDate?: Date;
+    initialEndDate?: Date;
+    initialFilters?: string[];
+    isItExpanded?: boolean;
 }
 
 const filterOptions: FilterOption[] = [
@@ -27,7 +36,13 @@ const filterOptions: FilterOption[] = [
     { id: "inPortHours", label: "In Port Hours" },
 ];
 
-const FloatingActionButton: React.FC = () => {
+const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
+    onVesselDataUpdate,
+    initialStartDate,
+    initialEndDate,
+    initialFilters,
+    isItExpanded,
+}) => {
     const [isExpanded, setExpanded] = useState<boolean>(false);
     const [showStartDatePicker, setShowStartDatePicker] =
         useState<boolean>(false);
@@ -36,7 +51,23 @@ const FloatingActionButton: React.FC = () => {
     const [endDate, setEndDate] = useState<Date | undefined>();
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const [dateError, setDateError] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    useEffect(() => {
+        setExpanded(!!isItExpanded);
+    }, [isItExpanded]);
+
+    useEffect(() => {
+        setStartDate(initialStartDate);
+    }, [initialStartDate]);
+
+    useEffect(() => {
+        setEndDate(initialEndDate);
+    }, [initialEndDate]);
+
+    useEffect(() => {
+        setSelectedFilters(initialFilters || []);
+    }, [initialFilters]);
     const formatDateTime = (date: Date): string => {
         return `${date.toLocaleDateString("en-US", {
             month: "long",
@@ -139,10 +170,9 @@ const FloatingActionButton: React.FC = () => {
         }
     };
 
-    const handleExpand = (e: React.MouseEvent) => {
-        if (!isExpanded) {
-            setExpanded(true);
-        }
+    const handleExpand = (expanded: boolean, data?: any) => {
+        setExpanded(expanded);
+        onVesselDataUpdate(data, { isExpanded: expanded });
     };
 
     const handleFilterChange = (filterId: string) => {
@@ -163,6 +193,24 @@ const FloatingActionButton: React.FC = () => {
 
     const handleClearFilters = () => {
         setSelectedFilters([]);
+    };
+
+    const handleShowVesselActivity = async () => {
+        setIsLoading(true);
+        try {
+            const response = await import("@/data/example/VesselActivity.json");
+            onVesselDataUpdate(response.default, {
+                isExpanded: true,
+                startDate,
+                endDate,
+                selectedFilters: selectedFilters,
+            });
+        } catch (error) {
+            console.error("Error loading vessel data:", error);
+            onVesselDataUpdate(null);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -415,14 +463,23 @@ const FloatingActionButton: React.FC = () => {
                             {/* Action Buttons */}
                             <div className="space-y-2 pt-4">
                                 <button
-                                    className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                                    className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50 relative"
                                     disabled={
                                         !startDate ||
                                         !endDate ||
-                                        dateError !== ""
+                                        dateError !== "" ||
+                                        isLoading
                                     }
+                                    onClick={handleShowVesselActivity}
                                 >
-                                    Show container vessel activity
+                                    {isLoading ? (
+                                        <div className="flex items-center justify-center gap-2">
+                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                            <span>Loading...</span>
+                                        </div>
+                                    ) : (
+                                        "Show container vessel activity"
+                                    )}
                                 </button>
                                 <button
                                     className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50"

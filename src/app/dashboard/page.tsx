@@ -7,11 +7,15 @@ import TopBarWithUser from "@/components/TopBarWithUser";
 import "@/app/globals.css";
 import MapWithSearchBar from "@/components/MapWithSearchbar";
 import FloatingActionButton from "@/components/FloatingActionButton";
+import VesselActivityTable from "@/components/VesselActivityTable";
+import VesselActivitySingle from "@/components/VesselActivitySingle";
+import vesselTimelineData from "@/data/example/VesselActivitySingle.json";
+import vesselActivityData from "@/data/example/VesselActivity.json";
+import type VesselActivity from "@/types/VesselActivity";
 
 export default function DashboardPage() {
     const router = useRouter();
     const [username, setUsername] = useState<string>("");
-    const [searchQuery, setSearchQuery] = useState<string>("");
 
     useEffect(() => {
         const sessionUser = sessionStorage.getItem("User");
@@ -35,11 +39,6 @@ export default function DashboardPage() {
         sessionStorage.removeItem("User");
         router.push("/login");
     };
-    const handleSearch = (searchTerm: string) => {
-        setSearchQuery(searchTerm);
-        console.log("Searching for:", searchTerm);
-    };
-
     if (!username) {
         return null;
     }
@@ -48,7 +47,6 @@ export default function DashboardPage() {
         <div className="h-screen overflow-hidden">
             <div className="relative w-full h-full">
                 <TopBarWithUser username={username} onLogout={handleLogout} />
-                <FloatingActionButton />
                 <div className="absolute inset-0 z-0">
                     <MapWithSearchBar />
                 </div>

@@ -19,7 +19,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.26538,
             "vessel_1_longitude": 103.888,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.26306,
@@ -40,7 +40,7 @@
             "distance": 225.96962828888613
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23142,
@@ -164,7 +164,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2647300000000001,
             "vessel_1_longitude": 103.888,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.26306,
@@ -208,7 +208,7 @@
             "vessel_2_shiptype": 70,
             "vessel_2_latitude": 1.2582,
             "vessel_2_longitude": 104.115,
-            "distance": 174.5854303427602
+            "distance": 174.5854370427602
         },
         {
             "vessel_1_mmsi": 566788000,
@@ -296,7 +296,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2641200000000001,
             "vessel_1_longitude": 103.887,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.26306,
@@ -317,7 +317,7 @@
             "distance": 338.37909110448015
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23189,
@@ -392,7 +392,7 @@
             "vessel_2_shiptype": 69,
             "vessel_2_latitude": 1.26154,
             "vessel_2_longitude": 103.819,
-            "distance": 333.62530388519843
+            "distance": 333.62537088519843
         },
         {
             "vessel_1_mmsi": 564425000,
@@ -441,7 +441,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2635399999999999,
             "vessel_1_longitude": 103.887,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2615,
@@ -462,7 +462,7 @@
             "distance": 225.58606867259317
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23214,
@@ -599,7 +599,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.26287,
             "vessel_1_longitude": 103.887,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2615,
@@ -620,7 +620,7 @@
             "distance": 225.58606867259317
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23239,
@@ -770,7 +770,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.26257,
             "vessel_1_longitude": 103.887,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25826,
@@ -796,7 +796,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24245,
             "vessel_1_longitude": 103.633,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24125,
@@ -804,7 +804,7 @@
             "distance": 259.3855189814942
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23266,
@@ -980,7 +980,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.26181,
             "vessel_1_longitude": 103.886,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2581,
@@ -1019,7 +1019,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24232,
             "vessel_1_longitude": 103.633,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24125,
@@ -1027,7 +1027,7 @@
             "distance": 252.24957942858134
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23278,
@@ -1190,7 +1190,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.26129,
             "vessel_1_longitude": 103.886,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25797,
@@ -1216,7 +1216,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24232,
             "vessel_1_longitude": 103.633,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24122,
@@ -1224,7 +1224,7 @@
             "distance": 165.33746412384932
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23301,
@@ -1387,7 +1387,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.26076,
             "vessel_1_longitude": 103.886,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2578,
@@ -1413,7 +1413,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24207,
             "vessel_1_longitude": 103.632,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24132,
@@ -1421,7 +1421,7 @@
             "distance": 139.0163971054027
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23331,
@@ -1584,7 +1584,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2601900000000001,
             "vessel_1_longitude": 103.886,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25774,
@@ -1610,7 +1610,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.242,
             "vessel_1_longitude": 103.632,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24132,
@@ -1618,7 +1618,7 @@
             "distance": 134.4883422607931
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23356,
@@ -1794,7 +1794,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25989,
             "vessel_1_longitude": 103.886,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2577500000000001,
@@ -1833,7 +1833,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24183,
             "vessel_1_longitude": 103.631,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24181,
@@ -1841,7 +1841,7 @@
             "distance": 333.61854347115633
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23372,
@@ -2043,7 +2043,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2589299999999999,
             "vessel_1_longitude": 103.885,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25769,
@@ -2069,7 +2069,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24173,
             "vessel_1_longitude": 103.631,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24198,
@@ -2077,7 +2077,7 @@
             "distance": 334.76803238548905
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23404,
@@ -2240,7 +2240,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25833,
             "vessel_1_longitude": 103.885,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25765,
@@ -2266,7 +2266,7 @@
             "vessel_1_shiptype": 90,
             "vessel_1_latitude": 1.24173,
             "vessel_1_longitude": 103.631,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24198,
@@ -2274,7 +2274,7 @@
             "distance": 334.76803238548905
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23454,
@@ -2437,7 +2437,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25762,
             "vessel_1_longitude": 103.885,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25759,
@@ -2471,7 +2471,7 @@
             "distance": 223.19601212573787
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23471,
@@ -2489,7 +2489,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24367,
             "vessel_1_longitude": 103.638,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.2422,
@@ -2634,7 +2634,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25693,
             "vessel_1_longitude": 103.885,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25753,
@@ -2655,7 +2655,7 @@
             "distance": 224.2660497183296
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23522,
@@ -2673,7 +2673,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24333,
             "vessel_1_longitude": 103.637,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24231,
@@ -2831,7 +2831,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25627,
             "vessel_1_longitude": 103.885,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25744,
@@ -2852,7 +2852,7 @@
             "distance": 226.80044930777652
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23555,
@@ -2870,7 +2870,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24321,
             "vessel_1_longitude": 103.637,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24231,
@@ -3028,7 +3028,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25554,
             "vessel_1_longitude": 103.884,
-            "vessel_2_mmsi": 563034920,
+            "vessel_2_mmsi": 563704920,
             "vessel_2_shipname": "LUKOIL MARINE",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.25744,
@@ -3062,7 +3062,7 @@
             "distance": 226.80044930777652
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23572,
@@ -3080,7 +3080,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24321,
             "vessel_1_longitude": 103.637,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24246,
@@ -3246,7 +3246,7 @@
             "distance": 226.80044930777652
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23572,
@@ -3264,7 +3264,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24292,
             "vessel_1_longitude": 103.636,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24253,
@@ -3443,7 +3443,7 @@
             "distance": 340.64407763784925
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23637,
@@ -3461,7 +3461,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24287,
             "vessel_1_longitude": 103.636,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24253,
@@ -3565,7 +3565,7 @@
             "vessel_1_shiptype": 60,
             "vessel_1_latitude": 1.19376,
             "vessel_1_longitude": 104.039,
-            "vessel_2_mmsi": 563039800,
+            "vessel_2_mmsi": 563709800,
             "vessel_2_shipname": "MAJESTIC PRIDE",
             "vessel_2_shiptype": 60,
             "vessel_2_latitude": 1.19657,
@@ -3637,7 +3637,7 @@
             "vessel_2_shiptype": 70,
             "vessel_2_latitude": 1.21498,
             "vessel_2_longitude": 103.925,
-            "distance": 486.4409713034506
+            "distance": 486.4409713704506
         },
         {
             "vessel_1_mmsi": 563005890,
@@ -3653,7 +3653,7 @@
             "distance": 222.9381715848073
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23656,
@@ -3671,7 +3671,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24287,
             "vessel_1_longitude": 103.636,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24288,
@@ -3788,7 +3788,7 @@
             "vessel_1_shiptype": 60,
             "vessel_1_latitude": 1.1949,
             "vessel_1_longitude": 104.037,
-            "vessel_2_mmsi": 563039800,
+            "vessel_2_mmsi": 563709800,
             "vessel_2_shipname": "MAJESTIC PRIDE",
             "vessel_2_shiptype": 60,
             "vessel_2_latitude": 1.1951,
@@ -3876,7 +3876,7 @@
             "distance": 490.10670306759874
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2368999999999999,
@@ -3894,7 +3894,7 @@
             "vessel_1_shiptype": 31,
             "vessel_1_latitude": 1.24254,
             "vessel_1_longitude": 103.635,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.24305,
@@ -4026,7 +4026,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23525,
             "vessel_1_longitude": 103.644,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2370700000000001,
@@ -4171,7 +4171,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23559,
             "vessel_1_longitude": 103.644,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23752,
@@ -4303,7 +4303,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23578,
             "vessel_1_longitude": 103.644,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23826,
@@ -4448,7 +4448,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23578,
             "vessel_1_longitude": 103.644,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23876,
@@ -4487,7 +4487,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23798,
             "vessel_1_longitude": 103.648,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23876,
@@ -4583,7 +4583,7 @@
             "vessel_2_shiptype": 70,
             "vessel_2_latitude": 1.27328,
             "vessel_2_longitude": 104.077,
-            "distance": 347.45801132723034
+            "distance": 347.45801132723704
         }
     ],
     "25": [
@@ -4632,7 +4632,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23665,
             "vessel_1_longitude": 103.645,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2390700000000001,
@@ -4803,7 +4803,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23685,
             "vessel_1_longitude": 103.645,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23995,
@@ -5000,7 +5000,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23739,
             "vessel_1_longitude": 103.645,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24054,
@@ -5197,7 +5197,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23777,
             "vessel_1_longitude": 103.645,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24112,
@@ -5368,7 +5368,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.23812,
             "vessel_1_longitude": 103.645,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24136,
@@ -5586,7 +5586,7 @@
             "distance": 432.99262484585296
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2421,
@@ -5783,7 +5783,7 @@
             "distance": 453.366341763533
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24238,
@@ -5993,7 +5993,7 @@
             "distance": 453.366341763533
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24298,
@@ -6203,7 +6203,7 @@
             "distance": 453.366341763533
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24304,
@@ -6255,7 +6255,7 @@
             "distance": 65.62560160547696
         },
         {
-            "vessel_1_mmsi": 563034810,
+            "vessel_1_mmsi": 563704810,
             "vessel_1_shipname": "PARAKEET",
             "vessel_1_shiptype": 99,
             "vessel_1_latitude": 1.24666,
@@ -6413,7 +6413,7 @@
             "distance": 454.51985055656326
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24295,
@@ -6597,7 +6597,7 @@
             "distance": 454.51985055656326
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24253,
@@ -6773,7 +6773,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.21766,
             "vessel_1_longitude": 103.697,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.21945,
@@ -6786,7 +6786,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.24037,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24232,
@@ -7097,7 +7097,7 @@
             "distance": 369.2544680572932
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24245,
@@ -7128,7 +7128,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.21913,
             "vessel_1_longitude": 103.698,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2203,
@@ -7136,12 +7136,12 @@
             "distance": 463.46483396530164
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24213,
             "vessel_1_longitude": 103.65,
-            "vessel_2_mmsi": 563033530,
+            "vessel_2_mmsi": 563703530,
             "vessel_2_shipname": "AOM T1304",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24245,
@@ -7214,7 +7214,7 @@
             "distance": 457.0764170930792
         },
         {
-            "vessel_1_mmsi": 563034810,
+            "vessel_1_mmsi": 563704810,
             "vessel_1_shipname": "PARAKEET",
             "vessel_1_shiptype": 99,
             "vessel_1_latitude": 1.24927,
@@ -7281,7 +7281,7 @@
             "distance": 417.0515878672461
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2423600000000001,
@@ -7312,7 +7312,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.21974,
             "vessel_1_longitude": 103.698,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22074,
@@ -7320,12 +7320,12 @@
             "distance": 351.6678277935794
         },
         {
-            "vessel_1_mmsi": 563030170,
+            "vessel_1_mmsi": 563700170,
             "vessel_1_shipname": "ENG HUP VALIANT",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24197,
             "vessel_1_longitude": 103.65,
-            "vessel_2_mmsi": 563033530,
+            "vessel_2_mmsi": 563703530,
             "vessel_2_shipname": "AOM T1304",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2423600000000001,
@@ -7351,7 +7351,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24601,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25037,
@@ -7413,7 +7413,7 @@
             "distance": 241.76660052728965
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24221,
@@ -7457,7 +7457,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22027,
             "vessel_1_longitude": 103.699,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22099,
@@ -7486,7 +7486,7 @@
             "vessel_2_mmsi": 563383000,
             "vessel_2_shipname": "PW KAPPA",
             "vessel_2_shiptype": 52,
-            "vessel_2_latitude": 1.30342,
+            "vessel_2_latitude": 1.37042,
             "vessel_2_longitude": 103.646,
             "distance": 404.8748200210551
         },
@@ -7496,7 +7496,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24654,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25093,
@@ -7558,7 +7558,7 @@
             "distance": 322.53099372535473
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24205,
@@ -7589,7 +7589,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22104,
             "vessel_1_longitude": 103.699,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22169,
@@ -7618,7 +7618,7 @@
             "vessel_2_mmsi": 563383000,
             "vessel_2_shipname": "PW KAPPA",
             "vessel_2_shiptype": 52,
-            "vessel_2_latitude": 1.30365,
+            "vessel_2_latitude": 1.37065,
             "vessel_2_longitude": 103.646,
             "distance": 372.90178841291845
         },
@@ -7654,7 +7654,7 @@
             "vessel_1_shiptype": 60,
             "vessel_1_latitude": 1.14623,
             "vessel_1_longitude": 104.061,
-            "vessel_2_mmsi": 563039800,
+            "vessel_2_mmsi": 563709800,
             "vessel_2_shipname": "MAJESTIC PRIDE",
             "vessel_2_shiptype": 60,
             "vessel_2_latitude": 1.1487,
@@ -7703,7 +7703,7 @@
             "distance": 458.26691290593425
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24188,
@@ -7747,7 +7747,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22141,
             "vessel_1_longitude": 103.699,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2220900000000001,
@@ -7812,7 +7812,7 @@
             "vessel_1_shiptype": 60,
             "vessel_1_latitude": 1.14623,
             "vessel_1_longitude": 104.061,
-            "vessel_2_mmsi": 563039800,
+            "vessel_2_mmsi": 563709800,
             "vessel_2_shipname": "MAJESTIC PRIDE",
             "vessel_2_shiptype": 60,
             "vessel_2_latitude": 1.14638,
@@ -7848,7 +7848,7 @@
             "distance": 232.9232795759382
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2418,
@@ -7892,7 +7892,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22211,
             "vessel_1_longitude": 103.7,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22237,
@@ -7967,12 +7967,12 @@
             "distance": 226.11244320655732
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24145,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24189,
@@ -8011,7 +8011,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22253,
             "vessel_1_longitude": 103.7,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22309,
@@ -8024,7 +8024,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.24203,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24189,
@@ -8089,14 +8089,14 @@
             "vessel_1_mmsi": 563459000,
             "vessel_1_shipname": "PW GAMMA",
             "vessel_1_shiptype": 52,
-            "vessel_1_latitude": 1.23031,
+            "vessel_1_latitude": 1.23701,
             "vessel_1_longitude": 103.687,
             "vessel_2_mmsi": 564750000,
             "vessel_2_shipname": "POSH  HARVEST",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23191,
             "vessel_2_longitude": 103.688,
-            "distance": 209.85442261313037
+            "distance": 209.85442261313707
         },
         {
             "vessel_1_mmsi": 563001320,
@@ -8112,12 +8112,12 @@
             "distance": 477.4645865544713
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24129,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24178,
@@ -8156,7 +8156,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22298,
             "vessel_1_longitude": 103.701,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22357,
@@ -8169,7 +8169,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.24226,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24178,
@@ -8270,12 +8270,12 @@
             "distance": 305.27583209439535
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24089,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24178,
@@ -8314,7 +8314,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22321,
             "vessel_1_longitude": 103.701,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22383,
@@ -8327,7 +8327,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.2423600000000001,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24178,
@@ -8428,12 +8428,12 @@
             "distance": 198.66093262447274
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2405300000000001,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24097,
@@ -8472,7 +8472,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22383,
             "vessel_1_longitude": 103.702,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22469,
@@ -8509,7 +8509,7 @@
             "vessel_1_mmsi": 566733000,
             "vessel_1_shipname": "PW TENAGA",
             "vessel_1_shiptype": 52,
-            "vessel_1_latitude": 1.30382,
+            "vessel_1_latitude": 1.37082,
             "vessel_1_longitude": 103.645,
             "vessel_2_mmsi": 563383000,
             "vessel_2_shipname": "PW KAPPA",
@@ -8545,7 +8545,7 @@
             "distance": 447.39061833857807
         },
         {
-            "vessel_1_mmsi": 563031390,
+            "vessel_1_mmsi": 563701390,
             "vessel_1_shipname": "ISANDA",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2416,
@@ -8555,7 +8555,7 @@
             "vessel_2_shiptype": 0,
             "vessel_2_latitude": 1.24504,
             "vessel_2_longitude": 103.846,
-            "distance": 442.5733830993036
+            "distance": 442.5733830993706
         },
         {
             "vessel_1_mmsi": 533000296,
@@ -8625,12 +8625,12 @@
             "distance": 187.74920929872425
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2405300000000001,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24072,
@@ -8682,7 +8682,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22404,
             "vessel_1_longitude": 103.702,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22512,
@@ -8719,7 +8719,7 @@
             "vessel_1_mmsi": 566733000,
             "vessel_1_shipname": "PW TENAGA",
             "vessel_1_shiptype": 52,
-            "vessel_1_latitude": 1.30382,
+            "vessel_1_latitude": 1.37082,
             "vessel_1_longitude": 103.645,
             "vessel_2_mmsi": 563383000,
             "vessel_2_shipname": "PW KAPPA",
@@ -8835,12 +8835,12 @@
             "distance": 193.1668429777256
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.24002,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.24027,
@@ -8892,7 +8892,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22466,
             "vessel_1_longitude": 103.703,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22542,
@@ -8929,7 +8929,7 @@
             "vessel_1_mmsi": 566733000,
             "vessel_1_shipname": "PW TENAGA",
             "vessel_1_shiptype": 52,
-            "vessel_1_latitude": 1.30382,
+            "vessel_1_latitude": 1.37082,
             "vessel_1_longitude": 103.645,
             "vessel_2_mmsi": 563383000,
             "vessel_2_shipname": "PW KAPPA",
@@ -9058,12 +9058,12 @@
             "distance": 115.67902655877201
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23983,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23961,
@@ -9115,7 +9115,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22488,
             "vessel_1_longitude": 103.703,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22614,
@@ -9294,12 +9294,12 @@
             "distance": 448.56499755343214
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2396,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23937,
@@ -9338,7 +9338,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22557,
             "vessel_1_longitude": 103.704,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22661,
@@ -9543,12 +9543,12 @@
             "distance": 449.9653361042237
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23936,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23937,
@@ -9587,7 +9587,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.226,
             "vessel_1_longitude": 103.705,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22702,
@@ -9626,7 +9626,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2523900000000001,
             "vessel_1_longitude": 103.646,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25598,
@@ -9805,12 +9805,12 @@
             "distance": 488.2578124867091
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23925,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2386300000000001,
@@ -10026,7 +10026,7 @@
             "distance": 465.08288005833776
         },
         {
-            "vessel_1_mmsi": 563038700,
+            "vessel_1_mmsi": 563708700,
             "vessel_1_shipname": "MARINE SELENA",
             "vessel_1_shiptype": 86,
             "vessel_1_latitude": 1.22757,
@@ -10080,12 +10080,12 @@
             "distance": 243.7409971482776
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23901,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23839,
@@ -10288,7 +10288,7 @@
             "distance": 427.38196313745885
         },
         {
-            "vessel_1_mmsi": 563038700,
+            "vessel_1_mmsi": 563708700,
             "vessel_1_shipname": "MARINE SELENA",
             "vessel_1_shiptype": 86,
             "vessel_1_latitude": 1.22804,
@@ -10342,12 +10342,12 @@
             "distance": 282.76375927051424
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23851,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23794,
@@ -10386,7 +10386,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22708,
             "vessel_1_longitude": 103.706,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22832,
@@ -10464,7 +10464,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23118,
             "vessel_1_longitude": 103.704,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22832,
@@ -10599,7 +10599,7 @@
             "vessel_2_shiptype": 89,
             "vessel_2_latitude": 1.29885,
             "vessel_2_longitude": 104.247,
-            "distance": 478.0539683039865
+            "distance": 478.0539683709865
         },
         {
             "vessel_1_mmsi": 563002956,
@@ -10669,12 +10669,12 @@
             "distance": 341.57417175994675
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23803,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23716,
@@ -10713,7 +10713,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22771,
             "vessel_1_longitude": 103.707,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22906,
@@ -10791,7 +10791,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23143,
             "vessel_1_longitude": 103.704,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22906,
@@ -10970,12 +10970,12 @@
             "distance": 341.57417175994675
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2378200000000001,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23686,
@@ -11027,7 +11027,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22795,
             "vessel_1_longitude": 103.707,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22954,
@@ -11232,12 +11232,12 @@
             "distance": 453.202425072766
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23712,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23634,
@@ -11289,7 +11289,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22839,
             "vessel_1_longitude": 103.708,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22979,
@@ -11546,12 +11546,12 @@
             "distance": 371.01986233402056
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23663,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23581,
@@ -11590,7 +11590,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22901,
             "vessel_1_longitude": 103.709,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23049,
@@ -11795,12 +11795,12 @@
             "distance": 371.01986233402056
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23638,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2349700000000001,
@@ -11818,7 +11818,7 @@
             "vessel_2_shiptype": 31,
             "vessel_2_latitude": 1.39114,
             "vessel_2_longitude": 103.961,
-            "distance": 200.50423030357192
+            "distance": 200.50423700357192
         },
         {
             "vessel_1_mmsi": 563354000,
@@ -11839,7 +11839,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.2294800000000001,
             "vessel_1_longitude": 103.709,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23093,
@@ -12044,12 +12044,12 @@
             "distance": 434.3013419909508
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23572,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23433,
@@ -12088,7 +12088,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.22989,
             "vessel_1_longitude": 103.71,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23118,
@@ -12104,7 +12104,7 @@
             "vessel_2_mmsi": 564735000,
             "vessel_2_shipname": "PEARL JUBILEE",
             "vessel_2_shiptype": 80,
-            "vessel_2_latitude": 1.23031,
+            "vessel_2_latitude": 1.23701,
             "vessel_2_longitude": 103.685,
             "distance": 155.72176652144344
         },
@@ -12260,7 +12260,7 @@
             "vessel_2_mmsi": 564735000,
             "vessel_2_shipname": "PEARL JUBILEE",
             "vessel_2_shiptype": 80,
-            "vessel_2_latitude": 1.23031,
+            "vessel_2_latitude": 1.23701,
             "vessel_2_longitude": 103.685,
             "distance": 372.90272602423573
         },
@@ -12306,12 +12306,12 @@
             "distance": 404.8765929557573
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23529,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23433,
@@ -12350,7 +12350,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23011,
             "vessel_1_longitude": 103.71,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23161,
@@ -12366,7 +12366,7 @@
             "vessel_2_mmsi": 564735000,
             "vessel_2_shipname": "PEARL JUBILEE",
             "vessel_2_shiptype": 80,
-            "vessel_2_latitude": 1.23031,
+            "vessel_2_latitude": 1.23701,
             "vessel_2_longitude": 103.685,
             "distance": 155.72176652144344
         },
@@ -12410,7 +12410,7 @@
             "distance": 290.48615650700384
         },
         {
-            "vessel_1_mmsi": 563031390,
+            "vessel_1_mmsi": 563701390,
             "vessel_1_shipname": "ISANDA",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23668,
@@ -12509,7 +12509,7 @@
             "vessel_2_mmsi": 564735000,
             "vessel_2_shipname": "PEARL JUBILEE",
             "vessel_2_shiptype": 80,
-            "vessel_2_latitude": 1.23031,
+            "vessel_2_latitude": 1.23701,
             "vessel_2_longitude": 103.685,
             "distance": 372.90272602423573
         },
@@ -12568,12 +12568,12 @@
             "distance": 375.9568363160256
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2350400000000001,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23339,
@@ -12625,7 +12625,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23078,
             "vessel_1_longitude": 103.711,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23227,
@@ -12698,7 +12698,7 @@
             "distance": 441.5060189465265
         },
         {
-            "vessel_1_mmsi": 563031390,
+            "vessel_1_mmsi": 563701390,
             "vessel_1_shipname": "ISANDA",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2370700000000001,
@@ -12830,12 +12830,12 @@
             "distance": 398.20280296194926
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23438,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2325,
@@ -12887,7 +12887,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23096,
             "vessel_1_longitude": 103.711,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23269,
@@ -12960,7 +12960,7 @@
             "distance": 499.31483288824694
         },
         {
-            "vessel_1_mmsi": 563031390,
+            "vessel_1_mmsi": 563701390,
             "vessel_1_shipname": "ISANDA",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2370700000000001,
@@ -13105,12 +13105,12 @@
             "distance": 378.1814329806357
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23397,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2325,
@@ -13149,7 +13149,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23155,
             "vessel_1_longitude": 103.712,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23292,
@@ -13315,12 +13315,12 @@
             "distance": 402.6519962911694
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23374,
             "vessel_1_longitude": 103.651,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2325,
@@ -13359,7 +13359,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.2320200000000001,
             "vessel_1_longitude": 103.713,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23365,
@@ -13551,12 +13551,12 @@
             "distance": 390.41671463591354
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23312,
             "vessel_1_longitude": 103.652,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23085,
@@ -13595,7 +13595,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23249,
             "vessel_1_longitude": 103.713,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2341,
@@ -13774,12 +13774,12 @@
             "distance": 367.058449657696
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23274,
             "vessel_1_longitude": 103.652,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23062,
@@ -13831,7 +13831,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23292,
             "vessel_1_longitude": 103.714,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23435,
@@ -14010,12 +14010,12 @@
             "distance": 379.2937313129075
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23227,
             "vessel_1_longitude": 103.652,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23062,
@@ -14067,7 +14067,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23345,
             "vessel_1_longitude": 103.714,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23505,
@@ -14111,7 +14111,7 @@
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.27453,
             "vessel_2_longitude": 103.756,
-            "distance": 296.28960020043036
+            "distance": 296.28960020043706
         },
         {
             "vessel_1_mmsi": 564616000,
@@ -14272,12 +14272,12 @@
             "distance": 379.29373131292965
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23187,
             "vessel_1_longitude": 103.652,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22988,
@@ -14329,7 +14329,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23392,
             "vessel_1_longitude": 103.715,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23553,
@@ -14482,12 +14482,12 @@
             "distance": 418.7983226427812
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23148,
             "vessel_1_longitude": 103.652,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22978,
@@ -14539,7 +14539,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23438,
             "vessel_1_longitude": 103.715,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23581,
@@ -14705,12 +14705,12 @@
             "distance": 410.2261710184527
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23103,
             "vessel_1_longitude": 103.652,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22969,
@@ -14762,7 +14762,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23487,
             "vessel_1_longitude": 103.716,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2365300000000001,
@@ -14959,7 +14959,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23533,
             "vessel_1_longitude": 103.716,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23703,
@@ -15117,7 +15117,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23533,
             "vessel_1_longitude": 103.716,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2373,
@@ -15174,7 +15174,7 @@
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.27644,
             "vessel_2_longitude": 103.753,
-            "distance": 406.6150530374048
+            "distance": 406.6150537074048
         },
         {
             "vessel_1_mmsi": 563001230,
@@ -15314,12 +15314,12 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23627,
             "vessel_1_longitude": 103.717,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23813,
             "vessel_2_longitude": 103.719,
-            "distance": 303.7559307488316
+            "distance": 370.7559307488316
         },
         {
             "vessel_1_mmsi": 563022820,
@@ -15451,7 +15451,7 @@
             "vessel_2_shiptype": 31,
             "vessel_2_latitude": 1.39173,
             "vessel_2_longitude": 103.956,
-            "distance": 355.70574873037657
+            "distance": 355.70574873707657
         },
         {
             "vessel_1_mmsi": 566019000,
@@ -15485,7 +15485,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23676,
             "vessel_1_longitude": 103.718,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23865,
@@ -15656,7 +15656,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.2372,
             "vessel_1_longitude": 103.718,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2388,
@@ -15853,7 +15853,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23771,
             "vessel_1_longitude": 103.719,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23934,
@@ -15910,7 +15910,7 @@
             "vessel_2_shiptype": 0,
             "vessel_2_latitude": 1.23173,
             "vessel_2_longitude": 103.691,
-            "distance": 121.49730369840115
+            "distance": 121.49737069840115
         },
         {
             "vessel_1_mmsi": 563000660,
@@ -16029,7 +16029,7 @@
             "vessel_2_shiptype": 90,
             "vessel_2_latitude": 1.28004,
             "vessel_2_longitude": 103.749,
-            "distance": 250.17826038313035
+            "distance": 250.17826038313705
         },
         {
             "vessel_1_mmsi": 564486000,
@@ -16037,7 +16037,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23821,
             "vessel_1_longitude": 103.719,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23974,
@@ -16234,7 +16234,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23877,
             "vessel_1_longitude": 103.72,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24015,
@@ -16418,7 +16418,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23919,
             "vessel_1_longitude": 103.72,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24048,
@@ -16475,7 +16475,7 @@
             "vessel_2_shiptype": 71,
             "vessel_2_latitude": 1.28183,
             "vessel_2_longitude": 103.75,
-            "distance": 483.79233037798326
+            "distance": 483.79233707798326
         },
         {
             "vessel_1_mmsi": 533001030,
@@ -16628,7 +16628,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23953,
             "vessel_1_longitude": 103.721,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24074,
@@ -16685,7 +16685,7 @@
             "vessel_2_shiptype": 71,
             "vessel_2_latitude": 1.27983,
             "vessel_2_longitude": 103.749,
-            "distance": 253.30396614351625
+            "distance": 253.37096614351625
         },
         {
             "vessel_1_mmsi": 533001030,
@@ -16812,7 +16812,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.23978,
             "vessel_1_longitude": 103.721,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24104,
@@ -16983,7 +16983,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.24001,
             "vessel_1_longitude": 103.722,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24132,
@@ -17154,7 +17154,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.2401,
             "vessel_1_longitude": 103.722,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24146,
@@ -17509,7 +17509,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.24077,
             "vessel_1_longitude": 103.724,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24215,
@@ -17553,7 +17553,7 @@
             "vessel_2_shiptype": 79,
             "vessel_2_latitude": 1.2819,
             "vessel_2_longitude": 103.746,
-            "distance": 38.930441630355325
+            "distance": 38.930441637055325
         },
         {
             "vessel_1_mmsi": 553000092,
@@ -17957,7 +17957,7 @@
             "vessel_1_shiptype": 81,
             "vessel_1_latitude": 1.24145,
             "vessel_1_longitude": 103.726,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24257,
@@ -19265,7 +19265,7 @@
             "vessel_2_shiptype": 31,
             "vessel_2_latitude": 1.37545,
             "vessel_2_longitude": 104.086,
-            "distance": 406.57966155630385
+            "distance": 406.57966155637085
         }
     ],
     "99": [
@@ -19348,7 +19348,7 @@
             "distance": 394.5585783181804
         },
         {
-            "vessel_1_mmsi": 563033100,
+            "vessel_1_mmsi": 563703100,
             "vessel_1_shipname": "BOONTEK 7",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.28382,
@@ -19519,7 +19519,7 @@
             "distance": 379.08964574813143
         },
         {
-            "vessel_1_mmsi": 563033100,
+            "vessel_1_mmsi": 563703100,
             "vessel_1_shipname": "BOONTEK 7",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.28376,
@@ -19716,7 +19716,7 @@
             "distance": 275.8947729562039
         },
         {
-            "vessel_1_mmsi": 563033100,
+            "vessel_1_mmsi": 563703100,
             "vessel_1_shipname": "BOONTEK 7",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.28379,
@@ -19897,7 +19897,7 @@
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.23184,
             "vessel_2_longitude": 103.685,
-            "distance": 38.93044163037744
+            "distance": 38.93044163707744
         },
         {
             "vessel_1_mmsi": 563009240,
@@ -19913,7 +19913,7 @@
             "distance": 259.7067081333904
         },
         {
-            "vessel_1_mmsi": 563033100,
+            "vessel_1_mmsi": 563703100,
             "vessel_1_shipname": "BOONTEK 7",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.28383,
@@ -20071,7 +20071,7 @@
             "distance": 241.23266183400602
         },
         {
-            "vessel_1_mmsi": 563033100,
+            "vessel_1_mmsi": 563703100,
             "vessel_1_shipname": "BOONTEK 7",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.28383,
@@ -20174,7 +20174,7 @@
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.20414,
             "vessel_2_longitude": 103.632,
-            "distance": 303.6574447167848
+            "distance": 370.6574447167848
         },
         {
             "vessel_1_mmsi": 563021930,
@@ -20255,7 +20255,7 @@
             "distance": 356.49779379160873
         },
         {
-            "vessel_1_mmsi": 563033100,
+            "vessel_1_mmsi": 563703100,
             "vessel_1_shipname": "BOONTEK 7",
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.28383,
@@ -20462,7 +20462,7 @@
             "vessel_2_shiptype": 0,
             "vessel_2_latitude": 1.23221,
             "vessel_2_longitude": 103.684,
-            "distance": 160.46179230353758
+            "distance": 160.46179237053758
         },
         {
             "vessel_1_mmsi": 533000296,
@@ -20576,7 +20576,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.25494,
             "vessel_1_longitude": 103.626,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25522,
@@ -21698,7 +21698,7 @@
             "vessel_2_shiptype": 70,
             "vessel_2_latitude": 1.33228,
             "vessel_2_longitude": 103.556,
-            "distance": 112.61488323034808
+            "distance": 112.61488323704808
         },
         {
             "vessel_1_mmsi": 525015687,
@@ -22865,7 +22865,7 @@
             "vessel_2_shiptype": 0,
             "vessel_2_latitude": 1.23495,
             "vessel_2_longitude": 103.686,
-            "distance": 38.93044163037744
+            "distance": 38.93044163707744
         },
         {
             "vessel_1_mmsi": 566009000,
@@ -23168,7 +23168,7 @@
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.25727,
             "vessel_2_longitude": 103.636,
-            "distance": 111.22530343470295
+            "distance": 111.22537043470295
         },
         {
             "vessel_1_mmsi": 525012316,
@@ -23296,7 +23296,7 @@
             "vessel_2_mmsi": 564669000,
             "vessel_2_shipname": "OSLO BULK 5",
             "vessel_2_shiptype": 70,
-            "vessel_2_latitude": 1.30351,
+            "vessel_2_latitude": 1.37051,
             "vessel_2_longitude": 104.097,
             "distance": 357.047764667006
         },
@@ -23391,7 +23391,7 @@
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.25727,
             "vessel_2_longitude": 103.636,
-            "distance": 111.22530343470295
+            "distance": 111.22537043470295
         },
         {
             "vessel_1_mmsi": 525012316,
@@ -23560,7 +23560,7 @@
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.19134,
             "vessel_2_longitude": 103.878,
-            "distance": 303.0021562090409
+            "distance": 370.0021562090409
         },
         {
             "vessel_1_mmsi": 636016106,
@@ -23601,7 +23601,7 @@
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.25727,
             "vessel_2_longitude": 103.636,
-            "distance": 111.22530343470295
+            "distance": 111.22537043470295
         },
         {
             "vessel_1_mmsi": 566657000,
@@ -24198,7 +24198,7 @@
             "vessel_1_mmsi": 636016106,
             "vessel_1_shipname": "ENSENADA",
             "vessel_1_shiptype": 71,
-            "vessel_1_latitude": 1.26303,
+            "vessel_1_latitude": 1.2637,
             "vessel_1_longitude": 104.015,
             "vessel_2_mmsi": 477791100,
             "vessel_2_shipname": "THOR THUNDER",
@@ -24684,7 +24684,7 @@
             "distance": 191.35187427058904
         },
         {
-            "vessel_1_mmsi": 563034810,
+            "vessel_1_mmsi": 563704810,
             "vessel_1_shipname": "PARAKEET",
             "vessel_1_shiptype": 99,
             "vessel_1_latitude": 1.25617,
@@ -24808,7 +24808,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25743,
             "vessel_1_longitude": 103.635,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25617,
@@ -24906,7 +24906,7 @@
             "vessel_2_shiptype": 70,
             "vessel_2_latitude": 1.3167200000000001,
             "vessel_2_longitude": 103.557,
-            "distance": 253.83530365911204
+            "distance": 253.83537065911204
         },
         {
             "vessel_1_mmsi": 538007643,
@@ -24940,7 +24940,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25743,
             "vessel_1_longitude": 103.635,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25607,
@@ -25103,7 +25103,7 @@
             "vessel_2_shiptype": 79,
             "vessel_2_latitude": 1.28472,
             "vessel_2_longitude": 103.764,
-            "distance": 38.930441630355325
+            "distance": 38.930441637055325
         },
         {
             "vessel_1_mmsi": 563055000,
@@ -25111,7 +25111,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25743,
             "vessel_1_longitude": 103.635,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25602,
@@ -25295,7 +25295,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25743,
             "vessel_1_longitude": 103.635,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25597,
@@ -25469,7 +25469,7 @@
             "vessel_2_mmsi": 566287000,
             "vessel_2_shipname": "SEA HARVEST",
             "vessel_2_shiptype": 80,
-            "vessel_2_latitude": 1.25303,
+            "vessel_2_latitude": 1.2537,
             "vessel_2_longitude": 103.729,
             "distance": 304.65651873992226
         },
@@ -25479,7 +25479,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25743,
             "vessel_1_longitude": 103.635,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25597,
@@ -26951,7 +26951,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23966,
             "vessel_1_longitude": 103.773,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2428,
@@ -27319,7 +27319,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23885,
             "vessel_1_longitude": 103.774,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24205,
@@ -27666,7 +27666,7 @@
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2444,
             "vessel_2_longitude": 103.579,
-            "distance": 64.51330327316089
+            "distance": 64.51337027316089
         },
         {
             "vessel_1_mmsi": 538007643,
@@ -27700,7 +27700,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2380900000000001,
             "vessel_1_longitude": 103.775,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24117,
@@ -27871,7 +27871,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23751,
             "vessel_1_longitude": 103.776,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.24075,
@@ -27884,7 +27884,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.25648,
             "vessel_1_longitude": 103.639,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.2546,
@@ -28029,7 +28029,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23731,
             "vessel_1_longitude": 103.776,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2402900000000001,
@@ -28042,7 +28042,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.25648,
             "vessel_1_longitude": 103.639,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.2546,
@@ -28179,7 +28179,7 @@
             "vessel_2_shiptype": 70,
             "vessel_2_latitude": 1.4004400000000001,
             "vessel_2_longitude": 103.943,
-            "distance": 318.11732303662853
+            "distance": 318.11732370662853
         },
         {
             "vessel_1_mmsi": 566019000,
@@ -28187,7 +28187,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2367,
             "vessel_1_longitude": 103.777,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23997,
@@ -28200,7 +28200,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.25648,
             "vessel_1_longitude": 103.639,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25465,
@@ -28285,7 +28285,7 @@
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.28563,
             "vessel_2_longitude": 103.941,
-            "distance": 482.1830379087304
+            "distance": 482.1837079087304
         },
         {
             "vessel_1_mmsi": 566521000,
@@ -28332,7 +28332,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23627,
             "vessel_1_longitude": 103.777,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2393,
@@ -28345,7 +28345,7 @@
             "vessel_1_shiptype": 0,
             "vessel_1_latitude": 1.25648,
             "vessel_1_longitude": 103.639,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25465,
@@ -28464,7 +28464,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.29423,
             "vessel_1_longitude": 103.551,
-            "vessel_2_mmsi": 533038900,
+            "vessel_2_mmsi": 533708900,
             "vessel_2_shipname": "CAPRICORN",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.29063,
@@ -28503,7 +28503,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23586,
             "vessel_1_longitude": 103.778,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23877,
@@ -28609,7 +28609,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2931,
             "vessel_1_longitude": 103.551,
-            "vessel_2_mmsi": 533038900,
+            "vessel_2_mmsi": 533708900,
             "vessel_2_shipname": "CAPRICORN",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.29285,
@@ -28695,7 +28695,7 @@
             "distance": 438.24554292459857
         },
         {
-            "vessel_1_mmsi": 563038700,
+            "vessel_1_mmsi": 563708700,
             "vessel_1_shipname": "MARINE SELENA",
             "vessel_1_shiptype": 86,
             "vessel_1_latitude": 1.2384300000000001,
@@ -28754,7 +28754,7 @@
             "vessel_1_shiptype": 70,
             "vessel_1_latitude": 1.2919800000000001,
             "vessel_1_longitude": 103.551,
-            "vessel_2_mmsi": 533038900,
+            "vessel_2_mmsi": 533708900,
             "vessel_2_shipname": "CAPRICORN",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.29285,
@@ -28853,7 +28853,7 @@
             "distance": 455.2153818912724
         },
         {
-            "vessel_1_mmsi": 563038700,
+            "vessel_1_mmsi": 563708700,
             "vessel_1_shipname": "MARINE SELENA",
             "vessel_1_shiptype": 86,
             "vessel_1_latitude": 1.2377,
@@ -28907,12 +28907,12 @@
             "distance": 115.78740686546368
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.22836,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22892,
@@ -28938,7 +28938,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23459,
             "vessel_1_longitude": 103.779,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23729,
@@ -29026,12 +29026,12 @@
             "distance": 446.33115046562557
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.22852,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22904,
@@ -29057,7 +29057,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23442,
             "vessel_1_longitude": 103.779,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23703,
@@ -29184,12 +29184,12 @@
             "distance": 333.660775591112
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.22852,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22909,
@@ -29215,7 +29215,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23372,
             "vessel_1_longitude": 103.78,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23617,
@@ -29347,7 +29347,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23327,
             "vessel_1_longitude": 103.78,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23555,
@@ -29461,12 +29461,12 @@
             "distance": 334.1498544860922
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.22903,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22924,
@@ -29492,7 +29492,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2328000000000001,
             "vessel_1_longitude": 103.781,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23502,
@@ -29606,12 +29606,12 @@
             "distance": 227.036943385729
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.22919,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22947,
@@ -29637,7 +29637,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23235,
             "vessel_1_longitude": 103.781,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2344600000000001,
@@ -29738,12 +29738,12 @@
     ],
     "159": [
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.22919,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22947,
@@ -29769,7 +29769,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23217,
             "vessel_1_longitude": 103.781,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23386,
@@ -29857,12 +29857,12 @@
             "distance": 204.6628931424666
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2295500000000001,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.22947,
@@ -29888,7 +29888,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23144,
             "vessel_1_longitude": 103.782,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23326,
@@ -29989,12 +29989,12 @@
             "distance": 177.96773316736704
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2295500000000001,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23113,
@@ -30020,7 +30020,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23098,
             "vessel_1_longitude": 103.782,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23265,
@@ -30072,7 +30072,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.28828,
             "vessel_1_longitude": 103.756,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2877,
@@ -30160,12 +30160,12 @@
             "distance": 144.5987831984816
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2295500000000001,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2314100000000001,
@@ -30191,7 +30191,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23053,
             "vessel_1_longitude": 103.783,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23208,
@@ -30243,7 +30243,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.28809,
             "vessel_1_longitude": 103.756,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2887,
@@ -30331,12 +30331,12 @@
             "distance": 120.12821988797
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2295500000000001,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2314100000000001,
@@ -30362,7 +30362,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.23006,
             "vessel_1_longitude": 103.783,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.23179,
@@ -30414,7 +30414,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.28752,
             "vessel_1_longitude": 103.755,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2887,
@@ -30502,12 +30502,12 @@
             "distance": 155.71856382372553
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23046,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23265,
@@ -30533,7 +30533,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22983,
             "vessel_1_longitude": 103.783,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2307700000000001,
@@ -30598,7 +30598,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2872,
             "vessel_1_longitude": 103.754,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.28972,
@@ -30606,7 +30606,7 @@
             "distance": 357.81407340601913
         },
         {
-            "vessel_1_mmsi": 563034810,
+            "vessel_1_mmsi": 563704810,
             "vessel_1_shipname": "PARAKEET",
             "vessel_1_shiptype": 99,
             "vessel_1_latitude": 1.2551,
@@ -30686,12 +30686,12 @@
             "distance": 158.86483995092948
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23046,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23291,
@@ -30717,10 +30717,10 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22918,
             "vessel_1_longitude": 103.784,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
-            "vessel_2_latitude": 1.23034,
+            "vessel_2_latitude": 1.23704,
             "vessel_2_longitude": 103.785,
             "distance": 170.33567551975722
         },
@@ -30777,7 +30777,7 @@
             "distance": 484.5473308102911
         },
         {
-            "vessel_1_mmsi": 563034810,
+            "vessel_1_mmsi": 563704810,
             "vessel_1_shipname": "PARAKEET",
             "vessel_1_shiptype": 99,
             "vessel_1_latitude": 1.25532,
@@ -30844,12 +30844,12 @@
             "distance": 168.65609723936717
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23089,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2334800000000001,
@@ -30875,7 +30875,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22868,
             "vessel_1_longitude": 103.784,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22976,
@@ -30922,7 +30922,7 @@
             "distance": 444.81786361478134
         },
         {
-            "vessel_1_mmsi": 563034810,
+            "vessel_1_mmsi": 563704810,
             "vessel_1_shipname": "PARAKEET",
             "vessel_1_shiptype": 99,
             "vessel_1_latitude": 1.25547,
@@ -30989,12 +30989,12 @@
             "distance": 259.3844790896119
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23102,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23432,
@@ -31020,7 +31020,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22825,
             "vessel_1_longitude": 103.785,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22916,
@@ -31059,7 +31059,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25685,
             "vessel_1_longitude": 103.64,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25562,
@@ -31095,12 +31095,12 @@
             "distance": 215.54302149184977
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23102,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.2349,
@@ -31126,7 +31126,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22781,
             "vessel_1_longitude": 103.785,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22857,
@@ -31165,7 +31165,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.2569,
             "vessel_1_longitude": 103.64,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25562,
@@ -31214,12 +31214,12 @@
             "distance": 194.65220815179873
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23102,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23522,
@@ -31245,7 +31245,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2275800000000001,
             "vessel_1_longitude": 103.785,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22797,
@@ -31284,7 +31284,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25697,
             "vessel_1_longitude": 103.64,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25563,
@@ -31364,7 +31364,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22683,
             "vessel_1_longitude": 103.786,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22768,
@@ -31403,7 +31403,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25698,
             "vessel_1_longitude": 103.64,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25561,
@@ -31478,12 +31478,12 @@
             "distance": 483.5262387429203
         },
         {
-            "vessel_1_mmsi": 563033530,
+            "vessel_1_mmsi": 563703530,
             "vessel_1_shipname": "AOM T1304",
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.23225,
             "vessel_1_longitude": 103.655,
-            "vessel_2_mmsi": 563030170,
+            "vessel_2_mmsi": 563700170,
             "vessel_2_shipname": "ENG HUP VALIANT",
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.23606,
@@ -31496,7 +31496,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.2266,
             "vessel_1_longitude": 103.786,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22678,
@@ -31535,7 +31535,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25698,
             "vessel_1_longitude": 103.64,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25564,
@@ -31548,7 +31548,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.29157,
             "vessel_1_longitude": 103.758,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2933,
@@ -31628,7 +31628,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22591,
             "vessel_1_longitude": 103.787,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22642,
@@ -31659,7 +31659,7 @@
             "vessel_2_shiptype": 52,
             "vessel_2_latitude": 1.28349,
             "vessel_2_longitude": 103.75,
-            "distance": 135.75044073038092
+            "distance": 135.75044073708092
         },
         {
             "vessel_1_mmsi": 563007280,
@@ -31680,7 +31680,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25696,
             "vessel_1_longitude": 103.64,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25571,
@@ -31693,7 +31693,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.29157,
             "vessel_1_longitude": 103.758,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.2933,
@@ -31799,7 +31799,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22569,
             "vessel_1_longitude": 103.787,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22562,
@@ -31851,7 +31851,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25689,
             "vessel_1_longitude": 103.641,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25571,
@@ -31877,7 +31877,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.29157,
             "vessel_1_longitude": 103.758,
-            "vessel_2_mmsi": 563031390,
+            "vessel_2_mmsi": 563701390,
             "vessel_2_shipname": "ISANDA",
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.29322,
@@ -31983,7 +31983,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22505,
             "vessel_1_longitude": 103.788,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22503,
@@ -32035,7 +32035,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25676,
             "vessel_1_longitude": 103.641,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25571,
@@ -32154,7 +32154,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22455,
             "vessel_1_longitude": 103.788,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22441,
@@ -32193,7 +32193,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25666,
             "vessel_1_longitude": 103.641,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25568,
@@ -32325,7 +32325,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22412,
             "vessel_1_longitude": 103.789,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2238,
@@ -32351,7 +32351,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25635,
             "vessel_1_longitude": 103.642,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25571,
@@ -32522,7 +32522,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22369,
             "vessel_1_longitude": 103.789,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2235800000000001,
@@ -32548,7 +32548,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25609,
             "vessel_1_longitude": 103.643,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25572,
@@ -32719,7 +32719,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22325,
             "vessel_1_longitude": 103.79,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.2227000000000001,
@@ -32758,7 +32758,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25577,
             "vessel_1_longitude": 103.643,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25571,
@@ -32815,7 +32815,7 @@
             "vessel_2_shiptype": 80,
             "vessel_2_latitude": 1.21673,
             "vessel_2_longitude": 103.811,
-            "distance": 482.38303376686144
+            "distance": 482.38370376686144
         },
         {
             "vessel_1_mmsi": 563003330,
@@ -32916,7 +32916,7 @@
             "vessel_1_shiptype": 80,
             "vessel_1_latitude": 1.22276,
             "vessel_1_longitude": 103.79,
-            "vessel_2_mmsi": 563038700,
+            "vessel_2_mmsi": 563708700,
             "vessel_2_shipname": "MARINE SELENA",
             "vessel_2_shiptype": 86,
             "vessel_2_latitude": 1.22241,
@@ -32955,7 +32955,7 @@
             "vessel_1_shiptype": 52,
             "vessel_1_latitude": 1.25541,
             "vessel_1_longitude": 103.644,
-            "vessel_2_mmsi": 563034810,
+            "vessel_2_mmsi": 563704810,
             "vessel_2_shipname": "PARAKEET",
             "vessel_2_shiptype": 99,
             "vessel_2_latitude": 1.25561,
@@ -33025,7 +33025,7 @@
             "vessel_2_shiptype": 96,
             "vessel_2_latitude": 1.2801200000000001,
             "vessel_2_longitude": 103.75,
-            "distance": 166.9893033430186
+            "distance": 166.9893703430186
         },
         {
             "vessel_1_mmsi": 563002956,

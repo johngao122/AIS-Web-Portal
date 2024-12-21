@@ -1,0 +1,202 @@
+[
+    {
+        "vesselName": "MV Maersk Straits",
+        "imoNumber": "1617277",
+        "mmsi": "645573772",
+        "loa": "370",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.600811,
+        "latitude": 1.211206,
+        "bearing": 308.74
+    },
+    {
+        "vesselName": "MV Evergreen Asia",
+        "imoNumber": "7773998",
+        "mmsi": "801723617",
+        "loa": "326",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.672762,
+        "latitude": 1.215543,
+        "bearing": 69.68
+    },
+    {
+        "vesselName": "MV CMA CGM Pacific",
+        "imoNumber": "5540977",
+        "mmsi": "595477148",
+        "loa": "336",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.952309,
+        "latitude": 1.228807,
+        "bearing": 305.5
+    },
+    {
+        "vesselName": "MV Hapag-Lloyd Express",
+        "imoNumber": "7945123",
+        "mmsi": "766908254",
+        "loa": "289",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.889839,
+        "latitude": 1.289759,
+        "bearing": 178.94
+    },
+    {
+        "vesselName": "MV MSC Star",
+        "imoNumber": "2808614",
+        "mmsi": "776075410",
+        "loa": "285",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.759478,
+        "latitude": 1.173483,
+        "bearing": 115.78
+    },
+    {
+        "vesselName": "MV NYK Singapore",
+        "imoNumber": "4865532",
+        "mmsi": "533787273",
+        "loa": "277",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.85219,
+        "latitude": 1.156449,
+        "bearing": 276.9
+    },
+    {
+        "vesselName": "MV ONE Infinity",
+        "imoNumber": "3392983",
+        "mmsi": "641790350",
+        "loa": "254",
+        "lastLocation": "Singapore Waters",
+        "longitude": 104.066045,
+        "latitude": 1.24216,
+        "bearing": 189.24
+    },
+    {
+        "vesselName": "MV Hyundai Navigator",
+        "imoNumber": "2639838",
+        "mmsi": "806536721",
+        "loa": "367",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.6182,
+        "latitude": 1.225055,
+        "bearing": 127.11
+    },
+    {
+        "vesselName": "MV PIL Horizon",
+        "imoNumber": "1899587",
+        "mmsi": "984619030",
+        "loa": "334",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.918532,
+        "latitude": 1.298282,
+        "bearing": 195.58
+    },
+    {
+        "vesselName": "MV APL Eagle",
+        "imoNumber": "6079285",
+        "mmsi": "197179351",
+        "loa": "317",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.804832,
+        "latitude": 1.183861,
+        "bearing": 165.69
+    },
+    {
+        "vesselName": "MV Cosco Fortune",
+        "imoNumber": "6045329",
+        "mmsi": "398818852",
+        "loa": "297",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.711972,
+        "latitude": 1.223172,
+        "bearing": 45.11
+    },
+    {
+        "vesselName": "MV MOL Triumph",
+        "imoNumber": "1529844",
+        "mmsi": "688165834",
+        "loa": "391",
+        "lastLocation": "Singapore Waters",
+        "longitude": 104.00521,
+        "latitude": 1.251836,
+        "bearing": 370.92
+    },
+    {
+        "vesselName": "MV Yang Ming Glory",
+        "imoNumber": "4204909",
+        "mmsi": "905188978",
+        "loa": "369",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.91442,
+        "latitude": 1.259888,
+        "bearing": 171.62
+    },
+    {
+        "vesselName": "MV Ocean Network",
+        "imoNumber": "9780953",
+        "mmsi": "636088549",
+        "loa": "311",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.652443,
+        "latitude": 1.255389,
+        "bearing": 161.44
+    },
+    {
+        "vesselName": "MV Wan Hai Pioneer",
+        "imoNumber": "5891525",
+        "mmsi": "931686931",
+        "loa": "339",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.871628,
+        "latitude": 1.201731,
+        "bearing": 224.85
+    },
+    {
+        "vesselName": "MV Pacific Alliance",
+        "imoNumber": "1770977",
+        "mmsi": "911946093",
+        "loa": "306",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.820454,
+        "latitude": 1.15291,
+        "bearing": 302.0
+    },
+    {
+        "vesselName": "MV Neptune Express",
+        "imoNumber": "4291973",
+        "mmsi": "382407021",
+        "loa": "377",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.865209,
+        "latitude": 1.282213,
+        "bearing": 33.66
+    },
+    {
+        "vesselName": "MV K Line Spirit",
+        "imoNumber": "4707348",
+        "mmsi": "194747600",
+        "loa": "390",
+        "lastLocation": "Singapore Waters",
+        "longitude": 104.066696,
+        "latitude": 1.262553,
+        "bearing": 150.55
+    },
+    {
+        "vesselName": "MV Star Shipping",
+        "imoNumber": "6458664",
+        "mmsi": "219517309",
+        "loa": "370",
+        "lastLocation": "Singapore Waters",
+        "longitude": 104.041026,
+        "latitude": 1.242744,
+        "bearing": 329.17
+    },
+    {
+        "vesselName": "MV Global Voyager",
+        "imoNumber": "8847426",
+        "mmsi": "996042246",
+        "loa": "250",
+        "lastLocation": "Singapore Waters",
+        "longitude": 103.756938,
+        "latitude": 1.237269,
+        "bearing": 324.36
+    }
+]
