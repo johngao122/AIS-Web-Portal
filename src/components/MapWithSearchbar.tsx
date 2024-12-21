@@ -19,7 +19,7 @@ import singleVesselActivityData from "@/data/example/VesselActivitySingle.json";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import VesselActivityTable from "@/components/VesselActivityTable";
 import VesselActivitySingle from "@/components/VesselActivitySingle";
-import Slider from "@/components/Slider";
+import TimeSlider from "@/components/TimeSlider";
 import { easeCubic } from "d3-ease";
 import _ from "lodash";
 import VesselActivitySingleWithArrow from "@/components/VesselActivitySingleWithArrow";
@@ -977,7 +977,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
                     {/* Time Slider Component */}
                     <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl z-[9999]">
-                        <Slider
+                        <TimeSlider
                             startTime={new Date(timelineData[0].timestamp)}
                             endTime={
                                 new Date(
