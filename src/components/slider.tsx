@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef } from "react";
 import { Play, Pause } from "lucide-react";
 
-interface TimeSliderProps {
+interface SliderProps {
     startTime: Date;
     endTime: Date;
     onTimeChange?: (currentTime: Date, isDragging: boolean) => void;
@@ -10,7 +10,7 @@ interface TimeSliderProps {
     currentTime: Date | null;
 }
 
-const Slider: React.FC<TimeSliderProps> = ({
+const Slider: React.FC<SliderProps> = ({
     startTime,
     endTime,
     onTimeChange,
