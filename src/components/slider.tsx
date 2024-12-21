@@ -10,7 +10,7 @@ interface TimeSliderProps {
     currentTime: Date | null;
 }
 
-const TimeSlider: React.FC<TimeSliderProps> = ({
+const Slider: React.FC<TimeSliderProps> = ({
     startTime,
     endTime,
     onTimeChange,
@@ -148,4 +148,4 @@ const TimeSlider: React.FC<TimeSliderProps> = ({
     );
 };
 
-export default TimeSlider;
+export default Slider;
