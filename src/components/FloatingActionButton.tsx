@@ -6,6 +6,7 @@ import { FAB } from "@/resources/dashboard";
 import Image from "next/image";
 import DateTimePicker from "./DatePicker";
 import VesselActivity from "@/types/VesselActivity";
+import type { PortServiceData } from "@/types/PortService";
 
 interface FilterOption {
     id: string;
@@ -14,6 +15,15 @@ interface FilterOption {
 
 interface FloatingActionButtonProps {
     onVesselDataUpdate: (data: VesselActivity[] | null, fabData?: any) => void;
+    onPortServiceDataUpdate: (
+        data: PortServiceData | null,
+        fabData?: {
+            isExpanded: boolean;
+            startDate?: Date;
+            endDate?: Date;
+            selectedFilters?: string[];
+        }
+    ) => void;
     initialStartDate?: Date;
     initialEndDate?: Date;
     initialFilters?: string[];
@@ -38,6 +48,7 @@ const filterOptions: FilterOption[] = [
 
 const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     onVesselDataUpdate,
+    onPortServiceDataUpdate,
     initialStartDate,
     initialEndDate,
     initialFilters,
@@ -142,6 +153,26 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
             date1.getMonth() === date2.getMonth() &&
             date1.getDate() === date2.getDate()
         );
+    };
+
+    const handleAnalyzePortService = async () => {
+        setIsLoading(true);
+        try {
+            const response = await import(
+                "@/data/example/PortServiceLevel.json"
+            );
+            onPortServiceDataUpdate(response.default, {
+                isExpanded: true,
+                startDate,
+                endDate,
+                selectedFilters: selectedFilters,
+            });
+        } catch (error) {
+            console.error("Error loading port service data:", error);
+            onPortServiceDataUpdate(null);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const handleDateSelect = (date: Date, isStart: boolean): void => {
@@ -486,8 +517,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                     disabled={
                                         !startDate ||
                                         !endDate ||
-                                        dateError !== ""
+                                        dateError !== "" ||
+                                        isLoading
                                     }
+                                    onClick={handleAnalyzePortService}
                                 >
                                     Analyze port service levels
                                 </button>

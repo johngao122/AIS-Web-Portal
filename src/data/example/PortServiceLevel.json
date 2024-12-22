@@ -1,0 +1,94 @@
+{
+    "Port Service Levels Analysis": {
+        "Key KPIs": [
+            {
+                "name": "Total vessel #",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "# entered",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "# berthed",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "JIT % (waiting<2h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Avg waiting (h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Median waiting (h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Avg berthing (h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Median berthing (h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Avg port-stay (h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Median port-stay (h)",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            },
+            {
+                "name": "Wharf utilization rate",
+                "Aggregated": 123,
+                "Category 1 (LOA ∈ (0,147])": 123,
+                "Category 2 (LOA ∈ (147, 209])": 123,
+                "Category 3 (LOA ∈ (209, 285])": 123,
+                "Category 4 (LOA ∈ (285, 400])": 123
+            }
+        ]
+    }
+}

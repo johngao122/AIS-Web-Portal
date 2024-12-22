@@ -24,6 +24,9 @@ import { easeCubic } from "d3-ease";
 import _ from "lodash";
 import VesselActivitySingleWithArrow from "@/components/VesselActivitySingleWithArrow";
 import LayerSelect from "@/components/LayerSelect";
+import type { PortServiceCategory, PortServiceData } from "@/types/PortService";
+import PortServiceTable from "./PortServiceTable";
+import portServiceLevelData from "@/data/example/PortServiceLevel.json";
 
 // Import layer data
 import knownAreas from "@/data/knownAreas.json";
@@ -87,6 +90,9 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     const [focusVessel, setFocusVessel] = useState<VesselMarker | null>(null);
     const [vesselData, setVesselData] = useState<VesselActivity[] | null>(null);
     const [showVesselTable, setShowVesselTable] = useState(false);
+    const [showPortServiceTable, setShowPortServiceTable] = useState(false);
+    const [portServiceData, setPortServiceData] =
+        useState<PortServiceData | null>(null);
     const [showVesselInfo, setShowVesselInfo] = useState(false);
     const [timelineData, setTimelineData] = useState<any[]>([]);
     const [selectedVessel, setSelectedVessel] = useState<VesselActivity | null>(
@@ -121,6 +127,23 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
     useEffect(() => {
         setVesselData(vesselActivityData);
+    }, []);
+
+    useEffect(() => {
+        const loadInitialData = async () => {
+            try {
+                const response = await import(
+                    "@/data/example/PortServiceLevel.json"
+                );
+                setPortServiceData(response.default);
+            } catch (error) {
+                console.error(
+                    "Error loading initial port service data:",
+                    error
+                );
+            }
+        };
+        loadInitialData();
     }, []);
 
     useEffect(() => {
@@ -190,6 +213,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     ) => {
         setVesselData(data);
         setShowVesselTable(!!data);
+        setShowPortServiceTable(false);
 
         if (fabData) {
             setFabState((prevState) => ({
@@ -216,13 +240,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         console.log("Table row clicked:", vessel);
         console.log("Current fabState:", fabState); // Add this
 
-        const currentFabData = {
-            ...fabState,
-            isExpanded: false,
-            selectedFilters: fabState.selectedFilters,
-        };
-        setFabState(currentFabData);
-
         // Replace with API call in the future
         const vesselTimelineData = singleVesselActivityData.filter(
             (v) =>
@@ -230,6 +247,12 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         );
 
         if (vesselTimelineData && vesselTimelineData.length > 0) {
+            const currentFabData = {
+                ...fabState,
+                isExpanded: false,
+                selectedFilters: fabState.selectedFilters,
+            };
+            setFabState(currentFabData);
             const initialPosition: [number, number] = [
                 vesselTimelineData[0].longitude,
                 vesselTimelineData[0].latitude,
@@ -449,6 +472,39 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             });
         } else {
             setTooltipInfo(null);
+        }
+    };
+
+    const handlePortServiceDataUpdate = (
+        data: PortServiceData | null,
+        fabData?: {
+            isExpanded: boolean;
+            startDate?: Date;
+            endDate?: Date;
+            selectedFilters?: string[];
+        }
+    ) => {
+        setPortServiceData(data);
+        setShowPortServiceTable(!!data);
+
+        if (fabData) {
+            setFabState((prevState) => ({
+                ...prevState,
+                ...fabData,
+                startDate: fabData.startDate
+                    ? new Date(fabData.startDate)
+                    : undefined,
+                endDate: fabData.endDate
+                    ? new Date(fabData.endDate)
+                    : undefined,
+                selectedFilters:
+                    fabData.selectedFilters || prevState.selectedFilters,
+            }));
+        }
+
+        if (!!data) {
+            setShowVesselTable(false);
+            setVesselData(null);
         }
     };
 
@@ -931,15 +987,14 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
             {/* Floating Action Button */}
             {!showVesselInfo && (
-                <div className="absolute left-4 top-32 z-50">
-                    <FloatingActionButton
-                        onVesselDataUpdate={handleVesselDataUpdate}
-                        initialStartDate={fabState.startDate}
-                        initialEndDate={fabState.endDate}
-                        initialFilters={fabState.selectedFilters}
-                        isItExpanded={fabState.isExpanded}
-                    />
-                </div>
+                <FloatingActionButton
+                    onVesselDataUpdate={handleVesselDataUpdate}
+                    onPortServiceDataUpdate={handlePortServiceDataUpdate}
+                    initialStartDate={fabState.startDate}
+                    initialEndDate={fabState.endDate}
+                    initialFilters={fabState.selectedFilters}
+                    isItExpanded={fabState.isExpanded}
+                />
             )}
 
             {/* Table - from FAB */}
@@ -950,6 +1005,18 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             data={vesselData}
                             onClose={() => handleVesselDataUpdate(null)}
                             onRowClick={handleTableRowClick}
+                        />
+                    </div>
+                </div>
+            )}
+
+            {/* Port Service Table */}
+            {showPortServiceTable && portServiceData && (
+                <div className="absolute left-1/4 top-32 z-50 w-8/12 ">
+                    <div className="bg-white  rounded-lg shadow-lg overflow-hidden">
+                        <PortServiceTable
+                            data={portServiceData}
+                            onClose={() => handlePortServiceDataUpdate(null)}
                         />
                     </div>
                 </div>
