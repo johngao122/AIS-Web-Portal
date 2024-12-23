@@ -28,9 +28,9 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
     const kpis = data["Port Service Levels Analysis"]["Key KPIs"];
 
     return (
-        <div className="bg-white rounded-lg shadow-lg flex flex-col h-full w-full">
+        <div className="bg-white rounded-lg shadow-lg flex flex-col h-full">
             {/* Header */}
-            <div className="flex justify-between items-center px-4 py-2 border-b bg-blue-500 h-[60px]">
+            <div className="flex-none flex justify-between items-center px-4 py-2 border-b bg-blue-500 h-[60px]">
                 <div className="flex items-center gap-2">
                     <Image
                         src={TableIcon}
@@ -46,40 +46,41 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                     <X className="h-4 w-4 text-white" />
                 </button>
             </div>
-            {/* Table */}
-            <div className="flex-1 relative">
-                <div className=" overflow-y-auto w-full h-full">
-                    <table className="w-full border-collapse">
-                        <thead>
+
+            {/* Table Container with Fixed Header */}
+            <div className="flex-1 overflow-hidden">
+                <div className="h-full overflow-y-auto">
+                    <table className="w-full border-collapse table-fixed">
+                        <thead className="sticky top-0 z-10">
                             <tr>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
+                                <th className="bg-white px-6 py-4 text-left font-medium border-r border-b w-1/6">
                                     Key KPIs
                                 </th>
-                                <th className="bg-white px-4 py-2 text-center font-medium border-r border-b">
+                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Aggregated
                                 </th>
-                                <th className="bg-white px-4 py-2 text-center font-medium border-r border-b">
+                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 1
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (0,147]
                                     </span>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-center font-medium border-r border-b">
+                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 2
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (147,209]
                                     </span>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-center font-medium border-r border-b">
+                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 3
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (209,285]
                                     </span>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-center font-medium border-r border-b">
+                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 4
                                     <br />
                                     <span className="text-sm font-normal">
@@ -88,7 +89,7 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="divide-y divide-gray-200">
                             {kpis.map((row, index) => (
                                 <tr
                                     key={row.name}
@@ -96,24 +97,24 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                                         index % 2 === 0
                                             ? "bg-gray-50"
                                             : "bg-white"
-                                    } h-[50px]`}
+                                    } hover:bg-gray-100 transition-colors`}
                                 >
-                                    <td className="px-4 py-2 font-medium border-r border-b">
+                                    <td className="px-6 py-8 font-medium border-r">
                                         {row.name}
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
+                                    <td className="px-6 py-8 text-center border-r">
                                         {row.Aggregated}
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
+                                    <td className="px-6 py-8 text-center border-r">
                                         {row["Category 1 (LOA ∈ (0,147])"]}
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
+                                    <td className="px-6 py-8 text-center border-r">
                                         {row["Category 2 (LOA ∈ (147, 209])"]}
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
+                                    <td className="px-6 py-8 text-center border-r">
                                         {row["Category 3 (LOA ∈ (209, 285])"]}
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
+                                    <td className="px-6 py-8 text-center border-r">
                                         {row["Category 4 (LOA ∈ (285, 400])"]}
                                     </td>
                                 </tr>

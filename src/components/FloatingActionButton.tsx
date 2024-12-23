@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Calendar, Filter, ChevronLeft, AlertCircle } from "lucide-react";
-import { FAB } from "@/resources/dashboard";
+import { VesselIcon } from "@/resources/dashboard";
 import Image from "next/image";
 import DateTimePicker from "./DatePicker";
 import VesselActivity from "@/types/VesselActivity";
@@ -263,7 +263,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                         <div className="flex items-center justify-between p-4 bg-emerald-500 text-white rounded-t-lg">
                             <div className="flex items-center gap-2">
                                 <Image
-                                    src={FAB}
+                                    src={VesselIcon}
                                     alt="Vessel Info"
                                     width={24}
                                     height={24}
@@ -315,7 +315,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                     {/* Start Date */}
                                     <div className="relative w-full">
                                         <div className="flex items-stretch w-full">
-                                            <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex items-center">
+                                            <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex w-[100px] items-center">
                                                 <span className="font-medium whitespace-nowrap">
                                                     start date
                                                 </span>
@@ -372,13 +372,13 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                     {/* End Date */}
                                     <div className="relative w-full">
                                         <div className="flex items-stretch w-full">
-                                            <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex items-center">
+                                            <div className="px-4 py-2 bg-green-500 w-[125px] text-white rounded-l-md flex items-center">
                                                 <span className="font-medium whitespace-nowrap">
                                                     end date
                                                 </span>
                                             </div>
                                             <div
-                                                className={`flex items-center justify-between w-full px-4 py-2 bg-white border ${
+                                                className={`flex items-center justify-between w-full px-3 py-2 bg-white border ${
                                                     dateError
                                                         ? "border-red-500"
                                                         : "border-green-500"
@@ -465,7 +465,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                         </button>
                                     )}
                                 </div>
-                                <div className="space-y-2 h-64 overflow-y-auto">
+                                <div className="space-y-2 h-[calc(40vh)] overflow-y-auto">
                                     {filterOptions.map((option) => {
                                         const isActive =
                                             selectedFilters.length === 0 ||
@@ -533,7 +533,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                         className="w-full h-full bg-emerald-500 rounded-full shadow-lg hover:bg-emerald-600 flex items-center justify-center"
                     >
                         <Image
-                            src={FAB}
+                            src={VesselIcon}
                             alt="Vessel Info"
                             width={24}
                             height={24}

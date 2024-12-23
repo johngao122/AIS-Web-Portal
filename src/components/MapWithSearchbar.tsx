@@ -23,10 +23,11 @@ import TimeSlider from "@/components/TimeSlider";
 import { easeCubic } from "d3-ease";
 import _ from "lodash";
 import VesselActivitySingleWithArrow from "@/components/VesselActivitySingleWithArrow";
-import LayerSelect from "@/components/LayerSelect";
+import MapControls from "./MapControls";
 import type { PortServiceCategory, PortServiceData } from "@/types/PortService";
 import PortServiceTable from "./PortServiceTable";
 import portServiceLevelData from "@/data/example/PortServiceLevel.json";
+import VesselInfoPanel from "./VesselInfoPanel";
 
 // Import layer data
 import knownAreas from "@/data/knownAreas.json";
@@ -475,6 +476,22 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         }
     };
 
+    const handleZoomIn = () => {
+        setViewState((prevState: ViewState) => ({
+            ...prevState,
+            zoom: prevState.zoom + 1,
+            transitionDuration: 300,
+        }));
+    };
+
+    const handleZoomOut = () => {
+        setViewState((prevState: ViewState) => ({
+            ...prevState,
+            zoom: prevState.zoom - 1,
+            transitionDuration: 300,
+        }));
+    };
+
     const handlePortServiceDataUpdate = (
         data: PortServiceData | null,
         fabData?: {
@@ -674,7 +691,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         },
         getIcon: () => "marker",
         sizeScale: 1,
-        getPosition: (d) => [d.longitude, d.latitude],
+        getPosition: (d: VesselData) => [d.longitude, d.latitude],
         getSize: (d) => {
             if (showVesselInfo) return 20;
             return searchQuery && matchesVesselSearch(d, searchQuery) ? 30 : 20;
@@ -846,8 +863,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             <div>Type: {object.seamark_type}</div>
                         </>
                     );
-
-                case "vessel":
                 case "vessel":
                     return (
                         <div className="bg-white rounded-lg min-w-[250px] shadow-lg overflow-hidden">
@@ -952,18 +967,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         );
     };
 
-    //If you want icons to stop flickering, pass in the icons through here instead of inside layerselect
-    const LayerToggle = () => (
-        <div className="absolute top-16 right-4 z-10">
-            <LayerSelect
-                activeLayers={activeLayers}
-                setActiveLayers={setActiveLayers}
-                isOpen={layerMenuOpen}
-                setIsOpen={setLayerMenuOpen}
-            />
-        </div>
-    );
-
     return (
         <div className="relative w-full h-screen">
             <DeckGL
@@ -1000,7 +1003,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             {/* Table - from FAB */}
             {showVesselTable && vesselData && (
                 <div className="absolute left-1/4 top-32 z-50">
-                    <div className="w-8/12 bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="w-11/12 h-[calc(85vh)] bg-white rounded-lg shadow-lg overflow-hidden">
                         <VesselActivityTable
                             data={vesselData}
                             onClose={() => handleVesselDataUpdate(null)}
@@ -1012,8 +1015,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
             {/* Port Service Table */}
             {showPortServiceTable && portServiceData && (
-                <div className="absolute left-1/4 top-32 z-50 w-8/12 ">
-                    <div className="bg-white  rounded-lg shadow-lg overflow-hidden">
+                <div className="absolute left-1/4 top-32 z-50 w-[calc(73vw)]">
+                    <div className="h-[calc(85vh)] bg-white rounded-lg shadow-lg overflow-hidden">
                         <PortServiceTable
                             data={portServiceData}
                             onClose={() => handlePortServiceDataUpdate(null)}
@@ -1067,9 +1070,33 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
             {!showVesselInfo && (
                 <>
-                    <LayerToggle />
-                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2 w-1/4">
+                    {/* Search Bar */}
+                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2 w-2/5">
                         <SearchBar onSearch={handleSearch} />
+                    </div>
+
+                    <div className="fixed bottom-8 right-8 flex items-end gap-4 z-50">
+                        <div>
+                            <MapControls
+                                activeLayers={activeLayers}
+                                setActiveLayers={setActiveLayers}
+                                onZoomIn={handleZoomIn}
+                                onZoomOut={handleZoomOut}
+                                isOpen={layerMenuOpen}
+                                setIsOpen={setLayerMenuOpen}
+                            />
+                        </div>
+                        {searchQuery && filteredVessels.length > 0 && (
+                            <div className="flex-grow">
+                                <VesselInfoPanel
+                                    vessels={filteredVessels}
+                                    onShowAllClick={() => {
+                                        setShowVesselTable(true);
+                                        setSearchQuery("");
+                                    }}
+                                />
+                            </div>
+                        )}
                     </div>
                     <SearchResultsCount
                         count={filteredVessels.length}

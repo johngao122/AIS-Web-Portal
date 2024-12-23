@@ -57,7 +57,7 @@ const LayerSelect: React.FC<LayerSelectProps> = ({
             {/* Icon Button with Tooltip */}
             <button
                 className="p-2 bg-white rounded-md shadow-md hover:bg-gray-50 cursor-pointer transition-colors"
-                onClick={() => setIsOpen(true)}
+                onClick={() => setIsOpen(!isOpen)}
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
             >
