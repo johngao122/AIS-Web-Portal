@@ -39,47 +39,73 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
             {/* Table Container */}
             <div className="flex-1 overflow-hidden">
                 <div ref={tableRef} className="h-full overflow-y-auto">
-                    <table className="w-full border-collapse">
+                    <table className="w-full border-collapse ">
                         <thead className="sticky top-0 z-10">
                             <tr>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    Vessel Name
+                                <th className="bg-white w-32 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        Vessel Name
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    IMO
+                                <th className="bg-white w-24 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        IMO
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    MMSI
+                                <th className="bg-white w-24 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        MMSI
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    LOA
+                                <th className="bg-white w-20 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        LOA
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    Terminal
+                                <th className="bg-white w-28 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        Terminal
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    ATA
+                                <th className="bg-white w-36 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        ATA
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    ATB
+                                <th className="bg-white w-36 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        ATB
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    ATU
+                                <th className="bg-white w-36 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        ATU
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    ATD
+                                <th className="bg-white w-36 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        ATD
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    Pending Hours (B-A)
+                                <th className="bg-white w-32 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        Pending Hours (B-A)
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    Waiting Hours in Anchorage
+                                <th className="bg-white w-40 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        Waiting Hours in Anchorage
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    Berthing Hours (U-B)
+                                <th className="bg-white w-36 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        Berthing Hours (U-B)
+                                    </div>
                                 </th>
-                                <th className="bg-white px-4 py-2 text-left font-medium border-r border-b">
-                                    In Port Hours (D-A)
+                                <th className="bg-white w-36 px-4 py-3 text-left font-medium border-r border-b">
+                                    <div className="min-h-[40px] flex items-center">
+                                        In Port Hours (D-A)
+                                    </div>
                                 </th>
                             </tr>
                         </thead>
@@ -91,49 +117,85 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                         index % 2 === 0
                                             ? "bg-gray-50"
                                             : "bg-white"
-                                    } h-[50px] hover:bg-gray-100 transition-colors cursor-pointer`}
+                                    } hover:bg-gray-100 transition-colors cursor-pointer`}
                                     onClick={() => onRowClick?.(vessel)}
                                 >
-                                    <td className="px-4 py-2 font-medium border-r border-b">
-                                        {vessel.vesselName}
+                                    <td className="px-4 py-3 font-medium border-r border-b">
+                                        <div className="min-h-[40px] flex items-center whitespace-normal">
+                                            {vessel.vesselName}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.imoNumber}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.imoNumber}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.mmsi}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.mmsi}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.loa}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.loa}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.terminal}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.terminal}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {new Date(vessel.ata).toLocaleString()}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {new Date(
+                                                vessel.ata
+                                            ).toLocaleString()}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {new Date(vessel.atb).toLocaleString()}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {new Date(
+                                                vessel.atb
+                                            ).toLocaleString()}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {new Date(vessel.atu).toLocaleString()}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {new Date(
+                                                vessel.atu
+                                            ).toLocaleString()}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {new Date(vessel.atd).toLocaleString()}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {new Date(
+                                                vessel.atd
+                                            ).toLocaleString()}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.waitingHoursAtBerth.toFixed(2)}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.waitingHoursAtBerth.toFixed(
+                                                2
+                                            )}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.waitingHoursInAnchorage.toFixed(
-                                            2
-                                        )}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.waitingHoursInAnchorage.toFixed(
+                                                2
+                                            )}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.berthingHours.toFixed(2)}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.berthingHours.toFixed(2)}
+                                        </div>
                                     </td>
-                                    <td className="px-4 py-2 text-center border-r border-b">
-                                        {vessel.inPortHours.toFixed(2)}
+                                    <td className="px-4 py-3 text-center border-r border-b">
+                                        <div className="min-h-[40px] flex items-center justify-center whitespace-normal">
+                                            {vessel.inPortHours.toFixed(2)}
+                                        </div>
                                     </td>
                                 </tr>
                             ))}

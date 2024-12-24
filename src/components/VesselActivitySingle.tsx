@@ -1,9 +1,7 @@
-/*eslint-disable */
-
-import React, { useState } from "react";
+import React from "react";
 import { X } from "lucide-react";
+import { Vector } from "@/resources/dashboard";
 import Image from "next/image";
-import { ContainerVesselActivitySingle } from "@/resources/dashboard";
 
 interface VesselActivitySingleProps {
     vessel: any;
@@ -14,192 +12,80 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
     vessel,
     onClose,
 }) => {
-    const [isHovered, setIsHovered] = useState(false);
+    const formatDateTime = (dateString: string) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+            month: "numeric",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            hour12: false,
+        });
+    };
+
+    const InfoRow = ({
+        label,
+        value,
+    }: {
+        label: string;
+        value: string | number;
+    }) => (
+        <div className="flex justify-between items-center py-1 border-b border-gray-100">
+            <span className="text-gray-600 text-sm">{label}</span>
+            <span className="text-gray-900 text-sm font-medium">{value}</span>
+        </div>
+    );
 
     return (
-        <div
-            className="fixed top-24 left-1/2 -translate-x-1/2 w-full max-w-7xl bg-white rounded-lg shadow-lg z-[9999] transition-opacity duration-300"
-            style={{ opacity: isHovered ? 1 : 0.3 }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="absolute right-8 w-80 bg-white rounded-lg shadow-lg">
             {/* Header */}
-            <div className="flex justify-between items-center bg-[#4F46E5] p-4 rounded-t-lg">
-                <div className="flex items-center gap-2">
-                    <div className="p-2 rounded">
-                        <Image
-                            src={ContainerVesselActivitySingle}
-                            alt="Icon"
-                            width={24}
-                            height={24}
-                        />
-                    </div>
-                    <h3 className="text-lg font-semibold text-white">
-                        Vessel Information (Past 30 Days)
-                    </h3>
-                </div>
+            <div className="flex justify-between items-center bg-indigo-600 px-4 py-2 rounded-t-lg">
+                <Image
+                    src={Vector}
+                    alt="Vector"
+                    width={12}
+                    height={12}
+                    className="object-contain"
+                />
+                <h3 className="text-sm font-medium text-white">
+                    Vessel Information (Past 30 Days)
+                </h3>
                 <button
                     onClick={onClose}
-                    className="text-white hover:bg-[#6366F1] p-2 rounded-full transition-colors"
+                    className="text-white hover:bg-indigo-700 p-1 rounded-full transition-colors"
                 >
-                    <X className="h-5 w-5" />
+                    <X className="h-4 w-4" />
                 </button>
             </div>
 
-            {/* Table */}
-            <div className="overflow-x-auto">
-                <table className="w-full">
-                    <thead>
-                        <tr className="bg-[#F9FAFB] border-b">
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[120px] whitespace-nowrap">
-                                <div>vesselName</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>imo</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>MMSI</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[80px] whitespace-nowrap">
-                                <div>LOA</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>terminal</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>ATA</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>ATB</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>ATU</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[100px] whitespace-nowrap">
-                                <div>ATD</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[200px] whitespace-nowrap">
-                                <div>Pending Hours (B-A)</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[200px] whitespace-nowrap">
-                                <div>Waiting Hours in anchorages</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[200px] whitespace-nowrap">
-                                <div>Berthing Hours (U-B)</div>
-                            </th>
-                            <th className="px-6 py-4 text-left text-sm font-medium text-gray-500 min-w-[200px] whitespace-nowrap">
-                                <div>In Port Hours (D-A)</div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className="bg-[#F3F4F6] hover:bg-[#E5E7EB] transition-colors">
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.vesselName}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.imoNumber}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.mmsi}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.loa}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.terminal}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {new Date(vessel.ata).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        month: "numeric",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    }
-                                )}
-                                <br />
-                                {new Date(vessel.ata).toLocaleTimeString(
-                                    "en-US",
-                                    {
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        hour12: false,
-                                    }
-                                )}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {new Date(vessel.atb).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        month: "numeric",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    }
-                                )}
-                                <br />
-                                {new Date(vessel.atb).toLocaleTimeString(
-                                    "en-US",
-                                    {
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        hour12: false,
-                                    }
-                                )}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {new Date(vessel.atu).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        month: "numeric",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    }
-                                )}
-                                <br />
-                                {new Date(vessel.atu).toLocaleTimeString(
-                                    "en-US",
-                                    {
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        hour12: false,
-                                    }
-                                )}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {new Date(vessel.atd).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        month: "numeric",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    }
-                                )}
-                                <br />
-                                {new Date(vessel.atd).toLocaleTimeString(
-                                    "en-US",
-                                    {
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        hour12: false,
-                                    }
-                                )}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.waitingHoursAtBerth.toFixed(2)}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.waitingHoursInAnchorage.toFixed(2)}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.berthingHours.toFixed(2)}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-900">
-                                {vessel.inPortHours.toFixed(2)}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            {/* Content */}
+            <div className="p-4 space-y-1">
+                <InfoRow label="Vessel Name" value={vessel.vesselName} />
+                <InfoRow label="IMO" value={vessel.imoNumber} />
+                <InfoRow label="MMSI" value={vessel.mmsi} />
+                <InfoRow label="LOA" value={vessel.loa} />
+                <InfoRow label="Terminal" value={vessel.terminal} />
+                <InfoRow label="ATA" value={formatDateTime(vessel.ata)} />
+                <InfoRow label="ATB" value={formatDateTime(vessel.atb)} />
+                <InfoRow label="ATU" value={formatDateTime(vessel.atu)} />
+                <InfoRow label="ATD" value={formatDateTime(vessel.atd)} />
+                <InfoRow
+                    label="Pending Hours (B-A)"
+                    value={vessel.waitingHoursAtBerth.toFixed(2)}
+                />
+                <InfoRow
+                    label="Waiting Hours"
+                    value={vessel.waitingHoursInAnchorage.toFixed(2)}
+                />
+                <InfoRow
+                    label="Berthing Hours (U-B)"
+                    value={vessel.berthingHours.toFixed(2)}
+                />
+                <InfoRow
+                    label="In Port Hours (D-A)"
+                    value={vessel.inPortHours.toFixed(2)}
+                />
             </div>
         </div>
     );

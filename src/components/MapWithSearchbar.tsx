@@ -610,6 +610,25 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         setCurrentPosition(null);
         setCurrentTime(null);
         setIsPlaying(false);
+        setFocusVessel(null);
+        setActiveVessel(null);
+
+        if (searchQuery) {
+            const matchedVessels = vessels.filter((vessel) =>
+                matchesVesselSearch(vessel, searchQuery)
+            );
+            if (matchedVessels.length > 0) {
+                setViewState((prevState: ViewState) => ({
+                    ...prevState,
+                    zoom: 13,
+                    transitionDuration: 2000,
+                    transitionInterpolator: new FlyToInterpolator({
+                        speed: 1.2,
+                    }),
+                    transitionEasing: easeCubic,
+                }));
+            }
+        }
     };
 
     //Anchorage layer
@@ -1028,22 +1047,25 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             {/* Vessel Trajectory View */}
             {showVesselInfo && selectedVessel && (
                 <>
-                    {vesselInfoSource === "fab" ? (
-                        <VesselActivitySingleWithArrow
-                            vessel={selectedVessel}
-                            onClose={handleCloseVesselInfo}
-                            onUpArrowClick={handleUpArrowClick}
-                            dateRange={{
-                                startDate: dateRange?.startDate ?? new Date(),
-                                endDate: dateRange?.endDate ?? new Date(),
-                            }}
-                        />
-                    ) : (
-                        <VesselActivitySingle
-                            vessel={selectedVessel}
-                            onClose={handleCloseVesselInfo}
-                        />
-                    )}
+                    <div className="absolute top-32 right-8 z-50">
+                        {vesselInfoSource === "fab" ? (
+                            <VesselActivitySingleWithArrow
+                                vessel={selectedVessel}
+                                onClose={handleCloseVesselInfo}
+                                onUpArrowClick={handleUpArrowClick}
+                                dateRange={{
+                                    startDate:
+                                        dateRange?.startDate ?? new Date(),
+                                    endDate: dateRange?.endDate ?? new Date(),
+                                }}
+                            />
+                        ) : (
+                            <VesselActivitySingle
+                                vessel={selectedVessel}
+                                onClose={handleCloseVesselInfo}
+                            />
+                        )}
+                    </div>
 
                     {/* Time Slider Component */}
                     <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl z-[9999]">
@@ -1072,10 +1094,13 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 <>
                     {/* Search Bar */}
                     <div className="absolute top-32 left-1/2 transform -translate-x-1/2 w-2/5">
-                        <SearchBar onSearch={handleSearch} />
+                        <SearchBar
+                            onSearch={handleSearch}
+                            value={searchQuery}
+                        />
                     </div>
 
-                    <div className="fixed bottom-8 right-8 flex items-end gap-4 z-50">
+                    <div className="fixed bottom-8 right-8 flex items-end gap-4 z-40">
                         <div>
                             <MapControls
                                 activeLayers={activeLayers}
@@ -1093,6 +1118,24 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                                     onShowAllClick={() => {
                                         setShowVesselTable(true);
                                         setSearchQuery("");
+                                    }}
+                                    onVesselClick={(vessel) => {
+                                        handleVesselClick(vessel, () => {
+                                            setViewState(
+                                                (prevState: ViewState) => ({
+                                                    ...prevState,
+                                                    longitude: vessel.longitude,
+                                                    latitude: vessel.latitude,
+                                                    zoom: 10.5,
+                                                    transitionDuration: 2000,
+                                                    transitionInterpolator:
+                                                        new FlyToInterpolator({
+                                                            speed: 1.2,
+                                                        }),
+                                                    transitionEasing: easeCubic,
+                                                })
+                                            );
+                                        });
                                     }}
                                 />
                             </div>

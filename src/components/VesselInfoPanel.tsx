@@ -1,13 +1,16 @@
 import React from "react";
 import type VesselMarker from "@/types/VesselMarker";
+
 interface VesselInfoPanelProps {
     vessels: VesselMarker[];
     onShowAllClick?: () => void;
+    onVesselClick?: (vessel: VesselMarker) => void;
 }
 
 const VesselInfoPanel: React.FC<VesselInfoPanelProps> = ({
     vessels,
     onShowAllClick,
+    onVesselClick,
 }) => {
     if (!vessels || vessels.length === 0) return null;
 
@@ -23,11 +26,12 @@ const VesselInfoPanel: React.FC<VesselInfoPanelProps> = ({
             </div>
 
             {/* Vessel List */}
-            <div className="max-h-[calc(100vh-300px)] overflow-y-auto">
+            <div className="max-h-[calc(100vh-300px)] overflow-y-auto divide-y divide-gray-200">
                 {vessels.map((vessel, index) => (
                     <div
                         key={`${vessel.imoNumber}-${index}`}
-                        className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+                        className="p-4 hover:bg-gray-50 transition-colors duration-200 cursor-pointer border-l-4 border-l-transparent hover:border-l-[#4F46E5]"
+                        onClick={() => onVesselClick?.(vessel)}
                     >
                         <div className="space-y-2">
                             <div className="flex justify-between items-center">
@@ -75,7 +79,7 @@ const VesselInfoPanel: React.FC<VesselInfoPanelProps> = ({
 
             {/* Show All Button */}
             {vessels.length > 0 && (
-                <div className="p-3 bg-white border-t border-gray-100">
+                <div className="p-3 bg-white border-t border-gray-200">
                     <button
                         onClick={onShowAllClick}
                         className="w-full py-2 bg-[#4F46E5] text-white rounded-md hover:bg-[#4338CA] transition-colors duration-200 text-sm"
