@@ -28,6 +28,7 @@ import type { PortServiceCategory, PortServiceData } from "@/types/PortService";
 import PortServiceTable from "./PortServiceTable";
 import portServiceLevelData from "@/data/example/PortServiceLevel.json";
 import VesselInfoPanel from "./VesselInfoPanel";
+import type { FilterValue, FilterOption, FilterState } from "@/types/Filters";
 
 // Import layer data
 import knownAreas from "@/data/knownAreas.json";
@@ -54,7 +55,7 @@ interface FabState {
     isExpanded: boolean;
     startDate?: Date;
     endDate?: Date;
-    selectedFilters: string[];
+    selectedFilters: FilterState;
 }
 
 const ErrorToast: React.FC<{ message: string }> = ({ message }) => {
@@ -109,7 +110,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     const [currentHeading, setCurrentHeading] = useState<number>(0);
     const [fabState, setFabState] = useState<FabState>({
         isExpanded: false,
-        selectedFilters: [],
+        selectedFilters: {},
     });
     const [vesselInfoSource, setVesselInfoSource] = useState<
         "fab" | "direct" | null
@@ -212,7 +213,12 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         data: VesselActivity[] | null,
         fabData?: any
     ) => {
-        setVesselData(data);
+        if (data && fabData?.filterValues) {
+            const filteredData = applyFilters(data, fabData.filterValues);
+            setVesselData(filteredData);
+        } else {
+            setVesselData(data);
+        }
         setShowVesselTable(!!data);
         setShowPortServiceTable(false);
 
@@ -226,8 +232,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 endDate: fabData.endDate
                     ? new Date(fabData.endDate)
                     : undefined,
-                selectedFilters:
-                    fabData.selectedFilters || prevState.selectedFilters,
+                filterValues: fabData.filterValues || {},
             }));
         }
 
@@ -236,6 +241,131 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             setSelectedVessel(null);
             setTimelineData([]);
         }
+    };
+
+    const validateRange = (
+        value: any,
+        additionalValue: any,
+        fieldValue: number
+    ): boolean => {
+        // Convert empty strings or undefined to defaults (0 for min, Infinity for max)
+        console.log(value, additionalValue, fieldValue);
+        const min = value === "" || value === undefined ? 0 : Number(value);
+        const max =
+            additionalValue === "" || additionalValue === undefined
+                ? Infinity
+                : Number(additionalValue);
+
+        // Simple range check
+        return fieldValue >= min && fieldValue <= max;
+    };
+
+    const applyFilters = (data: VesselActivity[], filters: FilterState) => {
+        return data.filter((vessel) => {
+            return Object.entries(filters).every(([key, filterValue]) => {
+                // For range filters, we should check both value and additionalValue
+                const value = filterValue.value;
+                const additionalValue = filterValue.additionalValue;
+                console.log(value, additionalValue);
+                console.log(key);
+                // Only skip if both values are empty for range filters
+                if (
+                    key === "loa" ||
+                    key === "preBerthingHours" ||
+                    key === "anchorageWaitingHours" ||
+                    key === "berthingHours" ||
+                    key === "inPortHours"
+                ) {
+                    if (!value && !additionalValue) return true;
+                } else {
+                    // For non-range filters, keep existing behavior
+                    if (!value) return true;
+                }
+
+                switch (key) {
+                    case "vesselName":
+                        return vessel.vesselName
+                            .toLowerCase()
+                            .includes((value as string).toLowerCase());
+
+                    case "imoNumber":
+                        return vessel.imoNumber.toString() === value.toString();
+
+                    case "mmsi":
+                        return vessel.mmsi.toString() === value.toString();
+
+                    case "loa":
+                        return validateRange(
+                            value,
+                            filterValue.additionalValue,
+                            Number(vessel.loa)
+                        );
+
+                    case "terminal":
+                        return vessel.terminal === value;
+
+                    case "multipleRecords":
+                        const minRecords = Number(value);
+                        const occurences = data.filter(
+                            (v) =>
+                                v.vesselName.toLowerCase() ===
+                                vessel.vesselName.toLowerCase()
+                        ).length;
+                        return occurences >= minRecords;
+
+                    case "ata":
+                        if (value === "true") return !!vessel.ata;
+                        if (value === "false") return !vessel.ata;
+                        return true;
+
+                    case "atb":
+                        if (value === "true") return !!vessel.atb;
+                        if (value === "false") return !vessel.atb;
+                        return true;
+
+                    case "atu":
+                        if (value === "true") return !!vessel.atu;
+                        if (value === "false") return !vessel.atu;
+                        return true;
+
+                    case "atd":
+                        if (value === "true") return !!vessel.atd;
+                        if (value === "false") return !vessel.atd;
+                        return true;
+
+                    case "preBerthingHours":
+                        return validateRange(
+                            value,
+                            filterValue.additionalValue,
+                            vessel.waitingHoursAtBerth
+                        );
+
+                    case "anchorageWaitingHours":
+                        return validateRange(
+                            value,
+                            filterValue.additionalValue,
+                            vessel.waitingHoursInAnchorage
+                        );
+
+                    case "berthingHours":
+                        return validateRange(
+                            value,
+                            filterValue.additionalValue,
+                            vessel.berthingHours
+                        );
+
+                    case "inPortHours":
+                        return validateRange(
+                            value,
+                            filterValue.additionalValue,
+                            vessel.inPortHours
+                        );
+
+                    default:
+                        return true;
+                }
+            });
+        });
     };
     const handleTableRowClick = async (vessel: VesselActivity) => {
         console.log("Table row clicked:", vessel);
@@ -498,7 +628,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             isExpanded: boolean;
             startDate?: Date;
             endDate?: Date;
-            selectedFilters?: string[];
+            filterValues?: FilterState; // Changed from selectedFilters
         }
     ) => {
         setPortServiceData(data);
@@ -514,8 +644,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 endDate: fabData.endDate
                     ? new Date(fabData.endDate)
                     : undefined,
-                selectedFilters:
-                    fabData.selectedFilters || prevState.selectedFilters,
+                filterValues: fabData.filterValues || {}, // Changed from selectedFilters
             }));
         }
 

@@ -35,8 +35,7 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                     <Image
                         src={TableIcon}
                         alt="Port Service Table Icon"
-                        width={20}
-                        height={20}
+                        className="h-6 w-6"
                     />
                     <span className="text-base text-white">
                         port service levels analysis

@@ -4,11 +4,31 @@ import React from "react";
 import { X } from "lucide-react";
 import { Vector } from "@/resources/dashboard";
 import Image from "next/image";
+import { Info } from "lucide-react";
 
 interface VesselActivitySingleProps {
     vessel: any;
     onClose: () => void;
 }
+
+const tooltips = {
+    "Vessel Name": "Name of the vessel",
+    IMO: "International Maritime Organization number - unique vessel identifier",
+    MMSI: "Maritime Mobile Service Identity - unique number for vessel radio communications",
+    LOA: "Length Overall, measuring vessel's total length",
+    Manager: "Company or individual responsible for vessel operations",
+    "Last Location": "Most recently recorded position of the vessel",
+    Terminal: "Container terminal where vessel operations take place",
+    ATA: "Actual Time of Arrival to Singapore port limit",
+    ATB: "Actual Time of Berthing to a specific container terminal",
+    ATU: "Actual Time of Unberthing from the terminal",
+    ATD: "Actual Time of Departure from Singapore port limit",
+    "Pending Hours":
+        "Time spent within port limit before reaching terminal boundary (ATB-ATA)",
+    "Waiting Hours": "Time spent in anchorage areas",
+    "Berthing Hours": "Time spent within terminal boundary (ATU-ATB)",
+    "In Port Hours": "Total time spent within Singapore port limit (ATD-ATA)",
+};
 
 const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
     vessel,
@@ -29,12 +49,24 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
     const InfoRow = ({
         label,
         value,
+        tooltip,
     }: {
         label: string;
         value: string | number;
+        tooltip: string;
     }) => (
         <div className="flex justify-between items-center py-1 border-b border-gray-100">
-            <span className="text-gray-600 text-sm">{label}</span>
+            <div className="flex items-center gap-1">
+                <span className="text-gray-600 text-sm">{label}</span>
+                <div className="relative group">
+                    <Info size={14} className="text-gray-400 cursor-help" />
+                    <div className="absolute left-0 bottom-full mb-2 invisible group-hover:visible">
+                        <div className="bg-white text-gray-600 text-sm rounded-lg px-4 py-2 shadow-lg border border-gray-100 w-64">
+                            {tooltip}
+                        </div>
+                    </div>
+                </div>
+            </div>
             <span className="text-gray-900 text-sm font-medium">{value}</span>
         </div>
     );
@@ -63,30 +95,70 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
 
             {/* Content */}
             <div className="p-4 space-y-1">
-                <InfoRow label="Vessel Name" value={vessel.vesselName} />
-                <InfoRow label="IMO" value={vessel.imoNumber} />
-                <InfoRow label="MMSI" value={vessel.mmsi} />
-                <InfoRow label="LOA" value={vessel.loa} />
-                <InfoRow label="Terminal" value={vessel.terminal} />
-                <InfoRow label="ATA" value={formatDateTime(vessel.ata)} />
-                <InfoRow label="ATB" value={formatDateTime(vessel.atb)} />
-                <InfoRow label="ATU" value={formatDateTime(vessel.atu)} />
-                <InfoRow label="ATD" value={formatDateTime(vessel.atd)} />
                 <InfoRow
-                    label="Pending Hours (B-A)"
+                    label="Vessel Name"
+                    value={vessel.vesselName}
+                    tooltip={tooltips["Vessel Name"]}
+                />
+                <InfoRow
+                    label="IMO"
+                    value={vessel.imoNumber}
+                    tooltip={tooltips["IMO"]}
+                />
+                <InfoRow
+                    label="MMSI"
+                    value={vessel.mmsi}
+                    tooltip={tooltips["MMSI"]}
+                />
+                <InfoRow
+                    label="LOA"
+                    value={vessel.loa}
+                    tooltip={tooltips["LOA"]}
+                />
+                <InfoRow
+                    label="Terminal"
+                    value={vessel.terminal}
+                    tooltip={tooltips["Terminal"]}
+                />
+                <InfoRow
+                    label="ATA"
+                    value={formatDateTime(vessel.ata)}
+                    tooltip={tooltips["ATA"]}
+                />
+                <InfoRow
+                    label="ATB"
+                    value={formatDateTime(vessel.atb)}
+                    tooltip={tooltips["ATB"]}
+                />
+                <InfoRow
+                    label="ATU"
+                    value={formatDateTime(vessel.atu)}
+                    tooltip={tooltips["ATU"]}
+                />
+                <InfoRow
+                    label="ATD"
+                    value={formatDateTime(vessel.atd)}
+                    tooltip={tooltips["ATD"]}
+                />
+                <InfoRow
+                    label="Pending Hours"
                     value={vessel.waitingHoursAtBerth.toFixed(2)}
+                    tooltip={tooltips["Pending Hours"]}
                 />
                 <InfoRow
                     label="Waiting Hours"
                     value={vessel.waitingHoursInAnchorage.toFixed(2)}
+                    tooltip={tooltips["Waiting Hours"]}
                 />
                 <InfoRow
-                    label="Berthing Hours (U-B)"
+                    label="Berthing Hours"
                     value={vessel.berthingHours.toFixed(2)}
+                    tooltip={tooltips["Berthing Hours"]}
                 />
                 <InfoRow
-                    label="In Port Hours (D-A)"
+                    label="In Port Hours"
                     value={vessel.inPortHours.toFixed(2)}
+                    tooltip={tooltips["In Port Hours"]}
                 />
             </div>
         </div>

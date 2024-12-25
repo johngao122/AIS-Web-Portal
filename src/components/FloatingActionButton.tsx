@@ -7,11 +7,14 @@ import Image from "next/image";
 import DateTimePicker from "./DatePicker";
 import VesselActivity from "@/types/VesselActivity";
 import type { PortServiceData } from "@/types/PortService";
+import type { FilterOption, FilterState, FilterValue } from "@/types/Filters";
 
-interface FilterOption {
-    id: string;
-    label: string;
-}
+const TERMINALS = [
+    "Brani Terminal",
+    "Keppel Terminal",
+    "Tuas Terminal",
+    "Pasir Panjang Terminal",
+];
 
 interface FloatingActionButtonProps {
     onVesselDataUpdate: (data: VesselActivity[] | null, fabData?: any) => void;
@@ -21,29 +24,115 @@ interface FloatingActionButtonProps {
             isExpanded: boolean;
             startDate?: Date;
             endDate?: Date;
-            selectedFilters?: string[];
+            selectedFilters?: FilterState;
         }
     ) => void;
     initialStartDate?: Date;
     initialEndDate?: Date;
-    initialFilters?: string[];
+    initialFilters?: FilterState;
     isItExpanded?: boolean;
 }
 
 const filterOptions: FilterOption[] = [
-    { id: "imoNumber", label: "IMO Number" },
-    { id: "mmsi", label: "MMSI" },
-    { id: "vesselName", label: "Vessel Name" },
-    { id: "loa", label: "LOA" },
-    { id: "terminal", label: "Terminal" },
-    { id: "ata", label: "ATA" },
-    { id: "atb", label: "ATB" },
-    { id: "atu", label: "ATU" },
-    { id: "atd", label: "ATD" },
-    { id: "waitingHoursAtBerth", label: "Waiting Hours at Berth" },
-    { id: "waitingHoursAtAnchorage", label: "Waiting Hours at Anchorage" },
-    { id: "berthingHours", label: "Berthing Hours" },
-    { id: "inPortHours", label: "In Port Hours" },
+    {
+        id: "vesselName",
+        label: "Vessel Name",
+        type: "text",
+        logic: "include",
+        placeholder: "Type vessel name to include",
+    },
+    {
+        id: "imoNumber",
+        label: "IMO",
+        type: "text",
+        logic: "is",
+        placeholder: "Enter IMO number",
+    },
+    {
+        id: "mmsi",
+        label: "MMSI",
+        type: "text",
+        logic: "is",
+        placeholder: "Enter MMSI number",
+    },
+    {
+        id: "loa",
+        label: "LOA",
+        type: "range",
+        logic: "within",
+        placeholder: "Enter LOA range",
+    },
+    {
+        id: "terminal",
+        label: "Terminal",
+        type: "select",
+        options: TERMINALS,
+        placeholder: "Select terminals",
+        multiple: false,
+    },
+    {
+        id: "multipleRecords",
+        label: "Multiple records of a vessel",
+        type: "number",
+        logic: "larger",
+        placeholder: "Min number of records",
+    },
+    {
+        id: "ata",
+        label: "ATA",
+        type: "select",
+        logic: "notBlank",
+        placeholder: "Has ATA",
+    },
+    {
+        id: "atb",
+        label: "ATB",
+        type: "select",
+        logic: "notBlank",
+        placeholder: "Has ATB",
+    },
+    {
+        id: "atu",
+        label: "ATU",
+        type: "select",
+        logic: "notBlank",
+        placeholder: "Has ATU",
+    },
+    {
+        id: "atd",
+        label: "ATD",
+        type: "select",
+        logic: "notBlank",
+        placeholder: "Has ATD",
+    },
+    {
+        id: "preBerthingHours",
+        label: "Pre-berthing Hours",
+        type: "range",
+        logic: "larger",
+        placeholder: "Enter hours range",
+    },
+    {
+        id: "anchorageWaitingHours",
+        label: "Anchorage waiting hours",
+        type: "range",
+        logic: "larger",
+        placeholder: "Enter hours range",
+    },
+    {
+        id: "berthingHours",
+        label: "Berthing Hours",
+        type: "range",
+        logic: "larger",
+        placeholder: "Enter hours range",
+    },
+    {
+        id: "inPortHours",
+        label: "In Port Hours",
+        type: "range",
+        logic: "larger",
+        placeholder: "Enter hours range",
+    },
 ];
 
 const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
@@ -60,7 +149,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     const [showEndDatePicker, setShowEndDatePicker] = useState<boolean>(false);
     const [startDate, setStartDate] = useState<Date | undefined>();
     const [endDate, setEndDate] = useState<Date | undefined>();
-    const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+    const [filterValues, setFilterValues] = useState<FilterState>({});
     const [dateError, setDateError] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -77,7 +166,9 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     }, [initialEndDate]);
 
     useEffect(() => {
-        setSelectedFilters(initialFilters || []);
+        if (initialFilters) {
+            setFilterValues(initialFilters);
+        }
     }, [initialFilters]);
     const formatDateTime = (date: Date): string => {
         return `${date.toLocaleDateString("en-US", {
@@ -123,14 +214,6 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         return endTime > startTime;
     };
 
-    const getActiveFilters = () => {
-        // If no filters are selected, return all filter IDs
-        if (selectedFilters.length === 0) {
-            return filterOptions.map((option) => option.id);
-        }
-        return selectedFilters;
-    };
-
     useEffect(() => {
         if (startDate && endDate) {
             if (!validateDates(startDate, endDate)) {
@@ -155,6 +238,18 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         );
     };
 
+    const handleClearFilters = () => {
+        const emptyFilters: FilterState = {};
+        filterOptions.forEach((filter) => {
+            if (filter.type === "range") {
+                emptyFilters[filter.id] = { value: "", additionalValue: "" };
+            } else {
+                emptyFilters[filter.id] = { value: "" };
+            }
+        });
+        setFilterValues(emptyFilters);
+    };
+
     const handleAnalyzePortService = async () => {
         setIsLoading(true);
         try {
@@ -165,7 +260,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                 isExpanded: true,
                 startDate,
                 endDate,
-                selectedFilters: selectedFilters,
+                selectedFilters: filterValues,
             });
         } catch (error) {
             console.error("Error loading port service data:", error);
@@ -206,24 +301,154 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         onVesselDataUpdate(data, { isExpanded: expanded });
     };
 
-    const handleFilterChange = (filterId: string) => {
-        setSelectedFilters((prev) => {
-            if (prev.includes(filterId)) {
-                return prev.filter((id) => id !== filterId);
-            } else {
-                return [...prev, filterId];
-            }
-        });
+    const handleFilterChange = (
+        id: string,
+        value: string | number | string[],
+        additionalValue?: string | number
+    ) => {
+        setFilterValues((prev) => ({
+            ...prev,
+            [id]: { value, additionalValue },
+        }));
+    };
+
+    const renderFilterInput = (filter: FilterOption) => {
+        const currentValue = filterValues[filter.id]?.value || "";
+        const additionalValue = filterValues[filter.id]?.additionalValue;
+
+        switch (filter.type) {
+            case "text":
+                return (
+                    <input
+                        type="text"
+                        value={currentValue as string}
+                        onChange={(e) =>
+                            handleFilterChange(filter.id, e.target.value)
+                        }
+                        placeholder={filter.placeholder}
+                        className="w-full px-3 py-2 border rounded-md"
+                    />
+                );
+            case "range":
+                return (
+                    <div className="flex gap-2">
+                        <input
+                            type="number"
+                            value={
+                                currentValue === "" ||
+                                currentValue === undefined
+                                    ? ""
+                                    : currentValue
+                            }
+                            onChange={(e) => {
+                                const newValue = e.target.value;
+                                handleFilterChange(
+                                    filter.id,
+                                    newValue === "" ? "" : Number(newValue),
+                                    additionalValue
+                                );
+                            }}
+                            placeholder="Min"
+                            className="w-1/2 px-3 py-2 border rounded-md"
+                        />
+                        <input
+                            type="number"
+                            value={
+                                additionalValue === "" ||
+                                additionalValue === undefined
+                                    ? ""
+                                    : additionalValue
+                            }
+                            onChange={(e) => {
+                                const newValue = e.target.value;
+                                handleFilterChange(
+                                    filter.id,
+                                    currentValue,
+                                    newValue === "" ? "" : Number(newValue)
+                                );
+                            }}
+                            placeholder="Max"
+                            className="w-1/2 px-3 py-2 border rounded-md"
+                        />
+                    </div>
+                );
+            case "select":
+                if (filter.logic === "notBlank") {
+                    return (
+                        <select
+                            value={currentValue as string}
+                            onChange={(e) =>
+                                handleFilterChange(filter.id, e.target.value)
+                            }
+                            className="w-full px-3 py-2 border rounded-md"
+                        >
+                            <option value="">Any</option>
+                            <option value="true">Has value</option>
+                            <option value="false">No value</option>
+                        </select>
+                    );
+                }
+                if (!filter.multiple) {
+                    return (
+                        <select
+                            value={currentValue as string}
+                            onChange={(e) =>
+                                handleFilterChange(filter.id, e.target.value)
+                            }
+                            className="w-full px-3 py-2 border rounded-md"
+                        >
+                            <option value="">Select {filter.label}</option>
+                            {filter.options?.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                            ))}
+                        </select>
+                    );
+                }
+                return (
+                    <select
+                        multiple
+                        value={Array.isArray(currentValue) ? currentValue : []}
+                        onChange={(e) =>
+                            handleFilterChange(
+                                filter.id,
+                                Array.from(
+                                    e.target.selectedOptions,
+                                    (option) => option.value
+                                )
+                            )
+                        }
+                        className="w-full px-3 py-2 border rounded-md"
+                    >
+                        {filter.options?.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
+                );
+            case "number":
+                return (
+                    <input
+                        type="number"
+                        value={currentValue as number}
+                        onChange={(e) =>
+                            handleFilterChange(filter.id, e.target.value)
+                        }
+                        placeholder={filter.placeholder}
+                        className="w-full px-3 py-2 border rounded-md"
+                    />
+                );
+            default:
+                return null;
+        }
     };
 
     const handleClearDates = () => {
         setStartDate(undefined);
         setEndDate(undefined);
         setDateError("");
-    };
-
-    const handleClearFilters = () => {
-        setSelectedFilters([]);
     };
 
     const handleShowVesselActivity = async () => {
@@ -234,7 +459,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                 isExpanded: true,
                 startDate,
                 endDate,
-                selectedFilters: selectedFilters,
+                filterValues,
             });
         } catch (error) {
             console.error("Error loading vessel data:", error);
@@ -245,14 +470,15 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     };
 
     return (
-        <div className="fixed left-4 top-32 z-50">
+        <div className="fixed left-4 top-32 z-50 w-[24vw]">
             <div
                 className={`
                 overflow-hidden
                 transition-all duration-300 ease-in-out
+                
                 ${
                     isExpanded
-                        ? "w-auto  bg-white rounded-lg shadow-lg"
+                        ? "w-auto max-w-md bg-white rounded-lg shadow-lg"
                         : "w-12 h-12"
                 }
             `}
@@ -441,54 +667,33 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                             </div>
 
                             {/* Filter Section */}
-                            <div className="space-y-4">
+                            <div className="space-y-4 w-full">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <Filter size={20} />
                                         <span className="font-medium">
-                                            Select Parameter Filters
-                                            {selectedFilters.length === 0 && (
-                                                <span className="text-sm text-gray-500 ml-2">
-                                                    (all selected)
-                                                </span>
-                                            )}
+                                            Parameter Filters
                                         </span>
                                     </div>
-                                    {selectedFilters.length > 0 && (
-                                        <button
-                                            onClick={() =>
-                                                setSelectedFilters([])
-                                            }
-                                            className="text-sm text-gray-500 hover:text-gray-700"
-                                        >
-                                            Select all
-                                        </button>
-                                    )}
+                                    <button
+                                        onClick={() => handleClearFilters()}
+                                        className="text-xs text-gray-500 hover:text-gray-700"
+                                    >
+                                        Clear all
+                                    </button>
                                 </div>
-                                <div className="space-y-2 h-[calc(40vh)] overflow-y-auto">
-                                    {filterOptions.map((option) => {
-                                        const isActive =
-                                            selectedFilters.length === 0 ||
-                                            selectedFilters.includes(option.id);
-                                        return (
-                                            <label
-                                                key={option.id}
-                                                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-md cursor-pointer"
-                                            >
-                                                <input
-                                                    type="checkbox"
-                                                    checked={isActive}
-                                                    onChange={() =>
-                                                        handleFilterChange(
-                                                            option.id
-                                                        )
-                                                    }
-                                                    className="w-4 h-4 text-green-500 rounded"
-                                                />
-                                                <span>{option.label}</span>
+                                <div className="space-y-4 h-[calc(40vh)] overflow-y-auto">
+                                    {filterOptions.map((filter) => (
+                                        <div
+                                            key={filter.id}
+                                            className="space-y-1"
+                                        >
+                                            <label className="block text-sm font-medium text-gray-700">
+                                                {filter.label}
                                             </label>
-                                        );
-                                    })}
+                                            {renderFilterInput(filter)}
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             {/* Action Buttons */}
