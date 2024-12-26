@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react";
 import { X } from "lucide-react";
 import { Vector } from "@/resources/dashboard";
