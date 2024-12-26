@@ -170,6 +170,31 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
             setFilterValues(initialFilters);
         }
     }, [initialFilters]);
+
+    useEffect(() => {
+        if (isItExpanded !== undefined) {
+            setExpanded(!!isItExpanded);
+        }
+
+        if (initialEndDate || initialStartDate) {
+            const endDateTime = initialEndDate
+                ? new Date(initialEndDate)
+                : new Date();
+
+            const startDateTime = initialStartDate
+                ? new Date(initialStartDate)
+                : new Date(endDateTime);
+            startDateTime.setMonth(startDateTime.getMonth());
+
+            setStartDate(startDateTime);
+            setEndDate(endDateTime);
+        }
+
+        if (initialFilters) {
+            setFilterValues(initialFilters);
+        }
+    }, [isItExpanded, initialStartDate, initialEndDate, initialFilters]);
+
     const formatDateTime = (date: Date): string => {
         return `${date.toLocaleDateString("en-US", {
             month: "long",
@@ -470,23 +495,22 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     };
 
     return (
-        <div className="fixed left-4 top-32 z-50 w-[24vw]">
+        <div className="h-full w-full">
             <div
                 className={`
-                overflow-hidden
-                transition-all duration-300 ease-in-out
-                
-                ${
-                    isExpanded
-                        ? "w-auto max-w-md bg-white rounded-lg shadow-lg"
-                        : "w-12 h-12"
-                }
-            `}
+                    overflow-hidden
+                    transition-all duration-300 ease-in-out
+                    ${
+                        isExpanded
+                            ? "w-auto max-w-md bg-white rounded-lg shadow-lg h-full flex flex-col"
+                            : "w-12 h-12"
+                    }
+                `}
             >
                 {isExpanded ? (
-                    <div className="w-full relative">
-                        {/* Header */}
-                        <div className="flex items-center justify-between p-4 bg-emerald-500 text-white rounded-t-lg">
+                    <div className="w-full relative flex flex-col h-full">
+                        {/* Header - Fixed */}
+                        <div className="flex-none flex items-center justify-between p-4 bg-emerald-500 text-white rounded-t-lg">
                             <div className="flex items-center gap-2">
                                 <Image
                                     src={VesselIcon}
@@ -506,230 +530,241 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                             </button>
                         </div>
 
-                        {/* Content */}
-                        <div className="p-4 space-y-6">
-                            {/* Date Range Section */}
-                            <div className="space-y-3">
-                                {/* Header */}
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <Calendar size={20} />
-                                        <span className="font-medium">
-                                            Select Date Range
-                                        </span>
-                                    </div>
-                                    <button
-                                        onClick={handleClearDates}
-                                        className="text-xs text-gray-500 hover:text-gray-700"
-                                    >
-                                        Clear
-                                    </button>
-                                </div>
-
-                                {/* Error Message */}
-                                {dateError && (
-                                    <div className="flex items-center gap-2 p-2 bg-red-50 text-red-600 rounded-md">
-                                        <AlertCircle size={16} />
-                                        <span className="text-sm">
-                                            {dateError}
-                                        </span>
-                                    </div>
-                                )}
-
-                                {/* Date Select */}
-                                <div className="flex flex-col space-y-2">
-                                    {/* Start Date */}
-                                    <div className="relative w-full">
-                                        <div className="flex items-stretch w-full">
-                                            <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex w-[100px] items-center">
-                                                <span className="font-medium whitespace-nowrap">
-                                                    start date
-                                                </span>
-                                            </div>
-                                            <div
-                                                className="flex items-center justify-between w-full px-4 py-2 bg-white border border-green-500 rounded-r-md cursor-pointer"
-                                                onClick={() => {
-                                                    setShowStartDatePicker(
-                                                        !showStartDatePicker
-                                                    );
-                                                    setShowEndDatePicker(false);
-                                                }}
-                                            >
-                                                <span className="text-gray-500 select-none">
-                                                    {startDate
-                                                        ? formatDateTime(
-                                                              startDate
-                                                          )
-                                                        : "DD MM. YYYY 00:00:00"}
-                                                </span>
-                                                <span
-                                                    className={`transition-transform duration-200 ${
-                                                        showStartDatePicker
-                                                            ? "rotate-180"
-                                                            : ""
-                                                    }`}
-                                                >
-                                                    ▼
-                                                </span>
-                                            </div>
+                        {/* Scrollable Content Area */}
+                        <div className="flex-1 overflow-y-auto">
+                            <div className="p-4 space-y-4">
+                                {/* Date Range Section */}
+                                <div className="space-y-2">
+                                    {/* Date Range Header */}
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <Calendar size={20} />
+                                            <span className="font-medium">
+                                                Select Date Range
+                                            </span>
                                         </div>
-                                        {showStartDatePicker && (
-                                            <div className="absolute top-full left-0 mt-1 w-full z-50 bg-white shadow-lg rounded-md">
-                                                <DateTimePicker
-                                                    onSelect={(date) =>
-                                                        handleDateSelect(
-                                                            date,
-                                                            true
-                                                        )
-                                                    }
-                                                    onClose={() =>
+                                        <button
+                                            onClick={handleClearDates}
+                                            className="text-xs text-gray-500 hover:text-gray-700"
+                                        >
+                                            Clear
+                                        </button>
+                                    </div>
+
+                                    {/* Error Message */}
+                                    {dateError && (
+                                        <div className="flex items-center gap-2 p-2 bg-red-50 text-red-600 rounded-md">
+                                            <AlertCircle size={16} />
+                                            <span className="text-sm">
+                                                {dateError}
+                                            </span>
+                                        </div>
+                                    )}
+
+                                    {/* Date Select Fields */}
+                                    <div className="flex flex-col space-y-2">
+                                        {/* Start Date */}
+                                        <div className="relative w-full">
+                                            <div className="flex items-stretch w-full">
+                                                <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex w-[100px] items-center">
+                                                    <span className="font-medium whitespace-nowrap">
+                                                        start date
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    className="flex items-center justify-between w-full px-4 py-2 bg-white border border-green-500 rounded-r-md cursor-pointer"
+                                                    onClick={() => {
                                                         setShowStartDatePicker(
-                                                            false
-                                                        )
-                                                    }
-                                                    selectedDate={startDate}
-                                                    maxDate={endDate}
-                                                    isStartDate={true}
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    {/* End Date */}
-                                    <div className="relative w-full">
-                                        <div className="flex items-stretch w-full">
-                                            <div className="px-4 py-2 bg-green-500 w-[125px] text-white rounded-l-md flex items-center">
-                                                <span className="font-medium whitespace-nowrap">
-                                                    end date
-                                                </span>
-                                            </div>
-                                            <div
-                                                className={`flex items-center justify-between w-full px-3 py-2 bg-white border ${
-                                                    dateError
-                                                        ? "border-red-500"
-                                                        : "border-green-500"
-                                                } rounded-r-md cursor-pointer`}
-                                                onClick={() => {
-                                                    setShowEndDatePicker(
-                                                        !showEndDatePicker
-                                                    );
-                                                    setShowStartDatePicker(
-                                                        false
-                                                    );
-                                                }}
-                                            >
-                                                <span
-                                                    className={`${
-                                                        dateError
-                                                            ? "text-red-600"
-                                                            : "text-gray-500"
-                                                    } select-none`}
-                                                >
-                                                    {endDate
-                                                        ? formatDateTime(
-                                                              endDate
-                                                          )
-                                                        : "DD MM. YYYY 00:00:00"}
-                                                </span>
-                                                <span
-                                                    className={`transition-transform duration-200 ${
-                                                        showEndDatePicker
-                                                            ? "rotate-180"
-                                                            : ""
-                                                    }`}
-                                                >
-                                                    ▼
-                                                </span>
-                                            </div>
-                                        </div>
-                                        {showEndDatePicker && (
-                                            <div className="absolute top-full left-0 mt-1 w-full z-50 bg-white shadow-lg rounded-md">
-                                                <DateTimePicker
-                                                    onSelect={(date) =>
-                                                        handleDateSelect(
-                                                            date,
-                                                            false
-                                                        )
-                                                    }
-                                                    onClose={() =>
+                                                            !showStartDatePicker
+                                                        );
                                                         setShowEndDatePicker(
                                                             false
-                                                        )
-                                                    }
-                                                    selectedDate={endDate}
-                                                    minDate={startDate}
-                                                    isStartDate={false}
-                                                />
+                                                        );
+                                                    }}
+                                                >
+                                                    <span className="text-gray-500 select-none">
+                                                        {startDate
+                                                            ? formatDateTime(
+                                                                  startDate
+                                                              )
+                                                            : "DD MM. YYYY 00:00:00"}
+                                                    </span>
+                                                    <span
+                                                        className={`transition-transform duration-200 ${
+                                                            showStartDatePicker
+                                                                ? "rotate-180"
+                                                                : ""
+                                                        }`}
+                                                    >
+                                                        ▼
+                                                    </span>
+                                                </div>
                                             </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
+                                            {showStartDatePicker && (
+                                                <div className="absolute top-full left-0 mt-1 w-full z-50">
+                                                    <DateTimePicker
+                                                        onSelect={(date) =>
+                                                            handleDateSelect(
+                                                                date,
+                                                                true
+                                                            )
+                                                        }
+                                                        onClose={() =>
+                                                            setShowStartDatePicker(
+                                                                false
+                                                            )
+                                                        }
+                                                        selectedDate={startDate}
+                                                        maxDate={endDate}
+                                                        isStartDate={true}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
 
-                            {/* Filter Section */}
-                            <div className="space-y-4 w-full">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <Filter size={20} />
-                                        <span className="font-medium">
-                                            Parameter Filters
-                                        </span>
+                                        {/* End Date */}
+                                        <div className="relative w-full">
+                                            <div className="flex items-stretch w-full">
+                                                <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex w-[100px] items-center">
+                                                    <span className="font-medium whitespace-nowrap">
+                                                        end date
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    className={`flex items-center justify-between w-full px-4 py-2 bg-white border ${
+                                                        dateError
+                                                            ? "border-red-500"
+                                                            : "border-green-500"
+                                                    } rounded-r-md cursor-pointer`}
+                                                    onClick={() => {
+                                                        setShowEndDatePicker(
+                                                            !showEndDatePicker
+                                                        );
+                                                        setShowStartDatePicker(
+                                                            false
+                                                        );
+                                                    }}
+                                                >
+                                                    <span
+                                                        className={`${
+                                                            dateError
+                                                                ? "text-red-600"
+                                                                : "text-gray-500"
+                                                        } select-none`}
+                                                    >
+                                                        {endDate
+                                                            ? formatDateTime(
+                                                                  endDate
+                                                              )
+                                                            : "DD MM. YYYY 00:00:00"}
+                                                    </span>
+                                                    <span
+                                                        className={`transition-transform duration-200 ${
+                                                            showEndDatePicker
+                                                                ? "rotate-180"
+                                                                : ""
+                                                        }`}
+                                                    >
+                                                        ▼
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {showEndDatePicker && (
+                                                <div className="absolute top-full left-0 mt-1 w-full z-50">
+                                                    <DateTimePicker
+                                                        onSelect={(date) =>
+                                                            handleDateSelect(
+                                                                date,
+                                                                false
+                                                            )
+                                                        }
+                                                        onClose={() =>
+                                                            setShowEndDatePicker(
+                                                                false
+                                                            )
+                                                        }
+                                                        selectedDate={endDate}
+                                                        minDate={startDate}
+                                                        isStartDate={false}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
-                                    <button
-                                        onClick={() => handleClearFilters()}
-                                        className="text-xs text-gray-500 hover:text-gray-700"
-                                    >
-                                        Clear all
-                                    </button>
                                 </div>
-                                <div className="space-y-4 h-[calc(40vh)] overflow-y-auto">
-                                    {filterOptions.map((filter) => (
-                                        <div
-                                            key={filter.id}
-                                            className="space-y-1"
+
+                                {/* Filter Section */}
+                                <div className="space-y-2 w-full">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <Filter size={20} />
+                                            <span className="font-medium">
+                                                Parameter Filters
+                                            </span>
+                                        </div>
+                                        <button
+                                            onClick={() => handleClearFilters()}
+                                            className="text-xs text-gray-500 hover:text-gray-700"
                                         >
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                {filter.label}
-                                            </label>
-                                            {renderFilterInput(filter)}
-                                        </div>
-                                    ))}
+                                            Clear all
+                                        </button>
+                                    </div>
+                                    {/* Filter list with dynamic height */}
+                                    <div
+                                        className="space-y-3 overflow-y-auto"
+                                        style={{
+                                            maxHeight: "calc(100vh - 580px)",
+                                        }}
+                                    >
+                                        {filterOptions.map((filter) => (
+                                            <div
+                                                key={filter.id}
+                                                className="space-y-1"
+                                            >
+                                                <label className="block text-sm font-medium text-gray-700">
+                                                    {filter.label}
+                                                </label>
+                                                {renderFilterInput(filter)}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                            {/* Action Buttons */}
-                            <div className="space-y-2 pt-4">
-                                <button
-                                    className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50 relative"
-                                    disabled={
-                                        !startDate ||
-                                        !endDate ||
-                                        dateError !== "" ||
-                                        isLoading
-                                    }
-                                    onClick={handleShowVesselActivity}
-                                >
-                                    {isLoading ? (
-                                        <div className="flex items-center justify-center gap-2">
-                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                                            <span>Loading...</span>
-                                        </div>
-                                    ) : (
-                                        "Show container vessel activity"
-                                    )}
-                                </button>
-                                <button
-                                    className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50"
-                                    disabled={
-                                        !startDate ||
-                                        !endDate ||
-                                        dateError !== "" ||
-                                        isLoading
-                                    }
-                                    onClick={handleAnalyzePortService}
-                                >
-                                    Analyze port service levels
-                                </button>
-                            </div>
+                        </div>
+
+                        {/* Action Buttons - Fixed at bottom */}
+                        <div className="flex-none p-4 space-y-2 bg-white border-t">
+                            <button
+                                className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50 relative"
+                                disabled={
+                                    !startDate ||
+                                    !endDate ||
+                                    dateError !== "" ||
+                                    isLoading
+                                }
+                                onClick={handleShowVesselActivity}
+                            >
+                                {isLoading ? (
+                                    <div className="flex items-center justify-center gap-2">
+                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        <span>Loading...</span>
+                                    </div>
+                                ) : (
+                                    "Show container vessel activity"
+                                )}
+                            </button>
+                            <button
+                                className="w-full py-3 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                                disabled={
+                                    !startDate ||
+                                    !endDate ||
+                                    dateError !== "" ||
+                                    isLoading
+                                }
+                                onClick={handleAnalyzePortService}
+                            >
+                                Analyze port service levels
+                            </button>
                         </div>
                     </div>
                 ) : (

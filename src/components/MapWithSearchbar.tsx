@@ -727,8 +727,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         if (!searchQuery) return null;
 
         return (
-            <div className="absolute top-44 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow">
-                Found {count} vessel{count !== 1 ? "s" : ""} of {total}
+            <div className="bg-white px-4 py-2 rounded-full shadow-lg">
+                Found {count} vessels of {total}
             </div>
         );
     };
@@ -938,6 +938,31 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         }
     };
 
+    const handleShowAllClick = () => {
+        const endDate = new Date();
+        const startDate = new Date(endDate);
+        startDate.setMonth(startDate.getMonth() - 1);
+
+        const newState = {
+            isExpanded: true,
+            startDate,
+            endDate,
+            selectedFilters: {} as FilterState,
+        };
+
+        setDateRange({ startDate, endDate });
+        setFabState(newState);
+        setShowVesselTable(true);
+        setSearchQuery("");
+
+        // Update vessel data with complete state
+        handleVesselDataUpdate(vesselActivityData, {
+            ...newState,
+            filterValues: {},
+            isExpanded: true,
+        });
+    };
+
     const renderTooltip = () => {
         if (!tooltipInfo) return null;
 
@@ -1117,66 +1142,120 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
     return (
         <div className="relative w-full h-screen">
-            <DeckGL
-                viewState={viewState}
-                controller={true}
-                layers={[
-                    anchorageLayer,
-                    fairwayLayer,
-                    separationLayer,
-                    vesselPathLayer,
-                    vesselLayer,
-                ]}
-                onViewStateChange={onViewStateChange}
-            >
-                <StaticMap
-                    mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
-                    mapStyle={mapStyle}
-                />
-                {renderTooltip()}
-            </DeckGL>
+            {/* Base Map Layer */}
+            <div className="absolute inset-0 z-0">
+                <DeckGL
+                    viewState={viewState}
+                    controller={true}
+                    layers={[
+                        anchorageLayer,
+                        fairwayLayer,
+                        separationLayer,
+                        vesselPathLayer,
+                        vesselLayer,
+                    ]}
+                    onViewStateChange={onViewStateChange}
+                >
+                    <StaticMap
+                        mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
+                        mapStyle={mapStyle}
+                    />
+                    {renderTooltip()}
+                </DeckGL>
+            </div>
 
-            {/* Floating Action Button */}
+            {/* UI Layer */}
+            <div className="absolute inset-0 pointer-events-none z-10">
+                {/* Search Bar */}
+                {!showVesselInfo && (
+                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2 w-2/5 pointer-events-auto">
+                        <SearchBar
+                            onSearch={handleSearch}
+                            value={searchQuery}
+                        />
+                    </div>
+                )}
+
+                {/* Search Results Count */}
+                {!showVesselInfo && searchQuery && (
+                    <div className="absolute top-44 left-1/2 transform -translate-x-1/2 pointer-events-auto">
+                        <SearchResultsCount
+                            count={filteredVessels.length}
+                            total={vessels.length}
+                        />
+                    </div>
+                )}
+
+                {/* Map Controls */}
+                {!showVesselInfo && (
+                    <div className="absolute bottom-8 right-8 flex items-end gap-4 pointer-events-auto">
+                        <MapControls
+                            activeLayers={activeLayers}
+                            setActiveLayers={setActiveLayers}
+                            onZoomIn={handleZoomIn}
+                            onZoomOut={handleZoomOut}
+                            isOpen={layerMenuOpen}
+                            setIsOpen={setLayerMenuOpen}
+                        />
+                        {searchQuery && filteredVessels.length > 0 && (
+                            <div className="flex-grow">
+                                <VesselInfoPanel
+                                    vessels={filteredVessels}
+                                    onShowAllClick={handleShowAllClick}
+                                    onVesselClick={(vessel) =>
+                                        handleVesselClick(vessel)
+                                    }
+                                />
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+
+            {/* FAB Layer - Separate layer for FAB */}
             {!showVesselInfo && (
-                <FloatingActionButton
-                    onVesselDataUpdate={handleVesselDataUpdate}
-                    onPortServiceDataUpdate={handlePortServiceDataUpdate}
-                    initialStartDate={fabState.startDate}
-                    initialEndDate={fabState.endDate}
-                    initialFilters={fabState.selectedFilters}
-                    isItExpanded={fabState.isExpanded}
-                />
-            )}
-
-            {/* Table - from FAB */}
-            {showVesselTable && vesselData && (
-                <div className="absolute left-1/4 top-32 z-50">
-                    <div className="w-11/12 h-[calc(85vh)] bg-white rounded-lg shadow-lg overflow-hidden">
-                        <VesselActivityTable
-                            data={vesselData}
-                            onClose={() => handleVesselDataUpdate(null)}
-                            onRowClick={handleTableRowClick}
-                        />
-                    </div>
+                <div className="absolute top-32 left-4 w-[27vw] pointer-events-auto z-30">
+                    <FloatingActionButton
+                        onVesselDataUpdate={handleVesselDataUpdate}
+                        onPortServiceDataUpdate={handlePortServiceDataUpdate}
+                        initialStartDate={fabState.startDate}
+                        initialEndDate={fabState.endDate}
+                        initialFilters={fabState.selectedFilters}
+                        isItExpanded={fabState.isExpanded}
+                    />
                 </div>
             )}
 
-            {/* Port Service Table */}
-            {showPortServiceTable && portServiceData && (
-                <div className="absolute left-1/4 top-32 z-50 w-[calc(73vw)]">
-                    <div className="h-[calc(85vh)] bg-white rounded-lg shadow-lg overflow-hidden">
-                        <PortServiceTable
-                            data={portServiceData}
-                            onClose={() => handlePortServiceDataUpdate(null)}
-                        />
-                    </div>
+            {/* Table Layer */}
+            {!showVesselInfo && (showVesselTable || showPortServiceTable) && (
+                <div className="absolute top-32 left-[calc(27vw+1rem+1rem)] right-4 pointer-events-auto z-20">
+                    {showVesselTable && vesselData && (
+                        <div className="w-full h-[calc(83vh)] bg-white rounded-lg shadow-lg overflow-hidden">
+                            <VesselActivityTable
+                                data={vesselData}
+                                onClose={() => handleVesselDataUpdate(null)}
+                                onRowClick={handleTableRowClick}
+                            />
+                        </div>
+                    )}
+
+                    {showPortServiceTable && portServiceData && (
+                        <div className="w-full h-[calc(83vh)] bg-white rounded-lg shadow-lg overflow-hidden">
+                            <PortServiceTable
+                                data={portServiceData}
+                                onClose={() =>
+                                    handlePortServiceDataUpdate(null)
+                                }
+                            />
+                        </div>
+                    )}
                 </div>
             )}
 
-            {/* Vessel Trajectory View */}
+            {/* Vessel Info Panel Layer */}
             {showVesselInfo && selectedVessel && (
                 <>
-                    <div className="absolute top-32 right-8 z-50">
+                    <div className="absolute top-32 right-8 pointer-events-auto h-[calc(60vh)] z-20">
                         {vesselInfoSource === "fab" ? (
                             <VesselActivitySingleWithArrow
                                 vessel={selectedVessel}
@@ -1196,8 +1275,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                         )}
                     </div>
 
-                    {/* Time Slider Component */}
-                    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl z-[9999]">
+                    {/* Time Slider */}
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl pointer-events-auto z-20">
                         <TimeSlider
                             startTime={new Date(timelineData[0].timestamp)}
                             endTime={
@@ -1219,63 +1298,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 </>
             )}
 
-            {!showVesselInfo && (
-                <>
-                    {/* Search Bar */}
-                    <div className="absolute top-32 left-1/2 transform -translate-x-1/2 w-2/5">
-                        <SearchBar
-                            onSearch={handleSearch}
-                            value={searchQuery}
-                        />
-                    </div>
-
-                    <div className="fixed bottom-8 right-8 flex items-end gap-4 z-40">
-                        <div>
-                            <MapControls
-                                activeLayers={activeLayers}
-                                setActiveLayers={setActiveLayers}
-                                onZoomIn={handleZoomIn}
-                                onZoomOut={handleZoomOut}
-                                isOpen={layerMenuOpen}
-                                setIsOpen={setLayerMenuOpen}
-                            />
-                        </div>
-                        {searchQuery && filteredVessels.length > 0 && (
-                            <div className="flex-grow">
-                                <VesselInfoPanel
-                                    vessels={filteredVessels}
-                                    onShowAllClick={() => {
-                                        setShowVesselTable(true);
-                                        setSearchQuery("");
-                                    }}
-                                    onVesselClick={(vessel) => {
-                                        handleVesselClick(vessel, () => {
-                                            setViewState(
-                                                (prevState: ViewState) => ({
-                                                    ...prevState,
-                                                    longitude: vessel.longitude,
-                                                    latitude: vessel.latitude,
-                                                    zoom: 10.5,
-                                                    transitionDuration: 2000,
-                                                    transitionInterpolator:
-                                                        new FlyToInterpolator({
-                                                            speed: 1.2,
-                                                        }),
-                                                    transitionEasing: easeCubic,
-                                                })
-                                            );
-                                        });
-                                    }}
-                                />
-                            </div>
-                        )}
-                    </div>
-                    <SearchResultsCount
-                        count={filteredVessels.length}
-                        total={vessels.length}
-                    />
-                </>
-            )}
+            {/* Toast Layer */}
             {errorMessage && <ErrorToast message={errorMessage} />}
         </div>
     );

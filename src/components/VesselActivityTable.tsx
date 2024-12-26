@@ -152,7 +152,7 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
     const sortedData = getSortedData();
 
     return (
-        <div className="flex flex-col h-full bg-white absolute left-1/4 w-[74vw] rounded-lg shadow-lg overflow-hidden">
+        <div className="flex flex-col h-full bg-white rounded-lg shadow-lg overflow-hidden">
             {/* Header */}
             <div className="flex-none flex justify-between items-center px-4 py-2 border-b bg-blue-500 h-[60px] rounded-t-lg">
                 <div className="flex items-center gap-2">

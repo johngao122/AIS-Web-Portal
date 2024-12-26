@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from "react";
 import { X } from "lucide-react";
 import { Vector } from "@/resources/dashboard";
@@ -60,7 +58,7 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
                 <span className="text-gray-600 text-sm">{label}</span>
                 <div className="relative group">
                     <Info size={14} className="text-gray-400 cursor-help" />
-                    <div className="absolute left-0 bottom-full mb-2 invisible group-hover:visible">
+                    <div className="absolute left-0 bottom-full mb-2 invisible group-hover:visible z-50">
                         <div className="bg-white text-gray-600 text-sm rounded-lg px-4 py-2 shadow-lg border border-gray-100 w-64">
                             {tooltip}
                         </div>
@@ -72,9 +70,9 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
     );
 
     return (
-        <div className="absolute right-8 w-80 bg-white rounded-lg shadow-lg">
+        <div className="absolute right-8 w-80 bg-white rounded-lg shadow-lg max-h-[83vh] flex flex-col">
             {/* Header */}
-            <div className="flex justify-between items-center bg-indigo-600 px-4 py-2 rounded-t-lg">
+            <div className="flex-none flex justify-between items-center bg-indigo-600 px-4 py-2 rounded-t-lg">
                 <Image
                     src={Vector}
                     alt="Vector"
@@ -93,8 +91,8 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
                 </button>
             </div>
 
-            {/* Content */}
-            <div className="p-4 space-y-1">
+            {/* Scrollable Content */}
+            <div className="flex-1 p-4 space-y-1 overflow-y-auto">
                 <InfoRow
                     label="Vessel Name"
                     value={vessel.vesselName}
