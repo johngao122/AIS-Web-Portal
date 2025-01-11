@@ -24,8 +24,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# API Instructions
+
+Currently the API is being hosted as a test service on render.com, because we are using the free tier for testing, the server will sleep and reset every 15 minutes of inactivity.
+
+I suggest using POSTMAN to register a user first before using the API.
+
+To register a user, use the POST method with the endpoint https://ais-testing-backend.onrender.com/register. The request body should be in JSON format and contain the following fields:
+
+```json
+{
+    "username": "your_username",
+    "password": "your_password"
+}
+```
+
+For example, as shown in the screenshot, the payload includes:
+
+```json
+{
+    "username": "john",
+    "password": "1234"
+}
+```
+
+Ensure the Content-Type header is set to application/json. Once the request is sent, you should receive a response confirming the registration. If the server has been inactive for over 15 minutes, it might take a short while to wake up due to the limitations of the free tier hosting.

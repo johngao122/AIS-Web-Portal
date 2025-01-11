@@ -4,16 +4,10 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import TopBarWithLogo from "@/components/TopBarWithLogo";
 import Image from "next/image";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { AISLogo, loginPicture } from "@/resources/login_page";
 import AutoLoginNotification from "@/components/AutoLoginNotification";
 import "@/app/globals.css";
-
-// fake backend
-const DEMO_USERS = [
-    { username: "demo", password: "demo123" },
-    { username: "admin", password: "admin123" },
-];
 
 export default function Login() {
     const router = useRouter();
@@ -28,7 +22,6 @@ export default function Login() {
     const [showAutoLogin, setShowAutoLogin] = useState(false);
     const [autoLoginUser, setAutoLoginUser] = useState("");
 
-    // remember me??? TODO: think of something
     useEffect(() => {
         const user = localStorage.getItem("User");
         if (user) {
@@ -54,30 +47,41 @@ export default function Login() {
         setIsLoading(true);
         setError("");
 
-        // Fake API delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        try {
+            const API = process.env.NEXT_PUBLIC_API;
+            console.log(API);
+            const response = await fetch(`${API}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: formData.username,
+                    password: formData.password,
+                }),
+            });
 
-        // FAKE AUTH, IMPLEMENT LATER
-        const matchedUser = DEMO_USERS.find(
-            (u) =>
-                u.username === formData.username &&
-                u.password === formData.password
-        );
+            const data = await response.json();
 
-        if (matchedUser) {
-            // Store user data with username
-            const userData = { username: matchedUser.username };
+            if (response.ok && data.access_token) {
+                const userData = {
+                    username: formData.username,
+                    token: data.access_token,
+                };
 
-            if (formData.rememberMe) {
-                localStorage.setItem("User", JSON.stringify(userData));
+                if (formData.rememberMe) {
+                    localStorage.setItem("User", JSON.stringify(userData));
+                }
+                sessionStorage.setItem("User", JSON.stringify(userData));
+                router.push("/dashboard");
+            } else {
+                setError(data.detail || "Invalid username or password");
             }
-            sessionStorage.setItem("User", JSON.stringify(userData));
-            router.push("/dashboard");
-        } else {
-            setError("Invalid username or password");
+        } catch (err) {
+            setError("An error occurred. Please try again later.");
+        } finally {
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     };
 
     return (
@@ -219,17 +223,23 @@ export default function Login() {
                         {/* Login Button */}
                         <button
                             type="submit"
-                            className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                             disabled={isLoading}
                         >
-                            {isLoading ? "Logging in..." : "Log In"}
+                            {isLoading ? (
+                                <>
+                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    Connecting...
+                                </>
+                            ) : (
+                                "Log In"
+                            )}
                         </button>
 
-                        {/* Demo Credentials */}
-                        <div className="text-sm text-gray-600 text-center">
-                            <p>Demo credentials:</p>
-                            <p>Username: demo / Password: demo123</p>
-                            <p>Username: admin / Password: admin123</p>
+                        {/* Server notice */}
+                        <div className="text-sm text-gray-500 text-center">
+                            Note: First login may take longer as the server
+                            needs to wake up
                         </div>
                     </form>
                 </div>
