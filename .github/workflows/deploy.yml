@@ -33,6 +33,7 @@ jobs:
               run: npm run build
               env:
                   NEXT_PUBLIC_MAPBOX: ${{ secrets.NEXT_PUBLIC_MAPBOX }}
+                  NEXT_PUBLIC_API: "https://ais-testing-backend.onrender.com"
                   NODE_ENV: production
 
             - name: Deploy
