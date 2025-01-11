@@ -62,7 +62,7 @@ const ErrorToast: React.FC<{ message: string }> = ({ message }) => {
     //Error Toast
     return (
         <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded shadow-lg z-[9999] animate-fade-in">
-            <span>No data for vessel {message}</span>
+            <span>No trajectory data available for {message}</span>
         </div>
     );
 };
@@ -214,7 +214,9 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         fabData?: any
     ) => {
         if (data && fabData?.filterValues) {
-            const filteredData = applyFilters(data, fabData.filterValues);
+            const filtersToApply =
+                fabData?.filterValues || fabState.selectedFilters;
+            const filteredData = applyFilters(data, filtersToApply);
             setVesselData(filteredData);
         } else {
             setVesselData(data);
@@ -431,9 +433,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             setShowVesselTable(false);
             setShowVesselInfo(true);
         } else {
-            setErrorMessage(
-                `No trajectory data available for ${vessel.vesselName}`
-            );
+            setErrorMessage(`${vessel.vesselName}`);
             setTimeout(() => setErrorMessage(null), 3000);
         }
     };

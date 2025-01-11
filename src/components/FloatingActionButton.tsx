@@ -484,7 +484,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                 isExpanded: true,
                 startDate,
                 endDate,
-                filterValues,
+                filterValues: filterValues,
             });
         } catch (error) {
             console.error("Error loading vessel data:", error);
