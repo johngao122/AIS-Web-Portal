@@ -83,7 +83,7 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
                     className="object-contain"
                 />
                 <h3 className="text-sm font-medium text-white">
-                    Vessel Information (Past 30 Days)
+                    Vessel Latest Berthing Record
                 </h3>
                 <button
                     onClick={onClose}
@@ -94,7 +94,7 @@ const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
             </div>
 
             {/* Scrollable Content */}
-            <div className="flex-1 p-4 space-y-1 overflow-y-auto">
+            <div className="flex-1 p-4 space-y-1 ">
                 <InfoRow
                     label="Vessel Name"
                     value={vessel.vesselName}

@@ -3,40 +3,49 @@
 import React, { useState, useEffect, useMemo } from "react";
 import DeckGL from "@deck.gl/react";
 import StaticMap from "react-map-gl";
-import Image from "next/image";
-import { FlyToInterpolator, IconLayer, PathLayer, PolygonLayer } from "deck.gl";
+import { IconLayer, PathLayer, PolygonLayer } from "deck.gl";
 import { PathStyleExtension } from "@deck.gl/extensions";
+import { easeCubic } from "d3-ease";
+import _ from "lodash";
+import { FlyToInterpolator } from "deck.gl";
+import Image from "next/image";
 import vesselMarker from "@/resources/map/vessel_marker.png";
 import SearchBar from "@/components/Searchbar";
 import vesselPingData from "@/data/example/VesselPing.json";
 import { VesselIcon } from "@/resources/dashboard";
-import type VesselActivity from "@/types/VesselActivity";
-import type VesselData from "@/types/VesselData";
-import type VesselMarker from "@/types/VesselMarker";
-import type ViewState from "@/types/ViewState";
-import vesselActivityData from "@/data/example/VesselActivity.json";
-import singleVesselActivityData from "@/data/example/VesselActivitySingle.json";
-import FloatingActionButton from "@/components/FloatingActionButton";
+import FloatingActionButton from "@/components/VesselInformationFloatingActionButton";
+import PortServiceFAB from "@/components/PortServiceLevelFloatingActionButton";
 import VesselActivityTable from "@/components/VesselActivityTable";
 import VesselActivitySingle from "@/components/VesselActivitySingle";
 import TimeSlider from "@/components/TimeSlider";
-import { easeCubic } from "d3-ease";
-import _ from "lodash";
 import VesselActivitySingleWithArrow from "@/components/VesselActivitySingleWithArrow";
 import MapControls from "./MapControls";
-import type { PortServiceCategory, PortServiceData } from "@/types/PortService";
 import PortServiceTable from "./PortServiceTable";
-import portServiceLevelData from "@/data/example/PortServiceLevel.json";
 import VesselInfoPanel from "./VesselInfoPanel";
-import type { FilterValue, FilterOption, FilterState } from "@/types/Filters";
 
-// Import layer data
+import type VesselActivity from "@/types/VesselActivity";
+import type { PortServiceCategory, PortServiceData } from "@/types/PortService";
+import type { FilterState } from "@/types/Filters";
+import type VesselData from "@/types/VesselData";
+import type VesselMarker from "@/types/VesselMarker";
+import type ViewState from "@/types/ViewState";
+import type { TimeRange } from "@/components/PortServiceLevelFloatingActionButton";
+
 import knownAreas from "@/data/knownAreas.json";
 import separation from "@/data/seamark_separation.json";
+import vesselActivityData from "@/data/example/VesselActivity.json";
+import singleVesselActivityData from "@/data/example/VesselActivitySingle.json";
+import portServiceLevelData from "@/data/example/PortServiceLevel.json";
 
 interface MapProps {
     mapStyle?: string;
     initialViewState?: any;
+}
+
+interface PortServiceFabState {
+    isExpanded: boolean;
+    timeRanges?: TimeRange[];
+    selectedFilters?: string[];
 }
 
 interface TooltipInfo {
@@ -108,9 +117,18 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState<Date | null>(null);
     const [currentHeading, setCurrentHeading] = useState<number>(0);
-    const [fabState, setFabState] = useState<FabState>({
-        isExpanded: false,
-        selectedFilters: {},
+    const [fabStates, setFabStates] = useState({
+        vesselInfo: {
+            isExpanded: false,
+            startDate: undefined as Date | undefined,
+            endDate: undefined as Date | undefined,
+            selectedFilters: {} as FilterState,
+        },
+        portService: {
+            isExpanded: false,
+            timeRanges: [] as TimeRange[],
+            selectedFilters: [] as string[],
+        },
     });
     const [vesselInfoSource, setVesselInfoSource] = useState<
         "fab" | "direct" | null
@@ -208,6 +226,37 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     const onViewStateChange = ({ viewState }: any) => {
         setViewState(viewState);
     };
+    const handleVesselInfoFabToggle = (isExpanded: boolean, data?: any) => {
+        setFabStates((prev) => ({
+            ...prev,
+            vesselInfo: {
+                ...prev.vesselInfo,
+                isExpanded,
+                ...(data || {}),
+            },
+            // Close port service FAB when vessel info FAB is expanded
+            portService: {
+                ...prev.portService,
+                isExpanded: isExpanded ? false : prev.portService.isExpanded,
+            },
+        }));
+    };
+
+    const handlePortServiceFabToggle = (isExpanded: boolean, data?: any) => {
+        setFabStates((prev) => ({
+            ...prev,
+            portService: {
+                ...prev.portService,
+                isExpanded,
+                ...(data || {}),
+            },
+            // Close vessel info FAB when port service FAB is expanded
+            vesselInfo: {
+                ...prev.vesselInfo,
+                isExpanded: isExpanded ? false : prev.vesselInfo.isExpanded,
+            },
+        }));
+    };
 
     const handleVesselDataUpdate = (
         data: VesselActivity[] | null,
@@ -215,7 +264,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     ) => {
         if (data && fabData?.filterValues) {
             const filtersToApply =
-                fabData?.filterValues || fabState.selectedFilters;
+                fabData?.filterValues || fabStates.vesselInfo.selectedFilters;
             const filteredData = applyFilters(data, filtersToApply);
             setVesselData(filteredData);
         } else {
@@ -225,17 +274,15 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         setShowPortServiceTable(false);
 
         if (fabData) {
-            setFabState((prevState) => ({
-                ...prevState,
-                ...fabData,
+            handleVesselInfoFabToggle(fabData.isExpanded, {
                 startDate: fabData.startDate
                     ? new Date(fabData.startDate)
                     : undefined,
                 endDate: fabData.endDate
                     ? new Date(fabData.endDate)
                     : undefined,
-                filterValues: fabData.filterValues || {},
-            }));
+                selectedFilters: fabData.filterValues || {},
+            });
         }
 
         if (!!data) {
@@ -370,22 +417,13 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         });
     };
     const handleTableRowClick = async (vessel: VesselActivity) => {
-        console.log("Table row clicked:", vessel);
-        console.log("Current fabState:", fabState); // Add this
-
-        // Replace with API call in the future
         const vesselTimelineData = singleVesselActivityData.filter(
             (v) =>
                 v.vesselName.toLowerCase() === vessel.vesselName.toLowerCase()
         );
 
         if (vesselTimelineData && vesselTimelineData.length > 0) {
-            const currentFabData = {
-                ...fabState,
-                isExpanded: false,
-                selectedFilters: fabState.selectedFilters,
-            };
-            setFabState(currentFabData);
+            handleVesselInfoFabToggle(false);
             const initialPosition: [number, number] = [
                 vesselTimelineData[0].longitude,
                 vesselTimelineData[0].latitude,
@@ -444,15 +482,16 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         setCurrentPosition(null);
         setCurrentTime(null);
         setIsPlaying(false);
-        const restoredFabState = {
-            ...fabState,
-            isExpanded: true,
-            selectedFilters: fabState.selectedFilters,
-        };
-        setFabState(restoredFabState);
-        setShowVesselTable(true);
 
-        handleVesselDataUpdate(vesselData, restoredFabState);
+        handleVesselInfoFabToggle(true, {
+            selectedFilters: fabStates.vesselInfo.selectedFilters,
+        });
+
+        setShowVesselTable(true);
+        handleVesselDataUpdate(vesselData, {
+            isExpanded: true,
+            selectedFilters: fabStates.vesselInfo.selectedFilters,
+        });
 
         setViewState((prevState: ViewState) => ({
             ...prevState,
@@ -626,26 +665,18 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         data: PortServiceData | null,
         fabData?: {
             isExpanded: boolean;
-            startDate?: Date;
-            endDate?: Date;
-            filterValues?: FilterState; // Changed from selectedFilters
+            timeRanges?: TimeRange[];
+            selectedFilters?: string[];
         }
     ) => {
         setPortServiceData(data);
         setShowPortServiceTable(!!data);
 
         if (fabData) {
-            setFabState((prevState) => ({
-                ...prevState,
-                ...fabData,
-                startDate: fabData.startDate
-                    ? new Date(fabData.startDate)
-                    : undefined,
-                endDate: fabData.endDate
-                    ? new Date(fabData.endDate)
-                    : undefined,
-                filterValues: fabData.filterValues || {}, // Changed from selectedFilters
-            }));
+            handlePortServiceFabToggle(fabData.isExpanded, {
+                timeRanges: fabData.timeRanges,
+                selectedFilters: fabData.selectedFilters,
+            });
         }
 
         if (!!data) {
@@ -943,23 +974,21 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         const startDate = new Date(endDate);
         startDate.setMonth(startDate.getMonth() - 1);
 
-        const newState = {
-            isExpanded: true,
+        setDateRange({ startDate, endDate });
+        handleVesselInfoFabToggle(true, {
             startDate,
             endDate,
-            selectedFilters: {} as FilterState,
-        };
+            selectedFilters: {},
+        });
 
-        setDateRange({ startDate, endDate });
-        setFabState(newState);
         setShowVesselTable(true);
         setSearchQuery("");
 
-        // Update vessel data with complete state
         handleVesselDataUpdate(vesselActivityData, {
-            ...newState,
-            filterValues: {},
             isExpanded: true,
+            startDate,
+            endDate,
+            filterValues: {},
         });
     };
 
@@ -1212,23 +1241,57 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 )}
             </div>
 
-            {/* FAB Layer - Separate layer for FAB */}
+            {/* FAB Layer */}
             {!showVesselInfo && (
-                <div className="absolute top-32 left-4 w-[27vw] pointer-events-auto z-30">
-                    <FloatingActionButton
-                        onVesselDataUpdate={handleVesselDataUpdate}
-                        onPortServiceDataUpdate={handlePortServiceDataUpdate}
-                        initialStartDate={fabState.startDate}
-                        initialEndDate={fabState.endDate}
-                        initialFilters={fabState.selectedFilters}
-                        isItExpanded={fabState.isExpanded}
-                    />
+                <div className="absolute top-32 left-4 pointer-events-auto z-30">
+                    <div className="space-y-4 flex flex-col">
+                        <div
+                            className={`transition-all duration-300 ease-in-out w-[23.5vw] ${
+                                fabStates.vesselInfo.isExpanded
+                                    ? "h-[calc(100vh-15rem)]"
+                                    : "h-12"
+                            }`}
+                        >
+                            <FloatingActionButton
+                                onVesselDataUpdate={handleVesselDataUpdate}
+                                initialStartDate={
+                                    fabStates.vesselInfo.startDate
+                                }
+                                initialEndDate={fabStates.vesselInfo.endDate}
+                                initialFilters={
+                                    fabStates.vesselInfo.selectedFilters
+                                }
+                                isItExpanded={fabStates.vesselInfo.isExpanded}
+                                onClose={() => handleVesselInfoFabToggle(false)}
+                            />
+                        </div>
+                        <div
+                            className={`transition-all duration-300 ease-in-out w-[26vw] ${
+                                fabStates.portService.isExpanded
+                                    ? "h-[calc(100vh-15rem)]"
+                                    : "h-12"
+                            }`}
+                        >
+                            <PortServiceFAB
+                                onPortServiceDataUpdate={
+                                    handlePortServiceDataUpdate
+                                }
+                                initialTimeRanges={
+                                    fabStates.portService.timeRanges
+                                }
+                                isItExpanded={fabStates.portService.isExpanded}
+                                onClose={() =>
+                                    handlePortServiceFabToggle(false)
+                                }
+                            />
+                        </div>
+                    </div>
                 </div>
             )}
 
             {/* Table Layer */}
             {!showVesselInfo && (showVesselTable || showPortServiceTable) && (
-                <div className="absolute top-32 left-[calc(27vw+1rem+1rem)] right-4 pointer-events-auto z-20">
+                <div className="absolute top-32 left-[calc(25vw+1rem+1rem)] right-4 pointer-events-auto z-20">
                     {showVesselTable && vesselData && (
                         <div className="w-full h-[calc(83vh)] bg-white rounded-lg shadow-lg overflow-hidden">
                             <VesselActivityTable

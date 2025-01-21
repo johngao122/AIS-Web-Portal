@@ -6,12 +6,6 @@ import { useRouter } from "next/navigation";
 import TopBarWithUser from "@/components/TopBarWithUser";
 import "@/app/globals.css";
 import MapWithSearchBar from "@/components/MapWithSearchbar";
-import FloatingActionButton from "@/components/FloatingActionButton";
-import VesselActivityTable from "@/components/VesselActivityTable";
-import VesselActivitySingle from "@/components/VesselActivitySingle";
-import vesselTimelineData from "@/data/example/VesselActivitySingle.json";
-import vesselActivityData from "@/data/example/VesselActivity.json";
-import type VesselActivity from "@/types/VesselActivity";
 
 export default function DashboardPage() {
     const router = useRouter();

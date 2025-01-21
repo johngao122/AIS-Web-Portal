@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { X, Info, ArrowUp, ArrowDown } from "lucide-react";
-import VesselActivity from "@/types/VesselActivity";
-import { ContainerVesselActivitySingle } from "@/resources/dashboard";
 import Image from "next/image";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
+import { ContainerVesselActivitySingle } from "@/resources/dashboard";
+import type VesselActivity from "@/types/VesselActivity";
 
 interface VesselActivityTableProps {
     data: VesselActivity[];
@@ -53,7 +61,6 @@ const SortableHeader = ({
             onClick={() => onSort(sortKey)}
         >
             <span>{label}</span>
-
             <div
                 className="relative"
                 onMouseEnter={() => setShowTooltip(true)}
@@ -116,12 +123,10 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
             const aValue = a[sortConfig.key!];
             const bValue = b[sortConfig.key!];
 
-            // Handle different types of sorting based on the field
             if (
                 sortConfig.key &&
                 ["vesselName", "terminal"].includes(sortConfig.key)
             ) {
-                // String sorting (A-Z or Z-A)
                 const comparison = String(aValue ?? "").localeCompare(
                     String(bValue ?? "")
                 );
@@ -132,14 +137,12 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                 sortConfig.key &&
                 ["ata", "atb", "atu", "atd"].includes(sortConfig.key)
             ) {
-                // Date sorting (oldest to newest or newest to oldest)
                 const dateA = new Date(aValue as string).getTime();
                 const dateB = new Date(bValue as string).getTime();
                 return sortConfig.direction === "asc"
                     ? dateA - dateB
                     : dateB - dateA;
             } else {
-                // Numeric sorting (smallest to largest or largest to smallest)
                 const numA = Number(aValue ?? 0);
                 const numB = Number(bValue ?? 0);
                 return sortConfig.direction === "asc"
@@ -172,13 +175,10 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
 
             {/* Table Container */}
             <div className="flex-1 overflow-auto">
-                <table
-                    className="border-collapse table-auto"
-                    style={{ width: "max-content" }}
-                >
-                    <thead className="sticky top-0 z-10 bg-white">
-                        <tr>
-                            <th className="w-72 px-6 py-3 text-left font-medium border-r border-b">
+                <Table>
+                    <TableHeader className="sticky top-0 z-10 bg-white">
+                        <TableRow>
+                            <TableHead className="w-72 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="Vessel Name"
                                     tooltip="Name of the vessel"
@@ -186,8 +186,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-32 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="IMO"
                                     tooltip="International Maritime Organization number"
@@ -195,9 +195,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            {/* Add more headers with sorting functionality */}
-                            <th className="w-36 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-36 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="MMSI"
                                     tooltip="Maritime Mobile Service Identity"
@@ -205,8 +204,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-24 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-24 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="LOA"
                                     tooltip={tooltips.LOA}
@@ -214,8 +213,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-40 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-40 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="Terminal"
                                     tooltip="Container terminal location"
@@ -223,8 +222,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-44 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="ATA"
                                     tooltip={tooltips.ATA}
@@ -232,8 +231,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-44 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="ATB"
                                     tooltip={tooltips.ATB}
@@ -241,8 +240,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-44 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="ATU"
                                     tooltip={tooltips.ATU}
@@ -250,8 +249,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-44 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="ATD"
                                     tooltip={tooltips.ATD}
@@ -259,8 +258,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-32 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="Pre Berthing Hours"
                                     tooltip={tooltips["Pending Hours"]}
@@ -268,8 +267,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-36 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-36 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="Waiting Hours in Anchorage"
                                     tooltip={
@@ -279,8 +278,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-32 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="Berthing Hours"
                                     tooltip={tooltips["Berthing Hours"]}
@@ -288,8 +287,8 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                            <th className="w-32 px-6 py-3 text-left font-medium border-r border-b">
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
                                 <SortableHeader
                                     label="In Port Hours"
                                     tooltip={tooltips["In Port Hours"]}
@@ -297,61 +296,61 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
                                     currentSort={sortConfig}
                                     onSort={handleSort}
                                 />
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                            </TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
                         {sortedData.map((vessel, index) => (
-                            <tr
+                            <TableRow
                                 key={vessel.imoNumber}
                                 className={`${
                                     index % 2 === 0 ? "bg-gray-50" : "bg-white"
                                 } hover:bg-gray-100 transition-colors cursor-pointer`}
                                 onClick={() => onRowClick?.(vessel)}
                             >
-                                <td className="px-6 py-3 font-medium border-r border-b whitespace-normal">
+                                <TableCell className="font-medium whitespace-normal border-r border-gray-200 px-6 py-3">
                                     {vessel.vesselName}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.imoNumber}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.mmsi}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.loa}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.terminal}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {new Date(vessel.ata).toLocaleString()}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {new Date(vessel.atb).toLocaleString()}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {new Date(vessel.atu).toLocaleString()}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {new Date(vessel.atd).toLocaleString()}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.waitingHoursAtBerth.toFixed(2)}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.waitingHoursInAnchorage.toFixed(2)}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.berthingHours.toFixed(2)}
-                                </td>
-                                <td className="px-6 py-3 border-r border-b truncate">
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
                                     {vessel.inPortHours.toFixed(2)}
-                                </td>
-                            </tr>
+                                </TableCell>
+                            </TableRow>
                         ))}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </div>
         </div>
     );

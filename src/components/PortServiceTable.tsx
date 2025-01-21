@@ -2,6 +2,14 @@ import React from "react";
 import TableIcon from "@/resources/portServiceTable";
 import Image from "next/image";
 import { X } from "lucide-react";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
 
 interface PortServiceData {
     "Port Service Levels Analysis": {
@@ -30,7 +38,7 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
     return (
         <div className="flex flex-col h-full bg-white rounded-lg shadow-lg">
             {/* Header */}
-            <div className="flex-none flex justify-between items-center px-4 py-2 border-b bg-blue-500 h-[60px]">
+            <div className="flex-none flex justify-between items-center px-4 py-2 border-b bg-blue-500 h-[60px] rounded-t-lg">
                 <div className="flex items-center gap-2">
                     <Image
                         src={TableIcon}
@@ -49,48 +57,48 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
             {/* Table Container with Fixed Header */}
             <div className="flex-1 overflow-hidden">
                 <div className="h-full overflow-y-auto">
-                    <table className="w-full border-collapse table-fixed">
-                        <thead className="sticky top-0 z-10">
-                            <tr>
-                                <th className="bg-white px-6 py-4 text-left font-medium border-r border-b w-1/6">
+                    <Table className="border-collapse table-fixed">
+                        <TableHeader className="sticky top-0 z-10">
+                            <TableRow>
+                                <TableHead className="bg-white px-6 py-4 text-left font-medium border-r border-b w-1/6">
                                     Key KPIs
-                                </th>
-                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
+                                </TableHead>
+                                <TableHead className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Aggregated
-                                </th>
-                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
+                                </TableHead>
+                                <TableHead className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 1
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (0,147]
                                     </span>
-                                </th>
-                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
+                                </TableHead>
+                                <TableHead className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 2
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (147,209]
                                     </span>
-                                </th>
-                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
+                                </TableHead>
+                                <TableHead className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 3
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (209,285]
                                     </span>
-                                </th>
-                                <th className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
+                                </TableHead>
+                                <TableHead className="bg-white px-6 py-4 text-center font-medium border-r border-b w-1/6">
                                     Category 4
                                     <br />
                                     <span className="text-sm font-normal">
                                         LOA ∈ (285,400]
                                     </span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
+                                </TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody className="divide-y divide-gray-200">
                             {kpis.map((row, index) => (
-                                <tr
+                                <TableRow
                                     key={row.name}
                                     className={`${
                                         index % 2 === 0
@@ -98,28 +106,28 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                                             : "bg-white"
                                     } hover:bg-gray-100 transition-colors`}
                                 >
-                                    <td className="px-6 py-8 font-medium border-r">
+                                    <TableCell className="px-6 py-8 font-medium border-r">
                                         {row.name}
-                                    </td>
-                                    <td className="px-6 py-8 text-center border-r">
+                                    </TableCell>
+                                    <TableCell className="px-6 py-8 text-center border-r">
                                         {row.Aggregated}
-                                    </td>
-                                    <td className="px-6 py-8 text-center border-r">
+                                    </TableCell>
+                                    <TableCell className="px-6 py-8 text-center border-r">
                                         {row["Category 1 (LOA ∈ (0,147])"]}
-                                    </td>
-                                    <td className="px-6 py-8 text-center border-r">
+                                    </TableCell>
+                                    <TableCell className="px-6 py-8 text-center border-r">
                                         {row["Category 2 (LOA ∈ (147, 209])"]}
-                                    </td>
-                                    <td className="px-6 py-8 text-center border-r">
+                                    </TableCell>
+                                    <TableCell className="px-6 py-8 text-center border-r">
                                         {row["Category 3 (LOA ∈ (209, 285])"]}
-                                    </td>
-                                    <td className="px-6 py-8 text-center border-r">
+                                    </TableCell>
+                                    <TableCell className="px-6 py-8 text-center border-r">
                                         {row["Category 4 (LOA ∈ (285, 400])"]}
-                                    </td>
-                                </tr>
+                                    </TableCell>
+                                </TableRow>
                             ))}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import landingPageInfo from "./landingpageinfo.png";
+import landingPageInfo from "./landingpageinfo1.png";
 import landingPageInfo2 from "./landingpageinfo2.png";
 import landingPageInfo3 from "./landingpageinfo3.png";
 import landingPageInfo4 from "./landingpageinfo4.png";
