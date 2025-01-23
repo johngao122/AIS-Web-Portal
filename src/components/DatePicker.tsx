@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronLeft, Clock } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 interface DateTimePickerProps {
     onSelect: (date: Date) => void;
@@ -82,6 +82,10 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
     };
 
     const isDateValid = (date: Date): boolean => {
+        // Check if date is in the future
+        const now = new Date();
+        if (date > now) return false;
+
         if (minDate) {
             const isMinSameDay = isSameDay(date, minDate);
             if (isMinSameDay) {
@@ -105,6 +109,17 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
 
     const isMonthValid = (month: number): boolean => {
         const testDate = new Date(currentDate.getFullYear(), month, 1);
+        const now = new Date();
+
+        // If the month is in the future, it's invalid
+        if (
+            testDate.getFullYear() > now.getFullYear() ||
+            (testDate.getFullYear() === now.getFullYear() &&
+                month > now.getMonth())
+        ) {
+            return false;
+        }
+
         if (
             minDate &&
             testDate < new Date(minDate.getFullYear(), minDate.getMonth(), 1)
@@ -119,6 +134,9 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
     };
 
     const isYearValid = (year: number): boolean => {
+        // If the year is in the future, it's invalid
+        if (year > new Date().getFullYear()) return false;
+
         if (minDate && year < minDate.getFullYear()) return false;
         if (maxDate && year > maxDate.getFullYear()) return false;
         return true;
@@ -162,34 +180,20 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
             if (direction === "prev") {
                 newDate.setMonth(prevDate.getMonth() - 1);
             } else {
+                // Only allow navigation to future months if they're within the current month
+                const now = new Date();
+                const futureDate = new Date(prevDate);
+                futureDate.setMonth(prevDate.getMonth() + 1);
+                if (
+                    futureDate.getMonth() > now.getMonth() &&
+                    futureDate.getFullYear() >= now.getFullYear()
+                ) {
+                    return prevDate;
+                }
                 newDate.setMonth(prevDate.getMonth() + 1);
             }
             return newDate;
         });
-    };
-
-    const handleTimeChange = (
-        value: string,
-        type: "hours" | "minutes" | "seconds"
-    ) => {
-        let num = parseInt(value);
-        switch (type) {
-            case "hours":
-                if (num > 23) num = 23;
-                if (num < 0) num = 0;
-                setHours(num.toString().padStart(2, "0"));
-                break;
-            case "minutes":
-            case "seconds":
-                if (num > 59) num = 59;
-                if (num < 0) num = 0;
-                if (type === "minutes") {
-                    setMinutes(num.toString().padStart(2, "0"));
-                } else {
-                    setSeconds(num.toString().padStart(2, "0"));
-                }
-                break;
-        }
     };
 
     const handleApply = () => {
@@ -201,6 +205,9 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
             parseInt(minutes),
             parseInt(seconds)
         );
+
+        // Check if selected date is in the future
+        if (selected > new Date()) return;
 
         // Validate time with inclusive comparison for min date
         if (minDate && isSameDay(selected, minDate)) {
@@ -392,47 +399,6 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
             {viewMode === "calendar" && renderCalendarView()}
             {viewMode === "month" && renderMonthView()}
             {viewMode === "year" && renderYearView()}
-
-            {/* Time Selector */}
-            {viewMode === "calendar" && (
-                <div className="flex items-center justify-center gap-4 mb-4">
-                    <Clock size={16} className="text-gray-500" />
-                    <div className="flex items-center gap-2">
-                        <input
-                            type="number"
-                            value={hours}
-                            onChange={(e) =>
-                                handleTimeChange(e.target.value, "hours")
-                            }
-                            className="w-12 p-1 text-center border rounded"
-                            min="0"
-                            max="23"
-                        />
-                        <span>:</span>
-                        <input
-                            type="number"
-                            value={minutes}
-                            onChange={(e) =>
-                                handleTimeChange(e.target.value, "minutes")
-                            }
-                            className="w-12 p-1 text-center border rounded"
-                            min="0"
-                            max="59"
-                        />
-                        <span>:</span>
-                        <input
-                            type="number"
-                            value={seconds}
-                            onChange={(e) =>
-                                handleTimeChange(e.target.value, "seconds")
-                            }
-                            className="w-12 p-1 text-center border rounded"
-                            min="0"
-                            max="59"
-                        />
-                    </div>
-                </div>
-            )}
 
             {/* Action Buttons */}
             {viewMode === "calendar" && (

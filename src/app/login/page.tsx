@@ -28,6 +28,7 @@ export default function Login() {
         const user = localStorage.getItem("User");
         if (user) {
             try {
+                sessionStorage.setItem("User", user);
                 const userData = JSON.parse(user);
                 setAutoLoginUser(userData.username);
                 setShowAutoLogin(true);

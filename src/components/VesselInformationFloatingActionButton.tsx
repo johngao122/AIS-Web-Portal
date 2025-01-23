@@ -93,6 +93,13 @@ const filterOptions: FilterOption[] = [
         placeholder: "Has ATA",
     },
     {
+        id: "atb",
+        label: "ATB",
+        type: "select",
+        logic: "notBlank",
+        placeholder: "Has ATA",
+    },
+    {
         id: "atu",
         label: "ATU",
         type: "select",
@@ -212,16 +219,37 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     }, [initialFilters]);
 
     const formatDateTime = (date: Date): string => {
-        return `${date.toLocaleDateString("en-US", {
+        return date.toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
             year: "numeric",
-        })} ${date.toLocaleTimeString("en-US", {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false,
-        })}`;
+        });
+    };
+
+    const formatDateForAPI = (date: Date): string => {
+        const formattedDate = date.toISOString().split("T")[0];
+        return date === endDate
+            ? `${formattedDate}T23:59:59`
+            : `${formattedDate}T00:00:00`;
+    };
+
+    const transformAPIResponse = (apiData: any[]): VesselActivity[] => {
+        return apiData.map((item) => ({
+            vesselName: item.vesselname || "unavailable",
+            imoNumber: item.imonumber || "unavailable",
+            mmsi: item.mmsinumber || "unavailable",
+            vesselType: item.vesseltype || "unavailable",
+            loa: item.vessellength || "unavailable",
+            terminal: item.terminal || "unavailable",
+            ata: item.ata || "unavailable",
+            atb: item.atb || "unavailable",
+            atu: item.atu || "unavailable",
+            atd: item.atd || "unavailable",
+            waitingHoursAtBerth: item.PreBerthingHours || 0,
+            waitingHoursInAnchorage: item.AnchorageWaitingHours || 0,
+            berthingHours: item.BerthingHours || 0,
+            inPortHours: item.InPortHours || 0,
+        }));
     };
 
     const validateDates = (start: Date | undefined, end: Date | undefined) => {
@@ -290,25 +318,34 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     };
 
     const handleClearFilters = () => {
+        // Clear range values and validation errors
+        setRangeValues({});
+        setRangeValidationErrors({});
+
+        // Reset filter values to initial or empty state
         const emptyFilters: FilterState = {};
         filterOptions.forEach((filter) => {
-            if (filter.type === "range") {
-                emptyFilters[filter.id] = { value: "", additionalValue: "" };
-            } else {
-                emptyFilters[filter.id] = { value: "" };
+            switch (filter.type) {
+                case "range":
+                    emptyFilters[filter.id] = {
+                        value: "",
+                        additionalValue: "",
+                    };
+                    break;
+                case "select":
+                    if (filter.logic === "notBlank") {
+                        emptyFilters[filter.id] = { value: "_any" }; // Default for notBlank filters
+                    } else {
+                        emptyFilters[filter.id] = { value: "" }; // Default for standard select filters
+                    }
+                    break;
+                default:
+                    emptyFilters[filter.id] = { value: "" };
             }
         });
-        setFilterValues(emptyFilters);
 
-        const emptyRangeValues: Record<string, { min: string; max: string }> =
-            {};
-        filterOptions.forEach((filter) => {
-            if (filter.type === "range") {
-                emptyRangeValues[filter.id] = { min: "", max: "" };
-            }
-        });
-        setRangeValues(emptyRangeValues);
-        setRangeValidationErrors({}); // Clear validation errors
+        // Update filter values state
+        setFilterValues(emptyFilters);
     };
 
     const handleDateSelect = (date: Date, isStart: boolean): void => {
@@ -351,10 +388,19 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         value: string | number | string[],
         additionalValue?: string | number
     ) => {
-        setFilterValues((prev) => ({
-            ...prev,
-            [id]: { value, additionalValue },
-        }));
+        // Ignore setting filterValue if it's "_none"
+        if (value === "_none") {
+            setFilterValues((prev) => {
+                const newFilters = { ...prev };
+                delete newFilters[id];
+                return newFilters;
+            });
+        } else {
+            setFilterValues((prev) => ({
+                ...prev,
+                [id]: { value, additionalValue },
+            }));
+        }
     };
 
     const handleRangeFilterChange = (
@@ -419,14 +465,13 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         switch (filter.type) {
             case "text":
                 return (
-                    <input
+                    <Input
                         type="text"
                         value={currentValue as string}
                         onChange={(e) =>
                             handleFilterChange(filter.id, e.target.value)
                         }
                         placeholder={filter.placeholder}
-                        className="w-full px-3 py-2 border rounded-md"
                     />
                 );
             case "range": {
@@ -438,7 +483,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                 return (
                     <div className="space-y-2">
                         <div className="flex gap-2">
-                            <input
+                            <Input
                                 type="number"
                                 value={rangeValue.min}
                                 onChange={(e) =>
@@ -450,11 +495,9 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                 }
                                 placeholder="Min"
                                 min="0"
-                                className={`w-1/2 px-3 py-2 border rounded-md ${
-                                    error ? "border-red-500" : ""
-                                }`}
+                                className={error ? "border-red-500" : ""}
                             />
-                            <input
+                            <Input
                                 type="number"
                                 value={rangeValue.max}
                                 onChange={(e) =>
@@ -466,9 +509,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                 }
                                 placeholder="Max"
                                 min="0"
-                                className={`w-1/2 px-3 py-2 border rounded-md ${
-                                    error ? "border-red-500" : ""
-                                }`}
+                                className={error ? "border-red-500" : ""}
                             />
                         </div>
                         {error && (
@@ -478,71 +519,55 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                 );
             }
             case "select":
-                if (filter.logic === "notBlank") {
-                    return (
-                        <select
-                            value={currentValue as string}
-                            onChange={(e) =>
-                                handleFilterChange(filter.id, e.target.value)
-                            }
-                            className="w-full px-3 py-2 border rounded-md"
-                        >
-                            <option value="">Any</option>
-                            <option value="true">Has value</option>
-                            <option value="false">No value</option>
-                        </select>
-                    );
-                }
-                if (!filter.multiple) {
-                    return (
-                        <select
-                            value={currentValue as string}
-                            onChange={(e) =>
-                                handleFilterChange(filter.id, e.target.value)
-                            }
-                            className="w-full px-3 py-2 border rounded-md"
-                        >
-                            <option value="">Select {filter.label}</option>
-                            {filter.options?.map((option) => (
-                                <option key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
-                    );
-                }
                 return (
-                    <select
-                        multiple
-                        value={Array.isArray(currentValue) ? currentValue : []}
-                        onChange={(e) =>
-                            handleFilterChange(
-                                filter.id,
-                                Array.from(
-                                    e.target.selectedOptions,
-                                    (option) => option.value
-                                )
-                            )
+                    <Select
+                        value={
+                            filterValues[filter.id]?.value?.toString() ||
+                            "_none"
                         }
-                        className="w-full px-3 py-2 border rounded-md"
+                        onValueChange={(value) =>
+                            handleFilterChange(filter.id, value)
+                        }
                     >
-                        {filter.options?.map((option) => (
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        ))}
-                    </select>
+                        <SelectTrigger>
+                            <SelectValue placeholder={filter.placeholder} />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {filter.logic === "notBlank" ? (
+                                <>
+                                    <SelectItem value="_any">Any</SelectItem>
+                                    <SelectItem value="true">
+                                        Has value
+                                    </SelectItem>
+                                    <SelectItem value="false">
+                                        No value
+                                    </SelectItem>
+                                </>
+                            ) : (
+                                <>
+                                    <SelectItem value="_none">
+                                        Select {filter.label}
+                                    </SelectItem>
+                                    {filter.options?.map((option) => (
+                                        <SelectItem key={option} value={option}>
+                                            {option}
+                                        </SelectItem>
+                                    ))}
+                                </>
+                            )}
+                        </SelectContent>
+                    </Select>
                 );
             case "number":
                 return (
-                    <input
+                    <Input
                         type="number"
                         value={currentValue as number}
                         onChange={(e) =>
                             handleFilterChange(filter.id, e.target.value)
                         }
                         placeholder={filter.placeholder}
-                        className="w-full px-3 py-2 border rounded-md"
+                        min="0"
                     />
                 );
             default:
@@ -559,19 +584,169 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     const handleShowVesselActivity = async () => {
         setIsLoading(true);
         try {
-            const response = await import("@/data/example/VesselActivity.json");
-            onVesselDataUpdate(response.default, {
-                isExpanded: true,
-                startDate,
-                endDate,
-                filterValues: filterValues,
+            const response = await fetch("/api/data/vessel_activity", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    startDate: formatDateForAPI(startDate!),
+                    endDate: formatDateForAPI(endDate!),
+                }),
             });
+
+            const result = await response.json();
+
+            if (result.success && Array.isArray(result.data)) {
+                console.log(result.data);
+                const transformedData = transformAPIResponse(result.data);
+                console.log("Transformed data:", transformedData);
+                const filteredData = applyFilters(
+                    transformedData,
+                    filterValues
+                );
+
+                console.log("Filtered data sent:", filteredData);
+
+                onVesselDataUpdate(filteredData, {
+                    isExpanded: true,
+                    startDate,
+                    endDate,
+                    filterValues,
+                });
+            } else {
+                console.error("API response format error:", result);
+                onVesselDataUpdate(null);
+            }
         } catch (error) {
-            console.error("Error loading vessel data:", error);
+            console.error("Error fetching vessel data:", error);
             onVesselDataUpdate(null);
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const applyFilters = (
+        data: VesselActivity[],
+        filters: FilterState
+    ): VesselActivity[] => {
+        return data.filter((vessel) => {
+            for (const [key, filterValue] of Object.entries(filters)) {
+                if (!filterValue.value || filterValue.value === "_none")
+                    continue; // Skip empty filters
+
+                switch (key) {
+                    case "vesselName":
+                        if (
+                            typeof filterValue.value === "string" &&
+                            !vessel.vesselName
+                                .toLowerCase()
+                                .includes(filterValue.value.toLowerCase())
+                        ) {
+                            return false;
+                        }
+                        break;
+
+                    case "imoNumber":
+                        if (
+                            filterValue.value &&
+                            vessel.imoNumber.toString() !==
+                                filterValue.value.toString()
+                        ) {
+                            return false;
+                        }
+                        break;
+
+                    case "mmsi":
+                        if (
+                            filterValue.value &&
+                            vessel.mmsi.toString() !==
+                                filterValue.value.toString()
+                        ) {
+                            return false;
+                        }
+                        break;
+
+                    case "loa":
+                        const loaValue = Number(vessel.loa);
+                        const loaMin = Number(filterValue.value);
+                        const loaMax = Number(filterValue.additionalValue);
+                        if (loaMin && !isNaN(loaValue) && loaValue < loaMin)
+                            return false;
+                        if (loaMax && !isNaN(loaValue) && loaValue > loaMax)
+                            return false;
+                        break;
+
+                    case "terminal":
+                        if (
+                            filterValue.value !== "_none" &&
+                            filterValue.value !== "" &&
+                            typeof filterValue.value === "string" &&
+                            vessel.terminal !== filterValue.value
+                        ) {
+                            return false;
+                        }
+                        break;
+
+                    // Handle ATA, ATB, ATU, ATD
+                    case "ata":
+                    case "atb":
+                    case "atu":
+                    case "atd":
+                        if (typeof filterValue.value === "string") {
+                            const hasValue = filterValue.value === "true";
+                            const noValue = filterValue.value === "false";
+
+                            console.log(noValue);
+
+                            if (hasValue && vessel[key] === "unavailable") {
+                                console.log("error in first");
+                                return false;
+                            } // Must have a value
+                            if (noValue && vessel[key] !== "unavailable") {
+                                console.log("error in second");
+                                return false;
+                            } // Must be unavailable
+                        }
+                        break;
+
+                    case "multipleRecords":
+                        const minRecords = Number(filterValue.value);
+                        if (minRecords > 0) {
+                            const recordCount = data.filter(
+                                (v) => v.imoNumber === vessel.imoNumber
+                            ).length;
+                            if (recordCount < minRecords) return false;
+                        }
+                        break;
+
+                    // Handle numeric range filters
+                    case "preBerthingHours":
+                    case "anchorageWaitingHours":
+                    case "berthingHours":
+                    case "inPortHours":
+                        const hourField =
+                            key === "preBerthingHours"
+                                ? "waitingHoursAtBerth"
+                                : key === "anchorageWaitingHours"
+                                ? "waitingHoursInAnchorage"
+                                : key === "berthingHours"
+                                ? "berthingHours"
+                                : "inPortHours";
+
+                        const min = Number(filterValue.value);
+                        const max = Number(filterValue.additionalValue);
+
+                        if (min && vessel[hourField] < min) return false;
+                        if (max && vessel[hourField] > max) return false;
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            return true;
+        });
     };
 
     return (
@@ -600,7 +775,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                         </Button>
                     </CardHeader>
 
-                    {/* Fixed Date Range Section */}
+                    {/* Date Range Section */}
                     <div className="flex-none p-4 space-y-4">
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
@@ -613,7 +788,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    onClick={handleClearDates}
+                                    onClick={() => {
+                                        handleClearDates();
+                                        handleClearFilters();
+                                    }}
                                     className="text-xs text-gray-500 hover:text-gray-700"
                                 >
                                     Clear
@@ -621,26 +799,29 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                             </div>
 
                             {dateError && (
-                                <Alert variant="destructive">
-                                    <AlertCircle className="h-4 w-4" />
-                                    <AlertDescription>
-                                        {dateError}
+                                <Alert
+                                    variant="destructive"
+                                    className="flex items-center"
+                                >
+                                    <AlertDescription className="ml-2 m-0">
+                                        End date cannot be earlier than start
+                                        date
                                     </AlertDescription>
                                 </Alert>
                             )}
 
-                            {/* Date Select Fields */}
+                            {/* Modified Date Select Fields */}
                             <div className="space-y-2">
                                 {/* Start Date Picker */}
                                 <div className="relative">
-                                    <div className="flex items-stretch h-16">
-                                        <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex w-[97px] items-center">
-                                            <span className="font-medium">
+                                    <div className="flex h-12">
+                                        <div className="bg-green-500 text-white rounded-l-md flex items-center justify-center min-w-[72px]">
+                                            <div className="text-xs font-medium text-center">
                                                 Start date
-                                            </span>
+                                            </div>
                                         </div>
                                         <div
-                                            className="flex items-center justify-between w-full px-4 py-2 bg-white border border-green-500 rounded-r-md cursor-pointer"
+                                            className="flex items-center justify-between flex-1 px-3 bg-white border border-green-500 rounded-r-md cursor-pointer"
                                             onClick={() => {
                                                 setShowStartDatePicker(
                                                     !showStartDatePicker
@@ -648,10 +829,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                                 setShowEndDatePicker(false);
                                             }}
                                         >
-                                            <span className="text-gray-500 select-none">
+                                            <span className="text-gray-500 select-none text-sm">
                                                 {startDate
                                                     ? formatDateTime(startDate)
-                                                    : "DD MM. YYYY 00:00:00"}
+                                                    : "Select a date"}
                                             </span>
                                             <span
                                                 className={`transition-transform duration-200 ${
@@ -685,14 +866,14 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
 
                                 {/* End Date Picker */}
                                 <div className="relative">
-                                    <div className="flex items-stretch h-16">
-                                        <div className="px-4 py-2 bg-green-500 text-white rounded-l-md flex w-[97px] items-center">
-                                            <span className="font-medium">
+                                    <div className="flex h-12">
+                                        <div className="bg-green-500 text-white rounded-l-md flex items-center justify-center min-w-[72px]">
+                                            <div className="text-xs font-medium text-center">
                                                 End date
-                                            </span>
+                                            </div>
                                         </div>
                                         <div
-                                            className={`flex items-center justify-between w-full px-4 py-2 bg-white border ${
+                                            className={`flex items-center justify-between flex-1 px-3 bg-white border ${
                                                 dateError
                                                     ? "border-red-500"
                                                     : "border-green-500"
@@ -705,15 +886,15 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                             }}
                                         >
                                             <span
-                                                className={
+                                                className={`text-sm ${
                                                     dateError
                                                         ? "text-red-600"
                                                         : "text-gray-500"
-                                                }
+                                                }`}
                                             >
                                                 {endDate
                                                     ? formatDateTime(endDate)
-                                                    : "DD MM. YYYY 00:00:00"}
+                                                    : "Select a date"}
                                             </span>
                                             <span
                                                 className={`transition-transform duration-200 ${

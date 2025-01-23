@@ -12,17 +12,144 @@ interface PortServiceCategory {
     wharfUtilization: number;
 }
 
-interface PortServiceData {
-    "Port Service Levels Analysis": {
-        "Key KPIs": Array<{
-            name: string;
-            Aggregated: number;
-            "Category 1 (LOA ∈ (0,147])": number;
-            "Category 2 (LOA ∈ (147, 209])": number;
-            "Category 3 (LOA ∈ (209, 285])": number;
-            "Category 4 (LOA ∈ (285, 400])": number;
-        }>;
+interface PeriodDetail {
+    startDate: string;
+    endDate: string;
+    "All vessels": {
+        TotalBerthed: number;
+        JIT: number;
+        WaitingHours: {
+            average: number;
+            median: number;
+        };
+        BerthingHours: {
+            average: number;
+            median: number;
+        };
+        InPortHours: {
+            average: number;
+            median: number;
+        };
+        WharfUtilizationRate: {
+            PasirPanjang: number;
+            Tuas: number;
+            BraniKeppel: number;
+        };
+    };
+    "Category 1 vessels": {
+        TotalBerthed: number;
+        JIT: number;
+        WaitingHours: {
+            average: number;
+            median: number;
+        };
+        BerthingHours: {
+            average: number;
+            median: number;
+        };
+        InPortHours: {
+            average: number;
+            median: number;
+        };
+        WharfUtilizationRate: {
+            PasirPanjang: number;
+            Tuas: number;
+            BraniKeppel: number;
+        };
+    };
+    "Category 2 vessels": {
+        TotalBerthed: number;
+        JIT: number;
+        WaitingHours: {
+            average: number;
+            median: number;
+        };
+        BerthingHours: {
+            average: number;
+            median: number;
+        };
+        InPortHours: {
+            average: number;
+            median: number;
+        };
+        WharfUtilizationRate: {
+            PasirPanjang: number;
+            Tuas: number;
+            BraniKeppel: number;
+        };
+    };
+    "Category 3 vessels": {
+        TotalBerthed: number;
+        JIT: number;
+        WaitingHours: {
+            average: number;
+            median: number;
+        };
+        BerthingHours: {
+            average: number;
+            median: number;
+        };
+        InPortHours: {
+            average: number;
+            median: number;
+        };
+        WharfUtilizationRate: {
+            PasirPanjang: number;
+            Tuas: number;
+            BraniKeppel: number;
+        };
+    };
+    "Category 4 vessels": {
+        TotalBerthed: number;
+        JIT: number;
+        WaitingHours: {
+            average: number;
+            median: number;
+        };
+        BerthingHours: {
+            average: number;
+            median: number;
+        };
+        InPortHours: {
+            average: number;
+            median: number;
+        };
+        WharfUtilizationRate: {
+            PasirPanjang: number;
+            Tuas: number;
+            BraniKeppel: number;
+        };
     };
 }
 
-export type { PortServiceCategory, PortServiceData };
+type CategoryResults = {
+    [key: string]: {
+        TotalBerthed: number;
+        JIT: number;
+        WaitingHours: {
+            average: number;
+            median: number;
+        };
+        BerthingHours: {
+            average: number;
+            median: number;
+        };
+        InPortHours: {
+            average: number;
+            median: number;
+        };
+        WharfUtilizationRate: {
+            PasirPanjang: number;
+            Tuas: number;
+            BraniKeppel: number;
+        };
+    };
+};
+
+interface PortServicePeriod {
+    [key: string]: PeriodDetail; // e.g., "Period 1", "Period 2"
+}
+
+type PortServiceData = PortServicePeriod[];
+
+export type { PortServiceCategory, PortServiceData, CategoryResults };

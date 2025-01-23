@@ -150,23 +150,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     }, []);
 
     useEffect(() => {
-        const loadInitialData = async () => {
-            try {
-                const response = await import(
-                    "@/data/example/PortServiceLevel.json"
-                );
-                setPortServiceData(response.default);
-            } catch (error) {
-                console.error(
-                    "Error loading initial port service data:",
-                    error
-                );
-            }
-        };
-        loadInitialData();
-    }, []);
-
-    useEffect(() => {
         let animationFrame: number;
 
         if (isPlaying && timelineData.length > 0) {
@@ -263,10 +246,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         fabData?: any
     ) => {
         if (data && fabData?.filterValues) {
-            const filtersToApply =
-                fabData?.filterValues || fabStates.vesselInfo.selectedFilters;
-            const filteredData = applyFilters(data, filtersToApply);
-            setVesselData(filteredData);
+            console.log("Received filtered data:", data); // Debug here
+            setVesselData(data);
         } else {
             setVesselData(data);
         }
@@ -1266,7 +1247,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             />
                         </div>
                         <div
-                            className={`transition-all duration-300 ease-in-out w-[26vw] ${
+                            className={`transition-all duration-300 ease-in-out w-[23.5vw] ${
                                 fabStates.portService.isExpanded
                                     ? "h-[calc(100vh-15rem)]"
                                     : "h-12"
@@ -1303,7 +1284,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     )}
 
                     {showPortServiceTable && portServiceData && (
-                        <div className="w-full h-[calc(83vh)] bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div className="w-[72vw] ">
                             <PortServiceTable
                                 data={portServiceData}
                                 onClose={() =>
