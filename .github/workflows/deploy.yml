@@ -33,7 +33,7 @@ jobs:
               run: npm run build
               env:
                   NEXT_PUBLIC_MAPBOX: ${{ secrets.NEXT_PUBLIC_MAPBOX }}
-                  NEXT_PUBLIC_API: "https://aistestingbackend-production.up.railway.app"
+                  NEXT_PUBLIC_API: ${{secrets.NEXT_PUBLIC_API}}
                   NODE_ENV: production
 
             - name: Deploy
