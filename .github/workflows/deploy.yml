@@ -35,6 +35,7 @@ jobs:
                   NEXT_PUBLIC_MAPBOX: ${{ secrets.NEXT_PUBLIC_MAPBOX }}
                   NEXT_PUBLIC_API: ${{secrets.NEXT_PUBLIC_API}}
                   NODE_ENV: production
+                  GITHUB_PAGES: true
 
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
