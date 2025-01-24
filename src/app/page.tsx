@@ -19,6 +19,12 @@ import {
 import { NUSLogo } from "@/resources/logos";
 import "./globals.css";
 
+/**
+ * The landing page of the application, containing a slideshow
+ * and a brief overview of the application.
+ *
+ * @returns The landing page component.
+ */
 export default function Home() {
     const router = useRouter();
 

@@ -10,6 +10,13 @@ interface AlertProps {
     position?: AlertPosition;
 }
 
+/**
+ * A component for displaying an alert box with a message
+ * @param message The message to display
+ * @param type The type of alert to display (success, error, warning, or info)
+ * @param position The position of the alert (top or bottom)
+ * @returns A JSX element representing the alert box
+ */
 export const Alert = ({
     message,
     type = "success",

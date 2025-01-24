@@ -67,6 +67,14 @@ interface FabState {
     selectedFilters: FilterState;
 }
 
+/**
+ * A temporary notification that will appear at the bottom of the screen
+ * when the user tries to view a vessel's trajectory but no data is available
+ * for that vessel.
+ *
+ * @param {{ message: string }} props
+ * @prop {string} message The name of the vessel that lacks trajectory data.
+ */
 const ErrorToast: React.FC<{ message: string }> = ({ message }) => {
     //Error Toast
     return (

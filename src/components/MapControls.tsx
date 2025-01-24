@@ -32,6 +32,23 @@ interface MapControlsProps {
     setIsOpen: (isOpen: boolean) => void;
 }
 
+/**
+ * MapControls
+ *
+ * A component that displays a zoom control and a layer control.
+ *
+ * The zoom control consists of two buttons: one for zooming in and one for zooming out.
+ *
+ * The layer control displays a dropdown menu with checkboxes for each layer.
+ * The user can toggle the visibility of each layer by checking or unchecking the corresponding checkbox.
+ *
+ * The component also displays a tooltip when the user hovers over the layer control button.
+ * The tooltip displays the text "Layers".
+ *
+ * @param {MapControlsProps} props The props for the component.
+ *
+ * @returns {JSX.Element} The component.
+ */
 const MapControls = ({
     activeLayers,
     setActiveLayers,

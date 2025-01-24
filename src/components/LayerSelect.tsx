@@ -30,6 +30,23 @@ interface LayerSelectProps {
     setIsOpen: (isOpen: boolean) => void;
 }
 
+/**
+ * A button that toggles a dropdown menu for selecting which layers to
+ * display on the map. The dropdown menu shows a list of layers with
+ * checkboxes next to each one. When a layer is checked, it is displayed on
+ * the map. When a layer is unchecked, it is hidden from the map.
+ *
+ * @param {Object} props
+ * @prop {Object} activeLayers - An object with keys that correspond to the
+ * different layers and values that are boolean indicating whether the layer
+ * is currently visible or not.
+ * @prop {Function} setActiveLayers - A function that updates the activeLayers
+ * state with new values.
+ * @prop {boolean} isOpen - A boolean indicating whether the dropdown menu is
+ * currently open or not.
+ * @prop {Function} setIsOpen - A function that updates the isOpen state with
+ * new values.
+ */
 const LayerSelect: React.FC<LayerSelectProps> = ({
     activeLayers,
     setActiveLayers,

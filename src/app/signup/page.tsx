@@ -10,6 +10,15 @@ import {
 } from "@/resources/contact_page";
 import "@/app/globals.css";
 
+/**
+ * The Contact page.
+ *
+ * This page contains a map with a gradient overlay at the bottom, and a
+ * contact information overlay at the top. The contact information overlay
+ * includes department information, address, and email.
+ *
+ * @returns The Contact page.
+ */
 const Contact = () => {
     return (
         <div className="min-h-screen bg-white">

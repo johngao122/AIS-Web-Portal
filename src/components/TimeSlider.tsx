@@ -10,6 +10,28 @@ interface TimeSliderProps {
     currentTime: Date | null;
 }
 
+/**
+ * A time slider component that allows users to select a time range.
+ *
+ * @prop {Date} startTime The start time of the time range.
+ * @prop {Date} endTime The end time of the time range.
+ * @prop {function} onTimeChange A callback function that is called when the user selects a new time.
+ * @prop {boolean} isPlaying Whether the user is currently playing a video or not.
+ * @prop {function} setIsPlaying A callback function that is called when the user starts or stops playing a video.
+ * @prop {Date | null} currentTime The current time of the video, or null if the user is not playing a video.
+ *
+ * @example
+ * <TimeSlider
+ *     startTime={new Date("2022-01-01T00:00:00.000Z")}
+ *     endTime={new Date("2022-01-01T01:00:00.000Z")}
+ *     onTimeChange={(currentTime, isDragging) => {
+ *         console.log("Current time:", currentTime, "Is dragging?", isDragging);
+ *     }}
+ *     isPlaying={true}
+ *     setIsPlaying={(playing) => console.log("Is playing?", playing)}
+ *     currentTime={new Date("2022-01-01T00:30:00.000Z")}
+ * />
+ */
 const TimeSlider: React.FC<TimeSliderProps> = ({
     startTime,
     endTime,

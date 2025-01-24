@@ -11,6 +11,26 @@ import { AISLogo, loginPicture } from "@/resources/login_page";
 import AutoLoginNotification from "@/components/AutoLoginNotification";
 import "@/app/globals.css";
 
+/**
+ * The login page.
+ *
+ * This page renders a login form with inputs for username and password.
+ * It also renders an illustration of a ship.
+ *
+ * The user can enter their credentials and click the login button to
+ * authenticate.
+ *
+ * If the user has checked the "Remember Me" checkbox, the user's credentials
+ * will be stored in local storage and will be used to auto-login the user
+ * when they visit the page again.
+ *
+ * If the user has not checked the "Remember Me" checkbox, the user's credentials
+ * will not be stored and will need to be re-entered every time they visit the
+ * page.
+ *
+ * The page also displays any errors that occur during the authentication
+ * process.
+ */
 export default function Login() {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);

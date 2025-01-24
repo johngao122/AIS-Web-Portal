@@ -30,6 +30,24 @@ const tooltips = {
     "In Port Hours": "Total time spent within Singapore port limit (ATD-ATA)",
 };
 
+/**
+ * VesselActivitySingle is a React functional component that displays detailed
+ * information about a single vessel's activity. It presents data such as the
+ * vessel's name, IMO, MMSI, length overall (LOA), terminal, and various timestamps
+ * related to the vessel's berthing and departure activities. The component also
+ * shows calculated hours spent in different stages, such as pending, waiting,
+ * berthing, and in-port hours.
+ *
+ * Props:
+ * - vessel: An object containing detailed information about the vessel, including
+ *   its name, identifier numbers, and activity timestamps.
+ * - onClose: A function to be called when the close button is clicked.
+ *
+ * The component uses an inner InfoRow component to render each piece of
+ * information with a corresponding tooltip for additional context. The formatDateTime
+ * helper function is utilized to format date strings into a human-readable format.
+ */
+
 const VesselActivitySingle: React.FC<VesselActivitySingleProps> = ({
     vessel,
     onClose,

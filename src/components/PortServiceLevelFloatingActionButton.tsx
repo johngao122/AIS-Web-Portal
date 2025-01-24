@@ -56,6 +56,14 @@ export interface FilteredPortServiceData {
     }[];
 }
 
+/**
+ * Filter port service data by selected filters.
+ *
+ * @param rawData Raw port service data.
+ * @param selectedFilters Array of selected filter IDs.
+ *
+ * @returns Filtered port service data.
+ */
 const filterPortServiceData = (rawData: any[], selectedFilters: string[]) => {
     // Early return if no filters selected
     if (!selectedFilters.length) return rawData;
@@ -124,6 +132,15 @@ const filterPortServiceData = (rawData: any[], selectedFilters: string[]) => {
         return filteredPeriod;
     });
 };
+
+/**
+ * Determines if the selected filters include at least one vessel category
+ * and one parameter.
+ *
+ * @param {string[]} selectedFilters - The list of selected filter identifiers.
+ * @returns {boolean} - Returns true if both a vessel category and a parameter
+ *                      are selected, otherwise false.
+ */
 
 const hasValidFilters = (selectedFilters: string[]) => {
     // Check if at least one vessel category is selected
@@ -221,6 +238,48 @@ const filterGroups = {
         ],
     },
 };
+
+/**
+ * PortServiceFAB is a floating action button component for managing and analyzing
+ * port service data. It allows users to select time periods, apply filters, and
+ * analyze port service levels through an API call.
+ *
+ * Props:
+ * - onPortServiceDataUpdate: Callback function to update port service data
+ *   and the FAB state.
+ * - initialTimeRanges: Initial time ranges to be set in the component.
+ * - isItExpanded: Boolean flag indicating if the FAB is expanded.
+ * - onClose: Callback function to handle the FAB close action.
+ *
+ * State:
+ * - timeRanges: List of selected time periods.
+ * - selectedFilters: List of filter identifiers selected by the user.
+ * - dateError: Error message related to date selections.
+ * - isLoading: Boolean indicating if data is being analyzed.
+ * - showStartDatePicker: Boolean to toggle visibility of start date picker.
+ * - showEndDatePicker: Boolean to toggle visibility of end date picker.
+ * - currentStartDate: Currently selected start date.
+ * - currentEndDate: Currently selected end date.
+ *
+ * Methods:
+ * - formatDateTime: Formats a Date object into a human-readable string.
+ * - validateDates: Validates if a start date is earlier than an end date.
+ * - handleDateSelect: Updates the start or end date based on user selection.
+ * - handleExpand: Expands the FAB and resets data.
+ * - handleClose: Calls the onClose callback to close the FAB.
+ * - handleAddTimeRange: Adds a new time range to the list.
+ * - handleRemoveTimeRange: Removes a time range from the list by index.
+ * - handleFilterToggle: Toggles a filter's selection state.
+ * - handleAnalyze: Sends a request to analyze port service data based on selected
+ *   time ranges and filters.
+ *
+ * UI Components:
+ * - Renders a button or card based on the isItExpanded state.
+ * - Displays date pickers for start and end date selection.
+ * - Shows alerts for date errors.
+ * - Provides filter options with checkboxes and tooltips.
+ * - A button to trigger data analysis.
+ */
 
 const PortServiceFAB: React.FC<PortServiceFABProps> = ({
     onPortServiceDataUpdate,

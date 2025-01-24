@@ -8,6 +8,14 @@ import "@/app/globals.css";
 import MapWithSearchBar from "@/components/MapWithSearchbar";
 import { AlertCircle } from "lucide-react";
 
+/**
+ * The dashboard page. This page is protected by authentication, so only logged in users can access it.
+ * If the user is not logged in, they will be redirected to the login page.
+ * If the user is logged in, they will see a map with a search bar on top of it.
+ * The search bar allows them to search for vessels by name, IMO number, or MMSI number.
+ * The map will display the search results.
+ * The user can also log out by clicking the logout button on the top right of the page.
+ */
 export default function DashboardPage() {
     const router = useRouter();
     const [username, setUsername] = useState<string>("");

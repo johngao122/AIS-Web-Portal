@@ -39,6 +39,19 @@ const tooltips = {
         "The time a vessel spends within Singapore port limit (ATD-ATA)",
 };
 
+/**
+ * A component that renders a table header with a label, tooltip, and an
+ * optional sorting icon.
+ *
+ * @param {string} label - The label to display in the header.
+ * @param {string} tooltip - The tooltip to display when the user hovers over
+ * the header.
+ * @param {keyof VesselActivity} sortKey - The key to sort the table by.
+ * @param {SortConfig} currentSort - The current sorting configuration.
+ * @param {(key: keyof VesselActivity) => void} onSort - The function to call
+ * when the user clicks the header to sort the table.
+ * @returns {JSX.Element} The table header component.
+ */
 const SortableHeader = ({
     label,
     tooltip,
@@ -96,6 +109,17 @@ const SortableHeader = ({
     );
 };
 
+/**
+ * A table component that renders a list of container vessel activities.
+ *
+ * @param {VesselActivity[]} data - The data to be rendered in the table.
+ * @param {() => void} onClose - The function to call when the user clicks the
+ * close button.
+ * @param {(vessel: VesselActivity) => void} onRowClick - The function to call
+ * when the user clicks a row in the table.
+ *
+ * @returns {JSX.Element} The table component.
+ */
 const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
     data,
     onClose,
@@ -108,6 +132,14 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
 
     const dataLength = data.length;
 
+    /**
+     * Updates the sort configuration and sorts the table by the given key.
+     *
+     * If the given key is already the current sort key, the direction is toggled.
+     * Otherwise, the direction is set to ascending.
+     *
+     * @param {keyof VesselActivity} key - The key to sort the table by.
+     */
     const handleSort = (key: keyof VesselActivity) => {
         setSortConfig((current) => ({
             key,
@@ -118,6 +150,21 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
         }));
     };
 
+    /**
+     * Sorts the data in the table according to the sort configuration.
+     *
+     * If the sort configuration's key is null, the data is returned unsorted.
+     *
+     * Otherwise, the data is sorted by the key according to the following rules:
+     *
+     * 1. String-based fields (vesselName, terminal) are sorted lexicographically.
+     * 2. Date fields (ata, atb, atu, atd) are sorted by the date in ascending order.
+     * 3. Numeric fields are sorted numerically.
+     *
+     * The sort direction is determined by the sort configuration's direction.
+     *
+     * @returns {VesselActivity[]} The sorted data.
+     */
     const getSortedData = () => {
         console.log(data);
         if (!sortConfig.key) return data;

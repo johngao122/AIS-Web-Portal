@@ -18,6 +18,14 @@ function calculateAverage(values: number[]): number {
     );
 }
 
+/**
+ * Calculate the median of a given array of numbers.
+ * If the array has an even number of elements, the median is the average of the two middle elements.
+ * If the array has an odd number of elements, the median is the middle element.
+ * If the array is empty, the median is 0.
+ * @param values An array of numbers
+ * @returns The median of the given array of numbers
+ */
 function calculateMedian(values: number[]): number {
     if (values.length === 0) return 0;
     const sorted = [...values].sort((a, b) => a - b);
@@ -36,6 +44,11 @@ function filterByCategory(data: any[], minLOA: number, maxLOA: number) {
     );
 }
 
+/**
+ * Calculate the waiting hours from given vessel record.
+ * @param record Vessel record with "ata" and "atb" properties
+ * @returns The waiting hours in hours if the properties are valid, otherwise null
+ */
 function calculateWaitingHours(record: any): number | null {
     const ata = record.ata !== "unavailable" ? new Date(record.ata) : null;
     const atb = record.atb !== "unavailable" ? new Date(record.atb) : null;
@@ -44,6 +57,11 @@ function calculateWaitingHours(record: any): number | null {
     return (atb.getTime() - ata.getTime()) / (1000 * 60 * 60); // hours
 }
 
+/**
+ * Calculate the berthing hours from given vessel record.
+ * @param record Vessel record with "atb" and "atu" properties
+ * @returns The berthing hours in hours if the properties are valid, otherwise null
+ */
 function calculateBerthingHours(record: any): number | null {
     const atb = record.atb !== "unavailable" ? new Date(record.atb) : null;
     const atu = record.atu !== "unavailable" ? new Date(record.atu) : null;
@@ -52,6 +70,11 @@ function calculateBerthingHours(record: any): number | null {
     return (atu.getTime() - atb.getTime()) / (1000 * 60 * 60); // hours
 }
 
+/**
+ * Calculate the in-port hours from given vessel record.
+ * @param record Vessel record with "ata" and "atd" properties
+ * @returns The in-port hours in hours if the properties are valid, otherwise null
+ */
 function calculateInPortHours(record: any): number | null {
     const ata = record.ata !== "unavailable" ? new Date(record.ata) : null;
     const atd = record.atd !== "unavailable" ? new Date(record.atd) : null;
@@ -83,6 +106,30 @@ type CategoryResults = {
         };
     };
 };
+
+/**
+ * Handles POST requests to process vessel activity data for specified date ranges.
+ *
+ * The request body should be an array of objects with the following properties:
+ * - name: A string representing the name of the date range.
+ * - startDate: A string representing the start date of the range.
+ * - endDate: A string representing the end date of the range.
+ *
+ * The function validates the request body and processes each date range to filter
+ * vessel data within the specified dates. It calculates various metrics such as:
+ * - Total berthed vessels
+ * - Just-In-Time (JIT) percentage
+ * - Average and median waiting hours
+ * - Average and median berthing hours
+ * - Average and median in-port hours
+ * - Wharf utilization rates for different terminals and all terminals combined
+ *
+ * Returns a JSON response with the calculated metrics for each date range. If the
+ * request body is invalid or an error occurs, an appropriate error message is returned.
+ *
+ * @param req - The HTTP request object.
+ * @returns A JSON response with calculated metrics or an error message.
+ */
 
 export async function POST(req: Request) {
     try {

@@ -7,6 +7,25 @@ interface SearchBarProps {
     value?: string;
 }
 
+/**
+ * A SearchBar component that allows the user to search for
+ * vessels, locations, etc. by providing a callback `onSearch`
+ * that will be called with the user's input string.
+ *
+ * The component also accepts a `value` prop which will be used
+ * to initialize the input field. If `value` changes, the input
+ * field will be updated accordingly.
+ *
+ * Finally, the component accepts a `className` prop which can be
+ * used to apply additional CSS styles to the component.
+ *
+ * @param {object} props
+ * @param {function} props.onSearch - A callback that will be called with the user's input string.
+ * @param {string} props.value - The initial value of the input field. Defaults to an empty string.
+ * @param {string} props.className - Additional CSS classes to apply to the component. Defaults to an empty string.
+ *
+ * @returns {JSX.Element}
+ */
 const SearchBar: React.FC<SearchBarProps> = ({
     onSearch,
     className,
@@ -18,6 +37,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
         setInputValue(value);
     }, [value]);
 
+    /**
+     * Handles changes to the search input field by updating the state
+     * and calling `onSearch` if it's defined.
+     *
+     * @param {React.ChangeEvent<HTMLInputElement>} e - The React event object.
+     */
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value;
         setInputValue(newValue);

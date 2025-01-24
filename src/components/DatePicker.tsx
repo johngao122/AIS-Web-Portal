@@ -13,6 +13,17 @@ interface DateTimePickerProps {
 
 type ViewMode = "calendar" | "month" | "year";
 
+/**
+ * A date and time picker that allows the user to select a date and time within the specified range.
+ *
+ * @param onSelect Called when the user selects a date and time.
+ * @param onClose Called when the user closes the picker.
+ * @param selectedDate The initial selected date and time.
+ * @param minDate The minimum allowed date and time. If not provided, the current date and time is used.
+ * @param maxDate The maximum allowed date and time. If not provided, no maximum is used.
+ * @param isStartDate If true, the picker will only allow selection of dates and times within the same day as the selected date.
+ * @param startDateTime The initial start date and time if isStartDate is true.
+ */
 const DateTimePicker: React.FC<DateTimePickerProps> = ({
     onSelect,
     onClose,

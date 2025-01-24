@@ -3,6 +3,12 @@
 import { NextResponse } from "next/server";
 import vesselData from "@/data/vessel_activity_updated.json";
 
+/**
+ * Calculate the number of hours between two dates.
+ * @param {Date | null} start The start date
+ * @param {Date | null} end The end date
+ * @returns {number | "unavailable"} The number of hours between the start and end dates, rounded to two decimal places, or "unavailable" if either the start or end date is null or invalid.
+ */
 function calculateHours(
     start: Date | null,
     end: Date | null
@@ -15,6 +21,11 @@ function calculateHours(
     );
 }
 
+/**
+ * Maps a terminal code to its full name.
+ * @param {string} terminal The terminal code
+ * @returns {string} The full name of the terminal
+ */
 function mapTerminalName(terminal: string): string {
     switch (terminal) {
         case "PP":
@@ -30,6 +41,28 @@ function mapTerminalName(terminal: string): string {
     }
 }
 
+/**
+ * Handles a POST request to the /api/vessel-activity endpoint.
+ *
+ * This endpoint takes a JSON object with two properties: `startDate` and `endDate`.
+ * The `startDate` and `endDate` properties must be in the format "YYYY-MM-DD HH:mm:ss".
+ * The endpoint will return a JSON object with a `success` property set to `true`
+ * and a `data` property containing an array of filtered records.
+ *
+ * The filtered records will be a subset of the records in the `vessel_activity_updated.json`
+ * file, filtered by the start and end dates provided in the request.
+ * The records will have the following additional properties:
+ * - `terminal`: The full name of the terminal, mapped from the terminal code.
+ * - `PreBerthingHours`: The number of hours between the arrival time and the berthing time.
+ * - `AnchorageWaitingHours`: The number of hours between the arrival time and the berthing time.
+ * - `BerthingHours`: The number of hours between the berthing time and the unberthing time.
+ * - `InPortHours`: The number of hours between the arrival time and the departure time.
+ *
+ * If the request is invalid, the endpoint will return a JSON object with a `success` property set to `false`
+ * and an appropriate error message.
+ * If an unexpected error occurs, the endpoint will return a JSON object with a `success` property set to `false`
+ * and an error message indicating an internal server error.
+ */
 export async function POST(req: Request) {
     try {
         const body = await req.json();

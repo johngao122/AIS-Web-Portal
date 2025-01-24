@@ -18,6 +18,12 @@ interface PortServiceTableProps {
     onClose: () => void;
 }
 
+/**
+ * Renders a table displaying port service levels analysis data.
+ *
+ * @param {any[]} data - Array of objects containing port service levels data.
+ * @param {() => void} onClose - Function to be called when the close button is clicked.
+ */
 const PortServiceTable: React.FC<PortServiceTableProps> = ({
     data,
     onClose,

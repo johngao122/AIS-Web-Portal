@@ -35,6 +35,20 @@ const tooltips = {
     "In Port Hours": "Total time spent within Singapore port limit (ATD-ATA)",
 };
 
+/**
+ * Component that displays detailed vessel information with an option to navigate back
+ * to the table view. It includes various vessel attributes such as name, IMO, MMSI,
+ * LOA, manager, last location, terminal, and time-related data points like ATA, ATB,
+ * ATU, ATD, pending hours, waiting hours, berthing hours, and in-port hours. Each
+ * attribute is accompanied by a tooltip for additional context.
+ *
+ * Props:
+ * - vessel: Object containing vessel details.
+ * - onClose: Function to handle the closing of the component.
+ * - onUpArrowClick: Function to handle navigation back to the table view.
+ * - dateRange: Object containing the start and end dates.
+ */
+
 const VesselActivitySingleWithArrow: React.FC<
     VesselActivitySingleWithArrowProps
 > = ({ vessel, onClose, onUpArrowClick, dateRange }) => {

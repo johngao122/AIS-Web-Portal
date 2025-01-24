@@ -8,6 +8,18 @@ interface LandingSlideshowProps {
     interval?: number;
 }
 
+/**
+ * A slideshow component that displays a series of images with optional
+ * informational images and an automatic transition interval.
+ *
+ * @param {Object} props - The props for the LandingSlideshow component.
+ * @param {StaticImageData[]} props.pictures - An array of images to be displayed as the main slideshow.
+ * @param {StaticImageData[]} props.infoImages - An array of informational images corresponding to each main slide.
+ * @param {number} [props.interval=5000] - The time interval in milliseconds for automatically transitioning to the next slide.
+ *
+ * @returns {JSX.Element} The landing slideshow component with navigation dots and info images.
+ */
+
 const LandingSlideshow: React.FC<LandingSlideshowProps> = ({
     pictures,
     infoImages,

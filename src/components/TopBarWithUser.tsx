@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { logoLight, NUSLogoLight } from '@/resources/logos';
-import { User, LogOut } from 'lucide-react';
+import React, { useState, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { logoLight, NUSLogoLight } from "@/resources/logos";
+import { User, LogOut } from "lucide-react";
 
 interface TopBarProps {
     username: string;
@@ -10,7 +10,19 @@ interface TopBarProps {
     onLogout?: () => void;
 }
 
-const TopBarWithUser: React.FC<TopBarProps> = ({ username, classname, onLogout }) => {
+/**
+ * A top bar with the AIS logo, NUS logo, and the user's name.
+ * The user's name is clickable and will show a logout button on hover.
+ *
+ * @param {string} username - The user's name.
+ * @param {string} [classname] - A class name to apply to the root element.
+ * @param {() => void} [onLogout] - A function to call when the user clicks the logout button.
+ */
+const TopBarWithUser: React.FC<TopBarProps> = ({
+    username,
+    classname,
+    onLogout,
+}) => {
     const [showLogout, setShowLogout] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -28,14 +40,19 @@ const TopBarWithUser: React.FC<TopBarProps> = ({ username, classname, onLogout }
     };
 
     return (
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-10 px-4 w-full max-w-[90%] md:max-w-[80%]">{/*Dont change the z-10 */}
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-10 px-4 w-full max-w-[90%] md:max-w-[80%]">
+            {/*Dont change the z-10 */}
             <div className="w-full flex justify-center bg-gradient-to-r from-[#4338CA] via-[#3B82F6] to-[#10B981] rounded-lg shadow-lg">
-                <div className={`w-full flex items-center justify-between p-3 ${classname ?? ''}`}>
+                <div
+                    className={`w-full flex items-center justify-between p-3 ${
+                        classname ?? ""
+                    }`}
+                >
                     <div className="flex items-center gap-3">
                         {/* AIS Logo on the left */}
                         <Link href="/" className="flex items-center">
                             <div className="flex items-center transition-opacity duration-300 hover:opacity-50">
-                                <Image 
+                                <Image
                                     src={logoLight}
                                     alt="AIS Logo"
                                     width={150}
@@ -44,10 +61,10 @@ const TopBarWithUser: React.FC<TopBarProps> = ({ username, classname, onLogout }
                                 />
                             </div>
                         </Link>
-                        
+
                         {/* NUS Logo */}
                         <div className="flex items-center">
-                            <Image 
+                            <Image
                                 src={NUSLogoLight}
                                 alt="NUS Logo"
                                 width={400}
@@ -58,7 +75,7 @@ const TopBarWithUser: React.FC<TopBarProps> = ({ username, classname, onLogout }
                     </div>
 
                     {/* User section */}
-                    <div 
+                    <div
                         className="relative"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
@@ -67,7 +84,7 @@ const TopBarWithUser: React.FC<TopBarProps> = ({ username, classname, onLogout }
                         {showLogout && (
                             <div className="absolute w-full h-4 bottom-0 translate-y-full" />
                         )}
-                        
+
                         <button className="flex items-center gap-2 text-white py-2 px-4 w-32 justify-center rounded-full bg-teal-600 hover:bg-teal-700 transition-colors duration-300">
                             <User size={20} />
                             <span>{username}</span>
@@ -76,7 +93,9 @@ const TopBarWithUser: React.FC<TopBarProps> = ({ username, classname, onLogout }
                         {/* Logout popup */}
                         <div
                             className={`absolute right-0 mt-2 py-1 w-32 bg-teal-600 rounded-lg shadow-lg transform transition-all duration-200 ${
-                                showLogout ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1 pointer-events-none'
+                                showLogout
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-1 pointer-events-none"
                             }`}
                         >
                             <button

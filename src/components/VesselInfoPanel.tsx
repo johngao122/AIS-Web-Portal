@@ -7,6 +7,16 @@ interface VesselInfoPanelProps {
     onVesselClick?: (vessel: VesselMarker) => void;
 }
 
+/**
+ * A panel to display information about one or more vessels.
+ *
+ * @example
+ * <VesselInfoPanel vessels={[vessel1, vessel2]} onShowAllClick={() => console.log('Show all vessels')} />
+ *
+ * @param {VesselMarker[]} vessels - An array of vessel objects.
+ * @param {() => void} [onShowAllClick] - An optional function to call when the "Show all vessels info" button is clicked.
+ * @param {(vessel: VesselMarker) => void} [onVesselClick] - An optional function to call when a vessel is clicked.
+ */
 const VesselInfoPanel: React.FC<VesselInfoPanelProps> = ({
     vessels,
     onShowAllClick,

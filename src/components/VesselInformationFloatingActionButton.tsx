@@ -143,6 +143,22 @@ const filterOptions: FilterOption[] = [
     },
 ];
 
+/**
+ * FloatingActionButton is a React functional component that provides
+ * an interface for selecting date ranges and applying various filters
+ * to fetch and display vessel activity data. It allows users to select
+ * start and end dates, apply text, range, select, and number filters,
+ * and validates input data to ensure logical consistency.
+ *
+ * Props:
+ * - onVesselDataUpdate: Function to be called when vessel data needs to be updated.
+ * - initialStartDate: Optional initial start date for the date range.
+ * - initialEndDate: Optional initial end date for the date range.
+ * - initialFilters: Optional initial set of filters to be applied.
+ * - isItExpanded: Boolean indicating whether the component is expanded.
+ * - onClose: Function to be called when the component needs to be closed.
+ */
+
 const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     onVesselDataUpdate,
     initialStartDate,
