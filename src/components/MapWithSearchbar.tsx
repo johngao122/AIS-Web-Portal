@@ -1190,16 +1190,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                         <SearchBar
                             onSearch={handleSearch}
                             value={searchQuery}
-                        />
-                    </div>
-                )}
-
-                {/* Search Results Count */}
-                {!showVesselInfo && searchQuery && (
-                    <div className="absolute top-44 left-1/2 transform -translate-x-1/2 pointer-events-auto">
-                        <SearchResultsCount
-                            count={filteredVessels.length}
-                            total={vessels.length}
+                            vessels={vessels}
                         />
                     </div>
                 )}
