@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 import { IconLayer } from "@deck.gl/layers";
 
 const terminalIconUrl = `data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22lucide%20lucide-anchor%22%3E%3Cpath%20d%3D%22M12%2022V8%22/%3E%3Cpath%20d%3D%22M5%2012H2a10%2010%200%200%200%2020%200h-3%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%225%22%20r%3D%223%22/%3E%3C/svg%3E`;
