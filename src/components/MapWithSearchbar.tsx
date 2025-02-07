@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import DeckGL from "@deck.gl/react";
+import { Layer, PickingInfo } from "@deck.gl/core";
 import StaticMap from "react-map-gl";
 import { IconLayer, PathLayer, PolygonLayer } from "deck.gl";
 import { PathStyleExtension } from "@deck.gl/extensions";
@@ -36,6 +37,11 @@ import separation from "@/data/seamark_separation.json";
 import vesselActivityData from "@/data/example/VesselActivity.json";
 import singleVesselActivityData from "@/data/example/VesselActivitySingle.json";
 import portServiceLevelData from "@/data/example/PortServiceLevel.json";
+import {
+    createTerminalLayer,
+    Terminal,
+    fetchTerminalData,
+} from "./TerminalLayer";
 
 interface MapProps {
     mapStyle?: string;
@@ -104,7 +110,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         anchorages: true,
         fairways: true,
         separation: true,
-        vessels: true,
+        //vessels: true,
+        terminals: true,
     });
     const [focusVessel, setFocusVessel] = useState<VesselMarker | null>(null);
     const [vesselData, setVesselData] = useState<VesselActivity[] | null>(null);
@@ -147,10 +154,67 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     } | null>(null);
 
     const [layerMenuOpen, setLayerMenuOpen] = useState(false);
+    const [terminalData, setTerminalData] = useState<Terminal[]>([]);
 
     useEffect(() => {
-        const typedVesselData = vesselPingData as VesselMarker[];
-        setVessels(typedVesselData);
+        const loadTerminalData = async () => {
+            const data = await fetchTerminalData();
+            console.log(data);
+            setTerminalData(data);
+        };
+        loadTerminalData();
+    }, []);
+
+    useEffect(() => {
+        //NOTE: REPLACE THIS WHEN ACTUAL BACKEND IS UP
+        const fetchVesselData = async () => {
+            try {
+                const response = await fetch("/api/data/vessel_activity", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        startDate: "2024-10-01T00:00:00",
+                        endDate: "2024-11-30T23:59:59",
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const rawData = await response.json();
+
+                if (rawData.success && Array.isArray(rawData.data)) {
+                    const transformedData: VesselMarker[] = rawData.data.map(
+                        (vessel: any) => ({
+                            vesselName: vessel.vesselname,
+                            imoNumber: vessel.imonumber.toString(),
+                            mmsi: vessel.mmsinumber.toString(),
+                            loa: vessel.vessellength.toString(),
+                            lastLocation: vessel.terminal || "Unknown",
+                            // Since actual coordinates aren't provided in the API response for now,
+                            // we'll set default coordinates for Singapore
+                            longitude: 103.8198, // Default Singapore longitude
+                            latitude: 1.3521, // Default Singapore latitude
+                            bearing: 0, // Default bearing
+                        })
+                    );
+
+                    setVessels(transformedData);
+                } else {
+                    throw new Error("Invalid data structure received from API");
+                }
+            } catch (error) {
+                console.error("Error fetching vessel data:", error);
+                // Fallback to example data if API call fails
+                const typedVesselData = vesselPingData as VesselMarker[];
+                setVessels(typedVesselData);
+            }
+        };
+
+        fetchVesselData();
     }, []);
 
     useEffect(() => {
@@ -417,7 +481,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 vesselTimelineData[0].longitude,
                 vesselTimelineData[0].latitude,
             ];
-
+            /*
             setViewState((prevState: ViewState) => ({
                 ...prevState,
                 longitude: initialPosition[0],
@@ -429,7 +493,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 }),
                 transitionEasing: easeCubic,
             }));
-
+            */
             const pathData = [
                 {
                     path: vesselTimelineData.map((point) => [
@@ -481,7 +545,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             isExpanded: true,
             selectedFilters: fabStates.vesselInfo.selectedFilters,
         });
-
+        /*
         setViewState((prevState: ViewState) => ({
             ...prevState,
             zoom: 11,
@@ -491,6 +555,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             }),
             transitionEasing: easeCubic,
         }));
+        */
     };
 
     const calculateHeading = (point1: number[], point2: number[]): number => {
@@ -508,6 +573,116 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         if (angle < 0) angle += 360;
 
         return angle;
+    };
+
+    const handleVesselInfoClick = async (clickedVessel: VesselMarker) => {
+        const endDate = new Date();
+        const startDate = new Date(endDate);
+        startDate.setMonth(startDate.getMonth() - 1);
+
+        setDateRange({ startDate, endDate });
+
+        const initialFilters = {
+            vesselName: {
+                value: clickedVessel.vesselName,
+                additionalValue: undefined,
+            },
+        };
+
+        handleVesselInfoFabToggle(true, {
+            startDate,
+            endDate,
+            selectedFilters: initialFilters,
+        });
+
+        const startDateString = `${
+            startDate.toISOString().split("T")[0]
+        }T00:00:00`;
+        const endDateString = `${endDate.toISOString().split("T")[0]}T23:59:59`;
+
+        setShowVesselTable(true);
+        setSearchQuery("");
+
+        try {
+            const response = await fetch("/api/data/vessel_activity", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    startDate: startDateString,
+                    endDate: endDateString,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const rawData = await response.json();
+            console.log(rawData);
+            if (rawData.success && Array.isArray(rawData.data)) {
+                const transformedData = rawData.data
+                    .map((vessel: any) => ({
+                        vesselName: vessel.vesselname,
+                        imoNumber: vessel.imonumber.toString(),
+                        mmsi: vessel.mmsinumber.toString(),
+                        loa: vessel.vessellength.toString(),
+                        terminal: vessel.terminal,
+                        ata: vessel.ata || "unavailable",
+                        atb: vessel.atb || "unavailable",
+                        atu: vessel.atu || "unavailable",
+                        atd: vessel.atd || "unavailable",
+                        waitingHoursAtBerth:
+                            vessel.PreBerthingHours === "unavailable"
+                                ? 0
+                                : vessel.PreBerthingHours,
+                        waitingHoursInAnchorage:
+                            vessel.AnchorageWaitingHours === "unavailable"
+                                ? 0
+                                : vessel.AnchorageWaitingHours,
+                        berthingHours:
+                            vessel.BerthingHours === "unavailable"
+                                ? 0
+                                : vessel.BerthingHours,
+                        inPortHours:
+                            vessel.InPortHours === "unavailable"
+                                ? 0
+                                : vessel.InPortHours,
+                    }))
+
+                    .filter(
+                        (vessel: VesselActivity) =>
+                            vessel.vesselName.toLowerCase() ===
+                            clickedVessel.vesselName.toLowerCase()
+                    );
+
+                console.log(transformedData);
+
+                handleVesselDataUpdate(transformedData, {
+                    isExpanded: true,
+                    startDate,
+                    endDate,
+                    filterValues: initialFilters,
+                });
+            } else {
+                throw new Error("Invalid data structure received from API");
+            }
+        } catch (error) {
+            console.error("Error fetching vessel activity data:", error);
+            // Fallback to example data if API call fails
+            const filteredExampleData = vesselActivityData.filter(
+                (vessel) =>
+                    vessel.vesselName.toLowerCase() ===
+                    clickedVessel.vesselName.toLowerCase()
+            );
+            handleVesselDataUpdate(filteredExampleData, {
+                isExpanded: true,
+                startDate,
+                endDate,
+                filterValues: initialFilters,
+            });
+        }
     };
 
     const handleVesselClick = async (
@@ -621,18 +796,19 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         }
     };
 
-    const createHoverHandler = (layerName: string) => (info: any) => {
-        if (info.object) {
-            setTooltipInfo({
-                object: info.object,
-                x: info.x,
-                y: info.y,
-                layer: layerName,
-            });
-        } else {
-            setTooltipInfo(null);
-        }
-    };
+    const createHoverHandler =
+        (layerName: string) => (info: PickingInfo & { layer: Layer<any> }) => {
+            if (info.object) {
+                setTooltipInfo({
+                    object: info.object,
+                    x: info.x,
+                    y: info.y,
+                    layer: layerName,
+                });
+            } else {
+                setTooltipInfo(null);
+            }
+        };
 
     const handleZoomIn = () => {
         setViewState((prevState: ViewState) => ({
@@ -718,7 +894,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     heading: matchedVessels[0].bearing,
                     course: matchedVessels[0].bearing,
                 });
-
+                /*
                 setViewState((prevState: ViewState) => ({
                     ...prevState,
                     longitude: vessel.longitude,
@@ -730,6 +906,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     }),
                     transitionEasing: easeCubic,
                 }));
+                */
             }
         } else {
             setFocusVessel(null);
@@ -766,6 +943,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             const matchedVessels = vessels.filter((vessel) =>
                 matchesVesselSearch(vessel, searchQuery)
             );
+            /*
             if (matchedVessels.length > 0) {
                 setViewState((prevState: ViewState) => ({
                     ...prevState,
@@ -777,6 +955,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     transitionEasing: easeCubic,
                 }));
             }
+                */
         }
     };
 
@@ -794,7 +973,10 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         getLineColor: [0, 140, 255, 200],
         getLineWidth: 1,
         visible: activeLayers.anchorages,
-        onHover: createHoverHandler("anchorage"),
+        onHover: (info) => {
+            const typedInfo = info as PickingInfo & { layer: Layer<any> };
+            createHoverHandler("anchorage")(typedInfo);
+        },
     });
 
     //Fairway layer
@@ -811,7 +993,10 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         getLineColor: [255, 140, 0, 200],
         getLineWidth: 1,
         visible: activeLayers.fairways,
-        onHover: createHoverHandler("fairway"),
+        onHover: (info) => {
+            const typedInfo = info as PickingInfo & { layer: Layer<any> };
+            createHoverHandler("fairway")(typedInfo);
+        },
     });
 
     const pathStyleExtension = new PathStyleExtension({ dash: true });
@@ -831,13 +1016,22 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         dashGapPickable: true,
         extensions: [pathStyleExtension],
         visible: activeLayers.separation,
-        onHover: createHoverHandler("separation"),
+        onHover: (info) => {
+            const typedInfo = info as PickingInfo & { layer: Layer<any> };
+            createHoverHandler("separation")(typedInfo);
+        },
         parameters: {
             dashEnable: true,
         },
     });
 
-    //Vessel layer
+    const terminalLayer = createTerminalLayer({
+        data: terminalData,
+        onHover: createHoverHandler("terminal"),
+        visible: activeLayers.terminals,
+    });
+
+    /*Vessel layer
     const vesselLayer = new IconLayer({
         id: "vessels",
         data: showVesselInfo
@@ -893,6 +1087,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             }
         },
     });
+    */
 
     const vesselPathLayer = new PathLayer({
         id: "vessel-path",
@@ -958,7 +1153,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         }
     };
 
-    const handleShowAllClick = () => {
+    const handleShowAllClick = async () => {
         const endDate = new Date();
         const startDate = new Date(endDate);
         startDate.setMonth(startDate.getMonth() - 1);
@@ -970,17 +1165,81 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             selectedFilters: {},
         });
 
+        const startDateString = `${
+            startDate.toISOString().split("T")[0]
+        }T00:00:00`;
+        const endDateString = `${endDate.toISOString().split("T")[0]}T23:59:59`;
+        console.log(startDateString, endDateString);
+
         setShowVesselTable(true);
         setSearchQuery("");
 
-        handleVesselDataUpdate(vesselActivityData, {
-            isExpanded: true,
-            startDate,
-            endDate,
-            filterValues: {},
-        });
-    };
+        try {
+            const response = await fetch("/api/data/vessel_activity", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    startDate: startDateString,
+                    endDate: endDateString,
+                }),
+            });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const rawData = await response.json();
+            if (rawData.success && Array.isArray(rawData.data)) {
+                const transformedData = rawData.data.map((vessel: any) => ({
+                    vesselName: vessel.vesselname,
+                    imoNumber: vessel.imonumber.toString(),
+                    mmsi: vessel.mmsinumber.toString(),
+                    loa: vessel.vessellength.toString(),
+                    terminal: vessel.terminal,
+                    ata: vessel.ata || "unavailable",
+                    atb: vessel.atb || "unavailable",
+                    atu: vessel.atu || "unavailable",
+                    atd: vessel.atd || "unavailable",
+                    waitingHoursAtBerth:
+                        vessel.PreBerthingHours === "unavailable"
+                            ? 0
+                            : vessel.PreBerthingHours,
+                    waitingHoursInAnchorage:
+                        vessel.AnchorageWaitingHours === "unavailable"
+                            ? 0
+                            : vessel.AnchorageWaitingHours,
+                    berthingHours:
+                        vessel.BerthingHours === "unavailable"
+                            ? 0
+                            : vessel.BerthingHours,
+                    inPortHours:
+                        vessel.InPortHours === "unavailable"
+                            ? 0
+                            : vessel.InPortHours,
+                }));
+
+                handleVesselDataUpdate(transformedData, {
+                    isExpanded: true,
+                    startDate,
+                    endDate,
+                    filterValues: {},
+                });
+            } else {
+                throw new Error("Invalid data structure received from API");
+            }
+        } catch (error) {
+            console.error("Error fetching vessel activity data:", error);
+            // Fallback to example data if API call fails
+            handleVesselDataUpdate(vesselActivityData, {
+                isExpanded: true,
+                startDate,
+                endDate,
+                filterValues: {},
+            });
+        }
+    };
     const renderTooltip = () => {
         if (!tooltipInfo) return null;
 
@@ -1119,6 +1378,56 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             </div>
                         </div>
                     );
+                case "terminal":
+                    return (
+                        <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-4">
+                            <div className="font-bold text-lg mb-2 text-blue-600">
+                                {object.name}
+                            </div>
+                            <div className="space-y-1">
+                                <div className="flex justify-between gap-4">
+                                    <span className="text-gray-600">
+                                        Total Vessels:
+                                    </span>
+                                    <span className="font-medium">
+                                        {object.stats.totalVessels}
+                                    </span>
+                                </div>
+                                <div className="flex justify-between gap-4">
+                                    <span className="text-gray-600">
+                                        JIT Arrival:
+                                    </span>
+                                    <span className="font-medium">
+                                        {object.stats.jitPercentage}%
+                                    </span>
+                                </div>
+                                <div className="flex justify-between gap-4">
+                                    <span className="text-gray-600">
+                                        Avg Waiting:
+                                    </span>
+                                    <span className="font-medium">
+                                        {object.stats.avgWaitingHours}h
+                                    </span>
+                                </div>
+                                <div className="flex justify-between gap-4">
+                                    <span className="text-gray-600">
+                                        Avg Berthing:
+                                    </span>
+                                    <span className="font-medium">
+                                        {object.stats.avgBerthingHours}h
+                                    </span>
+                                </div>
+                                <div className="flex justify-between gap-4">
+                                    <span className="text-gray-600">
+                                        Utilization:
+                                    </span>
+                                    <span className="font-medium">
+                                        {object.stats.utilization}%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    );
 
                 default:
                     return null;
@@ -1170,7 +1479,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                         fairwayLayer,
                         separationLayer,
                         vesselPathLayer,
-                        vesselLayer,
+                        //vesselLayer,
+                        terminalLayer,
                     ]}
                     onViewStateChange={onViewStateChange}
                 >
@@ -1211,9 +1521,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                                 <VesselInfoPanel
                                     vessels={filteredVessels}
                                     onShowAllClick={handleShowAllClick}
-                                    onVesselClick={(vessel) =>
-                                        handleVesselClick(vessel)
-                                    }
+                                    onVesselClick={handleVesselInfoClick}
                                 />
                             </div>
                         )}

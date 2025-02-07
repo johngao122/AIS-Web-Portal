@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React, { useState } from "react";
-import { Layers, Plus, Minus, X } from "lucide-react";
+import { Layers, Plus, Minus, X, TerminalIcon, Terminal } from "lucide-react";
 import Image from "next/image";
 import {
     Anchorage,
@@ -16,14 +16,14 @@ interface MapControlsProps {
         anchorages: boolean;
         fairways: boolean;
         separation: boolean;
-        vessels: boolean;
+        terminals: boolean;
     };
     setActiveLayers: React.Dispatch<
         React.SetStateAction<{
             anchorages: boolean;
             fairways: boolean;
             separation: boolean;
-            vessels: boolean;
+            terminals: boolean;
         }>
     >;
     onZoomIn: () => void;
@@ -59,11 +59,37 @@ const MapControls = ({
 }: MapControlsProps) => {
     const [showTooltip, setShowTooltip] = useState(false);
 
-    const layerConfig = [
-        { key: "vessels", label: "Vessels", icon: Vessel },
-        { key: "anchorages", label: "Anchorages", icon: Anchorage },
-        { key: "fairways", label: "Fairways", icon: Fairway },
-        { key: "separation", label: "Separation Schemes", icon: Separation },
+    interface LayerConfigItem {
+        key: keyof typeof activeLayers;
+        label: string;
+        icon: LayerIcon;
+    }
+
+    type LayerIcon =
+        | { type: "image"; icon: any } // For Next.js Image icons
+        | { type: "lucide"; icon: React.ComponentType<any> }; // For Lucide icons
+
+    const layerConfig: LayerConfigItem[] = [
+        {
+            key: "anchorages",
+            label: "Anchorages",
+            icon: { type: "image", icon: Anchorage },
+        },
+        {
+            key: "fairways",
+            label: "Fairways",
+            icon: { type: "image", icon: Fairway },
+        },
+        {
+            key: "separation",
+            label: "Separation Schemes",
+            icon: { type: "image", icon: Separation },
+        },
+        {
+            key: "terminals",
+            label: "Terminals",
+            icon: { type: "lucide", icon: Terminal },
+        },
     ];
 
     const handleLayerToggle = (key: string) => {
@@ -131,37 +157,47 @@ const MapControls = ({
                             </div>
 
                             <div className="space-y-3">
-                                {layerConfig.map(
-                                    ({ key, label, icon: Icon }) => (
-                                        <label
-                                            key={key}
-                                            className="flex items-center space-x-3 cursor-pointer"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={
-                                                    activeLayers[
-                                                        key as keyof typeof activeLayers
-                                                    ]
-                                                }
-                                                onChange={() =>
-                                                    handleLayerToggle(key)
-                                                }
-                                                className="rounded border-gray-300 cursor-pointer"
-                                            />
-                                            <div className="flex items-center space-x-2">
+                                {layerConfig.map(({ key, label, icon }) => (
+                                    <label
+                                        key={key}
+                                        className="flex items-center space-x-3 cursor-pointer"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            checked={
+                                                activeLayers[
+                                                    key as keyof typeof activeLayers
+                                                ]
+                                            }
+                                            onChange={() =>
+                                                handleLayerToggle(key)
+                                            }
+                                            className="rounded border-gray-300 cursor-pointer"
+                                        />
+                                        <div className="flex items-center space-x-2">
+                                            {icon.type === "image" ? (
                                                 <Image
-                                                    src={Icon}
+                                                    src={icon.icon}
                                                     alt={label}
                                                     className="w-5 h-5"
                                                 />
-                                                <span className="text-gray-700">
-                                                    {label}
-                                                </span>
-                                            </div>
-                                        </label>
-                                    )
-                                )}
+                                            ) : (
+                                                <div className="w-5 h-5">
+                                                    {React.createElement(
+                                                        icon.icon,
+                                                        {
+                                                            className:
+                                                                "w-5 h-5 text-gray-700",
+                                                        }
+                                                    )}
+                                                </div>
+                                            )}
+                                            <span className="text-gray-700">
+                                                {label}
+                                            </span>
+                                        </div>
+                                    </label>
+                                ))}
                             </div>
                         </div>
                     </div>

@@ -75,6 +75,11 @@ export default function DashboardPage() {
         );
     }
 
+    /**
+     * Logs the user out by removing the user data from local and session storage,
+     * and redirects them to the login page.
+     */
+
     const handleLogout = () => {
         localStorage.removeItem("User");
         sessionStorage.removeItem("User");
