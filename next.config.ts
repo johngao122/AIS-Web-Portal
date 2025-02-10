@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
           }
         : {
               // Vercel configuration
+              output: "standalone",
               reactStrictMode: true,
           }),
     env: {

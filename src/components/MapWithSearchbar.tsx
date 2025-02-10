@@ -159,7 +159,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     useEffect(() => {
         const loadTerminalData = async () => {
             const data = await fetchTerminalData();
-            console.log(data);
+
             setTerminalData(data);
         };
         loadTerminalData();
@@ -318,7 +318,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         fabData?: any
     ) => {
         if (data && fabData?.filterValues) {
-            console.log("Received filtered data:", data); // Debug here
             setVesselData(data);
         } else {
             setVesselData(data);
@@ -351,7 +350,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         fieldValue: number
     ): boolean => {
         // Convert empty strings or undefined to defaults (0 for min, Infinity for max)
-        console.log(value, additionalValue, fieldValue);
+
         const min = value === "" || value === undefined ? 0 : Number(value);
         const max =
             additionalValue === "" || additionalValue === undefined
@@ -368,8 +367,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 // For range filters, we should check both value and additionalValue
                 const value = filterValue.value;
                 const additionalValue = filterValue.additionalValue;
-                console.log(value, additionalValue);
-                console.log(key);
+
                 // Only skip if both values are empty for range filters
                 if (
                     key === "loa" ||
@@ -620,7 +618,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             }
 
             const rawData = await response.json();
-            console.log(rawData);
+
             if (rawData.success && Array.isArray(rawData.data)) {
                 const transformedData = rawData.data
                     .map((vessel: any) => ({
@@ -657,8 +655,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             clickedVessel.vesselName.toLowerCase()
                     );
 
-                console.log(transformedData);
-
                 handleVesselDataUpdate(transformedData, {
                     isExpanded: true,
                     startDate,
@@ -689,9 +685,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         clickedVessel: VesselMarker,
         viewStateCallback?: () => void
     ) => {
-        console.log("1. Clicked vessel:", clickedVessel);
-        console.log("2. Current vesselData:", vesselData);
-
         setShowVesselTable(false);
 
         //Replace with API call in the future
@@ -703,7 +696,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     v.vesselName.toLowerCase() ===
                     clickedVessel.vesselName.toLowerCase()
             );
-            console.log("3. Found vessel details for table:", vesselDetails);
 
             if (vesselDetails) {
                 const vesselTimelineData = singleVesselActivityData.filter(
@@ -760,10 +752,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     ...vesselDetails,
                     lastLocation: clickedVessel.lastLocation,
                 };
-                console.log(
-                    "4. Setting selected vessel:",
-                    enrichedVesselDetails
-                );
+
                 setSelectedVessel(enrichedVesselDetails);
                 setTimelineData(vesselTimelineData);
                 setVesselInfoSource("direct");
@@ -787,10 +776,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     berthingHours: 0,
                     inPortHours: 0,
                 };
-                console.log(
-                    "5. Setting basic vessel details:",
-                    basicVesselDetails
-                );
+
                 setSelectedVessel(basicVesselDetails);
             }
         }

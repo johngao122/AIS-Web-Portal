@@ -614,15 +614,12 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
             const result = await response.json();
 
             if (result.success && Array.isArray(result.data)) {
-                console.log(result.data);
                 const transformedData = transformAPIResponse(result.data);
-                console.log("Transformed data:", transformedData);
+
                 const filteredData = applyFilters(
                     transformedData,
                     filterValues
                 );
-
-                console.log("Filtered data sent:", filteredData);
 
                 onVesselDataUpdate(filteredData, {
                     isExpanded: true,
@@ -713,14 +710,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                             const hasValue = filterValue.value === "true";
                             const noValue = filterValue.value === "false";
 
-                            console.log(noValue);
-
                             if (hasValue && vessel[key] === "unavailable") {
-                                console.log("error in first");
                                 return false;
                             } // Must have a value
                             if (noValue && vessel[key] !== "unavailable") {
-                                console.log("error in second");
                                 return false;
                             } // Must be unavailable
                         }

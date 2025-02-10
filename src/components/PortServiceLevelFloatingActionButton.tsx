@@ -385,7 +385,6 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
 
         setIsLoading(true);
         try {
-            console.log(timeRanges);
             // Format the time ranges for the API request
             const requestBody = timeRanges.map((range, index) => ({
                 name: `Period ${index + 1}`,
@@ -408,16 +407,12 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
 
             const rawData = await response.json();
 
-            console.log("Raw data:", rawData);
-
             // Filter the raw data based on selected filters
             const filteredData = filterPortServiceData(
                 rawData,
                 selectedFilters
             );
-            console.log("Filtered data:", filteredData);
 
-            console.log("Filtered data:", filteredData);
             onPortServiceDataUpdate(filteredData, {
                 isExpanded: true,
                 timeRanges,

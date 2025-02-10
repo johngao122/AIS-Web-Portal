@@ -179,7 +179,6 @@ export async function POST(req: Request) {
                     record.atd !== "unavailable" ? new Date(record.atd) : null;
                 return ata && atd && ata >= start && atd <= end;
             });
-            console.log(filteredData);
 
             const categories = [
                 { name: "All vessels", minLOA: 0, maxLOA: Infinity },
