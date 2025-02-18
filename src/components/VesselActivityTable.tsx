@@ -232,227 +232,209 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
             </div>
 
             {/* Table Container */}
-            <div className="flex-1 overflow-auto">
-                {sortedData.length > 0 ? (
-                    <Table>
-                        <TableHeader className="sticky top-0 z-10 bg-white">
-                            <TableRow>
-                                <TableHead className="w-72 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="Vessel Name"
-                                        tooltip="Name of the vessel"
-                                        sortKey="vesselName"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="IMO"
-                                        tooltip="International Maritime Organization number"
-                                        sortKey="imoNumber"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-36 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="MMSI"
-                                        tooltip="Maritime Mobile Service Identity"
-                                        sortKey="mmsi"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-24 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="LOA"
-                                        tooltip={tooltips.LOA}
-                                        sortKey="loa"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-40 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="Terminal"
-                                        tooltip="Container terminal location"
-                                        sortKey="terminal"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="ATA"
-                                        tooltip={tooltips.ATA}
-                                        sortKey="ata"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="ATB"
-                                        tooltip={tooltips.ATB}
-                                        sortKey="atb"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="ATU"
-                                        tooltip={tooltips.ATU}
-                                        sortKey="atu"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="ATD"
-                                        tooltip={tooltips.ATD}
-                                        sortKey="atd"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="Pre Berthing Hours"
-                                        tooltip={tooltips["Pending Hours"]}
-                                        sortKey="waitingHoursAtBerth"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-36 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="Waiting Hours in Anchorage"
-                                        tooltip={
-                                            tooltips[
-                                                "Waiting Hours in Anchorage"
-                                            ]
-                                        }
-                                        sortKey="waitingHoursInAnchorage"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="Berthing Hours"
-                                        tooltip={tooltips["Berthing Hours"]}
-                                        sortKey="berthingHours"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
-                                <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
-                                    <SortableHeader
-                                        label="In Port Hours"
-                                        tooltip={tooltips["In Port Hours"]}
-                                        sortKey="inPortHours"
-                                        currentSort={sortConfig}
-                                        onSort={handleSort}
-                                    />
-                                </TableHead>
+
+            {sortedData.length > 0 ? (
+                <Table>
+                    <TableHeader className="sticky top-0 z-10 bg-white">
+                        <TableRow>
+                            <TableHead className="w-72 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="Vessel Name"
+                                    tooltip="Name of the vessel"
+                                    sortKey="vesselName"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="IMO"
+                                    tooltip="International Maritime Organization number"
+                                    sortKey="imoNumber"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-36 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="MMSI"
+                                    tooltip="Maritime Mobile Service Identity"
+                                    sortKey="mmsi"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-24 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="LOA"
+                                    tooltip={tooltips.LOA}
+                                    sortKey="loa"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-40 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="Terminal"
+                                    tooltip="Container terminal location"
+                                    sortKey="terminal"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="ATA"
+                                    tooltip={tooltips.ATA}
+                                    sortKey="ata"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="ATB"
+                                    tooltip={tooltips.ATB}
+                                    sortKey="atb"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="ATU"
+                                    tooltip={tooltips.ATU}
+                                    sortKey="atu"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-44 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="ATD"
+                                    tooltip={tooltips.ATD}
+                                    sortKey="atd"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="Pre Berthing Hours"
+                                    tooltip={tooltips["Pending Hours"]}
+                                    sortKey="waitingHoursAtBerth"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-36 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="Waiting Hours in Anchorage"
+                                    tooltip={
+                                        tooltips["Waiting Hours in Anchorage"]
+                                    }
+                                    sortKey="waitingHoursInAnchorage"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="Berthing Hours"
+                                    tooltip={tooltips["Berthing Hours"]}
+                                    sortKey="berthingHours"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                            <TableHead className="w-32 border-r border-gray-200 px-6 py-3">
+                                <SortableHeader
+                                    label="In Port Hours"
+                                    tooltip={tooltips["In Port Hours"]}
+                                    sortKey="inPortHours"
+                                    currentSort={sortConfig}
+                                    onSort={handleSort}
+                                />
+                            </TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {sortedData.map((vessel, index) => (
+                            <TableRow
+                                key={`${vessel.imoNumber}-${index}`}
+                                className={`${
+                                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                                } hover:bg-gray-100 transition-colors cursor-pointer`}
+                                onClick={() => onRowClick?.(vessel)}
+                            >
+                                <TableCell className="font-medium whitespace-normal border-r border-gray-200 px-6 py-3">
+                                    {vessel.vesselName}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.imoNumber}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.mmsi}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.loa}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.terminal}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.ata === "unavailable"
+                                        ? "Unavailable"
+                                        : new Date(vessel.ata).toLocaleString()}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.atb === "unavailable"
+                                        ? "Unavailable"
+                                        : new Date(vessel.atb).toLocaleString()}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.atu === "unavailable"
+                                        ? "Unavailable"
+                                        : new Date(vessel.atu).toLocaleString()}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {vessel.atd === "unavailable"
+                                        ? "Unavailable"
+                                        : new Date(vessel.atd).toLocaleString()}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {typeof vessel.waitingHoursAtBerth ===
+                                    "number"
+                                        ? vessel.waitingHoursAtBerth.toFixed(2)
+                                        : "Unavailable"}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {typeof vessel.waitingHoursInAnchorage ===
+                                    "number"
+                                        ? vessel.waitingHoursInAnchorage.toFixed(
+                                              2
+                                          )
+                                        : "Unavailable"}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {typeof vessel.berthingHours === "number"
+                                        ? vessel.berthingHours.toFixed(2)
+                                        : "Unavailable"}
+                                </TableCell>
+                                <TableCell className="truncate border-r border-gray-200 px-6 py-3">
+                                    {typeof vessel.inPortHours === "number"
+                                        ? vessel.inPortHours.toFixed(2)
+                                        : "Unavailable"}
+                                </TableCell>
                             </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {sortedData.map((vessel, index) => (
-                                <TableRow
-                                    key={`${vessel.imoNumber}-${index}`}
-                                    className={`${
-                                        index % 2 === 0
-                                            ? "bg-gray-50"
-                                            : "bg-white"
-                                    } hover:bg-gray-100 transition-colors cursor-pointer`}
-                                    onClick={() => onRowClick?.(vessel)}
-                                >
-                                    <TableCell className="font-medium whitespace-normal border-r border-gray-200 px-6 py-3">
-                                        {vessel.vesselName}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.imoNumber}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.mmsi}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.loa}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.terminal}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.ata === "unavailable"
-                                            ? "Unavailable"
-                                            : new Date(
-                                                  vessel.ata
-                                              ).toLocaleString()}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.atb === "unavailable"
-                                            ? "Unavailable"
-                                            : new Date(
-                                                  vessel.atb
-                                              ).toLocaleString()}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.atu === "unavailable"
-                                            ? "Unavailable"
-                                            : new Date(
-                                                  vessel.atu
-                                              ).toLocaleString()}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {vessel.atd === "unavailable"
-                                            ? "Unavailable"
-                                            : new Date(
-                                                  vessel.atd
-                                              ).toLocaleString()}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {typeof vessel.waitingHoursAtBerth ===
-                                        "number"
-                                            ? vessel.waitingHoursAtBerth.toFixed(
-                                                  2
-                                              )
-                                            : "Unavailable"}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {typeof vessel.waitingHoursInAnchorage ===
-                                        "number"
-                                            ? vessel.waitingHoursInAnchorage.toFixed(
-                                                  2
-                                              )
-                                            : "Unavailable"}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {typeof vessel.berthingHours ===
-                                        "number"
-                                            ? vessel.berthingHours.toFixed(2)
-                                            : "Unavailable"}
-                                    </TableCell>
-                                    <TableCell className="truncate border-r border-gray-200 px-6 py-3">
-                                        {typeof vessel.inPortHours === "number"
-                                            ? vessel.inPortHours.toFixed(2)
-                                            : "Unavailable"}
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                ) : (
-                    <div className="h-full flex items-center justify-center">
-                        <p className="text-gray-500 text-lg">
-                            No data available
-                        </p>
-                    </div>
-                )}
-            </div>
+                        ))}
+                    </TableBody>
+                </Table>
+            ) : (
+                <div className="h-full flex items-center justify-center">
+                    <p className="text-gray-500 text-lg">No data available</p>
+                </div>
+            )}
         </div>
     );
 };

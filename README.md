@@ -60,3 +60,23 @@ For example, as shown in the screenshot, the payload includes:
 ```
 
 Ensure the Content-Type header is set to application/json. Once the request is sent, you should receive a response confirming the registration. If the server has been inactive for over 15 minutes, it might take a short while to wake up due to the limitations of the free tier hosting.
+
+# AIS Web Portal Docker Image
+
+## Build the Docker Image with Arguments
+
+This image requires two environment variables during the build process:
+
+-   `NEXT_PUBLIC_MAPBOX`: Your Mapbox API key.
+-   `NEXT_PUBLIC_API`: The URL of your backend API.
+
+### Build Command
+
+To build the image with these variables, run:
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_MAPBOX="your_mapbox_api_key" \
+  --build-arg NEXT_PUBLIC_API="your_api_url" \
+  -t <your-dockerhub-username>/ais-web-portal:latest .
+```
