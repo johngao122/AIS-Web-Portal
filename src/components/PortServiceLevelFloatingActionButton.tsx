@@ -385,6 +385,13 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
 
         setIsLoading(true);
         try {
+            const userStr =
+                localStorage.getItem("User") || sessionStorage.getItem("User");
+            if (!userStr) {
+                throw new Error("No authentication token found");
+            }
+            const userData = JSON.parse(userStr);
+
             // Format the time ranges for the API request
             const requestBody = timeRanges.map((range, index) => ({
                 name: `Period ${index + 1}`,
@@ -397,12 +404,18 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${userData.token}`,
                 },
                 body: JSON.stringify(requestBody),
             });
 
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                if (response.status === 401) {
+                    throw new Error("Unauthorized access, please login again");
+                }
+                throw new Error(
+                    `API request failed with status ${response.status}`
+                );
             }
 
             const rawData = await response.json();
@@ -419,7 +432,8 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
                 selectedFilters,
             });
         } catch (error) {
-            console.error("Error loading port service data:", error);
+            console.error("Error analyzing port service data:", error);
+            // Return null to indicate error state
             onPortServiceDataUpdate(null);
         } finally {
             setIsLoading(false);

@@ -1,13 +1,25 @@
 /* eslint-disable */
 
 import { NextResponse } from "next/server";
-import vesselData from "@/data/vessel_activity_updated.json";
 
 type RecordType = {
     terminal: string;
     atb: string | "unavailable";
     atu: string | "unavailable";
     vessellength: number;
+};
+
+type VesselRecord = {
+    vesselname: string;
+    imo: string;
+    mmsi: string;
+    vesseltype: string;
+    vessellength: number;
+    terminal: string;
+    ata: string | "unavailable";
+    atb: string | "unavailable";
+    atu: string | "unavailable";
+    atd: string | "unavailable";
 };
 
 // Helper functions to calculate median, average, and filter by categories
@@ -35,12 +47,18 @@ function calculateMedian(values: number[]): number {
         : Number(sorted[mid].toFixed(2));
 }
 
-function filterByCategory(data: any[], minLOA: number, maxLOA: number) {
+function filterByCategory(
+    data: any[],
+    minLOA: number,
+    maxLOA: number,
+    terminal?: string
+) {
     return data.filter(
         (vessel) =>
             vessel.vessellength !== "unavailable" &&
             vessel.vessellength >= minLOA &&
-            vessel.vessellength < maxLOA
+            vessel.vessellength < maxLOA &&
+            (!terminal || vessel.terminal === terminal)
     );
 }
 
@@ -52,7 +70,13 @@ function filterByCategory(data: any[], minLOA: number, maxLOA: number) {
 function calculateWaitingHours(record: any): number | null {
     const ata = record.ata !== "unavailable" ? new Date(record.ata) : null;
     const atb = record.atb !== "unavailable" ? new Date(record.atb) : null;
-    if (!ata || !atb || isNaN(ata.getTime()) || isNaN(atb.getTime()))
+    if (
+        !ata ||
+        !atb ||
+        isNaN(ata.getTime()) ||
+        isNaN(atb.getTime()) ||
+        atb < ata
+    )
         return null;
     return (atb.getTime() - ata.getTime()) / (1000 * 60 * 60); // hours
 }
@@ -107,6 +131,74 @@ type CategoryResults = {
     };
 };
 
+async function fetchVesselData(
+    period: string,
+    startDate: string,
+    endDate: string,
+    authToken: string
+) {
+    try {
+        const API = process.env.NEXT_PUBLIC_API;
+
+        // Format dates to YYYYMMDD format (8 digits only)
+        const formatDate = (dateStr: string) => {
+            const date = new Date(dateStr);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            return `${year}${month}${day}`;
+        };
+
+        const formattedStartDate = formatDate(startDate);
+        const formattedEndDate = formatDate(endDate);
+
+        const response = await fetch(
+            `${API}/get_container_vessel_activity_with_period`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: authToken,
+                },
+                body: JSON.stringify({
+                    period,
+                    start_date: formattedStartDate,
+                    end_date: formattedEndDate,
+                }),
+            }
+        );
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("API Error Response:", errorText);
+            throw new Error(
+                `API request failed with status ${response.status}: ${errorText}`
+            );
+        }
+
+        const data = await response.json();
+
+        // Transform the data to match our expected format
+        return data["Container Vessel Activity Records"].map(
+            (record: any[]) => ({
+                vesselname: record[0],
+                imo: record[1],
+                mmsi: record[2],
+                vesseltype: record[3],
+                vessellength: record[4],
+                terminal: record[5],
+                ata: record[6] || "unavailable",
+                atb: record[7] || "unavailable",
+                atu: record[8] || "unavailable",
+                atd: record[9] || "unavailable",
+            })
+        );
+    } catch (error) {
+        console.error("Error fetching vessel data:", error);
+        throw error;
+    }
+}
+
 /**
  * Handles POST requests to process vessel activity data for specified date ranges.
  *
@@ -133,6 +225,14 @@ type CategoryResults = {
 
 export async function POST(req: Request) {
     try {
+        const authHeader = req.headers.get("authorization");
+        if (!authHeader) {
+            return NextResponse.json(
+                { message: "Authorization header is required" },
+                { status: 401 }
+            );
+        }
+
         const dateRanges: {
             name: string;
             startDate: string;
@@ -172,6 +272,15 @@ export async function POST(req: Request) {
                 continue;
             }
 
+            // Extract period number from the name (e.g., "Period 1" -> "1")
+            const periodNumber = name.match(/\d+/)?.[0] || "1";
+            const vesselData = await fetchVesselData(
+                `Period ${periodNumber}`,
+                startDate,
+                endDate,
+                authHeader
+            );
+
             const filteredData = vesselData.filter((record: any) => {
                 const ata =
                     record.ata !== "unavailable" ? new Date(record.ata) : null;
@@ -200,36 +309,85 @@ export async function POST(req: Request) {
                               category.maxLOA
                           );
 
-                const totalBerthed = categoryData.filter((record: any) => {
-                    const atb = record.atb !== "unavailable";
-                    const atuAtdValid =
-                        record.atu !== "unavailable" &&
-                        record.atd !== "unavailable" &&
-                        new Date(record.atu) < new Date(record.atd);
-                    return atb || atuAtdValid;
-                }).length;
+                // Calculate metrics per terminal
+                const terminals = ["PP", "F2", "Brani", "Keppel"];
+                const terminalMetrics = terminals.map((terminal) => {
+                    const terminalData = filterByCategory(
+                        categoryData,
+                        category.minLOA,
+                        category.maxLOA,
+                        terminal
+                    );
 
-                const jitCount = categoryData.filter((record: any) => {
-                    const waitingHours = calculateWaitingHours(record);
-                    return waitingHours !== null && waitingHours < 2;
-                }).length;
+                    const totalBerthed = terminalData.filter((record: any) => {
+                        const atb = record.atb !== "unavailable";
+                        const atuAtdValid =
+                            record.atu !== "unavailable" &&
+                            record.atd !== "unavailable" &&
+                            new Date(record.atu) < new Date(record.atd);
+                        return atb || atuAtdValid;
+                    }).length;
 
-                const jitPercentage =
-                    totalBerthed > 0
-                        ? Number(((jitCount / totalBerthed) * 100).toFixed(2))
-                        : 0;
+                    const jitCount = terminalData.filter((record: any) => {
+                        const waitingHours = calculateWaitingHours(record);
+                        return waitingHours !== null && waitingHours < 2;
+                    }).length;
 
-                const waitingHours = categoryData
-                    .map((record) => calculateWaitingHours(record))
-                    .filter((val) => val !== null);
+                    const jitPercentage =
+                        totalBerthed > 0
+                            ? Number(
+                                  ((jitCount / totalBerthed) * 100).toFixed(2)
+                              )
+                            : 0;
 
-                const berthingHours = categoryData
-                    .map((record) => calculateBerthingHours(record))
-                    .filter((val) => val !== null);
+                    const waitingHours = terminalData
+                        .map((record: VesselRecord) =>
+                            calculateWaitingHours(record)
+                        )
+                        .filter((val: number | null) => val !== null);
 
-                const inPortHours = categoryData
-                    .map((record) => calculateInPortHours(record))
-                    .filter((val) => val !== null);
+                    const berthingHours = terminalData
+                        .map((record: VesselRecord) =>
+                            calculateBerthingHours(record)
+                        )
+                        .filter((val: number | null) => val !== null);
+
+                    const inPortHours = terminalData
+                        .map((record: VesselRecord) =>
+                            calculateInPortHours(record)
+                        )
+                        .filter((val: number | null) => val !== null);
+
+                    return {
+                        terminal,
+                        totalBerthed,
+                        jitPercentage,
+                        waitingHours,
+                        berthingHours,
+                        inPortHours,
+                    };
+                });
+
+                // Aggregate metrics across terminals
+                const totalBerthed = terminalMetrics.reduce(
+                    (sum, tm) => sum + tm.totalBerthed,
+                    0
+                );
+                const weightedJIT =
+                    terminalMetrics.reduce(
+                        (sum, tm) => sum + tm.jitPercentage * tm.totalBerthed,
+                        0
+                    ) / (totalBerthed || 1);
+
+                const allWaitingHours = terminalMetrics.flatMap(
+                    (tm) => tm.waitingHours
+                );
+                const allBerthingHours = terminalMetrics.flatMap(
+                    (tm) => tm.berthingHours
+                );
+                const allInPortHours = terminalMetrics.flatMap(
+                    (tm) => tm.inPortHours
+                );
 
                 // Individual terminal utilization rates
                 const pasirrUtil = calculateUtilization(
@@ -257,70 +415,30 @@ export async function POST(req: Request) {
                     endDate
                 );
 
-                // Weighted average for all terminals
-                const terminalWharfLengths = {
-                    PP: 13447,
-                    F2: 3000,
-                    Brani: 2325,
-                    Keppel: 3164,
-                };
-
-                const totalTime =
-                    (new Date(endDate).getTime() -
-                        new Date(startDate).getTime()) /
-                    (1000 * 60 * 60); // hours
-
-                const totalCapacity =
-                    terminalWharfLengths.PP * totalTime +
-                    terminalWharfLengths.F2 * totalTime +
-                    terminalWharfLengths.Brani * totalTime +
-                    terminalWharfLengths.Keppel * totalTime;
-
-                const totalWeightedUtilization =
-                    (pasirrUtil / 100) * terminalWharfLengths.PP * totalTime +
-                    (tuasUtil / 100) * terminalWharfLengths.F2 * totalTime +
-                    (braniUtil / 100) * terminalWharfLengths.Brani * totalTime +
-                    (keppelUtil / 100) *
-                        terminalWharfLengths.Keppel *
-                        totalTime;
-
-                const allTerminalsUtilization =
-                    totalCapacity > 0
-                        ? Number(
-                              (
-                                  (totalWeightedUtilization / totalCapacity) *
-                                  100
-                              ).toFixed(2)
-                          )
-                        : 0;
-
                 const combinedBraniKeppel = Number(
                     ((braniUtil + keppelUtil) / 2).toFixed(2)
                 );
 
-                const wharfUtilization = {
-                    PasirPanjang: pasirrUtil,
-                    Tuas: tuasUtil,
-                    BraniKeppel: combinedBraniKeppel,
-                    AllTerminals: allTerminalsUtilization, // Add all terminals utilization
-                };
-
                 categoryResults[category.name] = {
                     TotalBerthed: totalBerthed,
-                    JIT: jitPercentage,
+                    JIT: Number(weightedJIT.toFixed(2)),
                     WaitingHours: {
-                        average: calculateAverage(waitingHours),
-                        median: calculateMedian(waitingHours),
+                        average: calculateAverage(allWaitingHours),
+                        median: calculateMedian(allWaitingHours),
                     },
                     BerthingHours: {
-                        average: calculateAverage(berthingHours),
-                        median: calculateMedian(berthingHours),
+                        average: calculateAverage(allBerthingHours),
+                        median: calculateMedian(allBerthingHours),
                     },
                     InPortHours: {
-                        average: calculateAverage(inPortHours),
-                        median: calculateMedian(inPortHours),
+                        average: calculateAverage(allInPortHours),
+                        median: calculateMedian(allInPortHours),
                     },
-                    WharfUtilizationRate: wharfUtilization,
+                    WharfUtilizationRate: {
+                        PasirPanjang: pasirrUtil,
+                        Tuas: tuasUtil,
+                        BraniKeppel: combinedBraniKeppel,
+                    },
                 };
             }
 

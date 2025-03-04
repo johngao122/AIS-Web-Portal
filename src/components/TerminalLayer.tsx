@@ -24,9 +24,9 @@ const transformTerminalData = (data: any[]): Terminal[] => {
     }
 
     const periodData = data[0]["Period 1"];
-    const allVesselsData = periodData["All vessels"];
+    const terminals = periodData.terminals;
 
-    if (!allVesselsData) {
+    if (!terminals) {
         return [];
     }
 
@@ -35,77 +35,152 @@ const transformTerminalData = (data: any[]): Terminal[] => {
             name: "Pasir Panjang Terminal",
             position: [103.77, 1.28],
             stats: {
-                totalVessels: Math.round(allVesselsData.TotalBerthed * 0.4),
-                jitPercentage: allVesselsData.JIT,
-                avgWaitingHours: allVesselsData.WaitingHours.average,
-                avgBerthingHours: allVesselsData.BerthingHours.average,
-                utilization: allVesselsData.WharfUtilizationRate.PasirPanjang,
+                totalVessels: terminals.PP.totalVessels,
+                jitPercentage: terminals.PP.jitPercentage,
+                avgWaitingHours: terminals.PP.waitingHours.average,
+                avgBerthingHours: terminals.PP.berthingHours.average,
+                utilization: terminals.PP.utilization || 0,
             },
         },
         {
             name: "Tuas Terminal",
             position: [103.65, 1.32],
             stats: {
-                totalVessels: Math.round(allVesselsData.TotalBerthed * 0.3),
-                jitPercentage: allVesselsData.JIT,
-                avgWaitingHours: allVesselsData.WaitingHours.average,
-                avgBerthingHours: allVesselsData.BerthingHours.average,
-                utilization: allVesselsData.WharfUtilizationRate.Tuas,
+                totalVessels: terminals.F2.totalVessels,
+                jitPercentage: terminals.F2.jitPercentage,
+                avgWaitingHours: terminals.F2.waitingHours.average,
+                avgBerthingHours: terminals.F2.berthingHours.average,
+                utilization: terminals.F2.utilization || 0,
             },
         },
         {
             name: "Brani Terminal",
             position: [103.83333, 1.255998976],
             stats: {
-                totalVessels: Math.round(allVesselsData.TotalBerthed * 0.15),
-                jitPercentage: allVesselsData.JIT,
-                avgWaitingHours: allVesselsData.WaitingHours.average,
-                avgBerthingHours: allVesselsData.BerthingHours.average,
-                utilization:
-                    allVesselsData.WharfUtilizationRate.BraniKeppel / 2,
+                totalVessels: terminals.Brani.totalVessels,
+                jitPercentage: terminals.Brani.jitPercentage,
+                avgWaitingHours: terminals.Brani.waitingHours.average,
+                avgBerthingHours: terminals.Brani.berthingHours.average,
+                utilization: terminals.Brani.utilization || 0,
             },
         },
         {
             name: "Keppel Terminal",
             position: [103.8475, 1.2647],
             stats: {
-                totalVessels: Math.round(allVesselsData.TotalBerthed * 0.15),
-                jitPercentage: allVesselsData.JIT,
-                avgWaitingHours: allVesselsData.WaitingHours.average,
-                avgBerthingHours: allVesselsData.BerthingHours.average,
-                utilization:
-                    allVesselsData.WharfUtilizationRate.BraniKeppel / 2,
+                totalVessels: terminals.Keppel.totalVessels,
+                jitPercentage: terminals.Keppel.jitPercentage,
+                avgWaitingHours: terminals.Keppel.waitingHours.average,
+                avgBerthingHours: terminals.Keppel.berthingHours.average,
+                utilization: terminals.Keppel.utilization || 0,
             },
         },
     ];
 };
 
+const fallbackTerminalData: Terminal[] = [
+    {
+        name: "Pasir Panjang Terminal",
+        position: [103.77, 1.28],
+        stats: {
+            totalVessels: 150,
+            jitPercentage: 85,
+            avgWaitingHours: 4.5,
+            avgBerthingHours: 24,
+            utilization: 75,
+        },
+    },
+    {
+        name: "Tuas Terminal",
+        position: [103.65, 1.32],
+        stats: {
+            totalVessels: 120,
+            jitPercentage: 82,
+            avgWaitingHours: 5.2,
+            avgBerthingHours: 28,
+            utilization: 70,
+        },
+    },
+    {
+        name: "Brani and Keppel Terminal",
+        position: [103.84, 1.27],
+        stats: {
+            totalVessels: 100,
+            jitPercentage: 80,
+            avgWaitingHours: 6.0,
+            avgBerthingHours: 26,
+            utilization: 65,
+        },
+    },
+];
+
 export const fetchTerminalData = async (): Promise<Terminal[]> => {
     try {
-        const response = await fetch("/api/data/port_service", {
-            //NOTE:CHANGE WHEN ACTUAL API IS UP
+        const today = new Date();
+        const oneMonthAgo = new Date();
+        oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+        const formatDate = (date: Date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        };
+
+        const userStr =
+            localStorage.getItem("User") || sessionStorage.getItem("User");
+        if (!userStr) {
+            console.error("No user token found for terminal data fetch");
+            return fallbackTerminalData;
+        }
+
+        const userData = JSON.parse(userStr);
+        if (!userData.token) {
+            console.error("No token found in user data");
+            return fallbackTerminalData;
+        }
+
+        const response = await fetch("/api/data/port_info", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${userData.token}`,
             },
             body: JSON.stringify([
                 {
                     name: "Period 1",
-                    startDate: "2024-10-01T00:00:00",
-                    endDate: "2024-10-03T23:59:59",
+                    startDate: formatDate(oneMonthAgo),
+                    endDate: formatDate(today),
                 },
             ]),
         });
 
         if (!response.ok) {
-            throw new Error("Failed to fetch terminal data");
+            const errorText = await response.text();
+            console.error(
+                `Failed to fetch terminal data: ${response.status} ${response.statusText}`,
+                errorText
+            );
+            return fallbackTerminalData;
         }
 
         const data = await response.json();
-        return transformTerminalData(data);
+        if (!data || !Array.isArray(data)) {
+            console.error("Invalid terminal data format received:", data);
+            return fallbackTerminalData;
+        }
+
+        const transformedData = transformTerminalData(data);
+        if (transformedData.length === 0) {
+            console.warn(
+                "No terminal data after transformation, using fallback data"
+            );
+            return fallbackTerminalData;
+        }
+        return transformedData;
     } catch (err) {
         console.error("Error fetching terminal data:", err);
-        return [];
+        return fallbackTerminalData;
     }
 };
 

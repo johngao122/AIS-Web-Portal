@@ -10,6 +10,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { AISLogo, loginPicture } from "@/resources/login_page";
 import AutoLoginNotification from "@/components/AutoLoginNotification";
 import "@/app/globals.css";
+import { setupTokenRefresh } from "@/utils/auth";
 
 /**
  * The login page.
@@ -72,7 +73,7 @@ export default function Login() {
 
         try {
             const API = process.env.NEXT_PUBLIC_API;
-            console.log(API);
+
             const response = await fetch(`${API}/login`, {
                 method: "POST",
                 headers: {
@@ -90,12 +91,16 @@ export default function Login() {
                 const userData = {
                     username: formData.username,
                     token: data.access_token,
+                    refreshToken: data.refresh_token,
                 };
 
                 if (formData.rememberMe) {
                     localStorage.setItem("User", JSON.stringify(userData));
                 }
                 sessionStorage.setItem("User", JSON.stringify(userData));
+
+                // Set up persistent token refresh
+                setupTokenRefresh();
                 router.push("/dashboard");
             } else {
                 setError(data.detail || "Invalid username or password");
@@ -261,8 +266,7 @@ export default function Login() {
 
                         {/* Server notice */}
                         <div className="text-sm text-gray-500 text-center">
-                            Note: First login may take longer as the server
-                            needs to wake up
+                            Note: Portal only works in NUS network.
                         </div>
                     </form>
                 </div>

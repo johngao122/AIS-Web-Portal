@@ -216,207 +216,73 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                 </button>
             </div>
 
-            <div className="relative overflow-x-auto max-h-[78vh] overflow-auto">
-                <div className="min-w-[1200px]">
-                    <Table>
-                        <TableHeader className="sticky top-0 bg-white z-10">
-                            <TableRow>
+            <div className="overflow-x-auto max-h-[74vh] overflow-y-auto">
+                <Table>
+                    <TableHeader className="sticky top-0 bg-white z-10">
+                        <TableRow>
+                            <TableHead
+                                className="border-r border-b w-[500px] py-4 text-center"
+                                rowSpan={2}
+                            >
+                                Metric
+                            </TableHead>
+                            <TableHead
+                                className="border-r border-b w-[200px] py-4"
+                                rowSpan={2}
+                            >
+                                Subcategory
+                            </TableHead>
+                            {periods.map((period) => (
                                 <TableHead
-                                    className="border-r border-b w-[500px] py-4 text-center"
-                                    rowSpan={2}
+                                    key={period}
+                                    className="text-center border-r border-b py-4"
+                                    colSpan={availableCategories.length}
                                 >
-                                    Metric
+                                    {period}
                                 </TableHead>
-                                <TableHead
-                                    className="border-r border-b w-[200px] py-4"
-                                    rowSpan={2}
-                                >
-                                    Subcategory
-                                </TableHead>
-                                {periods.map((period) => (
+                            ))}
+                        </TableRow>
+                        <TableRow>
+                            {periods.map(() =>
+                                availableCategories.map((category) => (
                                     <TableHead
-                                        key={period}
-                                        className="text-center border-r border-b py-4"
-                                        colSpan={availableCategories.length}
+                                        key={category.key}
+                                        className="text-center border-r border-b p-2 whitespace-normal"
                                     >
-                                        {period}
+                                        <div className="font-medium">
+                                            {category.label}
+                                        </div>
+                                        <div className="text-sm text-gray-600">
+                                            {category.criteria}
+                                        </div>
                                     </TableHead>
-                                ))}
-                            </TableRow>
-                            <TableRow>
-                                {periods.map(() =>
-                                    availableCategories.map((category) => (
-                                        <TableHead
-                                            key={category.key}
-                                            className="text-center border-r border-b p-2 whitespace-normal"
-                                        >
-                                            <div className="font-medium">
-                                                {category.label}
-                                            </div>
-                                            <div className="text-sm text-gray-600">
-                                                {category.criteria}
-                                            </div>
-                                        </TableHead>
-                                    ))
-                                )}
-                            </TableRow>
-                        </TableHeader>
+                                ))
+                            )}
+                        </TableRow>
+                    </TableHeader>
 
-                        <TableBody>
-                            {metrics.map((metric) => {
-                                if (!hasMetric(metric.key)) return null;
+                    <TableBody>
+                        {metrics.map((metric) => {
+                            if (!hasMetric(metric.key)) return null;
 
-                                if (metric.hasAvgMed) {
-                                    return (
-                                        <React.Fragment key={metric.key}>
-                                            <TableRow
-                                                className={`hover:bg-gray-50 ${
-                                                    rowCount
-                                                        ? `h-[calc((100vh - 170px)/${rowCount})]`
-                                                        : "min-h-[70px]"
-                                                }`}
-                                            >
-                                                <TableCell
-                                                    className="font-medium border-r p-4 align-middle"
-                                                    rowSpan={2}
-                                                >
-                                                    {metric.label}
-                                                </TableCell>
-                                                <TableCell className="text-sm text-gray-500 p-4 border-r">
-                                                    Average
-                                                </TableCell>
-                                                {periods.map((period) =>
-                                                    availableCategories.map(
-                                                        (category) => {
-                                                            const periodData =
-                                                                data.find(
-                                                                    (d) =>
-                                                                        d[
-                                                                            period
-                                                                        ]
-                                                                )?.[period];
-                                                            return (
-                                                                <TableCell
-                                                                    key={`${period}-${category.key}-avg`}
-                                                                    className="text-center border-r p-4"
-                                                                >
-                                                                    {metric.render(
-                                                                        periodData,
-                                                                        category.key,
-                                                                        "average"
-                                                                    )}
-                                                                </TableCell>
-                                                            );
-                                                        }
-                                                    )
-                                                )}
-                                            </TableRow>
-                                            <TableRow
-                                                className={`hover:bg-gray-50 ${
-                                                    rowCount
-                                                        ? `h-[calc((100vh - 170px)/${rowCount})]`
-                                                        : "min-h-[70px]"
-                                                }`}
-                                            >
-                                                <TableCell className="text-sm text-gray-500 p-4 border-r">
-                                                    Median
-                                                </TableCell>
-                                                {periods.map((period) =>
-                                                    availableCategories.map(
-                                                        (category) => {
-                                                            const periodData =
-                                                                data.find(
-                                                                    (d) =>
-                                                                        d[
-                                                                            period
-                                                                        ]
-                                                                )?.[period];
-                                                            return (
-                                                                <TableCell
-                                                                    key={`${period}-${category.key}-med`}
-                                                                    className="text-center border-r p-4"
-                                                                >
-                                                                    {metric.render(
-                                                                        periodData,
-                                                                        category.key,
-                                                                        "median"
-                                                                    )}
-                                                                </TableCell>
-                                                            );
-                                                        }
-                                                    )
-                                                )}
-                                            </TableRow>
-                                        </React.Fragment>
-                                    );
-                                } else if (metric.subMetrics) {
-                                    return metric.subMetrics.map(
-                                        (subMetric, subIndex) => (
-                                            <TableRow
-                                                key={`${metric.key}-${subMetric.key}`}
-                                                className={`hover:bg-gray-50 ${
-                                                    rowCount
-                                                        ? `h-[calc((100vh - 170px)/${rowCount})]`
-                                                        : "min-h-[70px]"
-                                                }`}
-                                            >
-                                                {subIndex === 0 && (
-                                                    <TableCell
-                                                        className="font-medium border-r p-4"
-                                                        rowSpan={
-                                                            metric.subMetrics
-                                                                .length
-                                                        }
-                                                    >
-                                                        {metric.label}
-                                                    </TableCell>
-                                                )}
-                                                <TableCell className="text-sm text-gray-500 p-4 border-r">
-                                                    {subMetric.label}
-                                                </TableCell>
-                                                {periods.map((period) =>
-                                                    availableCategories.map(
-                                                        (category) => {
-                                                            const periodData =
-                                                                data.find(
-                                                                    (d) =>
-                                                                        d[
-                                                                            period
-                                                                        ]
-                                                                )?.[period];
-                                                            return (
-                                                                <TableCell
-                                                                    key={`${period}-${category.key}-${subMetric.key}`}
-                                                                    className="text-center border-r p-4"
-                                                                >
-                                                                    {metric.render(
-                                                                        periodData,
-                                                                        category.key,
-                                                                        subMetric.key
-                                                                    )}
-                                                                </TableCell>
-                                                            );
-                                                        }
-                                                    )
-                                                )}
-                                            </TableRow>
-                                        )
-                                    );
-                                } else {
-                                    return (
+                            if (metric.hasAvgMed) {
+                                return (
+                                    <React.Fragment key={metric.key}>
                                         <TableRow
-                                            key={metric.key}
                                             className={`hover:bg-gray-50 ${
                                                 rowCount
                                                     ? `h-[calc((100vh - 170px)/${rowCount})]`
                                                     : "min-h-[70px]"
                                             }`}
                                         >
-                                            <TableCell className="font-medium border-r p-4">
+                                            <TableCell
+                                                className="font-medium border-r p-4 align-middle"
+                                                rowSpan={2}
+                                            >
                                                 {metric.label}
                                             </TableCell>
                                             <TableCell className="text-sm text-gray-500 p-4 border-r">
-                                                -
+                                                Average
                                             </TableCell>
                                             {periods.map((period) =>
                                                 availableCategories.map(
@@ -427,12 +293,13 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                                                             )?.[period];
                                                         return (
                                                             <TableCell
-                                                                key={`${period}-${category.key}`}
+                                                                key={`${period}-${category.key}-avg`}
                                                                 className="text-center border-r p-4"
                                                             >
                                                                 {metric.render(
                                                                     periodData,
-                                                                    category.key
+                                                                    category.key,
+                                                                    "average"
                                                                 )}
                                                             </TableCell>
                                                         );
@@ -440,12 +307,133 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
                                                 )
                                             )}
                                         </TableRow>
-                                    );
-                                }
-                            })}
-                        </TableBody>
-                    </Table>
-                </div>
+                                        <TableRow
+                                            className={`hover:bg-gray-50 ${
+                                                rowCount
+                                                    ? `h-[calc((100vh - 170px)/${rowCount})]`
+                                                    : "min-h-[70px]"
+                                            }`}
+                                        >
+                                            <TableCell className="text-sm text-gray-500 p-4 border-r">
+                                                Median
+                                            </TableCell>
+                                            {periods.map((period) =>
+                                                availableCategories.map(
+                                                    (category) => {
+                                                        const periodData =
+                                                            data.find(
+                                                                (d) => d[period]
+                                                            )?.[period];
+                                                        return (
+                                                            <TableCell
+                                                                key={`${period}-${category.key}-med`}
+                                                                className="text-center border-r p-4"
+                                                            >
+                                                                {metric.render(
+                                                                    periodData,
+                                                                    category.key,
+                                                                    "median"
+                                                                )}
+                                                            </TableCell>
+                                                        );
+                                                    }
+                                                )
+                                            )}
+                                        </TableRow>
+                                    </React.Fragment>
+                                );
+                            } else if (metric.subMetrics) {
+                                return metric.subMetrics.map(
+                                    (subMetric, subIndex) => (
+                                        <TableRow
+                                            key={`${metric.key}-${subMetric.key}`}
+                                            className={`hover:bg-gray-50 ${
+                                                rowCount
+                                                    ? `h-[calc((100vh - 170px)/${rowCount})]`
+                                                    : "min-h-[70px]"
+                                            }`}
+                                        >
+                                            {subIndex === 0 && (
+                                                <TableCell
+                                                    className="font-medium border-r p-4"
+                                                    rowSpan={
+                                                        metric.subMetrics.length
+                                                    }
+                                                >
+                                                    {metric.label}
+                                                </TableCell>
+                                            )}
+                                            <TableCell className="text-sm text-gray-500 p-4 border-r">
+                                                {subMetric.label}
+                                            </TableCell>
+                                            {periods.map((period) =>
+                                                availableCategories.map(
+                                                    (category) => {
+                                                        const periodData =
+                                                            data.find(
+                                                                (d) => d[period]
+                                                            )?.[period];
+                                                        return (
+                                                            <TableCell
+                                                                key={`${period}-${category.key}-${subMetric.key}`}
+                                                                className="text-center border-r p-4"
+                                                            >
+                                                                {metric.render(
+                                                                    periodData,
+                                                                    category.key,
+                                                                    subMetric.key
+                                                                )}
+                                                            </TableCell>
+                                                        );
+                                                    }
+                                                )
+                                            )}
+                                        </TableRow>
+                                    )
+                                );
+                            } else {
+                                return (
+                                    <TableRow
+                                        key={metric.key}
+                                        className={`hover:bg-gray-50 ${
+                                            rowCount
+                                                ? `h-[calc((100vh - 170px)/${rowCount})]`
+                                                : "min-h-[70px]"
+                                        }`}
+                                    >
+                                        <TableCell className="font-medium border-r p-4">
+                                            {metric.label}
+                                        </TableCell>
+                                        <TableCell className="text-sm text-gray-500 p-4 border-r">
+                                            -
+                                        </TableCell>
+                                        {periods.map((period) =>
+                                            availableCategories.map(
+                                                (category) => {
+                                                    const periodData =
+                                                        data.find(
+                                                            (d) => d[period]
+                                                        )?.[period];
+                                                    return (
+                                                        <TableCell
+                                                            key={`${period}-${category.key}`}
+                                                            className="text-center border-r p-4"
+                                                        >
+                                                            {metric.render(
+                                                                periodData,
+                                                                category.key
+                                                            )}
+                                                        </TableCell>
+                                                    );
+                                                }
+                                            )
+                                        )}
+                                    </TableRow>
+                                );
+                            }
+                        })}
+                    </TableBody>
+                </Table>
             </div>
         </div>
     );

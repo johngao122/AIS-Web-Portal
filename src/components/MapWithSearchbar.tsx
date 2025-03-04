@@ -168,11 +168,22 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     useEffect(() => {
         //NOTE: REPLACE THIS WHEN ACTUAL BACKEND IS UP
         const fetchVesselData = async () => {
+            const userStr =
+                localStorage.getItem("User") || sessionStorage.getItem("User");
+            if (!userStr) {
+                console.warn(
+                    "No auth token found, skipping initial vessel data fetch"
+                );
+                return;
+            }
+
             try {
+                const userData = JSON.parse(userStr);
                 const response = await fetch("/api/data/vessel_activity", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        Authorization: `Bearer ${userData.token}`,
                     },
                     body: JSON.stringify({
                         startDate: "2024-10-01T00:00:00",
@@ -181,6 +192,10 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 });
 
                 if (!response.ok) {
+                    if (response.status === 401) {
+                        console.warn("Unauthorized access, please login again");
+                        return;
+                    }
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
@@ -190,30 +205,26 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     const transformedData: VesselMarker[] = rawData.data.map(
                         (vessel: any) => ({
                             vesselName: vessel.vesselname,
-                            imoNumber: vessel.imonumber.toString(),
-                            mmsi: vessel.mmsinumber.toString(),
-                            loa: vessel.vessellength.toString(),
-                            lastLocation: vessel.terminal || "Unknown",
-                            // Since actual coordinates aren't provided in the API response for now,
-                            // we'll set default coordinates for Singapore
-                            longitude: 103.8198, // Default Singapore longitude
-                            latitude: 1.3521, // Default Singapore latitude
-                            bearing: 0, // Default bearing
+                            imoNumber: (vessel.imonumber || "").toString(),
+                            mmsi: (vessel.mmsinumber || "").toString(),
+                            vesselType: vessel.vesseltype || "Unknown",
+                            length: vessel.vessellength || 0,
+                            terminal: vessel.terminal || "Unknown",
+                            ata: vessel.ata || "unavailable",
+                            atb: vessel.atb || "unavailable",
+                            atu: vessel.atu || "unavailable",
+                            atd: vessel.atd || "unavailable",
+                            coordinates: [103.8198, 1.3521], // Default to Singapore coordinates
+                            heading: 0,
                         })
                     );
-
                     setVessels(transformedData);
-                } else {
-                    throw new Error("Invalid data structure received from API");
                 }
             } catch (error) {
-                console.error("Error fetching vessel data:", error);
-                // Fallback to example data if API call fails
-                const typedVesselData = vesselPingData as VesselMarker[];
-                setVessels(typedVesselData);
+                console.error("Error fetching initial vessel data:", error);
+                // Don't show error to user for initial load
             }
         };
-
         fetchVesselData();
     }, []);
 
@@ -389,7 +400,9 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             .includes((value as string).toLowerCase());
 
                     case "imoNumber":
-                        return vessel.imoNumber.toString() === value.toString();
+                        return (
+                            vessel.imoNumber?.toString() === value?.toString()
+                        );
 
                     case "mmsi":
                         return vessel.mmsi.toString() === value.toString();
@@ -606,6 +619,13 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${
+                        JSON.parse(
+                            localStorage.getItem("User") ||
+                                sessionStorage.getItem("User") ||
+                                "{}"
+                        ).token
+                    }`,
                 },
                 body: JSON.stringify({
                     startDate: startDateString,
@@ -623,8 +643,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 const transformedData = rawData.data
                     .map((vessel: any) => ({
                         vesselName: vessel.vesselname,
-                        imoNumber: vessel.imonumber.toString(),
-                        mmsi: vessel.mmsinumber.toString(),
+                        imoNumber: (vessel.imonumber || "").toString(),
+                        mmsi: (vessel.mmsinumber || "").toString(),
                         loa: vessel.vessellength.toString(),
                         terminal: vessel.terminal,
                         ata: vessel.ata || "unavailable",
@@ -1155,7 +1175,6 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             startDate.toISOString().split("T")[0]
         }T00:00:00`;
         const endDateString = `${endDate.toISOString().split("T")[0]}T23:59:59`;
-        console.log(startDateString, endDateString);
 
         setShowVesselTable(true);
         setSearchQuery("");
@@ -1165,6 +1184,13 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${
+                        JSON.parse(
+                            localStorage.getItem("User") ||
+                                sessionStorage.getItem("User") ||
+                                "{}"
+                        ).token
+                    }`,
                 },
                 body: JSON.stringify({
                     startDate: startDateString,
@@ -1177,11 +1203,12 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             }
 
             const rawData = await response.json();
+
             if (rawData.success && Array.isArray(rawData.data)) {
                 const transformedData = rawData.data.map((vessel: any) => ({
                     vesselName: vessel.vesselname,
-                    imoNumber: vessel.imonumber.toString(),
-                    mmsi: vessel.mmsinumber.toString(),
+                    imoNumber: (vessel.imonumber || "").toString(),
+                    mmsi: (vessel.mmsinumber || "").toString(),
                     loa: vessel.vessellength.toString(),
                     terminal: vessel.terminal,
                     ata: vessel.ata || "unavailable",
@@ -1577,7 +1604,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     )}
 
                     {showPortServiceTable && portServiceData && (
-                        <div className="w-[72vw] ">
+                        <div className="max-w-[calc(100vw-26vw-2rem)] overflow-hidden">
                             <PortServiceTable
                                 data={portServiceData}
                                 onClose={() =>

@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import { NextResponse } from "next/server";
-import vesselData from "@/data/vessel_activity_updated.json";
 
 /**
  * Calculate the number of hours between two dates.
@@ -16,8 +15,15 @@ function calculateHours(
     if (!start || !end || isNaN(start.getTime()) || isNaN(end.getTime())) {
         return "unavailable";
     }
+    // Ensure we're calculating from earlier date to later date
+    const earlierDate = start.getTime() < end.getTime() ? start : end;
+    const laterDate = start.getTime() < end.getTime() ? end : start;
+
     return Number(
-        ((end.getTime() - start.getTime()) / (1000 * 60 * 60)).toFixed(2)
+        (
+            (laterDate.getTime() - earlierDate.getTime()) /
+            (1000 * 60 * 60)
+        ).toFixed(2)
     );
 }
 
@@ -41,30 +47,29 @@ function mapTerminalName(terminal: string): string {
     }
 }
 
-/**
- * Handles a POST request to the /api/vessel-activity endpoint.
- *
- * This endpoint takes a JSON object with two properties: `startDate` and `endDate`.
- * The `startDate` and `endDate` properties must be in the format "YYYY-MM-DD HH:mm:ss".
- * The endpoint will return a JSON object with a `success` property set to `true`
- * and a `data` property containing an array of filtered records.
- *
- * The filtered records will be a subset of the records in the `vessel_activity_updated.json`
- * file, filtered by the start and end dates provided in the request.
- * The records will have the following additional properties:
- * - `terminal`: The full name of the terminal, mapped from the terminal code.
- * - `PreBerthingHours`: The number of hours between the arrival time and the berthing time.
- * - `AnchorageWaitingHours`: The number of hours between the arrival time and the berthing time.
- * - `BerthingHours`: The number of hours between the berthing time and the unberthing time.
- * - `InPortHours`: The number of hours between the arrival time and the departure time.
- *
- * If the request is invalid, the endpoint will return a JSON object with a `success` property set to `false`
- * and an appropriate error message.
- * If an unexpected error occurs, the endpoint will return a JSON object with a `success` property set to `false`
- * and an error message indicating an internal server error.
- */
+type VesselRecord = [
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string | null
+];
+
 export async function POST(req: Request) {
     try {
+        const authHeader = req.headers.get("authorization");
+        if (!authHeader) {
+            return NextResponse.json(
+                { message: "Authorization header is required" },
+                { status: 401 }
+            );
+        }
+
         const body = await req.json();
         const { startDate, endDate }: { startDate: string; endDate: string } =
             body;
@@ -86,45 +91,102 @@ export async function POST(req: Request) {
             );
         }
 
-        const filteredData = vesselData
-            .map((record: any) => {
-                const ata =
-                    record.ata !== "unavailable" ? new Date(record.ata) : null;
-                const atb =
-                    record.atb !== "unavailable" ? new Date(record.atb) : null;
-                const atu =
-                    record.atu !== "unavailable" ? new Date(record.atu) : null;
-                const atd =
-                    record.atd !== "unavailable" ? new Date(record.atd) : null;
+        // Format dates for API request
+        const formattedStartDate = start
+            .toISOString()
+            .slice(0, 10)
+            .replace(/-/g, "");
+        const formattedEndDate = end
+            .toISOString()
+            .slice(0, 10)
+            .replace(/-/g, "");
 
-                const isWithinRange = [ata, atb, atu, atd].some(
-                    (timestamp) =>
-                        timestamp !== null &&
-                        timestamp >= start &&
-                        timestamp <= end
+        // Fetch data from API
+        const API = process.env.NEXT_PUBLIC_API;
+
+        const apiResponse = await fetch(
+            `${API}/get_container_vessel_activity`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: authHeader,
+                },
+                body: JSON.stringify({
+                    start_date: formattedStartDate,
+                    end_date: formattedEndDate,
+                }),
+            }
+        );
+
+        if (!apiResponse.ok) {
+            throw new Error(
+                `API request failed with status ${apiResponse.status}`
+            );
+        }
+
+        const apiData = await apiResponse.json();
+
+        const vesselRecords: VesselRecord[] =
+            apiData["Container Vessel Activity Records"];
+
+        const processedData = vesselRecords.map((record) => {
+            const [
+                vesselName,
+                imoNumber,
+                mmsiNumber,
+                vesselType,
+                length,
+                terminal,
+                ata,
+                atb,
+                atu,
+                atd,
+            ] = record;
+
+            const ataDate = ata ? new Date(ata) : null;
+            const atbDate = atb ? new Date(atb) : null;
+            const atuDate = atu ? new Date(atu) : null;
+            const atdDate = atd ? new Date(atd) : null;
+
+            // Log warning if dates are in unexpected order
+            if (ataDate && atbDate && atbDate < ataDate) {
+                console.warn(
+                    `Warning: ATB (${atb}) is before ATA (${ata}) for vessel ${vesselName}`
                 );
+            }
+            if (atbDate && atuDate && atuDate < atbDate) {
+                console.warn(
+                    `Warning: ATU (${atu}) is before ATB (${atb}) for vessel ${vesselName}`
+                );
+            }
+            if (ataDate && atdDate && atdDate < ataDate) {
+                console.warn(
+                    `Warning: ATD (${atd}) is before ATA (${ata}) for vessel ${vesselName}`
+                );
+            }
 
-                if (!isWithinRange) return null;
-
-                const preBerthingHours = calculateHours(ata, atb);
-                const anchorageWaitingHours = calculateHours(ata, atb);
-                const berthingHours = calculateHours(atb, atu);
-                const inPortHours = calculateHours(ata, atd);
-
-                return {
-                    ...record,
-                    terminal: mapTerminalName(record.terminal), // Map terminal name to full name
-                    PreBerthingHours: preBerthingHours,
-                    AnchorageWaitingHours: anchorageWaitingHours,
-                    BerthingHours: berthingHours,
-                    InPortHours: inPortHours,
-                };
-            })
-            .filter((record) => record !== null);
+            return {
+                vesselName,
+                imoNumber,
+                mmsiNumber,
+                vesselType,
+                length: Number(length),
+                terminal: mapTerminalName(terminal),
+                ata,
+                atb,
+                atu,
+                atd,
+                PreBerthingHours: calculateHours(ataDate, atbDate),
+                AnchorageWaitingHours: calculateHours(ataDate, atbDate),
+                BerthingHours: calculateHours(atbDate, atuDate),
+                InPortHours: calculateHours(ataDate, atdDate),
+            };
+        });
 
         return NextResponse.json({
             success: true,
-            data: filteredData,
+            data: processedData,
         });
     } catch (error) {
         console.error("Error processing request:", error);

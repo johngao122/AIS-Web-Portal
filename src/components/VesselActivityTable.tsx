@@ -166,7 +166,6 @@ const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
      * @returns {VesselActivity[]} The sorted data.
      */
     const getSortedData = () => {
-        console.log(data);
         if (!sortConfig.key) return data;
 
         return [...data].sort((a, b) => {

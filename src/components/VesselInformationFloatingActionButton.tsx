@@ -251,11 +251,11 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
 
     const transformAPIResponse = (apiData: any[]): VesselActivity[] => {
         return apiData.map((item) => ({
-            vesselName: item.vesselname || "unavailable",
-            imoNumber: item.imonumber || "unavailable",
-            mmsi: item.mmsinumber || "unavailable",
-            vesselType: item.vesseltype || "unavailable",
-            loa: item.vessellength || "unavailable",
+            vesselName: item.vesselName || "unavailable",
+            imoNumber: item.imoNumber || "unavailable",
+            mmsi: item.mmsiNumber || "unavailable",
+            vesselType: item.vesselType || "unavailable",
+            loa: item.length || "unavailable",
             terminal: item.terminal || "unavailable",
             ata: item.ata || "unavailable",
             atb: item.atb || "unavailable",
@@ -463,15 +463,21 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
             };
         });
 
-        setFilterValues((prev) => ({
-            ...prev,
-            [id]: {
-                value: isMin ? numValue : prev[id]?.value || "",
-                additionalValue: !isMin
-                    ? numValue
-                    : prev[id]?.additionalValue || "",
-            },
-        }));
+        setFilterValues((prev) => {
+            const currentFilter = prev[id] || {
+                value: "",
+                additionalValue: "",
+            };
+            return {
+                ...prev,
+                [id]: {
+                    value: isMin ? numValue : currentFilter.value,
+                    additionalValue: !isMin
+                        ? numValue
+                        : currentFilter.additionalValue,
+                },
+            };
+        });
     };
 
     const renderFilterInput = (filter: FilterOption) => {
@@ -604,6 +610,13 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${
+                        JSON.parse(
+                            localStorage.getItem("User") ||
+                                sessionStorage.getItem("User") ||
+                                "{}"
+                        ).token
+                    }`,
                 },
                 body: JSON.stringify({
                     startDate: formatDateForAPI(startDate!),
@@ -645,8 +658,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     ): VesselActivity[] => {
         return data.filter((vessel) => {
             for (const [key, filterValue] of Object.entries(filters)) {
-                if (!filterValue.value || filterValue.value === "_none")
-                    continue; // Skip empty filters
+                // Skip if both value and additionalValue are empty for range filters
+                if (filterValue.value === "_none") continue;
+                if (!filterValue.value && !filterValue.additionalValue)
+                    continue;
 
                 switch (key) {
                     case "vesselName":
@@ -663,11 +678,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                     case "imoNumber":
                         if (
                             filterValue.value &&
-                            vessel.imoNumber.toString() !==
+                            (vessel.imoNumber || "").toString() !==
                                 filterValue.value.toString()
-                        ) {
+                        )
                             return false;
-                        }
                         break;
 
                     case "mmsi":
@@ -682,11 +696,23 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
 
                     case "loa":
                         const loaValue = Number(vessel.loa);
-                        const loaMin = Number(filterValue.value);
-                        const loaMax = Number(filterValue.additionalValue);
-                        if (loaMin && !isNaN(loaValue) && loaValue < loaMin)
+                        const loaMin = filterValue.value
+                            ? Number(filterValue.value)
+                            : null;
+                        const loaMax = filterValue.additionalValue
+                            ? Number(filterValue.additionalValue)
+                            : null;
+                        if (
+                            loaMin !== null &&
+                            !isNaN(loaValue) &&
+                            loaValue < loaMin
+                        )
                             return false;
-                        if (loaMax && !isNaN(loaValue) && loaValue > loaMax)
+                        if (
+                            loaMax !== null &&
+                            !isNaN(loaValue) &&
+                            loaValue > loaMax
+                        )
                             return false;
                         break;
 
@@ -743,11 +769,16 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
                                 ? "berthingHours"
                                 : "inPortHours";
 
-                        const min = Number(filterValue.value);
-                        const max = Number(filterValue.additionalValue);
+                        const min = filterValue.value
+                            ? Number(filterValue.value)
+                            : null;
+                        const max = filterValue.additionalValue
+                            ? Number(filterValue.additionalValue)
+                            : null;
+                        const fieldValue = vessel[hourField];
 
-                        if (min && vessel[hourField] < min) return false;
-                        if (max && vessel[hourField] > max) return false;
+                        if (min !== null && fieldValue < min) return false;
+                        if (max !== null && fieldValue > max) return false;
                         break;
 
                     default:

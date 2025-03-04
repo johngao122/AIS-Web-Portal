@@ -7,6 +7,7 @@ import TopBarWithUser from "@/components/TopBarWithUser";
 import "@/app/globals.css";
 import MapWithSearchBar from "@/components/MapWithSearchbar";
 import { AlertCircle } from "lucide-react";
+import { syncStorageOnLoad, setupTokenRefresh } from "@/utils/auth";
 
 /**
  * The dashboard page. This page is protected by authentication, so only logged in users can access it.
@@ -23,9 +24,7 @@ export default function DashboardPage() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        const sessionUser = sessionStorage.getItem("User");
-        const localUser = localStorage.getItem("User");
-        const userData = sessionUser || localUser;
+        const userData = syncStorageOnLoad();
 
         if (!userData) {
             setIsAuthorized(false);
@@ -34,9 +33,9 @@ export default function DashboardPage() {
         }
 
         try {
-            const { username } = JSON.parse(userData);
-            setUsername(username);
+            setUsername(userData.username);
             setIsAuthorized(true);
+            setupTokenRefresh();
         } catch {
             setIsAuthorized(false);
         } finally {
