@@ -23,8 +23,8 @@ import VesselActivitySingleWithArrow from "@/components/VesselActivitySingleWith
 import MapControls from "./MapControls";
 import PortServiceTable from "./PortServiceTable";
 import VesselInfoPanel from "./VesselInfoPanel";
-
-import type VesselActivity from "@/types/VesselActivity";
+import { fetchVesselActivity } from "@/utils/api";
+import VesselActivity from "@/types/VesselActivity";
 import type { PortServiceCategory, PortServiceData } from "@/types/PortService";
 import type { FilterState } from "@/types/Filters";
 import type VesselData from "@/types/VesselData";
@@ -166,63 +166,37 @@ const MapWithSearchBar: React.FC<MapProps> = ({
     }, []);
 
     useEffect(() => {
-        //NOTE: REPLACE THIS WHEN ACTUAL BACKEND IS UP
         const fetchVesselData = async () => {
-            const userStr =
-                localStorage.getItem("User") || sessionStorage.getItem("User");
-            if (!userStr) {
-                console.warn(
-                    "No auth token found, skipping initial vessel data fetch"
-                );
-                return;
-            }
-
             try {
-                const userData = JSON.parse(userStr);
-                const response = await fetch("/api/data/vessel_activity", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${userData.token}`,
-                    },
-                    body: JSON.stringify({
-                        startDate: "2024-10-01T00:00:00",
-                        endDate: "2024-11-30T23:59:59",
-                    }),
+                const data = await fetchVesselActivity({
+                    startDate: "2024-10-01T00:00:00",
+                    endDate: "2024-11-30T23:59:59",
                 });
 
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        console.warn("Unauthorized access, please login again");
-                        return;
-                    }
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const rawData = await response.json();
-
-                if (rawData.success && Array.isArray(rawData.data)) {
-                    const transformedData: VesselMarker[] = rawData.data.map(
-                        (vessel: any) => ({
-                            vesselName: vessel.vesselname,
-                            imoNumber: (vessel.imonumber || "").toString(),
-                            mmsi: (vessel.mmsinumber || "").toString(),
-                            vesselType: vessel.vesseltype || "Unknown",
-                            length: vessel.vessellength || 0,
-                            terminal: vessel.terminal || "Unknown",
-                            ata: vessel.ata || "unavailable",
-                            atb: vessel.atb || "unavailable",
-                            atu: vessel.atu || "unavailable",
-                            atd: vessel.atd || "unavailable",
-                            coordinates: [103.8198, 1.3521], // Default to Singapore coordinates
-                            heading: 0,
-                        })
-                    );
-                    setVessels(transformedData);
-                }
+                const transformedData: VesselMarker[] = data.map(
+                    (vessel: VesselActivity) => ({
+                        vesselName: vessel.vesselName,
+                        imoNumber: vessel.imoNumber,
+                        mmsi: vessel.mmsi,
+                        vesselType: "Container", // Default to Container since we're only dealing with container vessels
+                        length: Number(vessel.loa),
+                        terminal: vessel.terminal,
+                        ata: vessel.ata,
+                        atb: vessel.atb,
+                        atu: vessel.atu,
+                        atd: vessel.atd,
+                        coordinates: [103.8198, 1.3521], // Default to Singapore coordinates
+                        heading: 0,
+                        loa: vessel.loa,
+                        lastLocation: "Singapore", // Default
+                        longitude: 103.8198, // Default
+                        latitude: 1.3521, // Default
+                        bearing: 0, // Default
+                    })
+                );
+                setVessels(transformedData);
             } catch (error) {
                 console.error("Error fetching initial vessel data:", error);
-                // Don't show error to user for initial load
             }
         };
         fetchVesselData();
@@ -337,15 +311,20 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         setShowPortServiceTable(false);
 
         if (fabData) {
-            handleVesselInfoFabToggle(fabData.isExpanded, {
-                startDate: fabData.startDate
-                    ? new Date(fabData.startDate)
-                    : undefined,
-                endDate: fabData.endDate
-                    ? new Date(fabData.endDate)
-                    : undefined,
-                selectedFilters: fabData.filterValues || {},
-            });
+            handleVesselInfoFabToggle(
+                fabData.isExpanded ?? fabStates.vesselInfo.isExpanded,
+                {
+                    startDate: fabData.startDate
+                        ? new Date(fabData.startDate)
+                        : fabStates.vesselInfo.startDate,
+                    endDate: fabData.endDate
+                        ? new Date(fabData.endDate)
+                        : fabStates.vesselInfo.endDate,
+                    selectedFilters:
+                        fabData.filterValues ||
+                        fabStates.vesselInfo.selectedFilters,
+                }
+            );
         }
 
         if (!!data) {
@@ -591,99 +570,28 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         const startDate = new Date(endDate);
         startDate.setMonth(startDate.getMonth() - 1);
 
-        setDateRange({ startDate, endDate });
-
         const initialFilters = {
-            vesselName: {
-                value: clickedVessel.vesselName,
-                additionalValue: undefined,
-            },
+            vesselName: { value: clickedVessel.vesselName },
         };
 
-        handleVesselInfoFabToggle(true, {
-            startDate,
-            endDate,
-            selectedFilters: initialFilters,
-        });
-
-        const startDateString = `${
-            startDate.toISOString().split("T")[0]
-        }T00:00:00`;
-        const endDateString = `${endDate.toISOString().split("T")[0]}T23:59:59`;
-
-        setShowVesselTable(true);
-        setSearchQuery("");
-
         try {
-            const response = await fetch("/api/data/vessel_activity", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${
-                        JSON.parse(
-                            localStorage.getItem("User") ||
-                                sessionStorage.getItem("User") ||
-                                "{}"
-                        ).token
-                    }`,
-                },
-                body: JSON.stringify({
-                    startDate: startDateString,
-                    endDate: endDateString,
-                }),
+            const data = await fetchVesselActivity({
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString(),
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            const filteredData = data.filter(
+                (vessel: VesselActivity) =>
+                    vessel.vesselName.toLowerCase() ===
+                    clickedVessel.vesselName.toLowerCase()
+            );
 
-            const rawData = await response.json();
-
-            if (rawData.success && Array.isArray(rawData.data)) {
-                const transformedData = rawData.data
-                    .map((vessel: any) => ({
-                        vesselName: vessel.vesselname,
-                        imoNumber: (vessel.imonumber || "").toString(),
-                        mmsi: (vessel.mmsinumber || "").toString(),
-                        loa: vessel.vessellength.toString(),
-                        terminal: vessel.terminal,
-                        ata: vessel.ata || "unavailable",
-                        atb: vessel.atb || "unavailable",
-                        atu: vessel.atu || "unavailable",
-                        atd: vessel.atd || "unavailable",
-                        waitingHoursAtBerth:
-                            vessel.PreBerthingHours === "unavailable"
-                                ? 0
-                                : vessel.PreBerthingHours,
-                        waitingHoursInAnchorage:
-                            vessel.AnchorageWaitingHours === "unavailable"
-                                ? 0
-                                : vessel.AnchorageWaitingHours,
-                        berthingHours:
-                            vessel.BerthingHours === "unavailable"
-                                ? 0
-                                : vessel.BerthingHours,
-                        inPortHours:
-                            vessel.InPortHours === "unavailable"
-                                ? 0
-                                : vessel.InPortHours,
-                    }))
-
-                    .filter(
-                        (vessel: VesselActivity) =>
-                            vessel.vesselName.toLowerCase() ===
-                            clickedVessel.vesselName.toLowerCase()
-                    );
-
-                handleVesselDataUpdate(transformedData, {
-                    isExpanded: true,
-                    startDate,
-                    endDate,
-                    filterValues: initialFilters,
-                });
-            } else {
-                throw new Error("Invalid data structure received from API");
-            }
+            handleVesselDataUpdate(filteredData, {
+                isExpanded: true,
+                startDate,
+                endDate,
+                filterValues: initialFilters,
+            });
         } catch (error) {
             console.error("Error fetching vessel activity data:", error);
             // Fallback to example data if API call fails
@@ -840,6 +748,26 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             selectedFilters?: string[];
         }
     ) => {
+        console.log(
+            "Port Service Data received:",
+            JSON.stringify(data, null, 2)
+        );
+        console.log("Raw data type:", typeof data);
+        if (Array.isArray(data)) {
+            console.log("Number of periods:", data.length);
+            data.forEach((period, index) => {
+                console.log(`Period ${index + 1}:`, period);
+                const periodKey = Object.keys(period)[0];
+                console.log(`Period ${index + 1} metrics:`, period[periodKey]);
+                if (period[periodKey]["All vessels"]) {
+                    console.log(
+                        `All vessels WharfUtilizationRate:`,
+                        period[periodKey]["All vessels"].WharfUtilizationRate
+                    );
+                }
+            });
+        }
+
         setPortServiceData(data);
         setShowPortServiceTable(!!data);
 
@@ -1171,77 +1099,21 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             selectedFilters: {},
         });
 
-        const startDateString = `${
-            startDate.toISOString().split("T")[0]
-        }T00:00:00`;
-        const endDateString = `${endDate.toISOString().split("T")[0]}T23:59:59`;
-
         setShowVesselTable(true);
         setSearchQuery("");
 
         try {
-            const response = await fetch("/api/data/vessel_activity", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${
-                        JSON.parse(
-                            localStorage.getItem("User") ||
-                                sessionStorage.getItem("User") ||
-                                "{}"
-                        ).token
-                    }`,
-                },
-                body: JSON.stringify({
-                    startDate: startDateString,
-                    endDate: endDateString,
-                }),
+            const data = await fetchVesselActivity({
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString(),
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const rawData = await response.json();
-
-            if (rawData.success && Array.isArray(rawData.data)) {
-                const transformedData = rawData.data.map((vessel: any) => ({
-                    vesselName: vessel.vesselname,
-                    imoNumber: (vessel.imonumber || "").toString(),
-                    mmsi: (vessel.mmsinumber || "").toString(),
-                    loa: vessel.vessellength.toString(),
-                    terminal: vessel.terminal,
-                    ata: vessel.ata || "unavailable",
-                    atb: vessel.atb || "unavailable",
-                    atu: vessel.atu || "unavailable",
-                    atd: vessel.atd || "unavailable",
-                    waitingHoursAtBerth:
-                        vessel.PreBerthingHours === "unavailable"
-                            ? 0
-                            : vessel.PreBerthingHours,
-                    waitingHoursInAnchorage:
-                        vessel.AnchorageWaitingHours === "unavailable"
-                            ? 0
-                            : vessel.AnchorageWaitingHours,
-                    berthingHours:
-                        vessel.BerthingHours === "unavailable"
-                            ? 0
-                            : vessel.BerthingHours,
-                    inPortHours:
-                        vessel.InPortHours === "unavailable"
-                            ? 0
-                            : vessel.InPortHours,
-                }));
-
-                handleVesselDataUpdate(transformedData, {
-                    isExpanded: true,
-                    startDate,
-                    endDate,
-                    filterValues: {},
-                });
-            } else {
-                throw new Error("Invalid data structure received from API");
-            }
+            handleVesselDataUpdate(data, {
+                isExpanded: true,
+                startDate,
+                endDate,
+                filterValues: {},
+            });
         } catch (error) {
             console.error("Error fetching vessel activity data:", error);
             // Fallback to example data if API call fails
@@ -1591,7 +1463,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
             )}
 
             {/* Table Layer */}
-            {!showVesselInfo && (showVesselTable || showPortServiceTable) && (
+            {(showVesselTable || showPortServiceTable) && (
                 <div className="absolute top-32 left-[calc(25vw+1rem+1rem)] right-4 pointer-events-auto z-20">
                     {showVesselTable && vesselData && (
                         <div className="w-full h-[calc(83vh)] bg-white rounded-lg shadow-lg overflow-hidden">

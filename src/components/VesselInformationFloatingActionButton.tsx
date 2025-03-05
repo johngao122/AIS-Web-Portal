@@ -26,6 +26,8 @@ import {
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { fetchVesselActivity } from "@/utils/api";
+
 const TERMINALS = [
     "Brani and Keppel Terminal",
     "Tuas Terminal",
@@ -606,47 +608,29 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     const handleShowVesselActivity = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("/api/data/vessel_activity", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${
-                        JSON.parse(
-                            localStorage.getItem("User") ||
-                                sessionStorage.getItem("User") ||
-                                "{}"
-                        ).token
-                    }`,
-                },
-                body: JSON.stringify({
-                    startDate: formatDateForAPI(startDate!),
-                    endDate: formatDateForAPI(endDate!),
-                }),
+            if (!startDate || !endDate) {
+                throw new Error("Start date and end date are required");
+            }
+
+            const data = await fetchVesselActivity({
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString(),
             });
 
-            const result = await response.json();
-
-            if (result.success && Array.isArray(result.data)) {
-                const transformedData = transformAPIResponse(result.data);
-
-                const filteredData = applyFilters(
-                    transformedData,
-                    filterValues
-                );
-
-                onVesselDataUpdate(filteredData, {
-                    isExpanded: true,
-                    startDate,
-                    endDate,
-                    filterValues,
-                });
-            } else {
-                console.error("API response format error:", result);
-                onVesselDataUpdate(null);
-            }
+            // Apply filters if they exist
+            const filteredData = filterValues
+                ? applyFilters(data, filterValues)
+                : data;
+            onVesselDataUpdate(filteredData, {
+                startDate,
+                endDate,
+                filterValues,
+            });
         } catch (error) {
-            console.error("Error fetching vessel data:", error);
-            onVesselDataUpdate(null);
+            console.error("Error fetching vessel activity:", error);
+            setDateError(
+                error instanceof Error ? error.message : "An error occurred"
+            );
         } finally {
             setIsLoading(false);
         }

@@ -106,3 +106,22 @@ export const clearTokenRefresh = () => {
         refreshIntervalId = null;
     }
 };
+
+interface User {
+    token: string;
+    // Add other user properties if needed
+}
+
+export const getUserToken = (): string | null => {
+    const userStr =
+        localStorage.getItem("User") || sessionStorage.getItem("User");
+    if (!userStr) return null;
+
+    try {
+        const user: User = JSON.parse(userStr);
+        return user.token;
+    } catch (error) {
+        console.error("Error parsing user data:", error);
+        return null;
+    }
+};

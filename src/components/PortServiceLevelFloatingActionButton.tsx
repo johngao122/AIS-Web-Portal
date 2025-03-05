@@ -19,10 +19,11 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import DateTimePicker from "./DatePicker";
-import type { PortServiceData } from "@/types/PortService";
+import type { PortServiceData, PortServicePeriod } from "@/types/PortService";
 import { ScrollArea } from "./ui/scroll-area";
 import { PortServiceFABIcon } from "@/resources/dashboard";
 import Image from "next/image";
+import { fetchPortService } from "@/utils/api";
 
 export interface TimeRange {
     startDate: Date;
@@ -64,21 +65,22 @@ export interface FilteredPortServiceData {
  *
  * @returns Filtered port service data.
  */
-const filterPortServiceData = (rawData: any[], selectedFilters: string[]) => {
-    // Early return if no filters selected
+const filterPortServiceData = (
+    rawData: PortServiceData,
+    selectedFilters: string[]
+): PortServiceData => {
     if (!selectedFilters.length) return rawData;
 
     return rawData.map((periodData) => {
         const periodKey = Object.keys(periodData)[0];
         const periodValue = periodData[periodKey];
 
-        // Initialize filtered period data with dates
-        const filteredPeriod: any = {
+        const filteredPeriod = {
             [periodKey]: {
                 startDate: periodValue.startDate,
                 endDate: periodValue.endDate,
             },
-        };
+        } as PortServicePeriod;
 
         // Determine which vessel categories to include
         const includeAllVessels = selectedFilters.includes("all_vessels");
@@ -98,7 +100,8 @@ const filterPortServiceData = (rawData: any[], selectedFilters: string[]) => {
 
         // Filter metrics for each selected category
         categories.forEach((category) => {
-            const categoryData = periodValue[category];
+            const categoryData =
+                periodValue[category as keyof PortServicePeriod[string]];
             if (!categoryData) return;
 
             const filteredCategory: any = {};
@@ -117,19 +120,21 @@ const filterPortServiceData = (rawData: any[], selectedFilters: string[]) => {
             Object.entries(metricMappings).forEach(([filterId, metricKey]) => {
                 if (
                     selectedFilters.includes(filterId) &&
-                    categoryData[metricKey] !== undefined
+                    categoryData[metricKey as keyof typeof categoryData] !==
+                        undefined
                 ) {
-                    filteredCategory[metricKey] = categoryData[metricKey];
+                    filteredCategory[metricKey] =
+                        categoryData[metricKey as keyof typeof categoryData];
                 }
             });
 
             // Only include category if it has filtered metrics
             if (Object.keys(filteredCategory).length > 0) {
-                filteredPeriod[periodKey][category] = filteredCategory;
+                (filteredPeriod[periodKey] as any)[category] = filteredCategory;
             }
         });
 
-        return filteredPeriod;
+        return filteredPeriod as PortServiceData[0];
     });
 };
 
@@ -381,17 +386,8 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
     };
 
     const handleAnalyze = async () => {
-        if (timeRanges.length === 0) return;
-
         setIsLoading(true);
         try {
-            const userStr =
-                localStorage.getItem("User") || sessionStorage.getItem("User");
-            if (!userStr) {
-                throw new Error("No authentication token found");
-            }
-            const userData = JSON.parse(userStr);
-
             // Format the time ranges for the API request
             const requestBody = timeRanges.map((range, index) => ({
                 name: `Period ${index + 1}`,
@@ -399,42 +395,24 @@ const PortServiceFAB: React.FC<PortServiceFABProps> = ({
                 endDate: range.endDate.toISOString(),
             }));
 
-            // Make the API call
-            const response = await fetch("/api/data/port_service", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${userData.token}`,
-                },
-                body: JSON.stringify(requestBody),
-            });
+            const data = await fetchPortService(requestBody);
 
-            if (!response.ok) {
-                if (response.status === 401) {
-                    throw new Error("Unauthorized access, please login again");
-                }
-                throw new Error(
-                    `API request failed with status ${response.status}`
-                );
-            }
+            // Filter the data if filters are selected
+            const processedData =
+                selectedFilters.length > 0
+                    ? filterPortServiceData(data, selectedFilters)
+                    : data;
 
-            const rawData = await response.json();
-
-            // Filter the raw data based on selected filters
-            const filteredData = filterPortServiceData(
-                rawData,
-                selectedFilters
-            );
-
-            onPortServiceDataUpdate(filteredData, {
+            onPortServiceDataUpdate(processedData, {
                 isExpanded: true,
                 timeRanges,
                 selectedFilters,
             });
         } catch (error) {
-            console.error("Error analyzing port service data:", error);
-            // Return null to indicate error state
-            onPortServiceDataUpdate(null);
+            console.error("Error fetching port service data:", error);
+            setDateError(
+                error instanceof Error ? error.message : "An error occurred"
+            );
         } finally {
             setIsLoading(false);
         }

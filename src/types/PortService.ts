@@ -12,7 +12,14 @@ interface PortServiceCategory {
     wharfUtilization: number;
 }
 
-interface PeriodDetail {
+interface WharfUtilizationRate {
+    allterminals?: number;
+    PasirPanjang: number;
+    Tuas: number;
+    BraniKeppel: number;
+}
+
+export interface PeriodDetail {
     startDate: string;
     endDate: string;
     "All vessels": {
@@ -30,11 +37,7 @@ interface PeriodDetail {
             average: number;
             median: number;
         };
-        WharfUtilizationRate: {
-            PasirPanjang: number;
-            Tuas: number;
-            BraniKeppel: number;
-        };
+        WharfUtilizationRate: WharfUtilizationRate;
     };
     "Category 1 vessels": {
         TotalBerthed: number;
@@ -51,11 +54,7 @@ interface PeriodDetail {
             average: number;
             median: number;
         };
-        WharfUtilizationRate: {
-            PasirPanjang: number;
-            Tuas: number;
-            BraniKeppel: number;
-        };
+        WharfUtilizationRate: WharfUtilizationRate;
     };
     "Category 2 vessels": {
         TotalBerthed: number;
@@ -72,11 +71,7 @@ interface PeriodDetail {
             average: number;
             median: number;
         };
-        WharfUtilizationRate: {
-            PasirPanjang: number;
-            Tuas: number;
-            BraniKeppel: number;
-        };
+        WharfUtilizationRate: WharfUtilizationRate;
     };
     "Category 3 vessels": {
         TotalBerthed: number;
@@ -93,11 +88,7 @@ interface PeriodDetail {
             average: number;
             median: number;
         };
-        WharfUtilizationRate: {
-            PasirPanjang: number;
-            Tuas: number;
-            BraniKeppel: number;
-        };
+        WharfUtilizationRate: WharfUtilizationRate;
     };
     "Category 4 vessels": {
         TotalBerthed: number;
@@ -114,11 +105,7 @@ interface PeriodDetail {
             average: number;
             median: number;
         };
-        WharfUtilizationRate: {
-            PasirPanjang: number;
-            Tuas: number;
-            BraniKeppel: number;
-        };
+        WharfUtilizationRate: WharfUtilizationRate;
     };
 }
 
@@ -146,10 +133,10 @@ type CategoryResults = {
     };
 };
 
-interface PortServicePeriod {
-    [key: string]: PeriodDetail; // e.g., "Period 1", "Period 2"
+export interface PortServicePeriod {
+    [key: string]: PeriodDetail;
 }
 
-type PortServiceData = PortServicePeriod[];
+export type PortServiceData = Array<{ [key: string]: PeriodDetail }>;
 
-export type { PortServiceCategory, PortServiceData, CategoryResults };
+export type { PortServiceCategory, CategoryResults };

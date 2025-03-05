@@ -166,7 +166,7 @@ const PortServiceTable: React.FC<PortServiceTableProps> = ({
             key: "WharfUtilizationRate",
             label: "Wharf utilization rate",
             subMetrics: [
-                { key: "AllTerminals", label: "All terminals" },
+                { key: "allterminals", label: "All terminals" },
                 { key: "PasirPanjang", label: "PP Terminals" },
                 { key: "Tuas", label: "Tuas Terminals" },
                 { key: "BraniKeppel", label: "B&K Terminals" },

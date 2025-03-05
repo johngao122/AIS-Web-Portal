@@ -1,6 +1,8 @@
 /*eslint-disable*/
 
 import { IconLayer } from "@deck.gl/layers";
+import { fetchPortInfo } from "@/utils/api";
+import type { PortInfoData } from "@/utils/api";
 
 const terminalIconUrl = `data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22lucide%20lucide-anchor%22%3E%3Cpath%20d%3D%22M12%2022V8%22/%3E%3Cpath%20d%3D%22M5%2012H2a10%2010%200%200%200%2020%200h-3%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%225%22%20r%3D%223%22/%3E%3C/svg%3E`;
 
@@ -18,12 +20,12 @@ export interface Terminal {
     stats: TerminalStats;
 }
 
-const transformTerminalData = (data: any[]): Terminal[] => {
-    if (!data || !data[0] || !data[0]["Period 1"]) {
+const transformTerminalData = (data: PortInfoData): Terminal[] => {
+    if (!data || !data["Period 1"]) {
         return [];
     }
 
-    const periodData = data[0]["Period 1"];
+    const periodData = data["Period 1"];
     const terminals = periodData.terminals;
 
     if (!terminals) {
@@ -127,45 +129,15 @@ export const fetchTerminalData = async (): Promise<Terminal[]> => {
             return `${year}-${month}-${day}`;
         };
 
-        const userStr =
-            localStorage.getItem("User") || sessionStorage.getItem("User");
-        if (!userStr) {
-            console.error("No user token found for terminal data fetch");
-            return fallbackTerminalData;
-        }
-
-        const userData = JSON.parse(userStr);
-        if (!userData.token) {
-            console.error("No token found in user data");
-            return fallbackTerminalData;
-        }
-
-        const response = await fetch("/api/data/port_info", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${userData.token}`,
+        const data = await fetchPortInfo([
+            {
+                name: "Period 1",
+                startDate: formatDate(oneMonthAgo),
+                endDate: formatDate(today),
             },
-            body: JSON.stringify([
-                {
-                    name: "Period 1",
-                    startDate: formatDate(oneMonthAgo),
-                    endDate: formatDate(today),
-                },
-            ]),
-        });
+        ]);
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error(
-                `Failed to fetch terminal data: ${response.status} ${response.statusText}`,
-                errorText
-            );
-            return fallbackTerminalData;
-        }
-
-        const data = await response.json();
-        if (!data || !Array.isArray(data)) {
+        if (!data || typeof data !== "object" || !data["Period 1"]) {
             console.error("Invalid terminal data format received:", data);
             return fallbackTerminalData;
         }
