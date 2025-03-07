@@ -43,7 +43,7 @@ export default function Home() {
     ];
 
     const handleLogin = (): void => {
-        router.push("/login");
+        router.push("/log-in");
     };
 
     const handleSignup = (): void => {

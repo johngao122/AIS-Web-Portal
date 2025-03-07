@@ -77,7 +77,11 @@ export const fetchVesselActivity = async (
     }
 
     const data = await response.json();
-    return processVesselActivityData(data["Container Vessel Activity Records"]);
+    return processVesselActivityData(
+        data["Container Vessel Activity Records"],
+        startDate,
+        endDate
+    );
 };
 
 export const fetchPortService = async (
@@ -267,51 +271,85 @@ function formatDate(dateStr: string): string {
     return date.toISOString().slice(0, 10).replace(/-/g, "");
 }
 
-function processVesselActivityData(records: any[]): VesselActivity[] {
-    return records.map((record) => {
-        const [
-            vesselName,
-            imoNumber,
-            mmsi,
-            _vesselType,
-            length,
-            terminal,
-            ata,
-            atb,
-            atu,
-            atd,
-        ] = record;
+function processVesselActivityData(
+    records: any[],
+    startDate?: string,
+    endDate?: string
+): VesselActivity[] {
+    // Convert start and end dates to Date objects if provided
+    const start = startDate ? new Date(startDate) : null;
+    const end = endDate ? new Date(endDate) : null;
 
-        const ataDate = ata ? new Date(ata) : null;
-        const atbDate = atb ? new Date(atb) : null;
-        const atuDate = atu ? new Date(atu) : null;
-        const atdDate = atd ? new Date(atd) : null;
+    return records
+        .map((record) => {
+            const [
+                vesselName,
+                imoNumber,
+                mmsi,
+                _vesselType,
+                length,
+                terminal,
+                ata,
+                atb,
+                atu,
+                atd,
+            ] = record;
 
-        const waitingHoursAtBerth = calculateHours(ataDate, atbDate);
-        const waitingHoursInAnchorage = calculateHours(ataDate, atbDate);
-        const berthingHours = calculateHours(atbDate, atuDate);
-        const inPortHours = calculateHours(ataDate, atdDate);
+            const ataDate = ata ? new Date(ata) : null;
+            const atbDate = atb ? new Date(atb) : null;
+            const atuDate = atu ? new Date(atu) : null;
+            const atdDate = atd ? new Date(atd) : null;
 
-        return {
-            vesselName,
-            imoNumber,
-            mmsi,
-            loa: length.toString(),
-            terminal: mapTerminalName(terminal),
-            ata: ata || "",
-            atb: atb || "",
-            atu: atu || "",
-            atd: atd || "",
-            waitingHoursAtBerth:
-                waitingHoursAtBerth === "unavailable" ? 0 : waitingHoursAtBerth,
-            waitingHoursInAnchorage:
-                waitingHoursInAnchorage === "unavailable"
-                    ? 0
-                    : waitingHoursInAnchorage,
-            berthingHours: berthingHours === "unavailable" ? 0 : berthingHours,
-            inPortHours: inPortHours === "unavailable" ? 0 : inPortHours,
-        };
-    });
+            const waitingHoursAtBerth = calculateHours(ataDate, atbDate);
+            const waitingHoursInAnchorage = calculateHours(ataDate, atbDate);
+            const berthingHours = calculateHours(atbDate, atuDate);
+            const inPortHours = calculateHours(ataDate, atdDate);
+
+            return {
+                vesselName,
+                imoNumber,
+                mmsi,
+                loa: length.toString(),
+                terminal: mapTerminalName(terminal),
+                ata: ata || "",
+                atb: atb || "",
+                atu: atu || "",
+                atd: atd || "",
+                waitingHoursAtBerth:
+                    waitingHoursAtBerth === "unavailable"
+                        ? 0
+                        : waitingHoursAtBerth,
+                waitingHoursInAnchorage:
+                    waitingHoursInAnchorage === "unavailable"
+                        ? 0
+                        : waitingHoursInAnchorage,
+                berthingHours:
+                    berthingHours === "unavailable" ? 0 : berthingHours,
+                inPortHours: inPortHours === "unavailable" ? 0 : inPortHours,
+            };
+        })
+        .filter((vessel) => {
+            // If no date range is provided, include all records
+            if (!start || !end) return true;
+
+            const ata = vessel.ata ? new Date(vessel.ata) : null;
+            const atd = vessel.atd ? new Date(vessel.atd) : null;
+
+            // If we have both dates, ensure they're within range
+            if (ata && atd) {
+                return ata <= end && atd >= start;
+            }
+            // If we only have arrival date, check it's not after end date
+            else if (ata) {
+                return ata <= end;
+            }
+            // If we only have departure date, check it's not before start date
+            else if (atd) {
+                return atd >= start;
+            }
+            // If no dates available, include the record
+            return true;
+        });
 }
 
 // Helper functions for port service processing

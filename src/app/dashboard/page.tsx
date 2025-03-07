@@ -64,7 +64,7 @@ export default function DashboardPage() {
                         log in to continue.
                     </p>
                     <button
-                        onClick={() => router.push("/login")}
+                        onClick={() => router.push("/log-in")}
                         className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
                     >
                         Go to Login
@@ -82,7 +82,7 @@ export default function DashboardPage() {
     const handleLogout = () => {
         localStorage.removeItem("User");
         sessionStorage.removeItem("User");
-        router.push("/login");
+        router.push("/log-in");
     };
     if (!username) {
         return null;

@@ -68,7 +68,7 @@ export const setupTokenRefresh = () => {
                 localStorage.removeItem("User");
 
                 // Use history API for navigation to prevent hard refresh
-                window.history.pushState({}, "", "/login");
+                window.history.pushState({}, "", "/log-in");
                 // Dispatch a navigation event so React can handle the route change
                 window.dispatchEvent(new PopStateEvent("popstate"));
             }
@@ -87,7 +87,7 @@ export const setupTokenRefresh = () => {
             });
 
             // Use history API for navigation to prevent hard refresh
-            window.history.pushState({}, "", "/login");
+            window.history.pushState({}, "", "/log-in");
             // Dispatch a navigation event so React can handle the route change
             window.dispatchEvent(new PopStateEvent("popstate"));
         }

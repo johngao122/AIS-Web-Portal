@@ -353,110 +353,135 @@ const MapWithSearchBar: React.FC<MapProps> = ({
 
     const applyFilters = (data: VesselActivity[], filters: FilterState) => {
         return data.filter((vessel) => {
-            return Object.entries(filters).every(([key, filterValue]) => {
-                // For range filters, we should check both value and additionalValue
-                const value = filterValue.value;
-                const additionalValue = filterValue.additionalValue;
+            // First check if the vessel's dates are within the selected range
+            if (dateRange) {
+                const ata = vessel.ata ? new Date(vessel.ata) : null;
+                const atd = vessel.atd ? new Date(vessel.atd) : null;
+                const startDate = new Date(dateRange.startDate);
+                const endDate = new Date(dateRange.endDate);
 
-                // Only skip if both values are empty for range filters
-                if (
-                    key === "loa" ||
-                    key === "preBerthingHours" ||
-                    key === "anchorageWaitingHours" ||
-                    key === "berthingHours" ||
-                    key === "inPortHours"
-                ) {
-                    if (!value && !additionalValue) return true;
-                } else {
-                    // For non-range filters, keep existing behavior
-                    if (!value) return true;
+                // If we have both dates, ensure they're within range
+                if (ata && atd) {
+                    if (ata > endDate || atd < startDate) {
+                        return false;
+                    }
                 }
+                // If we only have arrival date, check it's not after end date
+                else if (ata && ata > endDate) {
+                    return false;
+                }
+                // If we only have departure date, check it's not before start date
+                else if (atd && atd < startDate) {
+                    return false;
+                }
+            }
 
+            // Then apply other filters
+            for (const [key, filterValue] of Object.entries(filters)) {
+                // Skip if both value and additionalValue are empty for range filters
+                if (filterValue.value === "_none") continue;
+                if (!filterValue.value && !filterValue.additionalValue)
+                    continue;
+
+                let passes = true;
                 switch (key) {
                     case "vesselName":
-                        return vessel.vesselName
+                        passes = vessel.vesselName
                             .toLowerCase()
-                            .includes((value as string).toLowerCase());
+                            .includes(
+                                (filterValue.value as string).toLowerCase()
+                            );
+                        break;
 
                     case "imoNumber":
-                        return (
-                            vessel.imoNumber?.toString() === value?.toString()
-                        );
+                        passes =
+                            vessel.imoNumber?.toString() ===
+                            filterValue.value?.toString();
+                        break;
 
                     case "mmsi":
-                        return vessel.mmsi.toString() === value.toString();
+                        passes =
+                            vessel.mmsi.toString() ===
+                            filterValue.value.toString();
+                        break;
 
                     case "loa":
-                        return validateRange(
-                            value,
+                        passes = validateRange(
+                            filterValue.value,
                             filterValue.additionalValue,
                             Number(vessel.loa)
                         );
+                        break;
 
                     case "terminal":
-                        return vessel.terminal === value;
+                        passes = vessel.terminal === filterValue.value;
+                        break;
 
                     case "multipleRecords":
-                        const minRecords = Number(value);
+                        const minRecords = Number(filterValue.value);
                         const occurences = data.filter(
-                            (v) =>
-                                v.vesselName.toLowerCase() ===
-                                vessel.vesselName.toLowerCase()
+                            (v) => v.imoNumber === vessel.imoNumber
                         ).length;
-                        return occurences >= minRecords;
+                        passes = occurences >= minRecords;
+                        break;
 
                     case "ata":
-                        if (value === "true") return !!vessel.ata;
-                        if (value === "false") return !vessel.ata;
-                        return true;
+                        if (filterValue.value === "true") passes = !!vessel.ata;
+                        if (filterValue.value === "false") passes = !vessel.ata;
+                        break;
 
                     case "atb":
-                        if (value === "true") return !!vessel.atb;
-                        if (value === "false") return !vessel.atb;
-                        return true;
+                        if (filterValue.value === "true") passes = !!vessel.atb;
+                        if (filterValue.value === "false") passes = !vessel.atb;
+                        break;
 
                     case "atu":
-                        if (value === "true") return !!vessel.atu;
-                        if (value === "false") return !vessel.atu;
-                        return true;
+                        if (filterValue.value === "true") passes = !!vessel.atu;
+                        if (filterValue.value === "false") passes = !vessel.atu;
+                        break;
 
                     case "atd":
-                        if (value === "true") return !!vessel.atd;
-                        if (value === "false") return !vessel.atd;
-                        return true;
+                        if (filterValue.value === "true") passes = !!vessel.atd;
+                        if (filterValue.value === "false") passes = !vessel.atd;
+                        break;
 
                     case "preBerthingHours":
-                        return validateRange(
-                            value,
+                        passes = validateRange(
+                            filterValue.value,
                             filterValue.additionalValue,
                             vessel.waitingHoursAtBerth
                         );
+                        break;
 
                     case "anchorageWaitingHours":
-                        return validateRange(
-                            value,
+                        passes = validateRange(
+                            filterValue.value,
                             filterValue.additionalValue,
                             vessel.waitingHoursInAnchorage
                         );
+                        break;
 
                     case "berthingHours":
-                        return validateRange(
-                            value,
+                        passes = validateRange(
+                            filterValue.value,
                             filterValue.additionalValue,
                             vessel.berthingHours
                         );
+                        break;
 
                     case "inPortHours":
-                        return validateRange(
-                            value,
+                        passes = validateRange(
+                            filterValue.value,
                             filterValue.additionalValue,
                             vessel.inPortHours
                         );
-
-                    default:
-                        return true;
+                        break;
                 }
-            });
+
+                if (!passes) return false;
+            }
+
+            return true;
         });
     };
     const handleTableRowClick = async (vessel: VesselActivity) => {
