@@ -42,6 +42,7 @@ import {
     Terminal,
     fetchTerminalData,
 } from "./TerminalLayer";
+import sgCoordinates from "@/data/SG_coordinates.json";
 
 interface MapProps {
     mapStyle?: string;
@@ -990,6 +991,55 @@ const MapWithSearchBar: React.FC<MapProps> = ({
         visible: activeLayers.terminals,
     });
 
+    const convertDMSToDecimal = (dmsStr: string): number => {
+        const direction = dmsStr.slice(-1);
+        const [degrees, minutes] = dmsStr
+            .slice(0, -1)
+            .split("\u00b0")
+            .map((part) => parseFloat(part.replace("'", "")));
+
+        let decimal = degrees + minutes / 60;
+        if (direction === "S" || direction === "W") {
+            decimal = -decimal;
+        }
+        return decimal;
+    };
+
+    const singaporeBorderCoordinates = sgCoordinates.map((point) => [
+        convertDMSToDecimal(point.Longitude),
+        convertDMSToDecimal(point.Latitude),
+    ]);
+
+    // Close the polygon by adding the first point at the end
+    singaporeBorderCoordinates.push(singaporeBorderCoordinates[0]);
+
+    const singaporeBorderLayer = new PathLayer({
+        id: "singapore-border",
+        data: [
+            {
+                path: singaporeBorderCoordinates,
+                name: "Singapore Border",
+            },
+        ],
+        pickable: true,
+        widthScale: 20,
+        widthMinPixels: 2,
+        getPath: (d) => d.path,
+        getColor: [255, 255, 255, 200],
+        getWidth: 3,
+        dashJustified: true,
+        getDashArray: [3, 2],
+        extensions: [pathStyleExtension],
+        parameters: {
+            dashEnable: true,
+        },
+        visible: true,
+        onHover: (info) => {
+            const typedInfo = info as PickingInfo & { layer: Layer<any> };
+            createHoverHandler("border")(typedInfo);
+        },
+    });
+
     /*Vessel layer
     const vesselLayer = new IconLayer({
         id: "vessels",
@@ -1338,7 +1388,14 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                             </div>
                         </div>
                     );
-
+                case "border":
+                    return (
+                        <>
+                            <div className="font-semibold text-white bg-gray-800 px-2 py-1 rounded">
+                                Singapore Maritime Border
+                            </div>
+                        </>
+                    );
                 default:
                     return null;
             }
@@ -1358,6 +1415,8 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                     return "#7c3aed";
                 case "vessel":
                     return "#ca8a04";
+                case "border":
+                    return "#ffffff";
                 default:
                     return "#64748b";
             }
@@ -1391,6 +1450,7 @@ const MapWithSearchBar: React.FC<MapProps> = ({
                         vesselPathLayer,
                         //vesselLayer,
                         terminalLayer,
+                        singaporeBorderLayer,
                     ]}
                     onViewStateChange={onViewStateChange}
                 >

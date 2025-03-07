@@ -1,0 +1,397 @@
+[
+    {
+        "Point Number":1,
+        "Latitude":"01\u00b0 08.972'N",
+        "Longitude":"103\u00b0 44.315'E"
+    },
+    {
+        "Point Number":2,
+        "Latitude":"01\u00b0 11.746'N",
+        "Longitude":"103\u00b0 40.566'E"
+    },
+    {
+        "Point Number":3,
+        "Latitude":"01\u00b0 12.906'N",
+        "Longitude":"103\u00b0 36.072'E"
+    },
+    {
+        "Point Number":4,
+        "Latitude":"01\u00b0 15.846'N",
+        "Longitude":"103\u00b0 36.072'E"
+    },
+    {
+        "Point Number":5,
+        "Latitude":"01\u00b0 17.084'N",
+        "Longitude":"103\u00b0 36.400'E"
+    },
+    {
+        "Point Number":6,
+        "Latitude":"01\u00b0 18.854'N",
+        "Longitude":"103\u00b0 36.870'E"
+    },
+    {
+        "Point Number":7,
+        "Latitude":"01\u00b0 18.921'N",
+        "Longitude":"103\u00b0 36.924'E"
+    },
+    {
+        "Point Number":8,
+        "Latitude":"01\u00b0 19.293'N",
+        "Longitude":"103\u00b0 36.969'E"
+    },
+    {
+        "Point Number":9,
+        "Latitude":"01\u00b0 20.459'N",
+        "Longitude":"103\u00b0 37.702'E"
+    },
+    {
+        "Point Number":10,
+        "Latitude":"01\u00b0 21.118'N",
+        "Longitude":"103\u00b0 38.032'E"
+    },
+    {
+        "Point Number":11,
+        "Latitude":"01\u00b0 21.438'N",
+        "Longitude":"103\u00b0 38.157'E"
+    },
+    {
+        "Point Number":12,
+        "Latitude":"01\u00b0 21.774'N",
+        "Longitude":"103\u00b0 38.352'E"
+    },
+    {
+        "Point Number":13,
+        "Latitude":"01\u00b0 22.791'N",
+        "Longitude":"103\u00b0 38.851'E"
+    },
+    {
+        "Point Number":14,
+        "Latitude":"01\u00b0 23.220'N",
+        "Longitude":"103\u00b0 39.077'E"
+    },
+    {
+        "Point Number":15,
+        "Latitude":"01\u00b0 23.472'N",
+        "Longitude":"103\u00b0 39.109'E"
+    },
+    {
+        "Point Number":16,
+        "Latitude":"01\u00b0 24.020'N",
+        "Longitude":"103\u00b0 39.329'E"
+    },
+    {
+        "Point Number":17,
+        "Latitude":"01\u00b0 24.623'N",
+        "Longitude":"103\u00b0 39.734'E"
+    },
+    {
+        "Point Number":18,
+        "Latitude":"01\u00b0 24.940'N",
+        "Longitude":"103\u00b0 40.065'E"
+    },
+    {
+        "Point Number":19,
+        "Latitude":"01\u00b0 25.683'N",
+        "Longitude":"103\u00b0 40.332'E"
+    },
+    {
+        "Point Number":20,
+        "Latitude":"01\u00b0 26.230'N",
+        "Longitude":"103\u00b0 40.898'E"
+    },
+    {
+        "Point Number":21,
+        "Latitude":"01\u00b0 26.388'N",
+        "Longitude":"103\u00b0 41.541'E"
+    },
+    {
+        "Point Number":22,
+        "Latitude":"01\u00b0 26.593'N",
+        "Longitude":"103\u00b0 41.830'E"
+    },
+    {
+        "Point Number":23,
+        "Latitude":"01\u00b0 27.042'N",
+        "Longitude":"103\u00b0 42.123'E"
+    },
+    {
+        "Point Number":24,
+        "Latitude":"01\u00b0 27.443'N",
+        "Longitude":"103\u00b0 42.745'E"
+    },
+    {
+        "Point Number":25,
+        "Latitude":"01\u00b0 27.603'N",
+        "Longitude":"103\u00b0 43.598'E"
+    },
+    {
+        "Point Number":26,
+        "Latitude":"01\u00b0 27.272'N",
+        "Longitude":"103\u00b0 44.286'E"
+    },
+    {
+        "Point Number":27,
+        "Latitude":"01\u00b0 27.018'N",
+        "Longitude":"103\u00b0 44.705'E"
+    },
+    {
+        "Point Number":28,
+        "Latitude":"01\u00b0 26.898'N",
+        "Longitude":"103\u00b0 45.540'E"
+    },
+    {
+        "Point Number":29,
+        "Latitude":"01\u00b0 27.158'N",
+        "Longitude":"103\u00b0 46.160'E"
+    },
+    {
+        "Point Number":30,
+        "Latitude":"01\u00b0 27.162'N",
+        "Longitude":"103\u00b0 46.165'E"
+    },
+    {
+        "Point Number":31,
+        "Latitude":"01\u00b0 27.903'N",
+        "Longitude":"103\u00b0 47.326'E"
+    },
+    {
+        "Point Number":32,
+        "Latitude":"01\u00b0 28.585'N",
+        "Longitude":"103\u00b0 48.117'E"
+    },
+    {
+        "Point Number":33,
+        "Latitude":"01\u00b0 28.703'N",
+        "Longitude":"103\u00b0 48.657'E"
+    },
+    {
+        "Point Number":34,
+        "Latitude":"01\u00b0 28.597'N",
+        "Longitude":"103\u00b0 49.227'E"
+    },
+    {
+        "Point Number":35,
+        "Latitude":"01\u00b0 28.375'N",
+        "Longitude":"103\u00b0 49.947'E"
+    },
+    {
+        "Point Number":36,
+        "Latitude":"01\u00b0 27.965'N",
+        "Longitude":"103\u00b0 51.017'E"
+    },
+    {
+        "Point Number":37,
+        "Latitude":"01\u00b0 27.772'N",
+        "Longitude":"103\u00b0 51.417'E"
+    },
+    {
+        "Point Number":38,
+        "Latitude":"01\u00b0 27.528'N",
+        "Longitude":"103\u00b0 51.795'E"
+    },
+    {
+        "Point Number":39,
+        "Latitude":"01\u00b0 27.388'N",
+        "Longitude":"103\u00b0 51.987'E"
+    },
+    {
+        "Point Number":40,
+        "Latitude":"01\u00b0 26.934'N",
+        "Longitude":"103\u00b0 52.399'E"
+    },
+    {
+        "Point Number":41,
+        "Latitude":"01\u00b0 26.104'N",
+        "Longitude":"103\u00b0 53.065'E"
+    },
+    {
+        "Point Number":42,
+        "Latitude":"01\u00b0 25.673'N",
+        "Longitude":"103\u00b0 53.769'E"
+    },
+    {
+        "Point Number":43,
+        "Latitude":"01\u00b0 25.648'N",
+        "Longitude":"103\u00b0 54.662'E"
+    },
+    {
+        "Point Number":44,
+        "Latitude":"01\u00b0 25.596'N",
+        "Longitude":"103\u00b0 54.907'E"
+    },
+    {
+        "Point Number":45,
+        "Latitude":"01\u00b0 25.691'N",
+        "Longitude":"103\u00b0 55.297'E"
+    },
+    {
+        "Point Number":46,
+        "Latitude":"01\u00b0 25.821'N",
+        "Longitude":"103\u00b0 55.901'E"
+    },
+    {
+        "Point Number":47,
+        "Latitude":"01\u00b0 25.824'N",
+        "Longitude":"103\u00b0 56.158'E"
+    },
+    {
+        "Point Number":48,
+        "Latitude":"01\u00b0 25.666'N",
+        "Longitude":"103\u00b0 56.448'E"
+    },
+    {
+        "Point Number":49,
+        "Latitude":"01\u00b0 25.518'N",
+        "Longitude":"103\u00b0 57.048'E"
+    },
+    {
+        "Point Number":50,
+        "Latitude":"01\u00b0 25.461'N",
+        "Longitude":"103\u00b0 57.349'E"
+    },
+    {
+        "Point Number":51,
+        "Latitude":"01\u00b0 25.481'N",
+        "Longitude":"103\u00b0 57.536'E"
+    },
+    {
+        "Point Number":52,
+        "Latitude":"01\u00b0 25.326'N",
+        "Longitude":"103\u00b0 57.904'E"
+    },
+    {
+        "Point Number":53,
+        "Latitude":"01\u00b0 25.313'N",
+        "Longitude":"103\u00b0 58.241'E"
+    },
+    {
+        "Point Number":54,
+        "Latitude":"01\u00b0 25.461'N",
+        "Longitude":"103\u00b0 58.691'E"
+    },
+    {
+        "Point Number":55,
+        "Latitude":"01\u00b0 25.453'N",
+        "Longitude":"103\u00b0 58.911'E"
+    },
+    {
+        "Point Number":56,
+        "Latitude":"01\u00b0 25.491'N",
+        "Longitude":"103\u00b0 59.066'E"
+    },
+    {
+        "Point Number":57,
+        "Latitude":"01\u00b0 25.483'N",
+        "Longitude":"103\u00b0 59.238'E"
+    },
+    {
+        "Point Number":58,
+        "Latitude":"01\u00b0 25.496'N",
+        "Longitude":"103\u00b0 59.471'E"
+    },
+    {
+        "Point Number":59,
+        "Latitude":"01\u00b0 25.418'N",
+        "Longitude":"103\u00b0 59.611'E"
+    },
+    {
+        "Point Number":60,
+        "Latitude":"01\u00b0 25.233'N",
+        "Longitude":"104\u00b0 00.068'E"
+    },
+    {
+        "Point Number":61,
+        "Latitude":"01\u00b0 26.344'N",
+        "Longitude":"104\u00b0 01.294'E"
+    },
+    {
+        "Point Number":62,
+        "Latitude":"01\u00b0 26.629'N",
+        "Longitude":"104\u00b0 02.346'E"
+    },
+    {
+        "Point Number":63,
+        "Latitude":"01\u00b0 26.388'N",
+        "Longitude":"104\u00b0 03.343'E"
+    },
+    {
+        "Point Number":64,
+        "Latitude":"01\u00b0 26.074'N",
+        "Longitude":"104\u00b0 04.167'E"
+    },
+    {
+        "Point Number":65,
+        "Latitude":"01\u00b0 25.851'N",
+        "Longitude":"104\u00b0 04.483'E"
+    },
+    {
+        "Point Number":66,
+        "Latitude":"01\u00b0 25.051'N",
+        "Longitude":"104\u00b0 05.203'E"
+    },
+    {
+        "Point Number":67,
+        "Latitude":"01\u00b0 24.926'N",
+        "Longitude":"104\u00b0 05.280'E"
+    },
+    {
+        "Point Number":68,
+        "Latitude":"01\u00b0 24.743'N",
+        "Longitude":"104\u00b0 05.340'E"
+    },
+    {
+        "Point Number":69,
+        "Latitude":"01\u00b0 24.353'N",
+        "Longitude":"104\u00b0 05.455'E"
+    },
+    {
+        "Point Number":70,
+        "Latitude":"01\u00b0 23.984'N",
+        "Longitude":"104\u00b0 05.477'E"
+    },
+    {
+        "Point Number":71,
+        "Latitude":"01\u00b0 23.651'N",
+        "Longitude":"104\u00b0 05.443'E"
+    },
+    {
+        "Point Number":72,
+        "Latitude":"01\u00b0 23.078'N",
+        "Longitude":"104\u00b0 05.268'E"
+    },
+    {
+        "Point Number":73,
+        "Latitude":"01\u00b0 22.121'N",
+        "Longitude":"104\u00b0 04.910'E"
+    },
+    {
+        "Point Number":74,
+        "Latitude":"01\u00b0 21.446'N",
+        "Longitude":"104\u00b0 04.678'E"
+    },
+    {
+        "Point Number":75,
+        "Latitude":"01\u00b0 20.796'N",
+        "Longitude":"104\u00b0 05.012'E"
+    },
+    {
+        "Point Number":76,
+        "Latitude":"01\u00b0 17.787'N",
+        "Longitude":"104\u00b0 07.152'E"
+    },
+    {
+        "Point Number":77,
+        "Latitude":"01\u00b0 16.295'N",
+        "Longitude":"103\u00b0 58.599'E"
+    },
+    {
+        "Point Number":78,
+        "Latitude":"01\u00b0 12.397'N",
+        "Longitude":"103\u00b0 51.397'E"
+    },
+    {
+        "Point Number":79,
+        "Latitude":"01\u00b0 10.855'N",
+        "Longitude":"103\u00b0 47.560'E"
+    }
+]
