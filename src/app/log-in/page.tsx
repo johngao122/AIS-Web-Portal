@@ -13,24 +13,20 @@ import "@/app/globals.css";
 import { setupTokenRefresh } from "@/utils/auth";
 
 /**
- * The login page.
+ * Login Page
  *
- * This page renders a login form with inputs for username and password.
- * It also renders an illustration of a ship.
+ * User authentication interface that provides secure login functionality.
+ * Handles user credentials validation and session management.
  *
- * The user can enter their credentials and click the login button to
- * authenticate.
+ * Features:
+ * - Secure credential input
+ * - Error handling and validation
+ * - Remember me functionality
+ * - Password reset options
+ * - Redirect to dashboard on success
  *
- * If the user has checked the "Remember Me" checkbox, the user's credentials
- * will be stored in local storage and will be used to auto-login the user
- * when they visit the page again.
- *
- * If the user has not checked the "Remember Me" checkbox, the user's credentials
- * will not be stored and will need to be re-entered every time they visit the
- * page.
- *
- * The page also displays any errors that occur during the authentication
- * process.
+ * @page
+ * @route /log-in
  */
 export default function Login() {
     const router = useRouter();

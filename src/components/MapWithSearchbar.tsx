@@ -1,5 +1,27 @@
 /* eslint-disable */
 "use client";
+
+/**
+ * MapWithSearchbar Component
+ *
+ * A comprehensive interactive map component that integrates vessel tracking, port services,
+ * and geospatial visualization capabilities with search functionality.
+ *
+ * This component serves as the main visualization interface for the maritime traffic monitoring system,
+ * allowing users to:
+ * - View vessel positions and movements in real-time
+ * - Search for specific vessels by name, IMO, or other identifiers
+ * - Access detailed vessel information and activity history
+ * - Monitor port service levels and performance metrics
+ * - Interact with various map layers (terminals, separation zones, etc.)
+ * - Control the time dimension for historical data analysis
+ *
+ * The component uses deck.gl for high-performance WebGL-based rendering and
+ * integrates with Mapbox for the base map layer.
+ *
+ * @component
+ */
+
 import React, { useState, useEffect, useMemo } from "react";
 import DeckGL from "@deck.gl/react";
 import { Layer, PickingInfo } from "@deck.gl/core";
@@ -44,8 +66,14 @@ import {
 } from "./TerminalLayer";
 import sgCoordinates from "@/data/SG_coordinates.json";
 
+/**
+ * Props for the MapWithSearchBar component
+ * @interface MapProps
+ */
 interface MapProps {
+    /** Custom map style URL (defaults to Mapbox light style) */
     mapStyle?: string;
+    /** Initial view state configuration for the map */
     initialViewState?: any;
 }
 
@@ -60,11 +88,6 @@ interface TooltipInfo {
     x: number;
     y: number;
     layer: string;
-}
-
-interface MapProps {
-    mapStyle?: string;
-    initialViewState?: any;
 }
 
 interface FabState {
@@ -91,6 +114,26 @@ const ErrorToast: React.FC<{ message: string }> = ({ message }) => {
     );
 };
 
+/**
+ * MapWithSearchbar Component
+ *
+ * A comprehensive map interface component that combines a map view with search functionality.
+ * It integrates vessel tracking, port services, and interactive map controls.
+ *
+ * Features:
+ * - Interactive map with vessel tracking
+ * - Search functionality for vessels and locations
+ * - Layer controls for different map views
+ * - Port service information display
+ * - Vessel activity monitoring
+ * - Time-based data filtering
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <MapWithSearchbar />
+ * ```
+ */
 const MapWithSearchBar: React.FC<MapProps> = ({
     mapStyle = "mapbox://styles/mapbox/light-v10",
     initialViewState = {

@@ -11,26 +11,32 @@ import {
 import "@/app/globals.css";
 
 /**
- * The Contact page.
+ * Contact Page
  *
- * This page contains a map with a gradient overlay at the bottom, and a
- * contact information overlay at the top. The contact information overlay
- * includes department information, address, and email.
+ * Displays contact information for the Centre of Excellence in Modelling and
+ * Simulation for Next Generation Ports (C4NGP).
  *
- * @returns The Contact page.
+ * Features:
+ * - Institution information
+ * - Physical address
+ * - Contact email
+ * - Map visualization with location
+ * - Building image
+ *
+ * @page
+ * @route /signup
  */
-const Contact = () => {
+const ContactPage = () => {
     return (
         <div className="min-h-screen bg-white">
             <TopBarWithLogo />
 
             <div className="h-[calc(100vh-64px)] grid grid-cols-2">
-                {/* Left Side */}
+                {/* Left Side - Contact Information and Map */}
                 <div className="relative h-full">
                     {/* Map with Gradient Overlay */}
                     <div className="absolute inset-0">
                         <div className="absolute bottom-0 left-0 right-0 h-2/5 overflow-hidden">
-                            {/* I HATE CSS */}
                             <div
                                 className="absolute inset-0 z-10"
                                 style={{
@@ -115,7 +121,7 @@ const Contact = () => {
                     </div>
                 </div>
 
-                {/* Right Side */}
+                {/* Right Side - Building Image */}
                 <div className="h-full">
                     <Image
                         src={I4}
@@ -130,4 +136,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default ContactPage;

@@ -4,50 +4,55 @@ import React, { useState, useEffect } from "react";
 import { Search, X } from "lucide-react";
 import type VesselMarker from "@/types/VesselMarker";
 
+/**
+ * Props for the SearchBar component
+ * @interface SearchBarProps
+ */
 interface SearchBarProps {
+    /** Callback function triggered when search is submitted or changed */
     onSearch?: (searchTerm: string) => void;
+    /** Optional CSS class name for additional styling */
     className?: string;
+    /** Initial/controlled value of the search input */
     value?: string;
+    /** Array of vessel markers to generate search suggestions from */
     vessels: VesselMarker[];
 }
 
+/**
+ * Interface for vessel search suggestions
+ * @interface VesselSuggestion
+ */
 interface VesselSuggestion {
+    /** Name of the vessel */
     vesselName: string;
+    /** IMO number of the vessel */
     imoNumber: string;
+    /** MMSI number of the vessel */
     mmsi: string;
 }
 
 /**
- * A SearchBar component for searching a list of vessels by name, IMO, or MMSI.
+ * SearchBar Component
  *
- * @prop {function} onSearch - A callback function that gets called when the user
- * submits a search query. The callback function receives the search query as a
- * string argument.
- * @prop {string} className - The CSS class name to apply to the outermost element.
- * @prop {string} value - The initial value of the search input.
- * @prop {VesselMarker[]} vessels - A list of vessels to search.
+ * An interactive search component for finding vessels by name, IMO number, or MMSI.
+ * Features auto-suggestions, keyboard navigation, and real-time filtering.
  *
- * @example
- * import { SearchBar } from "react-vessel-dashboard";
+ * Features:
+ * - Real-time search suggestions as user types
+ * - Keyboard navigation through suggestions (arrow keys and Enter)
+ * - Clear button to reset search
+ * - Responsive design
+ * - Clickable suggestions
+ * - Outside click detection to close suggestion panel
  *
- * const vessels = [
- *   { vesselName: "Seawise Giant", imoNumber: "7372141", mmsi: "123456789" },
- *   { vesselName: "Knarr", imoNumber: "9468645", mmsi: "234567890" },
- * ];
- *
- * const handleSearch = (query) => {
- *   console.log(`Searching for ${query}`);
- * };
- *
- * const App = () => {
- *   return (
- *     <SearchBar
- *       onSearch={handleSearch}
- *       vessels={vessels}
- *       className="my-4"
- *     />
- *   );
- * };
+ * @component
+ * @param {SearchBarProps} props - Component props
+ * @param {Function} [props.onSearch] - Callback when search term changes
+ * @param {string} [props.className] - Additional CSS classes
+ * @param {string} [props.value] - Controlled input value
+ * @param {VesselMarker[]} props.vessels - Array of vessels for suggestions
+ * @returns {React.ReactElement} The rendered SearchBar component
  */
 const SearchBar: React.FC<SearchBarProps> = ({
     onSearch,
@@ -55,27 +60,25 @@ const SearchBar: React.FC<SearchBarProps> = ({
     value = "",
     vessels,
 }) => {
-    const [inputValue, setInputValue] = useState(value);
+    const [inputValue, setInputValue] = useState<string>(value);
     const [suggestions, setSuggestions] = useState<VesselSuggestion[]>([]);
-    const [showSuggestions, setShowSuggestions] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(-1);
-    const wrapperRef = React.useRef<HTMLDivElement>(null);
+    const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+    const [activeSuggestionIndex, setActiveSuggestionIndex] =
+        useState<number>(-1);
+    const [isFocused, setIsFocused] = useState<boolean>(false);
+    const searchContainerRef = React.useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setInputValue(value);
     }, [value]);
 
     /**
-     * Generates a list of vessel suggestions based on the provided query.
-     * The suggestions are filtered from the list of vessels by matching the
-     * query against the vessel's name, IMO number, or MMSI number. The search
-     * is case-insensitive and returns at most 5 suggestions.
+     * Generates vessel suggestions based on the search query
+     * Filters vessels by name, IMO number, or MMSI that match the query
      *
-     * @param {string} query - The search query to filter vessel suggestions.
-     * @returns {VesselSuggestion[]} An array of up to 5 vessel suggestions
-     * that match the search query.
+     * @param {string} query - The search query to filter vessels by
+     * @returns {VesselSuggestion[]} Array of matching vessel suggestions
      */
-
     const generateSuggestions = (query: string): VesselSuggestion[] => {
         if (!query || query.length < 2) return [];
 
@@ -106,8 +109,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
-                wrapperRef.current &&
-                !wrapperRef.current.contains(event.target as Node)
+                searchContainerRef.current &&
+                !searchContainerRef.current.contains(event.target as Node)
             ) {
                 setShowSuggestions(false);
             }
@@ -119,58 +122,57 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }, []);
 
     /**
-     * Handles changes to the search input.
-     * @param e React.ChangeEvent of the input element.
+     * Handles changes to the search input
+     * Updates suggestions and calls the onSearch callback
+     *
+     * @param {React.ChangeEvent<HTMLInputElement>} e - The input change event
      */
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value;
         setInputValue(newValue);
         setShowSuggestions(true);
-        setSelectedIndex(-1);
+        setActiveSuggestionIndex(-1);
         if (onSearch) {
             onSearch(newValue);
         }
     };
 
     /**
-     * Handles keyboard events for navigating and selecting vessel suggestions.
+     * Handles keyboard navigation through suggestions
+     * Supports arrow keys for navigation and Enter for selection
      *
-     * This function supports the following keys:
-     * - ArrowDown: Moves the selection down the suggestion list.
-     * - ArrowUp: Moves the selection up the suggestion list.
-     * - Enter: Selects the currently highlighted suggestion.
-     * - Escape: Closes the suggestion list.
-     *
-     * @param {React.KeyboardEvent<HTMLInputElement>} e - The keyboard event triggered by user input.
+     * @param {React.KeyboardEvent<HTMLInputElement>} e - The keyboard event
      */
-
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (!showSuggestions) return;
 
         switch (e.key) {
             case "ArrowDown":
                 e.preventDefault();
-                setSelectedIndex((prevIndex) =>
+                setActiveSuggestionIndex((prevIndex) =>
                     prevIndex < suggestions.length - 1 ? prevIndex + 1 : 0
                 );
                 break;
             case "ArrowUp":
                 e.preventDefault();
-                setSelectedIndex((prevIndex) =>
+                setActiveSuggestionIndex((prevIndex) =>
                     prevIndex > 0 ? prevIndex - 1 : suggestions.length - 1
                 );
                 break;
             case "Enter":
                 e.preventDefault();
-                if (selectedIndex >= 0 && selectedIndex < suggestions.length) {
+                if (
+                    activeSuggestionIndex >= 0 &&
+                    activeSuggestionIndex < suggestions.length
+                ) {
                     handleSuggestionClick(
-                        suggestions[selectedIndex].vesselName
+                        suggestions[activeSuggestionIndex].vesselName
                     );
                 }
                 break;
             case "Escape":
                 setShowSuggestions(false);
-                setSelectedIndex(-1);
+                setActiveSuggestionIndex(-1);
                 break;
             default:
                 break;
@@ -178,38 +180,35 @@ const SearchBar: React.FC<SearchBarProps> = ({
     };
 
     /**
-     * Handles a suggestion click event.
-     * @param {string} vesselName - The vessel name that was clicked.
-     * Sets the input value to the clicked vessel name, closes the suggestion
-     * list, resets the selected index, and calls the onSearch callback if
-     * it is defined.
+     * Handles clicking on a suggestion
+     * Sets the input value to the selected vessel name and triggers search
+     *
+     * @param {string} vesselName - The name of the selected vessel
      */
     const handleSuggestionClick = (vesselName: string) => {
         setInputValue(vesselName);
         setShowSuggestions(false);
-        setSelectedIndex(-1);
+        setActiveSuggestionIndex(-1);
         if (onSearch) {
             onSearch(vesselName);
         }
     };
 
     /**
-     * Resets the search input and closes the suggestion list.
-     *
-     * This function also calls the onSearch callback if it is defined,
-     * passing an empty string as the argument.
+     * Clears the search input
+     * Resets the input value, suggestions, and calls onSearch with empty string
      */
     const clearInput = () => {
         setInputValue("");
         setShowSuggestions(false);
-        setSelectedIndex(-1);
+        setActiveSuggestionIndex(-1);
         if (onSearch) {
             onSearch("");
         }
     };
 
     return (
-        <div ref={wrapperRef} className={`relative ${className}`}>
+        <div ref={searchContainerRef} className={`relative ${className}`}>
             <div className="relative flex items-center">
                 <input
                     type="text"
@@ -239,7 +238,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
                         <div
                             key={index}
                             className={`px-4 py-2 cursor-pointer hover:bg-gray-50 
-                                ${selectedIndex === index ? "bg-gray-50" : ""}
+                                ${
+                                    activeSuggestionIndex === index
+                                        ? "bg-gray-50"
+                                        : ""
+                                }
                                 ${
                                     index !== suggestions.length - 1
                                         ? "border-b border-gray-100"

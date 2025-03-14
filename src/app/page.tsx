@@ -20,10 +20,20 @@ import { NUSLogo } from "@/resources/logos";
 import "./globals.css";
 
 /**
- * The landing page of the application, containing a slideshow
- * and a brief overview of the application.
+ * Home Page Component
  *
- * @returns The landing page component.
+ * The landing page of the application that serves as the entry point for users.
+ * Features a slideshow of maritime images, information about the application,
+ * and navigation options for login and signup.
+ *
+ * Key features:
+ * - Interactive slideshow with maritime imagery
+ * - Brief overview of the application's capabilities
+ * - Direct navigation to login and signup pages
+ * - Responsive design for various screen sizes
+ *
+ * @page
+ * @route /
  */
 export default function Home() {
     const router = useRouter();
@@ -42,10 +52,16 @@ export default function Home() {
         landingPageInfo4,
     ];
 
+    /**
+     * Navigates to the login page when the login button is clicked
+     */
     const handleLogin = (): void => {
         router.push("/log-in");
     };
 
+    /**
+     * Navigates to the signup page when the signup button is clicked
+     */
     const handleSignup = (): void => {
         router.push("/signup");
     };

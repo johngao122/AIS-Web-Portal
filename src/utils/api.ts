@@ -1,3 +1,12 @@
+/**
+ * API Utility Module
+ *
+ * This module provides a comprehensive set of functions for interacting with the backend API.
+ * It handles authentication, data fetching, and error handling for all API endpoints.
+ *
+ * @module api
+ */
+
 /*eslint-disable*/
 
 import { getUserToken } from "./auth";
@@ -42,6 +51,14 @@ interface WharfUtilizationRate {
     BraniKeppel: number;
 }
 
+/**
+ * Fetches vessel activity data from the API
+ * Retrieves vessel movements, port calls, and related metrics for the specified date range
+ *
+ * @param {VesselActivityRequest} params - Request parameters including start and end dates
+ * @returns {Promise<VesselActivity[]>} Promise resolving to an array of vessel activity records
+ * @throws {Error} If the API request fails
+ */
 export const fetchVesselActivity = async (
     params: VesselActivityRequest
 ): Promise<VesselActivity[]> => {
@@ -84,6 +101,14 @@ export const fetchVesselActivity = async (
     );
 };
 
+/**
+ * Fetches port service level data from the API
+ * Retrieves performance metrics, utilization rates, and service statistics
+ *
+ * @param {PortServiceRequest[]} params - Array of request parameters including port name and date ranges
+ * @returns {Promise<PortServiceData>} Promise resolving to port service data
+ * @throws {Error} If the API request fails
+ */
 export const fetchPortService = async (
     params: PortServiceRequest[]
 ): Promise<PortServiceData> => {
@@ -210,6 +235,14 @@ export const fetchPortService = async (
     return results;
 };
 
+/**
+ * Fetches detailed port information from the API
+ * Retrieves terminal-specific data, vessel counts, and operational metrics
+ *
+ * @param {PortInfoRequest[]} params - Array of request parameters including port name and date ranges
+ * @returns {Promise<PortInfoData>} Promise resolving to port information data
+ * @throws {Error} If the API request fails
+ */
 export const fetchPortInfo = async (
     params: PortInfoRequest[]
 ): Promise<PortInfoData> => {
@@ -271,11 +304,21 @@ function formatDate(dateStr: string): string {
     return date.toISOString().slice(0, 10).replace(/-/g, "");
 }
 
-function processVesselActivityData(
+/**
+ * Processes raw vessel activity data from the API
+ * Calculates derived metrics like waiting hours and berthing hours
+ * Formats dates and ensures consistent data structure
+ *
+ * @param {any[]} records - Raw vessel activity records from the API
+ * @param {string} [startDate] - Optional start date for filtering
+ * @param {string} [endDate] - Optional end date for filtering
+ * @returns {VesselActivity[]} Processed vessel activity data
+ */
+export const processVesselActivityData = (
     records: any[],
     startDate?: string,
     endDate?: string
-): VesselActivity[] {
+): VesselActivity[] => {
     // Convert start and end dates to Date objects if provided
     const start = startDate ? new Date(startDate) : null;
     const end = endDate ? new Date(endDate) : null;
@@ -350,7 +393,7 @@ function processVesselActivityData(
             // If no dates available, include the record
             return true;
         });
-}
+};
 
 // Helper functions for port service processing
 function calculateAverage(values: number[]): number {
@@ -679,15 +722,19 @@ function processPortServiceData(data: any): PeriodDetail {
     const validDates = vesselData
         .map((v: any) => ({
             ata: v.ata !== "unavailable" ? new Date(v.ata) : null,
+            atb: v.atb !== "unavailable" ? new Date(v.atb) : null,
+            atu: v.atu !== "unavailable" ? new Date(v.atu) : null,
             atd: v.atd !== "unavailable" ? new Date(v.atd) : null,
         }))
-        .filter(
-            (dates) =>
-                dates.ata &&
-                dates.atd &&
-                !isNaN(dates.ata.getTime()) &&
-                !isNaN(dates.atd.getTime())
-        );
+        .filter((dates) => {
+            const validDates = [
+                dates.ata,
+                dates.atb,
+                dates.atu,
+                dates.atd,
+            ].filter((date) => date && !isNaN(date.getTime()));
+            return validDates.length > 0; // At least one valid date exists
+        });
 
     if (validDates.length === 0) {
         console.warn("No valid dates found in vessel data");
@@ -704,11 +751,29 @@ function processPortServiceData(data: any): PeriodDetail {
     }
 
     const startDate = new Date(
-        Math.min(...validDates.map((d) => d.ata!.getTime()))
+        Math.min(
+            ...validDates.flatMap((d) =>
+                [d.ata, d.atb, d.atu, d.atd]
+                    .filter(
+                        (date): date is Date =>
+                            date !== null && !isNaN(date.getTime())
+                    )
+                    .map((date) => date.getTime())
+            )
+        )
     ).toISOString();
 
     const endDate = new Date(
-        Math.max(...validDates.map((d) => d.atd!.getTime()))
+        Math.max(
+            ...validDates.flatMap((d) =>
+                [d.ata, d.atb, d.atu, d.atd]
+                    .filter(
+                        (date): date is Date =>
+                            date !== null && !isNaN(date.getTime())
+                    )
+                    .map((date) => date.getTime())
+            )
+        )
     ).toISOString();
 
     categoryResults.startDate = startDate;
@@ -886,6 +951,8 @@ function processPortServiceData(data: any): PeriodDetail {
 
     return categoryResults;
 }
+
+export { processPortServiceData };
 
 function processPortInfoData(data: any, startDate: string, endDate: string) {
     if (

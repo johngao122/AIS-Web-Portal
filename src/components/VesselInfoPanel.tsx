@@ -1,21 +1,38 @@
 import React from "react";
 import type VesselMarker from "@/types/VesselMarker";
 
+/**
+ * Props for the VesselInfoPanel component
+ * @interface VesselInfoPanelProps
+ */
 interface VesselInfoPanelProps {
+    /** Array of vessel markers to display information for */
     vessels: VesselMarker[];
+    /** Optional callback function when "Show all vessels info" button is clicked */
     onShowAllClick?: () => void;
+    /** Optional callback function when an individual vessel entry is clicked */
     onVesselClick?: (vessel: VesselMarker) => void;
 }
 
 /**
- * A panel to display information about one or more vessels.
+ * VesselInfoPanel Component
  *
- * @example
- * <VesselInfoPanel vessels={[vessel1, vessel2]} onShowAllClick={() => console.log('Show all vessels')} />
+ * A panel that displays information about vessels found in search results.
+ * Shows a list of vessels with their key details and provides interaction options.
  *
- * @param {VesselMarker[]} vessels - An array of vessel objects.
- * @param {() => void} [onShowAllClick] - An optional function to call when the "Show all vessels info" button is clicked.
- * @param {(vessel: VesselMarker) => void} [onVesselClick] - An optional function to call when a vessel is clicked.
+ * Features:
+ * - Displays vessel name, IMO number, MMSI, and other key information
+ * - Clickable vessel entries for detailed information
+ * - Option to show all vessels in the system
+ * - Scrollable design for handling multiple vessels
+ * - Hover effects for better user interaction
+ *
+ * @component
+ * @param {VesselInfoPanelProps} props - Component props
+ * @param {VesselMarker[]} props.vessels - Array of vessel objects to display
+ * @param {() => void} [props.onShowAllClick] - Optional callback when "Show all vessels info" button is clicked
+ * @param {(vessel: VesselMarker) => void} [props.onVesselClick] - Optional callback when a vessel entry is clicked
+ * @returns {React.ReactElement|null} The rendered VesselInfoPanel or null if no vessels
  */
 const VesselInfoPanel: React.FC<VesselInfoPanelProps> = ({
     vessels,

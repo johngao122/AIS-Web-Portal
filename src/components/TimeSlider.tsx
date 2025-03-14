@@ -49,10 +49,47 @@ const TimeSlider: React.FC<TimeSliderProps> = ({
         (endTime.getTime() - startTime.getTime()) / 1000
     );
 
+    /**
+     * Formats a Date object into a time string (HH:MM:SS)
+     *
+     * @param {Date} date - The date to format
+     * @returns {string} The formatted time string
+     */
+    const formatTime = (date: Date): string => {
+        return date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+        });
+    };
+
+    /**
+     * Formats a Date object into a date string (DD/MM/YYYY)
+     *
+     * @param {Date} date - The date to format
+     * @returns {string} The formatted date string
+     */
+    const formatDate = (date: Date): string => {
+        return date.toLocaleDateString([], {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        });
+    };
+
+    /**
+     * Handles the mouse down event on the slider
+     * Sets the dragging state to true
+     */
     const handleMouseDown = () => {
         setIsDragging(true);
     };
 
+    /**
+     * Handles the mouse up event on the slider
+     * Sets the dragging state to false
+     */
     const handleMouseUp = () => {
         setIsDragging(false);
     };
@@ -75,20 +112,12 @@ const TimeSlider: React.FC<TimeSliderProps> = ({
         [startTime, totalSeconds]
     );
 
-    const formatTime = (date: Date): string => {
-        return date.toTimeString().split(" ")[0];
-    };
-
-    const formatDate = (date: Date): string => {
-        return date
-            .toLocaleDateString("en-GB", {
-                month: "2-digit",
-                day: "numeric",
-                year: "numeric",
-            })
-            .toUpperCase();
-    };
-
+    /**
+     * Handles changes to the slider value
+     * Calculates the new time based on the slider position and calls the onTimeChange callback
+     *
+     * @param {React.ChangeEvent<HTMLInputElement>} event - The slider change event
+     */
     const handleSliderChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {

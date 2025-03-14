@@ -1,47 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AIS Web Portal
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-15.x-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.x-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://www.docker.com/)
+[![CI](https://img.shields.io/github/actions/workflow/status/your-username/ais-web/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/your-username/ais-web/actions)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-First, run the development server:
+A comprehensive maritime traffic monitoring system that provides real-time vessel tracking, port service analysis, and interactive visualization tools for maritime operations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚢 Overview
+
+AIS Web Portal is a Next.js-based web application designed to visualize and analyze maritime traffic data from Automatic Identification System (AIS) sources. The platform offers powerful tools for tracking vessels, monitoring port service levels, and analyzing maritime activities in real-time.
+
+## ✨ Features
+
+-   **Interactive Map Visualization**: High-performance WebGL-based map rendering using deck.gl and Mapbox
+-   **Real-time Vessel Tracking**: Monitor vessel positions, movements, and activities
+-   **Advanced Search Capabilities**: Find vessels by name, IMO number, or other identifiers
+-   **Port Service Level Analysis**: Evaluate and compare port performance metrics
+-   **Historical Data Analysis**: Review past vessel movements with time-based filtering
+-   **User Authentication**: Secure login and registration system
+-   **Responsive Design**: Optimized for various screen sizes and devices
+
+## 🛠️ Tech Stack
+
+-   **Frontend**: Next.js, React, TypeScript
+-   **UI Components**: Mantine, Radix UI, shadcn/ui
+-   **Map Visualization**: deck.gl, Mapbox GL, react-map-gl
+-   **Data Handling**: Lodash, date-fns, dayjs
+-   **Authentication**: JWT-based auth system
+-   **Deployment**: Docker, Vercel
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+-   Node.js 18 or later
+-   npm, yarn, or pnpm
+-   Mapbox API key
+-   Backend API endpoint (see API Instructions section)
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_MAPBOX=your_mapbox_api_key
+NEXT_PUBLIC_API=your_api_url
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+    git clone https://github.com/your-username/ais-web.git
+    cd ais-web
+    ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📊 Main Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   **Dashboard**: The main interface with the interactive map and vessel tracking
+-   **Vessel Information Panel**: Detailed information about selected vessels
+-   **Port Service Analysis**: Tools for analyzing port performance metrics
+-   **Time Slider**: Control for viewing historical vessel data
+-   **Search Functionality**: Advanced search for finding specific vessels
 
-# API Instructions
+## 🔒 Authentication
 
-Currently the API is being hosted as a test service on render.com, because we are using the free tier for testing, the server will sleep and reset every 15 minutes of inactivity.
+The application uses a token-based authentication system. Users need to register and log in to access the dashboard and its features.
 
-I suggest using POSTMAN to register a user first before using the API.
+## 🐳 Docker Deployment
 
-To register a user, use the POST method with the endpoint https://ais-testing-backend.onrender.com/register. The request body should be in JSON format and contain the following fields:
+### Build the Docker Image
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_MAPBOX="your_mapbox_api_key" \
+  --build-arg NEXT_PUBLIC_API="your_api_url" \
+  -t your-username/ais-web-portal:latest .
+```
+
+### Run with Docker Compose
+
+```bash
+docker-compose up
+```
+
+## 🌐 API Instructions
+
+The backend API is currently hosted as a test service on render.com. Due to the free tier limitations, the server will sleep and reset after 15 minutes of inactivity.
+
+### User Registration
+
+To register a user, use the POST method with the endpoint:
+
+```
+https://ais-testing-backend.onrender.com/register
+```
+
+Request body (JSON format):
 
 ```json
 {
@@ -50,33 +133,36 @@ To register a user, use the POST method with the endpoint https://ais-testing-ba
 }
 ```
 
-For example, as shown in the screenshot, the payload includes:
+Ensure the Content-Type header is set to application/json.
 
-```json
-{
-    "username": "john",
-    "password": "1234"
-}
-```
+## 🧪 Testing
 
-Ensure the Content-Type header is set to application/json. Once the request is sent, you should receive a response confirming the registration. If the server has been inactive for over 15 minutes, it might take a short while to wake up due to the limitations of the free tier hosting.
-
-# AIS Web Portal Docker Image
-
-## Build the Docker Image with Arguments
-
-This image requires two environment variables during the build process:
-
--   `NEXT_PUBLIC_MAPBOX`: Your Mapbox API key.
--   `NEXT_PUBLIC_API`: The URL of your backend API.
-
-### Build Command
-
-To build the image with these variables, run:
+Run tests using:
 
 ```bash
-docker build \
-  --build-arg NEXT_PUBLIC_MAPBOX="your_mapbox_api_key" \
-  --build-arg NEXT_PUBLIC_API="your_api_url" \
-  -t <your-dockerhub-username>/ais-web-portal:latest .
+npm run test
+# or
+yarn test
 ```
+
+## 📝 Development Guidelines
+
+-   Use TypeScript for type safety
+-   Follow the component structure in the `src/components` directory
+-   Add JSDoc comments for component documentation
+-   Use the UI components from the shadcn/ui library when possible
+
+## 🔄 Continuous Integration
+
+The project uses GitHub Actions for CI/CD. See the `.github/workflows` directory for workflow configurations.
+
+## 📄 License
+
+[MIT License](LICENSE)
+
+## 🙏 Acknowledgements
+
+-   [Next.js](https://nextjs.org/)
+-   [deck.gl](https://deck.gl/)
+-   [Mapbox](https://www.mapbox.com/)
+-   [shadcn/ui](https://ui.shadcn.com/)

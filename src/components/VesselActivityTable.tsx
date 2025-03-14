@@ -12,6 +12,24 @@ import {
 import { ContainerVesselActivitySingle } from "@/resources/dashboard";
 import type VesselActivity from "@/types/VesselActivity";
 
+/**
+ * VesselActivityTable Component
+ *
+ * A comprehensive table component for displaying vessel activity data with sorting and filtering capabilities.
+ * Shows detailed information about vessel movements, timings, and port operations.
+ *
+ * Features:
+ * - Sortable columns for all vessel metrics
+ * - Interactive row selection
+ * - Tooltips for column explanations
+ * - Responsive design for various screen sizes
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {VesselActivity[]} props.data - Array of vessel activity data to display
+ * @param {Function} props.onClose - Callback function when the table is closed
+ * @param {Function} props.onRowClick - Callback function when a row is clicked, receives the vessel data
+ */
 interface VesselActivityTableProps {
     data: VesselActivity[];
     onClose: () => void;
@@ -40,17 +58,18 @@ const tooltips = {
 };
 
 /**
- * A component that renders a table header with a label, tooltip, and an
- * optional sorting icon.
+ * SortableHeader Component
  *
- * @param {string} label - The label to display in the header.
- * @param {string} tooltip - The tooltip to display when the user hovers over
- * the header.
- * @param {keyof VesselActivity} sortKey - The key to sort the table by.
- * @param {SortConfig} currentSort - The current sorting configuration.
- * @param {(key: keyof VesselActivity) => void} onSort - The function to call
- * when the user clicks the header to sort the table.
- * @returns {JSX.Element} The table header component.
+ * Renders a table header cell with sorting functionality and tooltip information.
+ * Displays an up or down arrow to indicate the current sort direction.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.label - The display text for the header
+ * @param {string} props.tooltip - The tooltip text to show on hover
+ * @param {keyof VesselActivity} props.sortKey - The data key to sort by
+ * @param {SortConfig} props.currentSort - The current sort configuration
+ * @param {Function} props.onSort - Callback function when header is clicked for sorting
  */
 const SortableHeader = ({
     label,
@@ -60,7 +79,7 @@ const SortableHeader = ({
     onSort,
 }: {
     label: string;
-    tooltip: string;
+    tooltip?: string;
     sortKey: keyof VesselActivity;
     currentSort: SortConfig;
     onSort: (key: keyof VesselActivity) => void;
@@ -110,15 +129,29 @@ const SortableHeader = ({
 };
 
 /**
- * A table component that renders a list of container vessel activities.
+ * VesselActivityTable Component
  *
- * @param {VesselActivity[]} data - The data to be rendered in the table.
- * @param {() => void} onClose - The function to call when the user clicks the
- * close button.
- * @param {(vessel: VesselActivity) => void} onRowClick - The function to call
- * when the user clicks a row in the table.
+ * A data table component that displays detailed vessel activity information.
+ * Provides sorting, filtering, and pagination functionality for vessel data.
  *
- * @returns {JSX.Element} The table component.
+ * Features:
+ * - Sortable columns for vessel information
+ * - Filterable data based on vessel attributes
+ * - Paginated results for better performance
+ * - Detailed vessel activity metrics
+ * - Interactive row selection
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array<VesselActivity>} props.data - Array of vessel activity data
+ * @param {function} props.onRowClick - Callback function when a row is clicked
+ * @example
+ * ```tsx
+ * <VesselActivityTable
+ *   data={vesselData}
+ *   onRowClick={(vessel) => handleVesselSelect(vessel)}
+ * />
+ * ```
  */
 const VesselActivityTable: React.FC<VesselActivityTableProps> = ({
     data,

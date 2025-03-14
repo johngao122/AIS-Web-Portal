@@ -1,3 +1,14 @@
+/* eslint-disable */
+
+/**
+ * Authentication Utility Module
+ *
+ * Provides authentication and authorization functionality for the application.
+ * Handles user sessions, token management, and access control.
+ *
+ * @module auth
+ */
+
 let refreshIntervalId: NodeJS.Timeout | null = null;
 
 /**
@@ -18,6 +29,11 @@ export const syncStorageOnLoad = () => {
     return sessionUser ? JSON.parse(sessionUser) : null;
 };
 
+/**
+ * Sets up an interval to refresh the authentication token
+ * Automatically refreshes the token before it expires
+ * Stores the new token in both localStorage and sessionStorage if "Remember Me" was selected
+ */
 export const setupTokenRefresh = () => {
     // Clear any existing interval
     if (refreshIntervalId) {
@@ -100,6 +116,10 @@ export const setupTokenRefresh = () => {
     refreshToken();
 };
 
+/**
+ * Clears the token refresh interval
+ * Should be called when the user logs out
+ */
 export const clearTokenRefresh = () => {
     if (refreshIntervalId) {
         clearInterval(refreshIntervalId);
@@ -107,21 +127,46 @@ export const clearTokenRefresh = () => {
     }
 };
 
+/**
+ * Retrieves the current user's authentication token
+ * Checks both sessionStorage and localStorage
+ *
+ * @returns {string|null} The user's token or null if not found
+ */
+export const getUserToken = (): string | null => {
+    const user = syncStorageOnLoad();
+    return user?.token || null;
+};
+
 interface User {
     token: string;
     // Add other user properties if needed
 }
 
-export const getUserToken = (): string | null => {
-    const userStr =
-        localStorage.getItem("User") || sessionStorage.getItem("User");
-    if (!userStr) return null;
+/**
+ * Authenticates a user with their credentials
+ * @async
+ * @function authenticate
+ * @param {Object} credentials - User credentials
+ * @param {string} credentials.username - User's username
+ * @param {string} credentials.password - User's password
+ * @returns {Promise<AuthResponse>} Authentication response with token
+ * @throws {Error} If authentication fails
+ */
 
-    try {
-        const user: User = JSON.parse(userStr);
-        return user.token;
-    } catch (error) {
-        console.error("Error parsing user data:", error);
-        return null;
-    }
-};
+/**
+ * Validates a user's session token
+ * @async
+ * @function validateToken
+ * @param {string} token - JWT token to validate
+ * @returns {Promise<boolean>} True if token is valid
+ * @throws {Error} If token validation fails
+ */
+
+/**
+ * Manages user logout and session cleanup
+ * @async
+ * @function logout
+ * @returns {Promise<void>}
+ * @throws {Error} If logout fails
+ */

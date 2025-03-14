@@ -10,14 +10,21 @@ import {
     Vessel,
 } from "@/resources/layerSelect";
 
+/**
+ * Props for the MapControls component
+ * @interface MapControlsProps
+ */
 interface MapControlsProps {
+    /** Optional CSS class name for additional styling */
     className?: string;
+    /** Object containing the visibility state of each map layer */
     activeLayers: {
         anchorages: boolean;
         fairways: boolean;
         separation: boolean;
         terminals: boolean;
     };
+    /** State setter function for updating layer visibility */
     setActiveLayers: React.Dispatch<
         React.SetStateAction<{
             anchorages: boolean;
@@ -26,28 +33,31 @@ interface MapControlsProps {
             terminals: boolean;
         }>
     >;
+    /** Callback function for zoom in button click */
     onZoomIn: () => void;
+    /** Callback function for zoom out button click */
     onZoomOut: () => void;
+    /** Whether the layer control panel is open */
     isOpen: boolean;
+    /** State setter function for toggling the layer control panel */
     setIsOpen: (isOpen: boolean) => void;
 }
 
 /**
- * MapControls
+ * MapControls Component
  *
- * A component that displays a zoom control and a layer control.
+ * A control panel for map interactions including zoom controls and layer visibility toggles.
+ * Provides a user-friendly interface for controlling the map view and displayed information.
  *
- * The zoom control consists of two buttons: one for zooming in and one for zooming out.
+ * Features:
+ * - Zoom in/out buttons for adjusting map zoom level
+ * - Layer visibility toggles for different map elements (anchorages, fairways, etc.)
+ * - Collapsible panel to save screen space when not in use
+ * - Visual indicators for active layers
  *
- * The layer control displays a dropdown menu with checkboxes for each layer.
- * The user can toggle the visibility of each layer by checking or unchecking the corresponding checkbox.
- *
- * The component also displays a tooltip when the user hovers over the layer control button.
- * The tooltip displays the text "Layers".
- *
- * @param {MapControlsProps} props The props for the component.
- *
- * @returns {JSX.Element} The component.
+ * @component
+ * @param {MapControlsProps} props - Component props
+ * @returns {JSX.Element} The rendered MapControls component
  */
 const MapControls = ({
     activeLayers,
@@ -59,12 +69,23 @@ const MapControls = ({
 }: MapControlsProps) => {
     const [showTooltip, setShowTooltip] = useState(false);
 
+    /**
+     * Configuration for layer types with their labels and icons
+     * @interface LayerConfigItem
+     */
     interface LayerConfigItem {
+        /** Key matching the activeLayers object property */
         key: keyof typeof activeLayers;
+        /** Display label for the layer toggle */
         label: string;
+        /** Icon configuration for the layer */
         icon: LayerIcon;
     }
 
+    /**
+     * Union type for different icon types (image or Lucide component)
+     * @type LayerIcon
+     */
     type LayerIcon =
         | { type: "image"; icon: any } // For Next.js Image icons
         | { type: "lucide"; icon: React.ComponentType<any> }; // For Lucide icons
@@ -92,6 +113,12 @@ const MapControls = ({
         },
     ];
 
+    /**
+     * Handles toggling a layer's visibility state
+     * Updates the activeLayers state with the new visibility value
+     *
+     * @param {string} key - The key of the layer to toggle
+     */
     const handleLayerToggle = (key: string) => {
         setActiveLayers((prev: any) => ({
             ...prev,

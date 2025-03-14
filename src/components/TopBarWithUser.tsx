@@ -4,28 +4,47 @@ import Link from "next/link";
 import { logoLight, NUSLogoLight } from "@/resources/logos";
 import { User, LogOut } from "lucide-react";
 
+/**
+ * Props for the TopBarWithUser component
+ * @interface TopBarProps
+ */
 interface TopBarProps {
+    /** The username to display in the user button */
     username: string;
+    /** Optional additional CSS class names */
     classname?: string;
+    /** Callback function triggered when the user clicks the logout button */
     onLogout?: () => void;
 }
 
 /**
- * A top bar with the AIS logo, NUS logo, and the user's name.
- * The user's name is clickable and will show a logout button on hover.
+ * TopBarWithUser Component
  *
- * @param {string} username - The user's name.
- * @param {string} [classname] - A class name to apply to the root element.
- * @param {() => void} [onLogout] - A function to call when the user clicks the logout button.
+ * A navigation bar that displays the AIS and NUS logos along with user information.
+ * Features a dropdown menu for logout functionality that appears on hover.
+ *
+ * @component
+ * @param {TopBarProps} props - Component props
+ * @param {string} props.username - The user's name to display in the user button
+ * @param {string} [props.classname] - Optional CSS class names to apply to the container
+ * @param {() => void} [props.onLogout] - Callback function triggered when logout is clicked
+ * @returns {React.ReactElement} The rendered TopBarWithUser component
  */
 const TopBarWithUser: React.FC<TopBarProps> = ({
     username,
     classname,
     onLogout,
 }) => {
-    const [showLogout, setShowLogout] = useState(false);
+    // State to control the visibility of the logout dropdown
+    const [showLogout, setShowLogout] = useState<boolean>(false);
+
+    // Ref to store timeout ID for delayed hiding of the logout dropdown
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+    /**
+     * Shows the logout dropdown when mouse enters the user button area
+     * Clears any existing timeout to prevent the dropdown from hiding
+     */
     const handleMouseEnter = () => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
@@ -33,6 +52,10 @@ const TopBarWithUser: React.FC<TopBarProps> = ({
         setShowLogout(true);
     };
 
+    /**
+     * Sets a timeout to hide the logout dropdown when mouse leaves the area
+     * Uses a delay to improve user experience when moving between elements
+     */
     const handleMouseLeave = () => {
         timeoutRef.current = setTimeout(() => {
             setShowLogout(false);
@@ -41,7 +64,7 @@ const TopBarWithUser: React.FC<TopBarProps> = ({
 
     return (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-10 px-4 w-full max-w-[90%] md:max-w-[80%]">
-            {/*Dont change the z-10 */}
+            {/* z-10 is required for proper layering with other UI elements */}
             <div className="w-full flex justify-center bg-gradient-to-r from-[#4338CA] via-[#3B82F6] to-[#10B981] rounded-lg shadow-lg">
                 <div
                     className={`w-full flex items-center justify-between p-3 ${
@@ -49,7 +72,7 @@ const TopBarWithUser: React.FC<TopBarProps> = ({
                     }`}
                 >
                     <div className="flex items-center gap-3">
-                        {/* AIS Logo on the left */}
+                        {/* AIS Logo with homepage link */}
                         <Link href="/" className="flex items-center">
                             <div className="flex items-center transition-opacity duration-300 hover:opacity-50">
                                 <Image
@@ -62,7 +85,7 @@ const TopBarWithUser: React.FC<TopBarProps> = ({
                             </div>
                         </Link>
 
-                        {/* NUS Logo */}
+                        {/* NUS Logo (non-clickable) */}
                         <div className="flex items-center">
                             <Image
                                 src={NUSLogoLight}
@@ -74,13 +97,13 @@ const TopBarWithUser: React.FC<TopBarProps> = ({
                         </div>
                     </div>
 
-                    {/* User section */}
+                    {/* User section with dropdown logout menu */}
                     <div
                         className="relative"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                     >
-                        {/* Invisible bridge to help with mouse movement */}
+                        {/* Invisible element to improve hover detection between button and dropdown */}
                         {showLogout && (
                             <div className="absolute w-full h-4 bottom-0 translate-y-full" />
                         )}
@@ -90,7 +113,7 @@ const TopBarWithUser: React.FC<TopBarProps> = ({
                             <span>{username}</span>
                         </button>
 
-                        {/* Logout popup */}
+                        {/* Logout dropdown menu with animation */}
                         <div
                             className={`absolute right-0 mt-2 py-1 w-32 bg-teal-600 rounded-lg shadow-lg transform transition-all duration-200 ${
                                 showLogout

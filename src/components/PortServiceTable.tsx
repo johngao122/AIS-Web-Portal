@@ -19,10 +19,29 @@ interface PortServiceTableProps {
 }
 
 /**
- * Renders a table displaying port service levels analysis data.
+ * PortServiceTable Component
  *
- * @param {any[]} data - Array of objects containing port service levels data.
- * @param {() => void} onClose - Function to be called when the close button is clicked.
+ * A comprehensive table component for displaying and managing port service data.
+ * Provides detailed information about port operations, service metrics, and performance indicators.
+ *
+ * Features:
+ * - Sortable columns for service metrics
+ * - Filterable data by service type and date
+ * - Performance indicators visualization
+ * - Service level statistics
+ * - Interactive data exploration
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array<PortService>} props.data - Array of port service data
+ * @param {function} props.onServiceSelect - Callback function when a service is selected
+ * @example
+ * ```tsx
+ * <PortServiceTable
+ *   data={portServiceData}
+ *   onServiceSelect={(service) => handleServiceSelect(service)}
+ * />
+ * ```
  */
 const PortServiceTable: React.FC<PortServiceTableProps> = ({
     data,

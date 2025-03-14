@@ -10,12 +10,20 @@ import { AlertCircle } from "lucide-react";
 import { syncStorageOnLoad, setupTokenRefresh } from "@/utils/auth";
 
 /**
- * The dashboard page. This page is protected by authentication, so only logged in users can access it.
- * If the user is not logged in, they will be redirected to the login page.
- * If the user is logged in, they will see a map with a search bar on top of it.
- * The search bar allows them to search for vessels by name, IMO number, or MMSI number.
- * The map will display the search results.
- * The user can also log out by clicking the logout button on the top right of the page.
+ * Dashboard Page
+ *
+ * The main dashboard interface of the application. Provides access to vessel tracking,
+ * port services analysis, and interactive map features.
+ *
+ * Features:
+ * - Interactive map with vessel tracking
+ * - Port service level analysis
+ * - Real-time vessel activity monitoring
+ * - Data visualization tools
+ * - User authentication integration
+ *
+ * @page
+ * @route /dashboard
  */
 export default function DashboardPage() {
     const router = useRouter();
