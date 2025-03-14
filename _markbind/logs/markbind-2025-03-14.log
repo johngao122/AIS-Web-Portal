@@ -1617,3 +1617,14 @@ Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects
 2025-03-14T11:46:12.076Z - info: Assets built
 2025-03-14T11:46:12.079Z - info: Assets built
 2025-03-14T11:46:12.080Z - info: Assets built
+2025-03-14T12:01:12.169Z - info: Website generation started at 8:01:12 PM
+2025-03-14T12:01:14.953Z - info: Building assets...
+2025-03-14T12:01:16.202Z - info: Assets built
+2025-03-14T12:01:16.202Z - info: Generating pages...
+2025-03-14T12:01:16.837Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/AIS-Web-Portal/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T12:01:16.838Z - info: Pages built
+2025-03-14T12:01:16.944Z - info: Site data built
+2025-03-14T12:01:16.944Z - info: Website generation complete! Total build time: 4.841s
+2025-03-14T12:01:16.955Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:8080
+2025-03-14T12:01:16.955Z - info: Press CTRL+C to stop ...

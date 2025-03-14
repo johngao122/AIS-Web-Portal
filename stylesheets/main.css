@@ -27,10 +27,28 @@ mark {
 .nav-link {
     font-weight: 500;
     transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .nav-link:hover {
     transform: translateY(-2px);
+    color: #fff !important;
+}
+
+.dropdown-toggle {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dropdown-toggle:hover {
+    color: #fff !important;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-top: 0;
+    padding: 8px 0;
 }
 
 .dropdown-header {
@@ -40,15 +58,25 @@ mark {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    background-color: #f5f5f5;
 }
 
 .dropdown-item {
-    padding: 6px 24px;
-    transition: background-color 0.2s ease;
+    padding: 8px 24px;
+    transition: all 0.2s ease;
+    color: #424242;
+    font-size: 0.95rem;
 }
 
 .dropdown-item:hover {
     background-color: #e8eaf6;
+    color: #1a237e;
+    transform: translateX(4px);
+}
+
+.dropdown-divider {
+    margin: 4px 0;
+    border-top: 1px solid #e0e0e0;
 }
 
 /* Scrollbar */

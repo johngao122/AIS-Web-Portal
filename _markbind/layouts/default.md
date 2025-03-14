@@ -8,7 +8,7 @@
     <li><a href="{{baseUrl}}/index.html" class="nav-link">Home</a></li>
     <li><a href="{{baseUrl}}/contents/getting-started.html" class="nav-link">Getting Started</a></li>
     <li><a href="{{baseUrl}}/contents/architecture.html" class="nav-link">Architecture</a></li>
-    <dropdown header="Components" class="nav-link">
+    <dropdown text="Components" class="nav-item">
       <dropdown-header>Map Components</dropdown-header>
       <li><a href="{{baseUrl}}/contents/components/map.html" class="dropdown-item">Map</a></li>
       <li><a href="{{baseUrl}}/contents/components/MapWithSearchbar.html" class="dropdown-item">MapWithSearchbar</a></li>
