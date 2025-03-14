@@ -4,7 +4,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://www.docker.com/)
-[![CI](https://img.shields.io/github/actions/workflow/status/your-username/ais-web/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/your-username/ais-web/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/your-username/ais-web/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/johngao122/AIS-Web-Portal/actions)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
 A comprehensive maritime traffic monitoring system that provides real-time vessel tracking, port service analysis, and interactive visualization tools for maritime operations.
