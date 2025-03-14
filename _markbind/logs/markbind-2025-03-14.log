@@ -1543,3 +1543,77 @@ Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects
 2025-03-14T11:38:45.021Z - info: Site data built
 2025-03-14T11:38:45.021Z - info: Website generation complete! Total build time: 3.955s
 2025-03-14T11:38:45.022Z - info: Build success!
+2025-03-14T11:44:18.371Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.367Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.368Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.372Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.372Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.371Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.372Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.382Z - info: [7:44:18 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:18.489Z - info: No pages needed to be rebuilt
+2025-03-14T11:44:50.075Z - info: Website generation started at 7:44:49 PM
+2025-03-14T11:44:52.963Z - info: Building assets...
+2025-03-14T11:44:54.388Z - info: Assets built
+2025-03-14T11:44:54.388Z - info: Generating pages...
+2025-03-14T11:44:55.173Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/AIS-Web-Portal/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:44:55.174Z - info: Pages built
+2025-03-14T11:44:55.732Z - info: Site data built
+2025-03-14T11:44:55.732Z - info: Website generation complete! Total build time: 5.773s
+2025-03-14T11:44:55.732Z - info: Build success!
+2025-03-14T11:45:19.142Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.143Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.139Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.142Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.143Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.147Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.147Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.154Z - info: [7:45:19 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:19.242Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:45:19.249Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:45:19.249Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/stylesheets/main.css'
+2025-03-14T11:45:20.261Z - info: Assets built
+2025-03-14T11:45:20.269Z - info: Assets built
+2025-03-14T11:45:20.276Z - info: Assets built
+2025-03-14T11:45:20.277Z - info: Assets built
+2025-03-14T11:45:20.287Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/fix-paths.js'
+2025-03-14T11:45:22.614Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.614Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.614Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.615Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.616Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.616Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.615Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.617Z - info: [7:45:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:45:22.628Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:45:22.628Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:45:22.628Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/stylesheets/main.css'
+2025-03-14T11:45:22.629Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/fix-paths.js'
+2025-03-14T11:45:23.633Z - info: Assets built
+2025-03-14T11:45:23.633Z - info: Assets built
+2025-03-14T11:45:23.633Z - info: Assets built
+2025-03-14T11:45:23.635Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/fix-paths.js'
+2025-03-14T11:46:11.047Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.047Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.046Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.049Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.045Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.051Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.046Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.055Z - info: [7:46:11 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/fix-paths.js
+2025-03-14T11:46:11.067Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:46:11.068Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/stylesheets/main.css'
+2025-03-14T11:46:11.069Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/fix-paths.js'
+2025-03-14T11:46:11.072Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/fix-paths.js'
+2025-03-14T11:46:11.077Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:46:12.076Z - info: Assets built
+2025-03-14T11:46:12.079Z - info: Assets built
+2025-03-14T11:46:12.080Z - info: Assets built
