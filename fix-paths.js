@@ -34,6 +34,13 @@ function fixPaths(dir) {
                 "/AIS-Web-Portal/"
             );
 
+            // Fix dropdown menu HTML that's being displayed as text
+            // First, replace all HTML entities with their actual characters
+            content = content.replace(/&lt;/g, "<");
+            content = content.replace(/&gt;/g, ">");
+            content = content.replace(/&quot;/g, '"');
+            content = content.replace(/&amp;/g, "&");
+
             fs.writeFileSync(filePath, content);
             console.log(`Fixed paths in ${filePath}`);
         }
