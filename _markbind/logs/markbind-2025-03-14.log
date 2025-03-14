@@ -1,0 +1,1493 @@
+2025-03-14T10:19:10.809Z - info: Initialization success.
+2025-03-14T11:13:27.163Z - info: Website generation started at 7:13:27 PM
+2025-03-14T11:13:30.284Z - info: Building assets...
+2025-03-14T11:13:31.653Z - info: Assets built
+2025-03-14T11:13:31.654Z - info: Generating pages...
+2025-03-14T11:13:31.906Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:13:31.906Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:13:32.033Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md) [Line 58, Column 19]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:13:32.117Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md) [Line 69, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:13:32.121Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md) [Line 62, Column 19]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:13:32.412Z - info: Site data built
+2025-03-14T11:13:32.413Z - info: Website generation complete! Total build time: 5.281s
+2025-03-14T11:13:32.421Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:8080
+2025-03-14T11:13:32.421Z - info: Press CTRL+C to stop ...
+2025-03-14T11:14:28.510Z - info: [7:14:28 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:14:29.520Z - info: Rebuilding 1 pages
+2025-03-14T11:14:29.527Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:14:29.527Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:14:42.010Z - info: [7:14:42 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:14:43.012Z - info: Rebuilding 1 pages
+2025-03-14T11:14:43.016Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:14:43.016Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:14:50.694Z - info: [7:14:50 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:14:51.697Z - info: Rebuilding 1 pages
+2025-03-14T11:14:51.759Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:14:51.759Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:14:51.760Z - info: Site data built
+2025-03-14T11:14:51.760Z - info: Pages rebuilt
+2025-03-14T11:14:51.761Z - info: Website regeneration complete! Total build time: 0.065s
+2025-03-14T11:14:58.611Z - info: [7:14:58 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:14:59.615Z - info: Rebuilding 1 pages
+2025-03-14T11:14:59.620Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:14:59.621Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:15:01.134Z - info: [7:15:01 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:15:02.136Z - info: Rebuilding 1 pages
+2025-03-14T11:15:02.192Z - info: Site data built
+2025-03-14T11:15:02.192Z - info: Pages rebuilt
+2025-03-14T11:15:02.192Z - info: Website regeneration complete! Total build time: 0.057s
+2025-03-14T11:15:09.176Z - info: [7:15:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:15:10.180Z - info: Rebuilding 1 pages
+2025-03-14T11:15:10.199Z - info: Site data built
+2025-03-14T11:15:10.199Z - info: Pages rebuilt
+2025-03-14T11:15:10.199Z - info: Website regeneration complete! Total build time: 0.02s
+2025-03-14T11:15:28.491Z - info: [7:15:28 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:15:29.494Z - info: Rebuilding 1 pages
+2025-03-14T11:15:29.533Z - info: Site data built
+2025-03-14T11:15:29.534Z - info: Pages rebuilt
+2025-03-14T11:15:29.534Z - info: Website regeneration complete! Total build time: 0.041s
+2025-03-14T11:15:32.318Z - info: [7:15:32 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:15:33.326Z - info: Rebuilding 1 pages
+2025-03-14T11:15:33.351Z - info: Site data built
+2025-03-14T11:15:33.351Z - info: Pages rebuilt
+2025-03-14T11:15:33.351Z - info: Website regeneration complete! Total build time: 0.031s
+2025-03-14T11:15:36.381Z - info: [7:15:36 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:15:37.383Z - info: Rebuilding 1 pages
+2025-03-14T11:15:37.406Z - info: Site data built
+2025-03-14T11:15:37.406Z - info: Pages rebuilt
+2025-03-14T11:15:37.406Z - info: Website regeneration complete! Total build time: 0.024s
+2025-03-14T11:17:24.592Z - info: [7:17:24 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:17:24.605Z - info: Building assets...
+2025-03-14T11:17:27.446Z - info: Assets built
+2025-03-14T11:17:28.458Z - info: Pages or site config modified, updating pages...
+2025-03-14T11:17:29.466Z - warn: Rebuilding all pages...
+2025-03-14T11:17:29.466Z - info: Generating pages...
+2025-03-14T11:17:29.684Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:17:29.684Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:17:29.778Z - error: Failed to copy asset markbind-plugin-anchors.css for plugin markbind-plugin-anchors
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-anchors'
+2025-03-14T11:17:29.914Z - error: Failed to copy asset markbind-plugin-anchors.css for plugin markbind-plugin-anchors
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-anchors'
+2025-03-14T11:17:30.202Z - info: Site data built
+2025-03-14T11:18:08.308Z - info: [7:18:08 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:18:09.354Z - info: Pages or site config modified, updating pages...
+2025-03-14T11:18:10.365Z - warn: Rebuilding all pages...
+2025-03-14T11:18:10.365Z - info: Generating pages...
+2025-03-14T11:18:10.562Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:18:10.562Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:18:11.055Z - info: Site data built
+2025-03-14T11:18:20.639Z - info: Website generation started at 7:18:20 PM
+2025-03-14T11:18:21.993Z - info: Building assets...
+2025-03-14T11:18:23.332Z - info: Assets built
+2025-03-14T11:18:23.332Z - info: Generating pages...
+2025-03-14T11:18:23.662Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:18:23.662Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:18:23.770Z - error: Failed to copy asset markbind-plugin-tree.css for plugin markbind-plugin-tree
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-tree'
+2025-03-14T11:18:23.770Z - error: Failed to copy asset markbind-plugin-tree.css for plugin markbind-plugin-tree
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-tree'
+2025-03-14T11:18:23.917Z - error: Failed to copy asset markbind-plugin-tree.css for plugin markbind-plugin-tree
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-tree'
+2025-03-14T11:18:24.300Z - info: Site data built
+2025-03-14T11:18:24.300Z - info: Website generation complete! Total build time: 3.69s
+2025-03-14T11:18:25.311Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:56091
+2025-03-14T11:18:25.311Z - info: Press CTRL+C to stop ...
+2025-03-14T11:19:15.192Z - info: [7:19:15 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:19:15.194Z - info: [7:19:15 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:19:16.197Z - info: Rebuilding 1 pages
+2025-03-14T11:19:16.203Z - info: Rebuilding 1 pages
+2025-03-14T11:19:16.207Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:19:16.207Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:19:16.213Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:19:16.214Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:19:22.310Z - info: [7:19:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:19:22.310Z - info: [7:19:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:19:23.313Z - info: Rebuilding 1 pages
+2025-03-14T11:19:23.314Z - info: Rebuilding 1 pages
+2025-03-14T11:19:23.316Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:19:23.316Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:19:23.317Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:19:23.317Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:19:27.592Z - info: [7:19:27 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:19:27.593Z - info: [7:19:27 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:19:27.625Z - info: Rebuilding 1 pages
+2025-03-14T11:19:27.626Z - info: Rebuilding 1 pages
+2025-03-14T11:19:27.680Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:19:27.681Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:19:27.681Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:19:27.682Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:19:27.683Z - info: Site data built
+2025-03-14T11:19:27.683Z - info: Pages rebuilt
+2025-03-14T11:19:27.683Z - info: Website regeneration complete! Total build time: 0.058s
+2025-03-14T11:19:27.683Z - info: Site data built
+2025-03-14T11:19:27.683Z - info: Pages rebuilt
+2025-03-14T11:19:27.684Z - info: Website regeneration complete! Total build time: 0.057s
+2025-03-14T11:19:43.166Z - info: [7:19:43 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:19:43.166Z - info: [7:19:43 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:19:44.171Z - info: Rebuilding 1 pages
+2025-03-14T11:19:44.171Z - info: Rebuilding 1 pages
+2025-03-14T11:19:44.181Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md) [Line 58, Column 19]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:19:44.182Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:19:44.180Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md) [Line 58, Column 19]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:19:44.181Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:19:48.831Z - info: [7:19:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:19:48.831Z - info: [7:19:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:19:49.834Z - info: Rebuilding 1 pages
+2025-03-14T11:19:49.835Z - info: Rebuilding 1 pages
+2025-03-14T11:19:49.887Z - info: Site data built
+2025-03-14T11:19:49.887Z - info: Pages rebuilt
+2025-03-14T11:19:49.887Z - info: Website regeneration complete! Total build time: 0.053s
+2025-03-14T11:19:49.890Z - info: Site data built
+2025-03-14T11:19:49.890Z - info: Pages rebuilt
+2025-03-14T11:19:49.890Z - info: Website regeneration complete! Total build time: 0.056s
+2025-03-14T11:19:52.049Z - info: [7:19:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:19:52.049Z - info: [7:19:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:19:52.149Z - info: [7:19:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:19:52.149Z - info: [7:19:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:19:53.051Z - info: Rebuilding 1 pages
+2025-03-14T11:19:53.051Z - info: Rebuilding 1 pages
+2025-03-14T11:19:53.067Z - info: Site data built
+2025-03-14T11:19:53.067Z - info: Pages rebuilt
+2025-03-14T11:19:53.067Z - info: Website regeneration complete! Total build time: 0.016s
+2025-03-14T11:19:53.069Z - info: Site data built
+2025-03-14T11:19:53.069Z - info: Pages rebuilt
+2025-03-14T11:19:53.069Z - info: Website regeneration complete! Total build time: 0.018s
+2025-03-14T11:20:15.390Z - info: [7:20:15 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:20:15.390Z - info: [7:20:15 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:20:15.453Z - info: No pages needed to be rebuilt
+2025-03-14T11:20:15.455Z - info: No pages needed to be rebuilt
+2025-03-14T11:20:28.901Z - info: Website generation started at 7:20:28 PM
+2025-03-14T11:20:31.594Z - info: Building assets...
+2025-03-14T11:20:32.820Z - info: Assets built
+2025-03-14T11:20:32.820Z - info: Generating pages...
+2025-03-14T11:20:33.074Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:20:33.075Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:20:33.736Z - info: Site data built
+2025-03-14T11:20:33.737Z - info: Website generation complete! Total build time: 4.872s
+2025-03-14T11:20:34.747Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:56352
+2025-03-14T11:20:34.747Z - info: Press CTRL+C to stop ...
+2025-03-14T11:22:15.366Z - info: Website generation started at 7:22:15 PM
+2025-03-14T11:22:18.031Z - info: Building assets...
+2025-03-14T11:22:19.273Z - info: Assets built
+2025-03-14T11:22:19.273Z - info: Generating pages...
+2025-03-14T11:22:19.555Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:22:19.555Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:22:20.247Z - info: Site data built
+2025-03-14T11:22:20.248Z - info: Website generation complete! Total build time: 4.922s
+2025-03-14T11:22:20.248Z - info: Build success!
+2025-03-14T11:22:44.619Z - info: Website generation started at 7:22:44 PM
+2025-03-14T11:22:45.901Z - info: Building assets...
+2025-03-14T11:22:47.103Z - info: Assets built
+2025-03-14T11:22:47.103Z - info: Generating pages...
+2025-03-14T11:22:47.347Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 57, Column 14]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:22:47.347Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:22:48.094Z - info: Site data built
+2025-03-14T11:22:48.095Z - info: Website generation complete! Total build time: 3.502s
+2025-03-14T11:22:49.103Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:56529
+2025-03-14T11:22:49.104Z - info: Press CTRL+C to stop ...
+2025-03-14T11:22:53.344Z - info: [7:22:53 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:22:53.344Z - info: [7:22:53 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:22:53.349Z - info: [7:22:53 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:22:53.348Z - info: [7:22:53 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:22:54.366Z - info: Rebuilding 1 pages
+2025-03-14T11:22:54.372Z - info: Rebuilding 1 pages
+2025-03-14T11:22:54.381Z - info: Rebuilding 1 pages
+2025-03-14T11:22:54.381Z - info: Rebuilding 1 pages
+2025-03-14T11:22:54.426Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:22:54.426Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:22:54.427Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:22:54.427Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:22:54.432Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:22:54.432Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:22:54.434Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:22:54.435Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:23:01.791Z - info: [7:23:01 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:23:01.806Z - info: [7:23:01 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:23:01.806Z - info: [7:23:01 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:23:01.806Z - info: [7:23:01 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:23:02.794Z - info: Rebuilding 1 pages
+2025-03-14T11:23:02.811Z - info: Rebuilding 1 pages
+2025-03-14T11:23:02.812Z - info: Rebuilding 1 pages
+2025-03-14T11:23:02.815Z - info: Rebuilding 1 pages
+2025-03-14T11:23:02.886Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:23:02.887Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:23:02.890Z - info: Site data built
+2025-03-14T11:23:02.891Z - info: Pages rebuilt
+2025-03-14T11:23:02.891Z - info: Website regeneration complete! Total build time: 0.098s
+2025-03-14T11:23:02.924Z - info: Site data built
+2025-03-14T11:23:02.924Z - info: Pages rebuilt
+2025-03-14T11:23:02.925Z - info: Website regeneration complete! Total build time: 0.111s
+2025-03-14T11:23:02.929Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:23:02.930Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:23:02.933Z - info: Site data built
+2025-03-14T11:23:02.933Z - info: Pages rebuilt
+2025-03-14T11:23:02.933Z - info: Website regeneration complete! Total build time: 0.123s
+2025-03-14T11:23:02.934Z - info: Site data built
+2025-03-14T11:23:02.934Z - info: Pages rebuilt
+2025-03-14T11:23:02.934Z - info: Website regeneration complete! Total build time: 0.124s
+2025-03-14T11:23:08.432Z - info: [7:23:08 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:23:08.433Z - info: [7:23:08 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:23:08.434Z - info: [7:23:08 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:23:08.435Z - info: [7:23:08 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:23:09.438Z - info: Rebuilding 1 pages
+2025-03-14T11:23:09.446Z - info: Rebuilding 1 pages
+2025-03-14T11:23:09.446Z - info: Rebuilding 1 pages
+2025-03-14T11:23:09.448Z - info: Rebuilding 1 pages
+2025-03-14T11:23:09.546Z - info: Site data built
+2025-03-14T11:23:09.546Z - info: Pages rebuilt
+2025-03-14T11:23:09.546Z - info: Website regeneration complete! Total build time: 0.109s
+2025-03-14T11:23:09.560Z - info: Site data built
+2025-03-14T11:23:09.560Z - info: Pages rebuilt
+2025-03-14T11:23:09.561Z - info: Website regeneration complete! Total build time: 0.12s
+2025-03-14T11:23:09.563Z - info: Site data built
+2025-03-14T11:23:09.563Z - info: Pages rebuilt
+2025-03-14T11:23:09.563Z - info: Website regeneration complete! Total build time: 0.122s
+2025-03-14T11:23:09.565Z - info: Site data built
+2025-03-14T11:23:09.566Z - info: Pages rebuilt
+2025-03-14T11:23:09.566Z - info: Website regeneration complete! Total build time: 0.124s
+2025-03-14T11:23:16.652Z - info: [7:23:16 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:23:16.652Z - info: [7:23:16 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:23:16.652Z - info: [7:23:16 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:23:16.653Z - info: [7:23:16 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:23:17.656Z - info: Rebuilding 1 pages
+2025-03-14T11:23:17.662Z - info: Rebuilding 1 pages
+2025-03-14T11:23:17.665Z - info: Rebuilding 1 pages
+2025-03-14T11:23:17.670Z - info: Rebuilding 1 pages
+2025-03-14T11:23:17.725Z - info: Site data built
+2025-03-14T11:23:17.725Z - info: Pages rebuilt
+2025-03-14T11:23:17.726Z - info: Website regeneration complete! Total build time: 0.07s
+2025-03-14T11:23:17.728Z - info: Site data built
+2025-03-14T11:23:17.729Z - info: Pages rebuilt
+2025-03-14T11:23:17.729Z - info: Website regeneration complete! Total build time: 0.071s
+2025-03-14T11:23:17.729Z - info: Site data built
+2025-03-14T11:23:17.729Z - info: Pages rebuilt
+2025-03-14T11:23:17.729Z - info: Website regeneration complete! Total build time: 0.074s
+2025-03-14T11:23:17.730Z - info: Site data built
+2025-03-14T11:23:17.730Z - info: Pages rebuilt
+2025-03-14T11:23:17.730Z - info: Website regeneration complete! Total build time: 0.069s
+2025-03-14T11:23:28.558Z - info: Website generation started at 7:23:28 PM
+2025-03-14T11:23:30.606Z - info: Building assets...
+2025-03-14T11:23:31.995Z - info: Assets built
+2025-03-14T11:23:31.995Z - info: Generating pages...
+2025-03-14T11:23:32.366Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:23:32.366Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:23:33.148Z - info: Site data built
+2025-03-14T11:23:33.148Z - info: Website generation complete! Total build time: 4.618s
+2025-03-14T11:23:33.149Z - info: Build success!
+2025-03-14T11:23:34.256Z - info: Website generation started at 7:23:34 PM
+2025-03-14T11:23:35.771Z - info: Building assets...
+2025-03-14T11:23:37.012Z - info: Assets built
+2025-03-14T11:23:37.013Z - info: Generating pages...
+2025-03-14T11:23:37.272Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:23:37.272Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:23:37.379Z - error: Failed to copy asset markbind-plugin-anchors.css for plugin markbind-plugin-anchors
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-anchors'
+2025-03-14T11:23:37.379Z - error: Failed to copy asset markbind-plugin-tree.css for plugin markbind-plugin-tree
+Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/plugins/markbind-plugin-tree'
+2025-03-14T11:23:37.960Z - info: Site data built
+2025-03-14T11:23:37.960Z - info: Website generation complete! Total build time: 3.729s
+2025-03-14T11:23:38.966Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:56667
+2025-03-14T11:23:38.967Z - info: Press CTRL+C to stop ...
+2025-03-14T11:24:17.423Z - info: [7:24:17 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:17.422Z - info: [7:24:17 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:17.424Z - info: [7:24:17 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:17.423Z - info: [7:24:17 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:17.441Z - info: [7:24:17 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:18.430Z - info: Rebuilding 1 pages
+2025-03-14T11:24:18.430Z - info: Rebuilding 1 pages
+2025-03-14T11:24:18.437Z - info: Rebuilding 1 pages
+2025-03-14T11:24:18.437Z - info: Rebuilding 1 pages
+2025-03-14T11:24:18.442Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:18.442Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:18.442Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:18.442Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:18.442Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:18.443Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:18.442Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:18.443Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:18.447Z - info: Rebuilding 1 pages
+2025-03-14T11:24:18.451Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:18.452Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:23.931Z - info: [7:24:23 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:23.931Z - info: [7:24:23 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:23.931Z - info: [7:24:23 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:23.931Z - info: [7:24:23 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:23.931Z - info: [7:24:23 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:24.936Z - info: Rebuilding 1 pages
+2025-03-14T11:24:24.938Z - info: Rebuilding 1 pages
+2025-03-14T11:24:24.938Z - info: Rebuilding 1 pages
+2025-03-14T11:24:24.937Z - info: Rebuilding 1 pages
+2025-03-14T11:24:24.939Z - info: Rebuilding 1 pages
+2025-03-14T11:24:24.939Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:24.940Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:24.940Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:24.941Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:24.941Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:24.941Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:24.941Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:24.942Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:24.941Z - error:  Template render error: (/Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md) [Line 139, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-14T11:24:24.942Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/AIS Project/ais_web/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-14T11:24:44.822Z - info: [7:24:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:44.824Z - info: [7:24:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:44.824Z - info: [7:24:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:44.824Z - info: [7:24:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:44.825Z - info: [7:24:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:45.830Z - info: Rebuilding 1 pages
+2025-03-14T11:24:45.834Z - info: Rebuilding 1 pages
+2025-03-14T11:24:45.835Z - info: Rebuilding 1 pages
+2025-03-14T11:24:45.835Z - info: Rebuilding 1 pages
+2025-03-14T11:24:45.837Z - info: Rebuilding 1 pages
+2025-03-14T11:24:45.979Z - info: Site data built
+2025-03-14T11:24:45.979Z - info: Pages rebuilt
+2025-03-14T11:24:45.979Z - info: Website regeneration complete! Total build time: 0.146s
+2025-03-14T11:24:45.983Z - info: Site data built
+2025-03-14T11:24:45.983Z - info: Pages rebuilt
+2025-03-14T11:24:45.983Z - info: Website regeneration complete! Total build time: 0.148s
+2025-03-14T11:24:45.985Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:24:45.985Z - info: Site data built
+2025-03-14T11:24:45.985Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:24:45.986Z - info: Pages rebuilt
+2025-03-14T11:24:45.986Z - info: Website regeneration complete! Total build time: 0.15s
+2025-03-14T11:24:45.986Z - info: Site data built
+2025-03-14T11:24:45.987Z - info: Pages rebuilt
+2025-03-14T11:24:45.987Z - info: Website regeneration complete! Total build time: 0.158s
+2025-03-14T11:24:45.989Z - info: Site data built
+2025-03-14T11:24:45.989Z - info: Pages rebuilt
+2025-03-14T11:24:45.989Z - info: Website regeneration complete! Total build time: 0.155s
+2025-03-14T11:24:52.886Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:24:52.886Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:24:52.886Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:24:52.886Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:24:52.886Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselActivitySingleWithArrow.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapWithSearchbar.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/MapControls.md
+2025-03-14T11:24:52.887Z - info: [7:24:52 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/map.md
+2025-03-14T11:24:53.889Z - info: Rebuilding 4 pages
+2025-03-14T11:24:53.889Z - info: Rebuilding 4 pages
+2025-03-14T11:24:53.889Z - info: Rebuilding 4 pages
+2025-03-14T11:24:53.890Z - info: Rebuilding 4 pages
+2025-03-14T11:24:53.891Z - info: Rebuilding 4 pages
+2025-03-14T11:24:54.080Z - info: Site data built
+2025-03-14T11:24:54.080Z - info: Pages rebuilt
+2025-03-14T11:24:54.081Z - info: Website regeneration complete! Total build time: 0.192s
+2025-03-14T11:24:54.082Z - info: Site data built
+2025-03-14T11:24:54.082Z - info: Pages rebuilt
+2025-03-14T11:24:54.082Z - info: Website regeneration complete! Total build time: 0.193s
+2025-03-14T11:24:54.092Z - info: Site data built
+2025-03-14T11:24:54.092Z - info: Pages rebuilt
+2025-03-14T11:24:54.092Z - info: Website regeneration complete! Total build time: 0.202s
+2025-03-14T11:24:54.092Z - info: Site data built
+2025-03-14T11:24:54.092Z - info: Pages rebuilt
+2025-03-14T11:24:54.092Z - info: Website regeneration complete! Total build time: 0.203s
+2025-03-14T11:24:54.095Z - info: Site data built
+2025-03-14T11:24:54.096Z - info: Pages rebuilt
+2025-03-14T11:24:54.096Z - info: Website regeneration complete! Total build time: 0.206s
+2025-03-14T11:24:52.250Z - info: Website generation started at 7:24:52 PM
+2025-03-14T11:24:54.540Z - info: Building assets...
+2025-03-14T11:24:55.919Z - info: Assets built
+2025-03-14T11:24:55.920Z - info: Generating pages...
+2025-03-14T11:24:56.511Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:24:56.511Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:24:56.511Z - info: Pages built
+2025-03-14T11:24:56.701Z - info: Site data built
+2025-03-14T11:24:56.701Z - info: Website generation complete! Total build time: 4.479s
+2025-03-14T11:24:56.702Z - info: Build success!
+2025-03-14T11:24:56.792Z - info: [7:24:56 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:56.794Z - info: [7:24:56 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:56.792Z - info: [7:24:56 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:56.793Z - info: [7:24:56 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:56.800Z - info: [7:24:56 PM] Reload for file add: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:57.819Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:24:57.819Z - info: Assets built
+2025-03-14T11:24:57.829Z - info: Assets built
+2025-03-14T11:24:57.845Z - info: Assets built
+2025-03-14T11:24:57.847Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:24:59.692Z - info: [7:24:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:59.692Z - info: [7:24:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:59.692Z - info: [7:24:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:59.692Z - info: [7:24:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:59.692Z - info: [7:24:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:24:59.704Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:24:59.706Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:24:57.903Z - info: Website generation started at 7:24:57 PM
+2025-03-14T11:24:59.322Z - info: Building assets...
+2025-03-14T11:25:00.626Z - info: Assets built
+2025-03-14T11:25:00.704Z - info: Assets built
+2025-03-14T11:25:00.705Z - info: Assets built
+2025-03-14T11:25:00.707Z - info: Assets built
+2025-03-14T11:25:00.627Z - info: Generating pages...
+2025-03-14T11:25:01.391Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:25:01.391Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:25:01.392Z - info: Pages built
+2025-03-14T11:25:01.555Z - info: Site data built
+2025-03-14T11:25:01.555Z - info: Website generation complete! Total build time: 3.689s
+2025-03-14T11:25:02.563Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:56872
+2025-03-14T11:25:02.564Z - info: Press CTRL+C to stop ...
+2025-03-14T11:27:09.599Z - info: [7:27:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:27:09.599Z - info: [7:27:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:27:09.600Z - info: [7:27:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:27:09.601Z - info: [7:27:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:27:09.600Z - info: [7:27:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:27:09.603Z - info: [7:27:09 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:27:10.698Z - info: Rebuilding 27 pages
+2025-03-14T11:27:10.700Z - info: Rebuilding 27 pages
+2025-03-14T11:27:10.711Z - info: Rebuilding 27 pages
+2025-03-14T11:27:10.832Z - info: Rebuilding 27 pages
+2025-03-14T11:27:10.832Z - info: Rebuilding 27 pages
+2025-03-14T11:27:10.843Z - info: Rebuilding 27 pages
+2025-03-14T11:27:12.296Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:27:12.296Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:27:12.302Z - info: Site data built
+2025-03-14T11:27:12.302Z - info: Pages rebuilt
+2025-03-14T11:27:12.302Z - info: Website regeneration complete! Total build time: 1.595s
+2025-03-14T11:27:12.335Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:27:12.336Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:27:12.341Z - info: Site data built
+2025-03-14T11:27:12.342Z - info: Pages rebuilt
+2025-03-14T11:27:12.342Z - info: Website regeneration complete! Total build time: 1.509s
+2025-03-14T11:27:12.353Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:27:12.354Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:27:12.356Z - info: Site data built
+2025-03-14T11:27:12.356Z - info: Pages rebuilt
+2025-03-14T11:27:12.356Z - info: Website regeneration complete! Total build time: 1.533s
+2025-03-14T11:27:12.380Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:27:12.381Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:27:12.382Z - info: Site data built
+2025-03-14T11:27:12.382Z - info: Pages rebuilt
+2025-03-14T11:27:12.382Z - info: Website regeneration complete! Total build time: 1.693s
+2025-03-14T11:27:12.382Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:27:12.383Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:27:12.384Z - info: Site data built
+2025-03-14T11:27:12.384Z - info: Pages rebuilt
+2025-03-14T11:27:12.384Z - info: Website regeneration complete! Total build time: 1.703s
+2025-03-14T11:27:12.412Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:27:12.412Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:27:12.412Z - info: Site data built
+2025-03-14T11:27:12.412Z - info: Pages rebuilt
+2025-03-14T11:27:12.413Z - info: Website regeneration complete! Total build time: 1.611s
+2025-03-14T11:27:45.948Z - info: [7:27:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/stylesheets/main.css
+2025-03-14T11:27:45.949Z - info: [7:27:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/stylesheets/main.css
+2025-03-14T11:27:45.949Z - info: [7:27:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/stylesheets/main.css
+2025-03-14T11:27:45.950Z - info: [7:27:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/stylesheets/main.css
+2025-03-14T11:27:45.950Z - info: [7:27:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/stylesheets/main.css
+2025-03-14T11:27:45.951Z - info: [7:27:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/stylesheets/main.css
+2025-03-14T11:27:45.960Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:27:45.963Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:27:46.973Z - info: Assets built
+2025-03-14T11:27:46.976Z - info: Assets built
+2025-03-14T11:27:46.977Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/stylesheets/main.css'
+2025-03-14T11:27:46.978Z - info: Assets built
+2025-03-14T11:28:22.316Z - info: [7:28:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/Searchbar.md
+2025-03-14T11:28:22.317Z - info: [7:28:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/Searchbar.md
+2025-03-14T11:28:22.317Z - info: [7:28:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/Searchbar.md
+2025-03-14T11:28:22.317Z - info: [7:28:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/Searchbar.md
+2025-03-14T11:28:22.317Z - info: [7:28:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/Searchbar.md
+2025-03-14T11:28:22.319Z - info: [7:28:22 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/Searchbar.md
+2025-03-14T11:28:23.325Z - info: Rebuilding 1 pages
+2025-03-14T11:28:23.326Z - info: Rebuilding 1 pages
+2025-03-14T11:28:23.327Z - info: Rebuilding 1 pages
+2025-03-14T11:28:23.327Z - info: Rebuilding 1 pages
+2025-03-14T11:28:23.328Z - info: Rebuilding 1 pages
+2025-03-14T11:28:23.329Z - info: Rebuilding 1 pages
+2025-03-14T11:28:23.584Z - info: Site data built
+2025-03-14T11:28:23.584Z - info: Pages rebuilt
+2025-03-14T11:28:23.584Z - info: Website regeneration complete! Total build time: 0.26s
+2025-03-14T11:28:23.594Z - info: Site data built
+2025-03-14T11:28:23.594Z - info: Pages rebuilt
+2025-03-14T11:28:23.595Z - info: Website regeneration complete! Total build time: 0.27s
+2025-03-14T11:28:23.603Z - info: Site data built
+2025-03-14T11:28:23.604Z - info: Pages rebuilt
+2025-03-14T11:28:23.604Z - info: Website regeneration complete! Total build time: 0.28s
+2025-03-14T11:28:23.607Z - info: Site data built
+2025-03-14T11:28:23.607Z - info: Pages rebuilt
+2025-03-14T11:28:23.607Z - info: Website regeneration complete! Total build time: 0.282s
+2025-03-14T11:28:23.609Z - info: Site data built
+2025-03-14T11:28:23.609Z - info: Pages rebuilt
+2025-03-14T11:28:23.609Z - info: Website regeneration complete! Total build time: 0.284s
+2025-03-14T11:28:23.613Z - info: Site data built
+2025-03-14T11:28:23.613Z - info: Pages rebuilt
+2025-03-14T11:28:23.614Z - info: Website regeneration complete! Total build time: 0.291s
+2025-03-14T11:28:37.493Z - info: [7:28:37 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:28:37.497Z - info: [7:28:37 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:28:37.497Z - info: [7:28:37 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:28:37.497Z - info: [7:28:37 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:28:37.498Z - info: [7:28:37 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:28:37.498Z - info: [7:28:37 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/_markbind/layouts/default.md
+2025-03-14T11:28:38.595Z - info: Rebuilding 27 pages
+2025-03-14T11:28:38.596Z - info: Rebuilding 27 pages
+2025-03-14T11:28:38.597Z - info: Rebuilding 27 pages
+2025-03-14T11:28:38.598Z - info: Rebuilding 27 pages
+2025-03-14T11:28:38.600Z - info: Rebuilding 27 pages
+2025-03-14T11:28:38.600Z - info: Rebuilding 27 pages
+2025-03-14T11:28:39.775Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:28:39.775Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:28:39.780Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:28:39.780Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:28:39.783Z - info: Site data built
+2025-03-14T11:28:39.783Z - info: Pages rebuilt
+2025-03-14T11:28:39.783Z - info: Website regeneration complete! Total build time: 1.183s
+2025-03-14T11:28:39.787Z - info: Site data built
+2025-03-14T11:28:39.787Z - info: Pages rebuilt
+2025-03-14T11:28:39.787Z - info: Website regeneration complete! Total build time: 1.191s
+2025-03-14T11:28:39.803Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:28:39.803Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:28:39.804Z - info: Site data built
+2025-03-14T11:28:39.804Z - info: Pages rebuilt
+2025-03-14T11:28:39.804Z - info: Website regeneration complete! Total build time: 1.212s
+2025-03-14T11:28:39.814Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:28:39.814Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:28:39.814Z - info: Site data built
+2025-03-14T11:28:39.815Z - info: Pages rebuilt
+2025-03-14T11:28:39.815Z - info: Website regeneration complete! Total build time: 1.219s
+2025-03-14T11:28:39.836Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:28:39.837Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/ais_web/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:28:39.838Z - info: Site data built
+2025-03-14T11:28:39.838Z - info: Pages rebuilt
+2025-03-14T11:28:39.839Z - info: Website regeneration complete! Total build time: 1.242s
+2025-03-14T11:28:39.845Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:28:39.845Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:28:39.846Z - info: Site data built
+2025-03-14T11:28:39.846Z - info: Pages rebuilt
+2025-03-14T11:28:39.846Z - info: Website regeneration complete! Total build time: 1.258s
+2025-03-14T11:28:55.570Z - info: [7:28:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselInformationPanel.md
+2025-03-14T11:28:55.570Z - info: [7:28:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselInformationPanel.md
+2025-03-14T11:28:55.570Z - info: [7:28:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselInformationPanel.md
+2025-03-14T11:28:55.573Z - info: [7:28:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselInformationPanel.md
+2025-03-14T11:28:55.573Z - info: [7:28:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselInformationPanel.md
+2025-03-14T11:28:55.574Z - info: [7:28:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/contents/components/VesselInformationPanel.md
+2025-03-14T11:28:56.573Z - info: Rebuilding 1 pages
+2025-03-14T11:28:56.573Z - info: Rebuilding 1 pages
+2025-03-14T11:28:56.574Z - info: Rebuilding 1 pages
+2025-03-14T11:28:56.582Z - info: Rebuilding 1 pages
+2025-03-14T11:28:56.588Z - info: Rebuilding 1 pages
+2025-03-14T11:28:56.591Z - info: Rebuilding 1 pages
+2025-03-14T11:28:56.798Z - info: Site data built
+2025-03-14T11:28:56.798Z - info: Pages rebuilt
+2025-03-14T11:28:56.798Z - info: Website regeneration complete! Total build time: 0.225s
+2025-03-14T11:28:56.801Z - info: Site data built
+2025-03-14T11:28:56.801Z - info: Pages rebuilt
+2025-03-14T11:28:56.801Z - info: Website regeneration complete! Total build time: 0.228s
+2025-03-14T11:28:56.820Z - info: Site data built
+2025-03-14T11:28:56.820Z - info: Pages rebuilt
+2025-03-14T11:28:56.820Z - info: Website regeneration complete! Total build time: 0.248s
+2025-03-14T11:28:56.826Z - info: Site data built
+2025-03-14T11:28:56.826Z - info: Pages rebuilt
+2025-03-14T11:28:56.826Z - info: Website regeneration complete! Total build time: 0.237s
+2025-03-14T11:28:56.831Z - info: Site data built
+2025-03-14T11:28:56.831Z - info: Pages rebuilt
+2025-03-14T11:28:56.831Z - info: Website regeneration complete! Total build time: 0.247s
+2025-03-14T11:28:56.831Z - info: Site data built
+2025-03-14T11:28:56.831Z - info: Pages rebuilt
+2025-03-14T11:28:56.831Z - info: Website regeneration complete! Total build time: 0.249s
+2025-03-14T11:29:07.503Z - info: Website generation started at 7:29:07 PM
+2025-03-14T11:29:10.371Z - info: Building assets...
+2025-03-14T11:29:11.680Z - info: Assets built
+2025-03-14T11:29:11.681Z - info: Generating pages...
+2025-03-14T11:29:12.352Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:29:12.352Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:29:12.353Z - info: Pages built
+2025-03-14T11:29:12.473Z - info: Site data built
+2025-03-14T11:29:12.474Z - info: Website generation complete! Total build time: 5.059s
+2025-03-14T11:29:12.474Z - info: Build success!
+2025-03-14T11:29:13.455Z - info: Website generation started at 7:29:13 PM
+2025-03-14T11:29:14.782Z - info: Building assets...
+2025-03-14T11:29:16.108Z - info: Assets built
+2025-03-14T11:29:16.109Z - info: Generating pages...
+2025-03-14T11:29:16.751Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:29:16.751Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:29:16.752Z - info: Pages built
+2025-03-14T11:29:16.921Z - info: Site data built
+2025-03-14T11:29:16.921Z - info: Website generation complete! Total build time: 3.5s
+2025-03-14T11:29:17.933Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:57250
+2025-03-14T11:29:17.933Z - info: Press CTRL+C to stop ...
+2025-03-14T11:30:45.263Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.263Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.266Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.268Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.266Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.267Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.268Z - info: [7:30:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:30:45.346Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:45.349Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:45.353Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:45.357Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:45.359Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:45.360Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:45.360Z - info: No pages needed to be rebuilt
+2025-03-14T11:30:55.395Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.395Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.403Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.403Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.402Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.404Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.404Z - info: [7:30:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.html
+2025-03-14T11:30:55.411Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/stylesheets/main.css'
+2025-03-14T11:30:55.413Z - error: ENOENT: no such file or directory, chmod '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:30:55.418Z - error: ENOENT: no such file or directory, unlink '/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site/index.html'
+2025-03-14T11:30:56.428Z - info: Assets built
+2025-03-14T11:30:56.428Z - info: Assets built
+2025-03-14T11:30:56.429Z - info: Assets built
+2025-03-14T11:30:56.429Z - info: Assets built
+2025-03-14T11:31:26.534Z - info: Website generation started at 7:31:26 PM
+2025-03-14T11:31:29.573Z - info: Building assets...
+2025-03-14T11:31:30.807Z - info: Assets built
+2025-03-14T11:31:30.808Z - info: Generating pages...
+2025-03-14T11:31:31.482Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:31:31.483Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:31:31.486Z - info: Pages built
+2025-03-14T11:31:31.661Z - info: Site data built
+2025-03-14T11:31:31.662Z - info: Website generation complete! Total build time: 5.173s
+2025-03-14T11:31:31.662Z - info: Build success!
+2025-03-14T11:31:32.751Z - info: Website generation started at 7:31:32 PM
+2025-03-14T11:31:34.421Z - info: Building assets...
+2025-03-14T11:31:35.772Z - info: Assets built
+2025-03-14T11:31:35.772Z - info: Generating pages...
+2025-03-14T11:31:36.541Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:31:36.542Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md'
+2025-03-14T11:31:36.542Z - info: Pages built
+2025-03-14T11:31:36.608Z - info: Site data built
+2025-03-14T11:31:36.608Z - info: Website generation complete! Total build time: 3.901s
+2025-03-14T11:31:37.617Z - info: Serving "/Users/johngao/Desktop/Projects/AIS Project/ais_web/_site" at http://127.0.0.1:57483
+2025-03-14T11:31:37.618Z - info: Press CTRL+C to stop ...
+2025-03-14T11:33:45.836Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.838Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.841Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.845Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.845Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.846Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.842Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:45.848Z - info: [7:33:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:46.857Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.863Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.867Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.869Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.870Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.883Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.885Z - info: Rebuilding 1 pages
+2025-03-14T11:33:46.886Z - info: Rebuilding 1 pages
+2025-03-14T11:33:47.155Z - info: Site data built
+2025-03-14T11:33:47.155Z - info: Pages rebuilt
+2025-03-14T11:33:47.156Z - info: Website regeneration complete! Total build time: 0.296s
+2025-03-14T11:33:47.181Z - info: Site data built
+2025-03-14T11:33:47.181Z - info: Pages rebuilt
+2025-03-14T11:33:47.181Z - info: Website regeneration complete! Total build time: 0.328s
+2025-03-14T11:33:47.196Z - info: Site data built
+2025-03-14T11:33:47.196Z - info: Pages rebuilt
+2025-03-14T11:33:47.196Z - info: Website regeneration complete! Total build time: 0.34s
+2025-03-14T11:33:47.203Z - info: Site data built
+2025-03-14T11:33:47.203Z - info: Pages rebuilt
+2025-03-14T11:33:47.203Z - info: Website regeneration complete! Total build time: 0.335s
+2025-03-14T11:33:47.204Z - info: Site data built
+2025-03-14T11:33:47.206Z - info: Pages rebuilt
+2025-03-14T11:33:47.206Z - info: Website regeneration complete! Total build time: 0.352s
+2025-03-14T11:33:47.207Z - info: Site data built
+2025-03-14T11:33:47.208Z - info: Site data built
+2025-03-14T11:33:47.207Z - info: Pages rebuilt
+2025-03-14T11:33:47.207Z - info: Website regeneration complete! Total build time: 0.343s
+2025-03-14T11:33:47.208Z - info: Pages rebuilt
+2025-03-14T11:33:47.208Z - info: Website regeneration complete! Total build time: 0.352s
+2025-03-14T11:33:47.233Z - info: Site data built
+2025-03-14T11:33:47.233Z - info: Pages rebuilt
+2025-03-14T11:33:47.233Z - info: Website regeneration complete! Total build time: 0.362s
+2025-03-14T11:33:48.152Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.152Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.152Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.154Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.153Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.156Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.156Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:48.156Z - info: [7:33:48 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/index.md
+2025-03-14T11:33:49.158Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.159Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.179Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.180Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.184Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.188Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.189Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.191Z - info: Rebuilding 1 pages
+2025-03-14T11:33:49.341Z - info: Site data built
+2025-03-14T11:33:49.341Z - info: Pages rebuilt
+2025-03-14T11:33:49.341Z - info: Website regeneration complete! Total build time: 0.183s
+2025-03-14T11:33:49.345Z - info: Site data built
+2025-03-14T11:33:49.345Z - info: Pages rebuilt
+2025-03-14T11:33:49.345Z - info: Website regeneration complete! Total build time: 0.187s
+2025-03-14T11:33:49.365Z - info: Site data built
+2025-03-14T11:33:49.365Z - info: Pages rebuilt
+2025-03-14T11:33:49.365Z - info: Website regeneration complete! Total build time: 0.19s
+2025-03-14T11:33:49.388Z - info: Site data built
+2025-03-14T11:33:49.388Z - info: Pages rebuilt
+2025-03-14T11:33:49.388Z - info: Website regeneration complete! Total build time: 0.211s
+2025-03-14T11:33:49.389Z - info: Site data built
+2025-03-14T11:33:49.389Z - info: Pages rebuilt
+2025-03-14T11:33:49.389Z - info: Website regeneration complete! Total build time: 0.207s
+2025-03-14T11:33:49.394Z - info: Site data built
+2025-03-14T11:33:49.394Z - info: Pages rebuilt
+2025-03-14T11:33:49.395Z - info: Website regeneration complete! Total build time: 0.218s
+2025-03-14T11:33:49.409Z - info: Site data built
+2025-03-14T11:33:49.409Z - info: Pages rebuilt
+2025-03-14T11:33:49.409Z - info: Website regeneration complete! Total build time: 0.234s
+2025-03-14T11:33:49.424Z - info: Site data built
+2025-03-14T11:33:49.424Z - info: Pages rebuilt
+2025-03-14T11:33:49.424Z - info: Website regeneration complete! Total build time: 0.248s
+2025-03-14T11:33:53.698Z - info: Website generation started at 7:33:53 PM
+2025-03-14T11:33:56.916Z - info: Building assets...
+2025-03-14T11:33:58.194Z - info: Assets built
+2025-03-14T11:33:58.194Z - info: Generating pages...
+2025-03-14T11:33:59.016Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:33:59.018Z - info: Pages built
+2025-03-14T11:33:59.222Z - info: Site data built
+2025-03-14T11:33:59.222Z - info: Website generation complete! Total build time: 5.575s
+2025-03-14T11:33:59.222Z - info: Build success!

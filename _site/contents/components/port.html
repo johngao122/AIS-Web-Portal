@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 5.5.3">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><title>AIS Web Portal -  - Port Service Components -  | Documentation</title> <link rel="stylesheet" href="/markbind/css/bootstrap.min.css"> <link rel="stylesheet" href="/markbind/fontawesome/css/all.min.css"> <link rel="stylesheet" href="/markbind/glyphicons/css/bootstrap-glyphicons.min.css"><link rel="stylesheet" href="/markbind/css/codeblock-dark.min.css"><link rel="stylesheet" href="/markbind/css/markbind.min.css"><link rel="stylesheet" href="/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css"><link rel="stylesheet" href="/plugins/markbind-plugin-tree/markbind-plugin-tree.css">
+    
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<script>
+  const baseUrl = ''
+</script>
+<body  data-bs-spy="scroll" data-bs-target="#mb-page-nav" data-bs-offset="100" >
+<div id="app" data-server-rendered="true"><header sticky=""><div data-v-7c0fd418><nav class="navbar navbar-expand-md d-print-none navbar-dark bg-dark" data-v-7c0fd418><div class="container-fluid" data-v-7c0fd418><div class="navbar-left" data-v-7c0fd418><a href="/index.html" title="Home" class="navbar-brand" data-v-7c0fd418>AIS Web Portal</a></div> <div class="navbar-default" data-v-7c0fd418><ul class="navbar-nav me-auto mt-2 mt-lg-0" data-v-7c0fd418> <li data-v-7c0fd418><a href="/index.html" class="nav-link" data-v-7c0fd418>Home</a></li> <li data-v-7c0fd418><a href="/contents/getting-started.html" class="nav-link" data-v-7c0fd418>Getting Started</a></li> <li data-v-7c0fd418><a href="/contents/architecture.html" class="nav-link" data-v-7c0fd418>Architecture</a></li> <li class="nav-link dropdown" data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" data-v-99624572>Components <span data-v-99624572></span></a> <ul class="dropdown-menu" data-v-99624572> <dropdown-header data-v-99624572>Map Components</dropdown-header> <li data-v-99624572><a href="/contents/components/map.html" class="dropdown-item" data-v-99624572>Map</a></li> <li data-v-99624572><a href="/contents/components/MapWithSearchbar.html" class="dropdown-item" data-v-99624572>MapWithSearchbar</a></li> <li data-v-99624572><a href="/contents/components/MapControls.html" class="dropdown-item" data-v-99624572>MapControls</a></li> <li data-v-99624572><a href="/contents/components/LayerSelect.html" class="dropdown-item" data-v-99624572>LayerSelect</a></li> <li data-v-99624572><a href="/contents/components/VesselLayer.html" class="dropdown-item" data-v-99624572>VesselLayer</a></li> <li data-v-99624572><a href="/contents/components/TerminalLayer.html" class="dropdown-item" data-v-99624572>TerminalLayer</a></li> <li data-v-99624572><a href="/contents/components/Searchbar.html" class="dropdown-item" data-v-99624572>Searchbar</a></li> <dropdown-divider data-v-99624572></dropdown-divider> <pre data-v-99624572><code data-v-99624572>  &lt;dropdown-header&gt;Vessel Components&lt;/dropdown-header&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/vessel.html&quot; class=&quot;dropdown-item&quot;&gt;Vessel Overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/VesselInfoPanel.html&quot; class=&quot;dropdown-item&quot;&gt;VesselInfoPanel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/VesselInformationPanel.html&quot; class=&quot;dropdown-item&quot;&gt;VesselInformationPanel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/VesselInformationFloatingActionButton.html&quot; class=&quot;dropdown-item&quot;&gt;VesselInformationFloatingActionButton&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/VesselActivityTable.html&quot; class=&quot;dropdown-item&quot;&gt;VesselActivityTable&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/VesselActivitySingle.html&quot; class=&quot;dropdown-item&quot;&gt;VesselActivitySingle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/VesselActivitySingleWithArrow.html&quot; class=&quot;dropdown-item&quot;&gt;VesselActivitySingleWithArrow&lt;/a&gt;&lt;/li&gt;
+  &lt;dropdown-divider&gt;&lt;/dropdown-divider&gt;
+  
+  &lt;dropdown-header&gt;Port Components&lt;/dropdown-header&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/port.html&quot; class=&quot;dropdown-item&quot;&gt;Port Overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/PortServiceTable.html&quot; class=&quot;dropdown-item&quot;&gt;PortServiceTable&lt;/a&gt;&lt;/li&gt;
+  &lt;dropdown-divider&gt;&lt;/dropdown-divider&gt;
+  
+  &lt;dropdown-header&gt;Utility Components&lt;/dropdown-header&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/DatePicker.html&quot; class=&quot;dropdown-item&quot;&gt;DatePicker&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/TimeSlider.html&quot; class=&quot;dropdown-item&quot;&gt;TimeSlider&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/Alert.html&quot; class=&quot;dropdown-item&quot;&gt;Alert&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contents/components/AutoLoginNotification.html&quot; class=&quot;dropdown-item&quot;&gt;AutoLoginNotification&lt;/a&gt;&lt;/li&gt;
+&lt;/dropdown&gt;
+&lt;li&gt;&lt;a href=&quot;/contents/api.html&quot; class=&quot;nav-link&quot;&gt;API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/contents/deployment.html&quot; class=&quot;nav-link&quot;&gt;Deployment&lt;/a&gt;&lt;/li&gt;
+&lt;li slot=&quot;right&quot;&gt;
+  &lt;form class=&quot;navbar-form&quot;&gt;
+    &lt;searchbar :data=&quot;searchData&quot; placeholder=&quot;Search&quot; :on-hit=&quot;searchCallback&quot; menu-align-right&gt;&lt;/searchbar&gt;
+  &lt;/form&gt;
+&lt;/li&gt;
+</code></pre></ul></li></ul></div> <!----></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-7c0fd418><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" data-v-e6005420><div class="site-nav-top" data-v-e6005420><div class="fw-bold mb-2" style="font-size:1.25rem;" data-v-e6005420>Contents</div></div> <div class="nav-component slim-scroll" data-v-e6005420><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/index.html" data-v-e6005420>Home 🏠</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/getting-started.html" data-v-e6005420>Getting Started</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/architecture.html" data-v-e6005420>Architecture</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420>Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Map Components
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/map.html" data-v-e6005420>Map</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/MapWithSearchbar.html" data-v-e6005420>MapWithSearchbar</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/MapControls.html" data-v-e6005420>MapControls</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/LayerSelect.html" data-v-e6005420>LayerSelect</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselLayer.html" data-v-e6005420>VesselLayer</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/TerminalLayer.html" data-v-e6005420>TerminalLayer</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/Searchbar.html" data-v-e6005420>Searchbar</a></div></li></ul></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Vessel Components
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/vessel.html" data-v-e6005420>Vessel Overview</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselInfoPanel.html" data-v-e6005420>VesselInfoPanel</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselInformationPanel.html" data-v-e6005420>VesselInformationPanel</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselInformationFloatingActionButton.html" data-v-e6005420>VesselInformationFloatingActionButton</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselActivityTable.html" data-v-e6005420>VesselActivityTable</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselActivitySingle.html" data-v-e6005420>VesselActivitySingle</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/VesselActivitySingleWithArrow.html" data-v-e6005420>VesselActivitySingleWithArrow</a></div></li></ul></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Port Components
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/port.html" data-v-e6005420>Port Overview</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/PortServiceTable.html" data-v-e6005420>PortServiceTable</a></div></li></ul></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Utility Components
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/DatePicker.html" data-v-e6005420>DatePicker</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/TimeSlider.html" data-v-e6005420>TimeSlider</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/Alert.html" data-v-e6005420>Alert</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/AutoLoginNotification.html" data-v-e6005420>AutoLoginNotification</a></div></li></ul></li></ul></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/api.html" data-v-e6005420>API</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/deployment.html" data-v-e6005420>Deployment</a></div></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper"><div data-v-ef898034><nav aria-label="breadcrumb" class="breadcrumb-divider" data-v-ef898034><ol class="breadcrumb" data-v-ef898034><li class="notlink breadcrumb-marker" data-v-ef898034>
+        ››  
+      </li> </ol></nav></div> <h1 id="port-service-components">Port Service Components<a href="#port-service-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <p>The port service components provide tools for analyzing and visualizing port performance metrics, terminal operations, and vessel activities within ports.</p> <h2 id="overview">Overview<a href="#overview" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>These components enable users to monitor port service levels, analyze port efficiency, and track vessel movements within port areas. They provide valuable insights for port operators, shipping companies, and maritime analysts.</p> <h2 id="key-components">Key Components<a href="#key-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="portservicetable">PortServiceTable<a href="#portservicetable" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>A table that displays port service metrics and performance indicators.</p> <p><strong>File Location</strong>: <code class="hljs inline no-lang">src/components/PortServiceTable.tsx</code></p> <p><strong>Key Features</strong>:</p> <ul><li>Sortable columns for service metrics</li> <li>Filterable data by service type and date</li> <li>Performance indicators visualization</li> <li>Service level statistics</li> <li>Interactive data exploration</li></ul> <p><strong>Example Usage</strong>:</p> <pre><code class="hljs tsx"><span>&lt;PortServiceTable data={portServiceData} onClose={handleClose} /&gt;
+</span></code></pre><p><strong>Props</strong>:</p> <ul><li><code class="hljs inline no-lang">data</code>: Array of port service data objects</li> <li><code class="hljs inline no-lang">onClose</code>: Function to handle closing the table</li></ul> <h3 id="portservicelevelfloatingactionbutton">PortServiceLevelFloatingActionButton<a href="#portservicelevelfloatingactionbutton" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <p>A floating action button that provides quick access to port service level analysis.</p> <p><strong>File Location</strong>: <code class="hljs inline no-lang">src/components/PortServiceLevelFloatingActionButton.tsx</code></p> <p><strong>Key Features</strong>:</p> <ul><li>Quick access to port service level analysis</li> <li>Toggle between different analysis views</li> <li>Customizable position on the screen</li> <li>Animated transitions between states</li> <li>Time period selection</li> <li>Filtering options for vessel categories and metrics</li></ul> <p><strong>Example Usage</strong>:</p> <pre><code class="hljs tsx"><span>&lt;PortServiceLevelFloatingActionButton
+</span><span>    onPortServiceDataUpdate={handlePortServiceDataUpdate}
+</span><span>    initialTimeRanges={timeRanges}
+</span><span>    isItExpanded={isExpanded}
+</span><span>    onClose={handleClose}
+</span><span>/&gt;
+</span></code></pre><p><strong>Props</strong>:</p> <ul><li><code class="hljs inline no-lang">onPortServiceDataUpdate</code>: Function to handle port service data updates</li> <li><code class="hljs inline no-lang">initialTimeRanges</code>: Initial time ranges to display</li> <li><code class="hljs inline no-lang">isItExpanded</code>: Boolean indicating if the FAB is expanded</li> <li><code class="hljs inline no-lang">onClose</code>: Function to handle closing the FAB</li></ul> <h2 id="data-structures">Data Structures<a href="#data-structures" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The port components work with several data structures:</p> <h3 id="portservicedata">PortServiceData<a href="#portservicedata" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> PortServiceData {
+</span><span>    [periodKey: <span class="hljs-built_in">string</span>]: {
+</span><span>        <span class="hljs-attr">startDate</span>: <span class="hljs-built_in">string</span>;
+</span><span>        endDate: <span class="hljs-built_in">string</span>;
+</span><span>        <span class="hljs-string">&quot;All vessels&quot;</span>?: {
+</span><span>            TotalBerthed?: <span class="hljs-built_in">number</span>;
+</span><span>            JIT?: <span class="hljs-built_in">number</span>;
+</span><span>            WaitingHours?: <span class="hljs-built_in">number</span>;
+</span><span>            BerthingHours?: <span class="hljs-built_in">number</span>;
+</span><span>            InPortHours?: <span class="hljs-built_in">number</span>;
+</span><span>            WharfUtilizationRate?: <span class="hljs-built_in">number</span>;
+</span><span>        };
+</span><span>        <span class="hljs-string">&quot;Category 1 vessels&quot;</span>?: {
+</span><span>            <span class="hljs-comment">// Same metrics as All vessels</span>
+</span><span>        };
+</span><span>        <span class="hljs-string">&quot;Category 2 vessels&quot;</span>?: {
+</span><span>            <span class="hljs-comment">// Same metrics as All vessels</span>
+</span><span>        };
+</span><span>        <span class="hljs-string">&quot;Category 3 vessels&quot;</span>?: {
+</span><span>            <span class="hljs-comment">// Same metrics as All vessels</span>
+</span><span>        };
+</span><span>        <span class="hljs-string">&quot;Category 4 vessels&quot;</span>?: {
+</span><span>            <span class="hljs-comment">// Same metrics as All vessels</span>
+</span><span>        };
+</span><span>    };
+</span><span>}
+</span></code></pre><h3 id="timerange">TimeRange<a href="#timerange" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> TimeRange {
+</span><span>    <span class="hljs-attr">startDate</span>: <span class="hljs-built_in">Date</span>;
+</span><span>    endDate: <span class="hljs-built_in">Date</span>;
+</span><span>    label: <span class="hljs-built_in">string</span>;
+</span><span>}
+</span></code></pre><h2 id="state-management">State Management<a href="#state-management" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The port components use React's useState and useEffect hooks for state management. Key state variables include:</p> <pre><code class="hljs typescript"><span><span class="hljs-comment">// Port service data</span>
+</span><span><span class="hljs-keyword">const</span> [portServiceData, setPortServiceData] = useState&lt;PortServiceData[]&gt;([]);
+</span><span>
+</span><span><span class="hljs-comment">// Time ranges</span>
+</span><span><span class="hljs-keyword">const</span> [timeRanges, setTimeRanges] = useState&lt;TimeRange[]&gt;([]);
+</span><span><span class="hljs-keyword">const</span> [currentStartDate, setCurrentStartDate] = useState&lt;<span class="hljs-built_in">Date</span>&gt;();
+</span><span><span class="hljs-keyword">const</span> [currentEndDate, setCurrentEndDate] = useState&lt;<span class="hljs-built_in">Date</span>&gt;();
+</span><span>
+</span><span><span class="hljs-comment">// Filtering and UI states</span>
+</span><span><span class="hljs-keyword">const</span> [selectedFilters, setSelectedFilters] = useState&lt;<span class="hljs-built_in">string</span>[]&gt;([]);
+</span><span><span class="hljs-keyword">const</span> [dateError, setDateError] = useState&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">&quot;&quot;</span>);
+</span><span><span class="hljs-keyword">const</span> [isLoading, setIsLoading] = useState&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
+</span></code></pre><h2 id="event-handling">Event Handling<a href="#event-handling" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The port components handle various events for user interaction:</p> <pre><code class="hljs typescript"><span><span class="hljs-comment">// Handle filtering port data</span>
+</span><span><span class="hljs-keyword">const</span> handleFilterChange = <span class="hljs-function">(<span class="hljs-params">newFilter: Partial&lt;PortFilter&gt;</span>) =&gt;</span> {
+</span><span>    setFilter({
+</span><span>        ...filter,
+</span><span>        ...newFilter,
+</span><span>    });
+</span><span>};
+</span><span>
+</span><span><span class="hljs-comment">// Handle time range selection</span>
+</span><span><span class="hljs-keyword">const</span> handleAddTimeRange = <span class="hljs-function">() =&gt;</span> {
+</span><span>    <span class="hljs-keyword">if</span> (!currentStartDate || !currentEndDate || dateError) <span class="hljs-keyword">return</span>;
+</span><span>    <span class="hljs-keyword">if</span> (timeRanges.length &gt;= MAX_TIME_PERIODS) <span class="hljs-keyword">return</span>;
+</span><span>
+</span><span>    <span class="hljs-keyword">const</span> label = <span class="hljs-string">`Period <span class="hljs-subst">${timeRanges.length + <span class="hljs-number">1</span>}</span>`</span>;
+</span><span>    <span class="hljs-keyword">const</span> newRange = {
+</span><span>        <span class="hljs-attr">startDate</span>: currentStartDate,
+</span><span>        <span class="hljs-attr">endDate</span>: currentEndDate,
+</span><span>        label,
+</span><span>    };
+</span><span>
+</span><span>    setTimeRanges([...timeRanges, newRange]);
+</span><span>    setCurrentStartDate(<span class="hljs-literal">undefined</span>);
+</span><span>    setCurrentEndDate(<span class="hljs-literal">undefined</span>);
+</span><span>};
+</span><span>
+</span><span><span class="hljs-comment">// Handle data analysis</span>
+</span><span><span class="hljs-keyword">const</span> handleAnalyze = <span class="hljs-keyword">async</span> () =&gt; {
+</span><span>    setIsLoading(<span class="hljs-literal">true</span>);
+</span><span>    <span class="hljs-keyword">try</span> {
+</span><span>        <span class="hljs-keyword">const</span> requestBody = timeRanges.map(<span class="hljs-function">(<span class="hljs-params">range, index</span>) =&gt;</span> ({
+</span><span>            <span class="hljs-attr">name</span>: <span class="hljs-string">`Period <span class="hljs-subst">${index + <span class="hljs-number">1</span>}</span>`</span>,
+</span><span>            <span class="hljs-attr">startDate</span>: range.startDate.toISOString(),
+</span><span>            <span class="hljs-attr">endDate</span>: range.endDate.toISOString(),
+</span><span>        }));
+</span><span>
+</span><span>        <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> fetchPortService(requestBody);
+</span><span>        <span class="hljs-keyword">const</span> processedData =
+</span><span>            selectedFilters.length &gt; <span class="hljs-number">0</span>
+</span><span>                ? filterPortServiceData(data, selectedFilters)
+</span><span>                : data;
+</span><span>
+</span><span>        onPortServiceDataUpdate(processedData, {
+</span><span>            <span class="hljs-attr">isExpanded</span>: <span class="hljs-literal">true</span>,
+</span><span>            timeRanges,
+</span><span>            selectedFilters,
+</span><span>        });
+</span><span>    } <span class="hljs-keyword">catch</span> (error) {
+</span><span>        <span class="hljs-built_in">console</span>.error(<span class="hljs-string">&quot;Error fetching port service data:&quot;</span>, error);
+</span><span>        setDateError(
+</span><span>            error <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span> ? error.message : <span class="hljs-string">&quot;An error occurred&quot;</span>
+</span><span>        );
+</span><span>    } <span class="hljs-keyword">finally</span> {
+</span><span>        setIsLoading(<span class="hljs-literal">false</span>);
+</span><span>    }
+</span><span>};
+</span></code></pre><h2 id="integration-with-other-components">Integration with Other Components<a href="#integration-with-other-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The port components integrate with other parts of the application:</p> <ul><li><strong>Map Visualization</strong>: Port locations and terminals are displayed on the map</li> <li><strong>Vessel Information</strong>: Vessel activities within ports are linked to vessel details</li> <li><strong>Time Slider</strong>: Adjusting the time range updates the port service metrics</li> <li><strong>Search Functionality</strong>: Searching for ports filters the displayed port information</li></ul></div> <nav id="page-nav" data-v-e6005420><div class="nav-component slim-scroll" data-v-e6005420><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-e6005420><a class="nav-link py-1" href="#port-service-components" data-v-e6005420>Port Service Components‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e6005420><a class="nav-link py-1" href="#overview" data-v-e6005420>Overview‎</a> <a class="nav-link py-1" href="#key-components" data-v-e6005420>Key Components‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e6005420><a class="nav-link py-1" href="#portservicetable" data-v-e6005420>PortServiceTable‎</a> <a class="nav-link py-1" href="#portservicelevelfloatingactionbutton" data-v-e6005420>PortServiceLevelFloatingActionButton‎</a></nav> <a class="nav-link py-1" href="#data-structures" data-v-e6005420>Data Structures‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap" data-v-e6005420><a class="nav-link py-1" href="#portservicedata" data-v-e6005420>PortServiceData‎</a> <a class="nav-link py-1" href="#timerange" data-v-e6005420>TimeRange‎</a></nav> <a class="nav-link py-1" href="#state-management" data-v-e6005420>State Management‎</a> <a class="nav-link py-1" href="#event-handling" data-v-e6005420>Event Handling‎</a> <a class="nav-link py-1" href="#integration-with-other-components" data-v-e6005420>Integration with Other Components‎</a></nav> <!----></nav></div> <!----></nav> <div aria-hidden="true" class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;"><i class="fas fa-arrow-circle-up"></i></div></div> <footer><div class="text-center"><small>AIS Web Portal Documentation | [Generated by <a href="https://markbind.org/">MarkBind 5.5.3</a>]</small></div></footer></div>
+</body><script src="/markbind/js/bootstrap-utility.min.js"></script>
+<script src="/markbind/js/polyfill.min.js"></script>
+<script src="/markbind/js/vue.min.js"></script>
+<script src="/markbind/js/markbind.min.js"></script>
+<script src="port.page-vue-render.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
+</html>

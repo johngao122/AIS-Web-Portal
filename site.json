@@ -1,0 +1,35 @@
+{
+    "baseUrl": "",
+    "titlePrefix": "AIS Web Portal - ",
+    "titleSuffix": " | Documentation",
+    "ignore": [
+        "_markbind/layouts/*",
+        "_markbind/logs/*",
+        "_site/*",
+        "site.json",
+        ".git/*",
+        ".gitignore",
+        "node_modules/*",
+        ".next/*",
+        "src/*",
+        "out/*"
+    ],
+    "pagesExclude": ["node_modules/*"],
+    "pages": [
+        {
+            "src": "index.md",
+            "glob": ["**/index.md", "**/*.md"]
+        }
+    ],
+    "deploy": {
+        "message": "Site Update.",
+        "repo": "https://github.com/johngao122/ais_web.git",
+        "branch": "gh-pages"
+    },
+    "markbind": {
+        "variables": {},
+        "templatePreprocessor": {
+            "expandVariables": false
+        }
+    }
+}
