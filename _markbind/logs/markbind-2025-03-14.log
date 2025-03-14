@@ -1491,3 +1491,55 @@ Error: ENOENT: no such file or directory, mkdir '/Users/johngao/Desktop/Projects
 2025-03-14T11:33:59.222Z - info: Site data built
 2025-03-14T11:33:59.222Z - info: Website generation complete! Total build time: 5.575s
 2025-03-14T11:33:59.222Z - info: Build success!
+2025-03-14T11:37:34.739Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.738Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.737Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.744Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.740Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.746Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.745Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.751Z - info: [7:37:34 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:34.877Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.880Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.881Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.882Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.882Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.882Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.879Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:34.882Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.806Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.807Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.808Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.808Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.808Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.808Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.810Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.810Z - info: [7:37:57 PM] Reload for file change: /Users/johngao/Desktop/Projects/AIS Project/ais_web/site.json
+2025-03-14T11:37:57.856Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.857Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.859Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.863Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.863Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.865Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.867Z - info: No pages needed to be rebuilt
+2025-03-14T11:37:57.867Z - info: No pages needed to be rebuilt
+2025-03-14T11:38:07.933Z - info: Website generation started at 7:38:07 PM
+2025-03-14T11:38:10.725Z - info: Building assets...
+2025-03-14T11:38:11.989Z - info: Assets built
+2025-03-14T11:38:11.989Z - info: Generating pages...
+2025-03-14T11:38:12.698Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/AIS-Web-Portal/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:38:12.700Z - info: Pages built
+2025-03-14T11:38:12.885Z - info: Site data built
+2025-03-14T11:38:12.885Z - info: Website generation complete! Total build time: 5.022s
+2025-03-14T11:38:12.885Z - info: Build success!
+2025-03-14T11:38:41.105Z - info: Website generation started at 7:38:41 PM
+2025-03-14T11:38:42.540Z - info: Building assets...
+2025-03-14T11:38:43.905Z - info: Assets built
+2025-03-14T11:38:43.906Z - info: Generating pages...
+2025-03-14T11:38:44.842Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/AIS-Web-Portal/LICENSE' found in file '/Users/johngao/Desktop/Projects/AIS Project/ais_web/README.md'
+2025-03-14T11:38:44.843Z - info: Pages built
+2025-03-14T11:38:45.021Z - info: Site data built
+2025-03-14T11:38:45.021Z - info: Website generation complete! Total build time: 3.955s
+2025-03-14T11:38:45.022Z - info: Build success!

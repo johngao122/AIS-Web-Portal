@@ -1,5 +1,5 @@
 {
-    "baseUrl": "",
+    "baseUrl": "/AIS-Web-Portal",
     "titlePrefix": "AIS Web Portal - ",
     "titleSuffix": " | Documentation",
     "ignore": [
