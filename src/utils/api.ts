@@ -338,10 +338,10 @@ function formatDate(dateStr: string): string {
                 atd,
             ] = record;
 
-            const ataDate = ata ? new Date(ata) : null;
-            const atbDate = atb ? new Date(atb) : null;
-            const atuDate = atu ? new Date(atu) : null;
-            const atdDate = atd ? new Date(atd) : null;
+            const ataDate = ata ? new Date(new Date(ata).getTime() - 8 * 60 * 60 * 1000) : null;
+            const atbDate = atb ? new Date(new Date(atb).getTime() - 8 * 60 * 60 * 1000) : null;
+            const atuDate = atu ? new Date(new Date(atu).getTime() - 8 * 60 * 60 * 1000) : null;
+            const atdDate = atd ? new Date(new Date(atd).getTime() - 8 * 60 * 60 * 1000) : null;
 
             const waitingHoursAtBerth = calculateHours(ataDate, atbDate);
             const waitingHoursInAnchorage = calculateHours(ataDate, atbDate);
