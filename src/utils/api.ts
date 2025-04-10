@@ -314,7 +314,7 @@ function formatDate(dateStr: string): string {
  * @param {string} [endDate] - Optional end date for filtering
  * @returns {VesselActivity[]} Processed vessel activity data
  */
-export const processVesselActivityData = (
+    export const processVesselActivityData = (
     records: any[],
     startDate?: string,
     endDate?: string
